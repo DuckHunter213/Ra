@@ -1,6 +1,7 @@
 package Fachada;
 
 import DAO.GestorFichero;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -36,16 +37,23 @@ public class Asignatura {
 		return semestre;
 	}
 
-	public ArrayList<String> listarAsignaturas(){
-		return null;
+	public ArrayList<String> listarAsignaturas() throws IOException{
+            gestorFichero = new GestorFichero();
+            ArrayList<String> asignaturas = gestorFichero.getAsignaturas();
+            return asignaturas;
 	}
 
-	public ArrayList<int> listarBloques(){
-		return null;
+	public ArrayList<String> listarBloques(String nombreAsignatura, int semestre) throws IOException{
+            gestorFichero = new GestorFichero();
+            ArrayList<String> bloques = gestorFichero.getBloquesAsignatura(nombreAsignatura, semestre);
+            return bloques;
 	}
 
-	public ArrayList<int> listarSemestres(){
-		return null;
+	public ArrayList<String> listarSemestres(String asignatura){
+            gestorFichero = new GestorFichero();
+            ArrayList<String> semestres = new ArrayList<>();
+            semestres = (ArrayList<String>) gestorFichero.getSemestresAsignatura(asignatura).clone();
+            return semestres;
 	}
 
 	/**

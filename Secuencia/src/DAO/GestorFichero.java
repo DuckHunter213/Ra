@@ -29,13 +29,18 @@ public class GestorFichero {
                     System.getProperty("file.separator") + "src" +
                     System.getProperty("file.separator") + "Archivos" +
                     System.getProperty("file.separator") + "Asignaturas";
-            File directorio = new File(pathCarpeta);
-            String[] arregloArchivos = directorio.list();
-            for (String file : arregloArchivos) {
-                if (file != null){
-                    System.out.println(file);
-                    archivos.add(file);
-                }
+            try{
+                File directorio = new File(pathCarpeta);
+                String[] arregloArchivos = directorio.list();
+                for (String file : arregloArchivos) {
+                    if (file != null){
+                        System.out.println(file);
+                        archivos.add(file);
+                    }
+                }                
+            }
+            catch (Exception ex){
+                archivos.add("No hay materias disponibles :(");
             }
             return archivos;
 	}
@@ -53,12 +58,24 @@ public class GestorFichero {
                     System.getProperty("file.separator") + "Asignaturas" +
                     System.getProperty("file.separator") + nombreAsignatura +
                     System.getProperty("file.separator") + Integer.toString(semestreAsignatura) + ".csv";
-
-            CsvReader archivo = new CsvReader(pathCarpeta);
-            archivo.setDelimiter(';');
-            while (archivo.readRecord()) {
-            	System.out.print("Columna 1 :" 	+ archivo.get(1));
-                archivos.add(archivo.get(1));
+            
+            if ( nombreAsignatura.isEmpty() || nombreAsignatura == " "){
+                archivos.add("No hay bloques disponibles :(");
+            }else{
+                try{
+                    CsvReader archivo = new CsvReader(pathCarpeta);
+                    archivo.setDelimiter(';');
+                    int contador = 0;
+                    while (archivo.readRecord()) {
+                        contador += 1;
+                        if (contador%2 == 0){
+                            System.out.print("Columna 1 :" 	+ archivo.get(1));
+                            archivos.add(archivo.get(0).substring(0, 8));                    
+                        }
+                    }
+                }catch(Exception ex){
+                    archivos.add("No hay bloques disponibles :(");
+                }                
             }
             return archivos;
         }
@@ -91,13 +108,22 @@ public class GestorFichero {
                     System.getProperty("file.separator") + "Archivos" +
                     System.getProperty("file.separator") + "Asignaturas" +
                     System.getProperty("file.separator") + nombreAsignatura;
-            File directorio = new File(pathCarpeta);
-            String[] arregloArchivos = directorio.list();
-            for (String file : arregloArchivos) {
-                if (file != null){
-                    System.out.println(file);
-                    archivos.add(file);
-                }
+            if ( nombreAsignatura.isEmpty() || nombreAsignatura == " "){
+                archivos.add("No hay semestres disponibles :(");
+            }
+            else{
+                try{
+                    File directorio = new File(pathCarpeta);
+                    String[] arregloArchivos = directorio.list();
+                    for (String file : arregloArchivos) {
+                        if (file != null){
+                            System.out.println(file);
+                            archivos.add(file);
+                        }
+                    }                
+                }catch(Exception ex){
+                    archivos.add("No hay semestres disponibles :(");
+                }                
             }
             return archivos;
 	}
