@@ -61,7 +61,12 @@ public class Asignatura{
      * @return
      */
     public int setAsignatura(String asignatura){
-        return 0;
+        if (asignatura.isEmpty() || asignatura == null){
+            return 0;
+        }else{
+            this.nombreAsignatura = asignatura;
+            return 1;
+        }
     }
 
     /**
@@ -70,7 +75,12 @@ public class Asignatura{
      * @return
      */
     public int setBloque(int bloque){
-        return 0;
+        if (bloque<0 || bloque > 15){
+            return 0;
+        }else{
+            this.bloque = bloque;
+            return 1;
+        }
     }
 
     /**
@@ -79,7 +89,12 @@ public class Asignatura{
      * @return
      */
     public int setSemestre(int semestre){
-        return 0;
+        if (semestre<0 || semestre > 20){
+            return 0;
+        }else{
+            this.semestre = semestre;
+            return 1;
+        }
     }
 
 }
