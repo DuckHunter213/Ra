@@ -59,5 +59,16 @@ public class GestorFicheroTest {
         ArrayList<String> result = instance.getSemestresAsignatura("Física");
         assertEquals(expResult, result);
     }
+    
+
+    @Test
+    public void testGetBloquesAsignatura() throws Exception {
+        GestorFichero instance = new GestorFichero();
+        ArrayList<String> expResult = new ArrayList<>();
+        expResult.add("1.csv");
+        expResult.add("3.csv");
+        ArrayList<String> result = instance.getBloquesAsignatura("Física",1);
+        assertEquals(expResult, result);
+    }
 
 }

@@ -1,7 +1,9 @@
 package DAO;
 
 import Fachada.Asignatura;
+import com.csvreader.CsvReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,9 +45,23 @@ public class GestorFichero {
 	 * @param nombreAsignatura
 	 * @param semestreAsignatura
 	 */
-	public int getBloquesAsignatura(String nombreAsignatura, int semestreAsignatura){
-		return 0;
-	}
+	public ArrayList<String> getBloquesAsignatura(String nombreAsignatura, int semestreAsignatura) throws FileNotFoundException, IOException{
+            ArrayList<String> archivos = new ArrayList<>();
+            String pathCarpeta = System.getProperty("user.dir") + 
+                    System.getProperty("file.separator") + "src" +
+                    System.getProperty("file.separator") + "Archivos" +
+                    System.getProperty("file.separator") + "Asignaturas" +
+                    System.getProperty("file.separator") + nombreAsignatura +
+                    System.getProperty("file.separator") + Integer.toString(semestreAsignatura) + ".csv";
+
+            CsvReader archivo = new CsvReader(pathCarpeta);
+            archivo.setDelimiter(';');
+            while (archivo.readRecord()) {
+            	System.out.print("Columna 1 :" 	+ archivo.get(1));
+                archivos.add(archivo.get(1));
+            }
+            return archivos;
+        }
 
 	/**
 	 * 
