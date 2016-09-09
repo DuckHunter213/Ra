@@ -18,30 +18,29 @@ import static org.junit.Assert.*;
  *
  * @author gerar
  */
-public class GestorFicheroTest {
-    
-    public GestorFicheroTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+public class GestorFicheroTest{
+
+    public GestorFicheroTest(){
     }
 
+    @BeforeClass
+    public static void setUpClass(){
+    }
+
+    @AfterClass
+    public static void tearDownClass(){
+    }
+
+    @Before
+    public void setUp(){
+    }
+
+    @After
+    public void tearDown(){
+    }
 
     @Test
-    public void testGetAsignaturas() throws Exception {
+    public void testGetAsignaturas() throws Exception{
         GestorFichero instance = new GestorFichero();
         ArrayList<String> expResult = new ArrayList<>();
         expResult.add("Física");
@@ -49,10 +48,9 @@ public class GestorFicheroTest {
         ArrayList<String> result = instance.getAsignaturas();
         assertEquals(expResult, result);
     }
-    
 
     @Test
-    public void testGetSemestresAsignatura() throws Exception {
+    public void testGetSemestresAsignatura() throws Exception{
         GestorFichero instance = new GestorFichero();
         ArrayList<String> expResult = new ArrayList<>();
         expResult.add("1.csv");
@@ -62,7 +60,7 @@ public class GestorFicheroTest {
     }
 
     @Test
-    public void testGetSemestresAsignaturaVacio() throws Exception {
+    public void testGetSemestresAsignaturaVacio() throws Exception{
         GestorFichero instance = new GestorFichero();
         ArrayList<String> expResult = new ArrayList<>();
         expResult.add("No hay semestres disponibles :(");
@@ -71,44 +69,42 @@ public class GestorFicheroTest {
     }
 
     @Test
-    public void testGetSemestresAsignaturaIncorrecto() throws Exception {
+    public void testGetSemestresAsignaturaIncorrecto() throws Exception{
         GestorFichero instance = new GestorFichero();
         ArrayList<String> expResult = new ArrayList<>();
         expResult.add("No hay semestres disponibles :(");
         ArrayList<String> result = instance.getSemestresAsignatura(" nada ");
         assertEquals(expResult, result);
     }
-    
 
     @Test
-    public void testGetBloquesAsignatura() throws Exception {
+    public void testGetBloquesAsignatura() throws Exception{
         GestorFichero instance = new GestorFichero();
         ArrayList<String> expResult = new ArrayList<>();
         expResult.add("Bloque 1");
         expResult.add("Bloque 2");
         expResult.add("Bloque 3");
         expResult.add("Bloque 4");
-        ArrayList<String> result = instance.getBloquesAsignatura("Física",1);
+        ArrayList<String> result = instance.getBloquesAsignatura("Física", 1);
         assertEquals(expResult, result);
     }
 
     @Test
-    public void testGetBloquesAsignaturaErroneoAsignatura() throws Exception {
+    public void testGetBloquesAsignaturaErroneoAsignatura() throws Exception{
         GestorFichero instance = new GestorFichero();
         ArrayList<String> expResult = new ArrayList<>();
         expResult.add("No hay bloques disponibles :(");
-        ArrayList<String> result = instance.getBloquesAsignatura("nada",1);
+        ArrayList<String> result = instance.getBloquesAsignatura("nada", 1);
         assertEquals(expResult, result);
     }
 
     @Test
-    public void testGetBloquesAsignaturaErroneoNumero() throws Exception {
+    public void testGetBloquesAsignaturaErroneoNumero() throws Exception{
         GestorFichero instance = new GestorFichero();
         ArrayList<String> expResult = new ArrayList<>();
         expResult.add("No hay bloques disponibles :(");
-        ArrayList<String> result = instance.getBloquesAsignatura("Física",6);
+        ArrayList<String> result = instance.getBloquesAsignatura("Física", 6);
         assertEquals(expResult, result);
     }
 
-    
 }

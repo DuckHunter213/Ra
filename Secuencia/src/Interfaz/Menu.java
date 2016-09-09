@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Interfaz;
+
 import Fachada.Asignatura;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,16 +12,18 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author DARKENSES
  */
 public class Menu extends javax.swing.JFrame{
-        Asignatura asignatura;
-        List<String> asignaturas;
+    Asignatura asignatura;
+    List<String> asignaturas;
 
     /**
      * Creates new form Menu
+     *
      * @throws java.io.IOException
      */
     public Menu() throws IOException{
@@ -213,9 +216,9 @@ public class Menu extends javax.swing.JFrame{
          */
         java.awt.EventQueue.invokeLater(new Runnable(){
             public void run(){
-                try {
+                try{
                     new Menu().setVisible(true);
-                } catch (IOException ex) {
+                }catch (IOException ex){
                     Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
