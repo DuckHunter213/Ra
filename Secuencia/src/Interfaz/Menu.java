@@ -65,7 +65,6 @@ public class Menu extends javax.swing.JFrame{
         jComboBox2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         asignaturaComboBox.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        asignaturaComboBox.setModel(asignatura.listarAsignaturas());
         asignaturaComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 asignaturaComboBoxActionPerformed(evt);
