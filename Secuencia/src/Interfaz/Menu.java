@@ -5,18 +5,28 @@
  */
 package Interfaz;
 import Fachada.Asignatura;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 /**
  *
  * @author DARKENSES
  */
 public class Menu extends javax.swing.JFrame{
+        Asignatura asignatura;
+        List<String> asignaturas;
 
     /**
      * Creates new form Menu
+     * @throws java.io.IOException
      */
-    public Menu(){
+    public Menu() throws IOException{
+        asignatura = new Asignatura();
+        asignaturas = asignatura.listarAsignaturas();
         initComponents();
-        Asignatura asignatura = new Asignatura();
     }
 
     /**
@@ -65,6 +75,7 @@ public class Menu extends javax.swing.JFrame{
         jComboBox2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         asignaturaComboBox.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        asignaturaComboBox.setModel(new DefaultComboBoxModel(asignaturas.toArray()));
         asignaturaComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 asignaturaComboBoxActionPerformed(evt);
@@ -202,7 +213,11 @@ public class Menu extends javax.swing.JFrame{
          */
         java.awt.EventQueue.invokeLater(new Runnable(){
             public void run(){
-                new Menu().setVisible(true);
+                try {
+                    new Menu().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
 
         });
