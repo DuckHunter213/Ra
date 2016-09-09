@@ -2,6 +2,7 @@ package Fachada;
 
 import Dominio.ContenidosAgregadosInformativos;
 import Dominio.ContenidosAgregadosGenerales;
+import java.util.ArrayList;
 
 /**
  * @author Luis Fernando Gomez Alejandre

@@ -1,8 +1,11 @@
 package Dominio;
 
+import DAO.GestorFichero;
+import java.util.ArrayList;
+
 
 /**
- * Lo que compartirán todas las materias
+ * Lo que compartirï¿½n todas las materias
  * @author Gerardo Mares
  * @version 1.0
  * @created 08-sep.-2016 11:44:30 p. m.
@@ -12,7 +15,7 @@ public class ContenidosGenerales {
 	private String competenciasDisciplinares;
 	private String competenciasGenericas;
 	private String evidenciasDeAprendizaje;
-	private GeneradorSecuencia generadorSecuencia = GeneradorSecuencia();
+	private GestorFichero gestorFichero;
 	private String instrumentosDeEvaluacion;
 
 	public ContenidosGenerales(){
@@ -41,6 +44,7 @@ public class ContenidosGenerales {
 	 * 
 	 * @param disciplinaresElegidas
 	 * @param genericasElegidas
+     * @return 
 	 */
 	public int setCompetencias(ArrayList<int> disciplinaresElegidas, ArrayList<int> genericasElegidas){
 		return 0;
@@ -49,6 +53,7 @@ public class ContenidosGenerales {
 	/**
 	 * 
 	 * @param evidencias
+     * @return 
 	 */
 	public int setEvidencias(ArrayList<int> evidencias){
 		return 0;
@@ -57,6 +62,7 @@ public class ContenidosGenerales {
 	/**
 	 * 
 	 * @param instrumentos
+     * @return 
 	 */
 	public int setInstrumentos(ArrayList<int> instrumentos){
 		return 0;

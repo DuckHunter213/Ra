@@ -1,5 +1,6 @@
 package Dominio;
-
+import DAO.GestorFichero;
+import java.util.ArrayList;
 
 /**
  * @author DARKENSES
@@ -11,7 +12,7 @@ public class ContenidosEspecificos {
 	private String contenidosActitudinales;
 	private String contenidosDeclarativos;
 	private String contenidosProcedimentales;
-	private GeneradorSecuencia generadorSecuencia = GeneradorSecuencia();
+	private GestorFichero gestorFichero;
 
 	public ContenidosEspecificos(){
 
@@ -40,6 +41,7 @@ public class ContenidosEspecificos {
 	 * @param actitudinalesElegidos
 	 * @param declarativosElegidos
 	 * @param prodecimentalesElegidos
+         * @return 
 	 */
 	public int setContenidosEspecificos(ArrayList<int> actitudinalesElegidos, ArrayList<int> declarativosElegidos, ArrayList<int> prodecimentalesElegidos){
 		return 0;

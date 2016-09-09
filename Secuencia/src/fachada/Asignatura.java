@@ -1,5 +1,8 @@
 package Fachada;
 
+import DAO.GestorFichero;
+import java.util.ArrayList;
+
 
 /**
  * @author Gerardo Mares
@@ -9,7 +12,7 @@ package Fachada;
 public class Asignatura {
 
 	private int bloque = 0;
-	private GeneradorSecuencia gestorSecuencia = GeneradorSecuencia();
+	private GestorFichero gestorFichero;
 	private String nombreAsignatura = " ";
 	private int semestre = 0;
 
@@ -22,15 +25,15 @@ public class Asignatura {
 	}
 
 	public String getAsignatura(){
-		return "";
+		return nombreAsignatura;
 	}
 
 	public int getBloque(){
-		return 0;
+		return bloque;
 	}
 
 	public int getSemestre(){
-		return 0;
+		return semestre;
 	}
 
 	public ArrayList<String> listarAsignaturas(){
@@ -48,6 +51,7 @@ public class Asignatura {
 	/**
 	 * 
 	 * @param asignatura
+     * @return 
 	 */
 	public int setAsignatura(String asignatura){
 		return 0;
@@ -56,6 +60,7 @@ public class Asignatura {
 	/**
 	 * 
 	 * @param bloque
+     * @return 
 	 */
 	public int setBloque(int bloque){
 		return 0;
@@ -64,6 +69,7 @@ public class Asignatura {
 	/**
 	 * 
 	 * @param semestre
+     * @return 
 	 */
 	public int setSemestre(int semestre){
 		return 0;

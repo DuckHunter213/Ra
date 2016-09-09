@@ -2,6 +2,7 @@ package Fachada;
 
 import Dominio.ContenidosEspecificos;
 import Dominio.ContenidosGenerales;
+import java.util.ArrayList;
 
 /**
  * @author DARKENSES
@@ -53,6 +54,7 @@ public class ContenidosFijos {
 	 * 
 	 * @param disciplinaresElegidas
 	 * @param genericasElegidas
+     * @return 
 	 */
 	public int setCompetenciasCierre(ArrayList<int> disciplinaresElegidas, ArrayList<int> genericasElegidas){
 		return 0;
@@ -62,6 +64,7 @@ public class ContenidosFijos {
 	 * 
 	 * @param disciplinaresElegidas
 	 * @param genericasElegidas
+     * @return 
 	 */
 	public int setCompetenciasDesarrollo(ArrayList<int> disciplinaresElegidas, ArrayList<int> genericasElegidas){
 		return 0;
@@ -71,6 +74,7 @@ public class ContenidosFijos {
 	 * 
 	 * @param disciplinaresElegidas
 	 * @param genericasElegidas
+     * @return 
 	 */
 	public int setCompetenciasInicio(ArrayList<int> disciplinaresElegidas, ArrayList<int> genericasElegidas){
 		return 0;
@@ -81,6 +85,7 @@ public class ContenidosFijos {
 	 * @param actitudinalesElegidos
 	 * @param declarativosElegidos
 	 * @param procedimentalesElegidos
+     * @return 
 	 */
 	public int setContenidosEspecificos(ArrayList<int> actitudinalesElegidos, ArrayList<int> declarativosElegidos, ArrayList<int> procedimentalesElegidos){
 		return 0;
@@ -89,6 +94,7 @@ public class ContenidosFijos {
 	/**
 	 * 
 	 * @param evidenciasElegidas
+     * @return 
 	 */
 	public int setEvidenciasCierre(ArrayList<int> evidenciasElegidas){
 		return 0;
@@ -97,6 +103,7 @@ public class ContenidosFijos {
 	/**
 	 * 
 	 * @param evidenciasElegidas
+     * @return 
 	 */
 	public int setEvidenciasDesarrollo(ArrayList<int> evidenciasElegidas){
 		return 0;
@@ -105,6 +112,7 @@ public class ContenidosFijos {
 	/**
 	 * 
 	 * @param evidenciasElegidas
+     * @return 
 	 */
 	public int setEvidenciasInicio(ArrayList<int> evidenciasElegidas){
 		return 0;
@@ -113,6 +121,7 @@ public class ContenidosFijos {
 	/**
 	 * 
 	 * @param instrumentosElegidos
+     * @return 
 	 */
 	public int setInstrumentosCierre(ArrayList<int> instrumentosElegidos){
 		return 0;
@@ -121,6 +130,7 @@ public class ContenidosFijos {
 	/**
 	 * 
 	 * @param instrumentosElegidos
+     * @return 
 	 */
 	public int setInstrumentosDesarrollo(ArrayList<int> instrumentosElegidos){
 		return 0;
@@ -129,6 +139,7 @@ public class ContenidosFijos {
 	/**
 	 * 
 	 * @param instrumentosElegidos
+     * @return 
 	 */
 	public int setInstrumentosInicio(ArrayList<int> instrumentosElegidos){
 		return 0;
