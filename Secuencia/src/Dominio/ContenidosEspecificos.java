@@ -1,6 +1,7 @@
 package Dominio;
 
 import DAO.GestorFichero;
+import Fachada.Asignatura;
 import java.util.ArrayList;
 
 /**
@@ -30,11 +31,23 @@ public class ContenidosEspecificos{
     /**
      *
      * @param asignatura
-     * @param bloques
-     * @param semestre
+     * @return 
      */
-    private int listarContenidosEspecificos(String asignatura, ArrayList<String> bloques, String semestre){
-        return 0;
+    public ArrayList<String> listarContenidosEspecificosProcedimental(Asignatura asignatura){
+        gestorFichero = new GestorFichero();
+        ArrayList<String> contenidos = gestorFichero.getContenidosEspecificos(asignatura, "procedimentales");
+        return contenidos;
+    }
+    
+    /**
+     *
+     * @param asignatura
+     * @return 
+     */
+    public ArrayList<String> listarContenidosEspecificosDeclarativo(Asignatura asignatura){
+        gestorFichero = new GestorFichero();
+        ArrayList<String> contenidos = gestorFichero.getContenidosEspecificos(asignatura, "declarativo");
+        return contenidos;
     }
 
     /**
