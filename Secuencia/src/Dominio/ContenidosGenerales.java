@@ -36,6 +36,27 @@ public class ContenidosGenerales{
      * @param bloques
      * @param semestre
      */
+    public ArrayList<String> listarCompetenciasDisciplinaresMatematicas(){
+        gestorFichero = new GestorFichero();
+        ArrayList<String> contenidos = gestorFichero.getCompetenciaDisciplinar("Disciplinar", "Matemáticas");
+        return contenidos;
+    }
+    /**
+     *
+     * @return 
+     */
+    public ArrayList<String> listarCompetenciasDisciplinaresCienciasExperimentales(){
+        gestorFichero = new GestorFichero();
+        ArrayList<String> contenidos = gestorFichero.getCompetenciaDisciplinar("Disciplinar", "Ciencias experimentales");
+        return contenidos;
+    }
+    
+    /**
+     *
+     * @param asignatura
+     * @param bloques
+     * @param semestre
+     */
     private int listarContenidosGenerales(String asignatura, ArrayList<String> bloques, String semestre){
         return 0;
     }
