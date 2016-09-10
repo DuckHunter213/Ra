@@ -22,7 +22,6 @@ public class GestorFichero{
     public void finalize() throws Throwable{
 
     }
-
     
     private static String crearPathInicial(){
         String path = System.getProperty("user.dir")
@@ -31,7 +30,6 @@ public class GestorFichero{
             + System.getProperty("file.separator") + "Asignaturas";
         return path;
     }   
-    
     private static String crearPathContenidosEspecificos(Asignatura asignatura){
         String path = System.getProperty("user.dir")
             + System.getProperty("file.separator") + "src"
@@ -41,7 +39,6 @@ public class GestorFichero{
             + System.getProperty("file.separator") + Integer.toString(asignatura.getSemestre()) + ".csv";
         return path;
     }
-    
     private static String crearPathContenidosGenerales(String tipoContenido){
         String path = System.getProperty("user.dir")
             + System.getProperty("file.separator") + "src"
@@ -50,7 +47,6 @@ public class GestorFichero{
             + System.getProperty("file.separator") + tipoContenido + ".csv";
         return path;
     }
-    
     private static ArrayList<String> cargarContenidosEspecificos(Asignatura asignatura, CsvReader archivo, String tipoContenido) throws IOException{
         ArrayList<String> contenidosGenerales = new ArrayList<>();
         while (archivo.readRecord()){
@@ -66,7 +62,6 @@ public class GestorFichero{
         }
         return contenidosGenerales;
     }
-    
     private static ArrayList<String> cargarContenidosGenerales(CsvReader archivo) throws IOException{
         ArrayList<String> contenidosGenerales = new ArrayList<>();
         while (archivo.readRecord()){
@@ -76,7 +71,6 @@ public class GestorFichero{
         }
         return contenidosGenerales;
     }
-    
     private static ArrayList<String> cargarCompetenciaDisciplinar(CsvReader archivo, String tipoCompetencia) throws IOException{
         ArrayList<String> contenidosGenerales = new ArrayList<>();
         while (archivo.readRecord()){
@@ -90,8 +84,6 @@ public class GestorFichero{
         }
         return contenidosGenerales;
     }
-
-    
     
     public ArrayList<String> getAsignaturas() throws IOException{
         ArrayList<String> archivos = new ArrayList<>();
@@ -110,7 +102,6 @@ public class GestorFichero{
         }
         return archivos;
     }
-
     /**
      *
      * @param nombreAsignatura
@@ -141,7 +132,6 @@ public class GestorFichero{
         }
         return archivos;
     }
-
     /**
      *
      * @param nombreAsignatura
@@ -169,8 +159,6 @@ public class GestorFichero{
         }
         return archivos;
     }
-
-    
     
     /**
      *
@@ -189,7 +177,6 @@ public class GestorFichero{
         }
         return contenidosGenerales;
     }
-      
     /**
      *
      * @param asignatura
@@ -212,8 +199,6 @@ public class GestorFichero{
         return contenidosEspecificos;
     }
 
-    
-    
     /**
      *
      * @param asignatura
