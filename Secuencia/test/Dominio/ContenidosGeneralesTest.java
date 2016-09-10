@@ -49,7 +49,6 @@ public class ContenidosGeneralesTest {
         int result = instance.listarCompetenciasDisciplinaresMatematicas().size();
         assertEquals(expResult, result);
     }
-    
     /**
      * Test of getContenidosGenerales method, of class ContenidosGenerales.
      */
@@ -60,7 +59,69 @@ public class ContenidosGeneralesTest {
         int result = instance.listarCompetenciasDisciplinaresCienciasExperimentales().size();
         assertEquals(expResult, result);
     }
-
-
+    /**
+     * Test of getContenidosGenerales method, of class ContenidosGenerales.
+     */
+    @Test
+    public void testListarContenidosDisciplinaresCienciasSociales() {
+        ContenidosGenerales instance = new ContenidosGenerales();
+        int expResult = 18;
+        int result = instance.listarCompetenciasDisciplinaresCienciasSociales().size();
+        assertEquals(expResult, result);
+    }
+    /**
+     * Test of getContenidosGenerales method, of class ContenidosGenerales.
+     */
+    @Test
+    public void testListarContenidosDisciplinaresComunicacion() {
+        ContenidosGenerales instance = new ContenidosGenerales();
+        int expResult = 23;
+        int result = instance.listarCompetenciasDisciplinaresComunicacion().size();
+        assertEquals(expResult, result);
+    }
     
+    
+    @Test
+    public void testCompetenciasGenericasAutodetermina() {
+        ContenidosGenerales instance = new ContenidosGenerales();
+        int expResult = 12;
+        int result = instance.listarCompetenciasGenericasAutodetermina().size();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testCompetenciasGenericasExpresa() {
+        ContenidosGenerales instance = new ContenidosGenerales();
+        int expResult = 5;
+        int result = instance.listarCompetenciasGenericasExpresa().size();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testCompetenciasGenericasPiensa() {
+        ContenidosGenerales instance = new ContenidosGenerales();
+        int expResult = 10;
+        int result = instance.listarCompetenciasGenericasPiensa().size();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testCompetenciasGenericasAprende() {
+        ContenidosGenerales instance = new ContenidosGenerales();
+        int expResult = 3;
+        int result = instance.listarCompetenciasGenericasAprende().size();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testCompetenciasGenericasTrabaja() {
+        ContenidosGenerales instance = new ContenidosGenerales();
+        int expResult = 3;
+        int result = instance.listarCompetenciasGenericasTrabaja().size();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testCompetenciasGenericasParticipa() {
+        ContenidosGenerales instance = new ContenidosGenerales();
+        int expResult = 12;
+        int result = instance.listarCompetenciasGenericasParticipa().size();
+        assertEquals(expResult, result);
+    }
+
 }

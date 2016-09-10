@@ -38,7 +38,7 @@ public class ContenidosGenerales{
      */
     public ArrayList<String> listarCompetenciasDisciplinaresMatematicas(){
         gestorFichero = new GestorFichero();
-        ArrayList<String> contenidos = gestorFichero.getCompetenciaDisciplinar("Disciplinar", "Matemáticas");
+        ArrayList<String> contenidos = gestorFichero.getCompetenciasGenerales("Disciplinar", "Matemáticas");
         return contenidos;
     }
     /**
@@ -47,9 +47,60 @@ public class ContenidosGenerales{
      */
     public ArrayList<String> listarCompetenciasDisciplinaresCienciasExperimentales(){
         gestorFichero = new GestorFichero();
-        ArrayList<String> contenidos = gestorFichero.getCompetenciaDisciplinar("Disciplinar", "Ciencias experimentales");
+        ArrayList<String> contenidos = gestorFichero.getCompetenciasGenerales("Disciplinar", "Ciencias experimentales");
         return contenidos;
     }
+    /**
+     *
+     * @return 
+     */
+    public ArrayList<String> listarCompetenciasDisciplinaresCienciasSociales(){
+        gestorFichero = new GestorFichero();
+        ArrayList<String> contenidos = gestorFichero.getCompetenciasGenerales("Disciplinar", "Ciencias sociales");
+        return contenidos;
+    }
+    /**
+     *
+     * @return 
+     */
+    public ArrayList<String> listarCompetenciasDisciplinaresComunicacion(){
+        gestorFichero = new GestorFichero();
+        ArrayList<String> contenidos = gestorFichero.getCompetenciasGenerales("Disciplinar", "Comunicación");
+        return contenidos;
+    }
+    
+    
+    public ArrayList<String> listarCompetenciasGenericasAutodetermina(){
+        gestorFichero = new GestorFichero();
+        ArrayList<String> contenidos = gestorFichero.getCompetenciasGenerales("Genéricas", "Se autodetermina y cuida de sí");
+        return contenidos;
+    }
+    public ArrayList<String> listarCompetenciasGenericasExpresa(){
+        gestorFichero = new GestorFichero();
+        ArrayList<String> contenidos = gestorFichero.getCompetenciasGenerales("Genéricas", "Se expresa y comunica");
+        return contenidos;
+    }
+    public ArrayList<String> listarCompetenciasGenericasPiensa(){
+        gestorFichero = new GestorFichero();
+        ArrayList<String> contenidos = gestorFichero.getCompetenciasGenerales("Genéricas", "Piensa crítica y reflexivamente");
+        return contenidos;
+    }
+    public ArrayList<String> listarCompetenciasGenericasAprende(){
+        gestorFichero = new GestorFichero();
+        ArrayList<String> contenidos = gestorFichero.getCompetenciasGenerales("Genéricas", "Aprende de forma autónoma");
+        return contenidos;
+    }
+    public ArrayList<String> listarCompetenciasGenericasTrabaja(){
+        gestorFichero = new GestorFichero();
+        ArrayList<String> contenidos = gestorFichero.getCompetenciasGenerales("Genéricas", "Trabaja en forma colaborativa");
+        return contenidos;
+    }
+    public ArrayList<String> listarCompetenciasGenericasParticipa(){
+        gestorFichero = new GestorFichero();
+        ArrayList<String> contenidos = gestorFichero.getCompetenciasGenerales("Genéricas", "Participa con responsabilidad en la sociedad");
+        return contenidos;
+    }
+    
     
     /**
      *

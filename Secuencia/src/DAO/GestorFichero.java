@@ -203,7 +203,7 @@ public class GestorFichero{
      *
      * @param asignatura
      */
-    public ArrayList<String> getCompetenciaDisciplinar(String competencia, String tipoCompetencia){
+    public ArrayList<String> getCompetenciasGenerales(String competencia, String tipoCompetencia){
         ArrayList<String> contenidosGenerales = new ArrayList<>();
         String pathCarpeta = crearPathContenidosGenerales(competencia);
 

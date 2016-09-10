@@ -121,28 +121,28 @@ public class GestorFicheroTest{
     public void testGetContenidosGeneralesCompetenciaDisciplinarMatematicas() throws Exception{
         GestorFichero instance = new GestorFichero();
         int expResult = 8;
-        int result = instance.getCompetenciaDisciplinar("Disciplinar", "Matemáticas").size();
+        int result = instance.getCompetenciasGenerales("Disciplinar", "Matemáticas").size();
         assertEquals(expResult, result);
     }
     @Test
     public void testGetContenidosGeneralesCompetenciaDisciplinarCienciasExperimentales() throws Exception{
         GestorFichero instance = new GestorFichero();
         int expResult = 31;
-        int result = instance.getCompetenciaDisciplinar("Disciplinar", "Ciencias experimentales").size();
+        int result = instance.getCompetenciasGenerales("Disciplinar", "Ciencias experimentales").size();
         assertEquals(expResult, result);
     }
     @Test
     public void testGetContenidosGeneralesCompetenciaDisciplinarComunicacion() throws Exception{
         GestorFichero instance = new GestorFichero();
         int expResult = 23;
-        int result = instance.getCompetenciaDisciplinar("Disciplinar", "Comunicación").size();
+        int result = instance.getCompetenciasGenerales("Disciplinar", "Comunicación").size();
         assertEquals(expResult, result);
     }
     @Test
     public void testGetContenidosGeneralesCompetenciaDisciplinarCienciasSociales() throws Exception{
         GestorFichero instance = new GestorFichero();
         int expResult = 18;
-        int result = instance.getCompetenciaDisciplinar("Disciplinar", "Ciencias sociales").size();
+        int result = instance.getCompetenciasGenerales("Disciplinar", "Ciencias sociales").size();
         assertEquals(expResult, result);
     }
 
@@ -150,42 +150,42 @@ public class GestorFicheroTest{
     public void testGetContenidosGeneralesCompetenciaGenericaAutodetermina() throws Exception{
         GestorFichero instance = new GestorFichero();
         int expResult = 12;
-        int result = instance.getCompetenciaDisciplinar("Genéricas", "Se autodetermina y cuida de sí").size();
+        int result = instance.getCompetenciasGenerales("Genéricas", "Se autodetermina y cuida de sí").size();
         assertEquals(expResult, result);
     }
     @Test
     public void testGetContenidosGeneralesCompetenciaGenericaExpresa() throws Exception{
         GestorFichero instance = new GestorFichero();
         int expResult = 5;
-        int result = instance.getCompetenciaDisciplinar("Genéricas", "Se expresa y comunica").size();
+        int result = instance.getCompetenciasGenerales("Genéricas", "Se expresa y comunica").size();
         assertEquals(expResult, result);
     }
     @Test
     public void testGetContenidosGeneralesCompetenciaGenericaPiensa() throws Exception{
         GestorFichero instance = new GestorFichero();
         int expResult = 10;
-        int result = instance.getCompetenciaDisciplinar("Genéricas", "Piensa crítica y reflexivamente").size();
+        int result = instance.getCompetenciasGenerales("Genéricas", "Piensa crítica y reflexivamente").size();
         assertEquals(expResult, result);
     }
     @Test
     public void testGetContenidosGeneralesCompetenciaGenericaAprende() throws Exception{
         GestorFichero instance = new GestorFichero();
         int expResult = 3;
-        int result = instance.getCompetenciaDisciplinar("Genéricas", "Aprende de forma autónoma").size();
+        int result = instance.getCompetenciasGenerales("Genéricas", "Aprende de forma autónoma").size();
         assertEquals(expResult, result);
     }
     @Test
     public void testGetContenidosGeneralesCompetenciaGenericaTrabaja() throws Exception{
         GestorFichero instance = new GestorFichero();
         int expResult = 3;
-        int result = instance.getCompetenciaDisciplinar("Genéricas", "Trabaja en forma colaborativa").size();
+        int result = instance.getCompetenciasGenerales("Genéricas", "Trabaja en forma colaborativa").size();
         assertEquals(expResult, result);
     }
     @Test
     public void testGetContenidosGeneralesCompetenciaGenericaParticipa() throws Exception{
         GestorFichero instance = new GestorFichero();
         int expResult = 12;
-        int result = instance.getCompetenciaDisciplinar("Genéricas", "Participa con responsabilidad en la sociedad").size();
+        int result = instance.getCompetenciasGenerales("Genéricas", "Participa con responsabilidad en la sociedad").size();
         assertEquals(expResult, result);
     }
     
