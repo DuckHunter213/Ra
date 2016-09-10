@@ -76,6 +76,20 @@ public class GestorFichero{
         }
         return contenidosGenerales;
     }
+    
+    private static ArrayList<String> cargarCompetenciaDisciplinar(CsvReader archivo, String tipoCompetencia) throws IOException{
+        ArrayList<String> contenidosGenerales = new ArrayList<>();
+        while (archivo.readRecord()){
+            if ( archivo.get(0).indexOf(tipoCompetencia) + 1 > 0){
+                for(String contenido : archivo.getValues()){
+                    if (!(contenido.indexOf(tipoCompetencia)+1>0) && contenido.length() > 2){
+                        contenidosGenerales.add(contenido);
+                    }
+                }                
+            }
+        }
+        return contenidosGenerales;
+    }
 
     
     
@@ -198,4 +212,23 @@ public class GestorFichero{
         return contenidosEspecificos;
     }
 
+    
+    
+    /**
+     *
+     * @param asignatura
+     */
+    public ArrayList<String> getCompetenciaDisciplinar(String competencia, String tipoCompetencia){
+        ArrayList<String> contenidosGenerales = new ArrayList<>();
+        String pathCarpeta = crearPathContenidosGenerales(competencia);
+
+        try{
+            CsvReader archivo = new CsvReader(pathCarpeta);
+            archivo.setDelimiter(';');
+            contenidosGenerales = cargarCompetenciaDisciplinar(archivo, tipoCompetencia);
+        }catch (Exception ex){
+            contenidosGenerales.add("No hay bloques disponibles :(");
+        }
+        return contenidosGenerales;
+    }
 }
