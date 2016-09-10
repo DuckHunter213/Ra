@@ -23,12 +23,65 @@ public class GestorFichero{
 
     }
 
-    public ArrayList<String> getAsignaturas() throws IOException{
-        ArrayList<String> archivos = new ArrayList<>();
-        String pathCarpeta = System.getProperty("user.dir")
+    
+    private static String crearPathInicial(){
+        String path = System.getProperty("user.dir")
             + System.getProperty("file.separator") + "src"
             + System.getProperty("file.separator") + "Archivos"
             + System.getProperty("file.separator") + "Asignaturas";
+        return path;
+    }   
+    
+    private static String crearPathContenidosEspecificos(Asignatura asignatura){
+        String path = System.getProperty("user.dir")
+            + System.getProperty("file.separator") + "src"
+            + System.getProperty("file.separator") + "Archivos"
+            + System.getProperty("file.separator") + "Asignaturas"
+            + System.getProperty("file.separator") + asignatura.getAsignatura()
+            + System.getProperty("file.separator") + Integer.toString(asignatura.getSemestre()) + ".csv";
+        return path;
+    }
+    
+    private static String crearPathContenidosGenerales(String tipoContenido){
+        String path = System.getProperty("user.dir")
+            + System.getProperty("file.separator") + "src"
+            + System.getProperty("file.separator") + "Archivos"
+            + System.getProperty("file.separator") + "contenidosGenerales"
+            + System.getProperty("file.separator") + tipoContenido + ".csv";
+        return path;
+    }
+    
+    private static ArrayList<String> cargarContenidosEspecificos(Asignatura asignatura, CsvReader archivo, String tipoContenido) throws IOException{
+        ArrayList<String> contenidosGenerales = new ArrayList<>();
+        while (archivo.readRecord()){
+            String bloqueBuscado = Integer.toString(asignatura.getBloque()) + " " + tipoContenido;
+            String bloqueRecibido = archivo.get(0);
+            if ( bloqueRecibido.indexOf(bloqueBuscado) > 0  ){
+                for(String contenido : archivo.getValues()){
+                    if (!(contenido.indexOf(bloqueBuscado)>0) && contenido.length() > 2){
+                        contenidosGenerales.add(contenido);
+                    }
+                }
+            }
+        }
+        return contenidosGenerales;
+    }
+    
+    private static ArrayList<String> cargarContenidosGenerales(CsvReader archivo) throws IOException{
+        ArrayList<String> contenidosGenerales = new ArrayList<>();
+        while (archivo.readRecord()){
+            for(String contenido : archivo.getValues()){
+                contenidosGenerales.add(contenido);
+            }
+        }
+        return contenidosGenerales;
+    }
+
+    
+    
+    public ArrayList<String> getAsignaturas() throws IOException{
+        ArrayList<String> archivos = new ArrayList<>();
+        String pathCarpeta = crearPathInicial();
         try{
             File directorio = new File(pathCarpeta);
             String[] arregloArchivos = directorio.list();
@@ -51,10 +104,7 @@ public class GestorFichero{
      */
     public ArrayList<String> getBloquesAsignatura(String nombreAsignatura, int semestreAsignatura) throws FileNotFoundException, IOException{
         ArrayList<String> archivos = new ArrayList<>();
-        String pathCarpeta = System.getProperty("user.dir")
-            + System.getProperty("file.separator") + "src"
-            + System.getProperty("file.separator") + "Archivos"
-            + System.getProperty("file.separator") + "Asignaturas"
+        String pathCarpeta = crearPathInicial()
             + System.getProperty("file.separator") + nombreAsignatura
             + System.getProperty("file.separator") + Integer.toString(semestreAsignatura) + ".csv";
 
@@ -68,7 +118,6 @@ public class GestorFichero{
                 while (archivo.readRecord()){
                     contador += 1;
                     if (contador % 2 == 0){
-                        System.out.print("Columna 1 :" + archivo.get(1));
                         archivos.add(archivo.get(0).substring(0, 8));
                     }
                 }
@@ -81,31 +130,12 @@ public class GestorFichero{
 
     /**
      *
-     * @param asignatura
-     */
-    public ArrayList<String> getContenidosEspecificos(Asignatura asignatura){
-        return null;
-    }
-
-    /**
-     *
-     * @param asignatura
-     */
-    public ArrayList<String> getContenidosGenerales(Asignatura asignatura){
-        return null;
-    }
-
-    /**
-     *
      * @param nombreAsignatura
      * @return
      */
     public ArrayList<String> getSemestresAsignatura(String nombreAsignatura){
         ArrayList<String> archivos = new ArrayList<>();
-        String pathCarpeta = System.getProperty("user.dir")
-            + System.getProperty("file.separator") + "src"
-            + System.getProperty("file.separator") + "Archivos"
-            + System.getProperty("file.separator") + "Asignaturas"
+        String pathCarpeta = crearPathInicial()
             + System.getProperty("file.separator") + nombreAsignatura;
         if (nombreAsignatura.isEmpty() || nombreAsignatura == " "){
             archivos.add("No hay semestres disponibles :(");
@@ -124,6 +154,48 @@ public class GestorFichero{
             }
         }
         return archivos;
+    }
+
+    
+    
+    /**
+     *
+     * @param asignatura
+     */
+    public ArrayList<String> getContenidosGenerales(String tipoContenido){
+        ArrayList<String> contenidosGenerales = new ArrayList<>();
+        String pathCarpeta = crearPathContenidosGenerales(tipoContenido);
+
+        try{
+            CsvReader archivo = new CsvReader(pathCarpeta);
+            archivo.setDelimiter(';');
+            contenidosGenerales = cargarContenidosGenerales(archivo);
+        }catch (Exception ex){
+            contenidosGenerales.add("No hay bloques disponibles :(");
+        }
+        return contenidosGenerales;
+    }
+      
+    /**
+     *
+     * @param asignatura
+     */
+    public ArrayList<String> getContenidosEspecificos(Asignatura asignatura, String tipoContenido){
+        ArrayList<String> contenidosEspecificos = new ArrayList<>();
+        String pathCarpeta = crearPathContenidosEspecificos(asignatura);
+
+        if (asignatura.getAsignatura().isEmpty() || asignatura.getAsignatura().equals(" ")){
+            contenidosEspecificos.add("No hay bloques disponibles :(");
+        }else{
+            try{
+                CsvReader archivo = new CsvReader(pathCarpeta);
+                archivo.setDelimiter(';');
+                contenidosEspecificos = cargarContenidosEspecificos(asignatura, archivo, tipoContenido);
+            }catch (Exception ex){
+                contenidosEspecificos.add("No hay bloques disponibles :(");
+            }
+        }
+        return contenidosEspecificos;
     }
 
 }

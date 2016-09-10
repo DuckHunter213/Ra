@@ -39,6 +39,8 @@ public class GestorFicheroTest{
     public void tearDown(){
     }
 
+    
+    
     @Test
     public void testGetAsignaturas() throws Exception{
         GestorFichero instance = new GestorFichero();
@@ -107,4 +109,112 @@ public class GestorFicheroTest{
         assertEquals(expResult, result);
     }
 
+    
+    
+    @Test
+    public void testGetContenidosGeneralesEvidencias() throws Exception{
+        GestorFichero instance = new GestorFichero();
+        int expResult = 13;
+        int result = instance.getContenidosGenerales("evidencias").size();
+        assertEquals(expResult, result);
+    }    
+    @Test
+    public void testGetContenidosGeneralesInstrumentos() throws Exception{
+        GestorFichero instance = new GestorFichero();
+        int expResult = 12;
+        int result = instance.getContenidosGenerales("instrumentosDeEvaluacion").size();
+        assertEquals(expResult, result);
+    }
+   
+            
+            
+    @Test
+    public void testGetContenidosEspecificosDeclarativosBloque1() throws Exception{
+        GestorFichero instance = new GestorFichero();
+        Asignatura asignatura = new Asignatura();
+        asignatura.setAsignatura("Física");
+        asignatura.setSemestre(1);
+        asignatura.setBloque(1);
+        int expResult = 5;
+        int result = instance.getContenidosEspecificos(asignatura,"declarativo").size();
+        assertEquals(expResult, result);
+    }    
+    @Test
+    public void testGetContenidosEspecificosDeclarativosBloque3() throws Exception{
+        GestorFichero instance = new GestorFichero();
+        Asignatura asignatura = new Asignatura();
+        asignatura.setAsignatura("Física");
+        asignatura.setSemestre(1);
+        asignatura.setBloque(3);
+        int expResult = 3;
+        int result = instance.getContenidosEspecificos(asignatura,"declarativo").size();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testGetContenidosEspecificosDeclarativosSemestre3() throws Exception{
+        GestorFichero instance = new GestorFichero();
+        Asignatura asignatura = new Asignatura();
+        asignatura.setAsignatura("Física");
+        asignatura.setSemestre(3);
+        asignatura.setBloque(3);
+        int expResult = 3;
+        int result = instance.getContenidosEspecificos(asignatura,"declarativo").size();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testGetContenidosEspecificosDeclarativosFallido() throws Exception{
+        GestorFichero instance = new GestorFichero();
+        Asignatura asignatura = new Asignatura();
+        asignatura.setAsignatura("Física");
+        asignatura.setSemestre(4);
+        asignatura.setBloque(3);
+        int expResult = 1;
+        int result = instance.getContenidosEspecificos(asignatura,"declarativo").size();
+        assertEquals(expResult, result);
+    }
+            
+    @Test
+    public void testGetContenidosEspecificosProcedimentalesBloque1() throws Exception{
+        GestorFichero instance = new GestorFichero();
+        Asignatura asignatura = new Asignatura();
+        asignatura.setAsignatura("Física");
+        asignatura.setSemestre(1);
+        asignatura.setBloque(1);
+        int expResult = 4;
+        int result = instance.getContenidosEspecificos(asignatura,"procedimentales").size();
+        assertEquals(expResult, result);
+    }    
+    @Test
+    public void testGetContenidosEspecificosProcedimentalesBloque3() throws Exception{
+        GestorFichero instance = new GestorFichero();
+        Asignatura asignatura = new Asignatura();
+        asignatura.setAsignatura("Física");
+        asignatura.setSemestre(1);
+        asignatura.setBloque(3);
+        int expResult = 4;
+        int result = instance.getContenidosEspecificos(asignatura,"procedimentales").size();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testGetContenidosEspecificosProcedimentalesSemestre3() throws Exception{
+        GestorFichero instance = new GestorFichero();
+        Asignatura asignatura = new Asignatura();
+        asignatura.setAsignatura("Física");
+        asignatura.setSemestre(3);
+        asignatura.setBloque(3);
+        int expResult = 1;
+        int result = instance.getContenidosEspecificos(asignatura,"procedimentales").size();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testGetContenidosEspecificosProcedimentalesFallido() throws Exception{
+        GestorFichero instance = new GestorFichero();
+        Asignatura asignatura = new Asignatura();
+        asignatura.setAsignatura("asd");
+        asignatura.setSemestre(4);
+        asignatura.setBloque(3);
+        int expResult = 1;
+        int result = instance.getContenidosEspecificos(asignatura,"declarativo").size();
+        assertEquals(expResult, result);
+    }
 }
