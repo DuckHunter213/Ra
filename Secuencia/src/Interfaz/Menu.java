@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -88,6 +89,11 @@ public class Menu extends javax.swing.JFrame{
         jTextField1.setToolTipText("");
 
         jButton1.setText("Iniciar Rubrica");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -180,6 +186,11 @@ public class Menu extends javax.swing.JFrame{
         // TODO add your handling code here:
     }//GEN-LAST:event_asignaturaComboBoxActionPerformed
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        JPanel jpanel = new Rubrica();
+        jpanel.setVisible(true);
+    }//GEN-LAST:event_jButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -221,6 +232,7 @@ public class Menu extends javax.swing.JFrame{
                 }catch (IOException ex){
                     Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                 }
+
             }
 
         });
