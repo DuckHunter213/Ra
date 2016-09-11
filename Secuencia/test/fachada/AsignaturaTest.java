@@ -56,6 +56,7 @@ public class AsignaturaTest {
 
     /**
      * Test of listarBloques method, of class Asignatura.
+     * @throws java.lang.Exception
      */
     @Test
     public void testListarBloques() throws Exception {

@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import util.enumContenidosEspecificos;
 
 /**
  *
@@ -44,10 +45,10 @@ public class ContenidosEspecificosTest {
         ContenidosEspecificos instance = new ContenidosEspecificos();
         int expResult = 1;
         Asignatura asignatura = new Asignatura();
-        asignatura.setAsignatura("Física");
-        asignatura.setSemestre(3);
-        asignatura.setBloque(3);
-        int result = instance.listarContenidosEspecificosProcedimental(asignatura).size();
+        asignatura.setAsignatura(enumContenidosEspecificos.MATERIA_FISICA.toString());
+        asignatura.setSemestre(Integer.parseInt(enumContenidosEspecificos.SEMESTRE_3.toString()));
+        asignatura.setBloque(Integer.parseInt(enumContenidosEspecificos.BLOQUE_3.toString()));
+        int result = instance.listarContenidosEspecificos(asignatura,enumContenidosEspecificos.CONTENIDO_PROCEDIMENTAL.toString()).size();
         assertEquals(expResult, result);
     }
     @Test
@@ -55,10 +56,10 @@ public class ContenidosEspecificosTest {
         ContenidosEspecificos instance = new ContenidosEspecificos();
         int expResult = 4;
         Asignatura asignatura = new Asignatura();
-        asignatura.setAsignatura("Física");
-        asignatura.setSemestre(1);
-        asignatura.setBloque(1);
-        int result = instance.listarContenidosEspecificosProcedimental(asignatura).size();
+        asignatura.setAsignatura(enumContenidosEspecificos.MATERIA_FISICA.toString());
+        asignatura.setSemestre(Integer.parseInt(enumContenidosEspecificos.SEMESTRE_1.toString()));
+        asignatura.setBloque(Integer.parseInt(enumContenidosEspecificos.BLOQUE_1.toString()));
+        int result = instance.listarContenidosEspecificos(asignatura,enumContenidosEspecificos.CONTENIDO_PROCEDIMENTAL.toString()).size();
         assertEquals(expResult, result);
     }
 
@@ -68,10 +69,10 @@ public class ContenidosEspecificosTest {
         ContenidosEspecificos instance = new ContenidosEspecificos();
         int expResult = 3;
         Asignatura asignatura = new Asignatura();
-        asignatura.setAsignatura("Física");
-        asignatura.setSemestre(3);
-        asignatura.setBloque(3);
-        int result = instance.listarContenidosEspecificosDeclarativo(asignatura).size();
+        asignatura.setAsignatura(enumContenidosEspecificos.MATERIA_FISICA.toString());
+        asignatura.setSemestre(Integer.parseInt(enumContenidosEspecificos.SEMESTRE_3.toString()));
+        asignatura.setBloque(Integer.parseInt(enumContenidosEspecificos.BLOQUE_3.toString()));
+        int result = instance.listarContenidosEspecificos(asignatura,enumContenidosEspecificos.CONTENIDO_DECLARATIVO.toString()).size();
         assertEquals(expResult, result);
     }
     @Test
@@ -79,10 +80,10 @@ public class ContenidosEspecificosTest {
         ContenidosEspecificos instance = new ContenidosEspecificos();
         int expResult = 5;
         Asignatura asignatura = new Asignatura();
-        asignatura.setAsignatura("Física");
-        asignatura.setSemestre(1);
-        asignatura.setBloque(1);
-        int result = instance.listarContenidosEspecificosDeclarativo(asignatura).size();
+        asignatura.setAsignatura(enumContenidosEspecificos.MATERIA_FISICA.toString());
+        asignatura.setSemestre(Integer.parseInt(enumContenidosEspecificos.SEMESTRE_1.toString()));
+        asignatura.setBloque(Integer.parseInt(enumContenidosEspecificos.BLOQUE_1.toString()));
+        int result = instance.listarContenidosEspecificos(asignatura,enumContenidosEspecificos.CONTENIDO_DECLARATIVO.toString()).size();
         assertEquals(expResult, result);
     }
 }

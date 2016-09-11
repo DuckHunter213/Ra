@@ -22,7 +22,7 @@ public class GestorFichero{
     public void finalize() throws Throwable{
 
     }
-    
+
     private static String crearPathInicial(){
         String path = System.getProperty("user.dir")
             + System.getProperty("file.separator") + "src"
@@ -84,7 +84,7 @@ public class GestorFichero{
         }
         return contenidosGenerales;
     }
-    
+
     public ArrayList<String> getAsignaturas() throws IOException{
         ArrayList<String> archivos = new ArrayList<>();
         String pathCarpeta = crearPathInicial();
@@ -159,7 +159,7 @@ public class GestorFichero{
         }
         return archivos;
     }
-    
+
     /**
      *
      * @param asignatura
