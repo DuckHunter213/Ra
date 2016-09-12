@@ -2,6 +2,7 @@ package Dominio;
 
 import DAO.GestorFichero;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Lo que compartiran todas las materias
@@ -17,47 +18,70 @@ public class ContenidosGenerales{
 
     }
 
-    public ArrayList<String> getContenidosGenerales(){
-        return null;
-    }
 
     public ArrayList<String> listarCompetencias(String tipoCompetencia, String nombreCompetencia){
         gestorFichero = new GestorFichero();
-        ArrayList<String> contenidos = gestorFichero.getCompetenciasGenerales(tipoCompetencia, nombreCompetencia);
+        ArrayList<String> contenidos = new ArrayList<>();
+        contenidos = gestorFichero.getCompetenciasGenerales(tipoCompetencia, nombreCompetencia);
         return contenidos;
     }
-    public ArrayList<String> listarOtrosContenidos(String contenido){
+    public ArrayList<String> listarOtrosContenidos(String tipoContenido){
         gestorFichero = new GestorFichero();
-        ArrayList<String> contenidos = gestorFichero.getContenidosGenerales(contenido);
+        ArrayList<String> contenidos = new ArrayList<>();
+        contenidos = gestorFichero.getContenidosGenerales(tipoContenido);
         return contenidos;
     }
 
     /**
-     *
-     * @param disciplinaresElegidas
-     * @param genericasElegidas
-     * @return
+     * Enlista los contenidos que fueron elegidos entre los distintos tipos de competencia y competencias
+     * @param contenidosSeleccionados Un ArrayList de Integers con contenidos seleccionados a partir de 0
+     * @param tipoCompetencia el tipo, puede se Disciplinar o genérico
+     * @param nombreCompetencia el nombre de la competencia, ciencias sociales, matemáticas, etc.
+     * @return Un ArrayList con lo que se seleccionó
      */
-    public int setCompetencias(ArrayList<String> disciplinaresElegidas, ArrayList<String> genericasElegidas){
-        return 0;
+    public ArrayList<String> getCompetenciasElegidas(ArrayList<Integer> contenidosSeleccionados, String tipoCompetencia, String nombreCompetencia){
+        ArrayList<String> contenidos = new ArrayList<>();
+        if (contenidosSeleccionados.isEmpty()){
+            contenidos.add(" ");
+            return contenidos;
+        }
+        ArrayList<String> listaContenidos;
+        listaContenidos = listarCompetencias(tipoCompetencia, nombreCompetencia);
+        gestorFichero = new GestorFichero();
+        contenidos = seleccionarContenidos(contenidosSeleccionados, listaContenidos);
+        return contenidos;
     }
-
     /**
-     *
-     * @param evidencias
-     * @return
+     * Enlista las evidencias de aprendizaje e instrumentos de evaluación
+     * @param contenidosSeleccionados Un ArrayList de Integers con contenidos seleccionados a partir de 0
+     * @param tipoContenido
+     * @return Un ArrayList con lo que se seleccionó
      */
-    public int setEvidencias(ArrayList<String> evidencias){
-        return 0;
+    public ArrayList<String> getOtrosContenidos(ArrayList<Integer> contenidosSeleccionados, String tipoContenido){
+        ArrayList<String> contenidos = new ArrayList<>();
+        if (contenidosSeleccionados.isEmpty()){
+            contenidos.add(" ");
+            return contenidos;
+        }
+        ArrayList<String> listaContenidos;
+        listaContenidos = listarOtrosContenidos(tipoContenido);
+        gestorFichero = new GestorFichero();
+        contenidos = seleccionarContenidos(contenidosSeleccionados, listaContenidos);
+        return contenidos;
     }
-
-    /**
-     *
-     * @param instrumentos
-     * @return
-     */
-    public int setInstrumentos(ArrayList<String> instrumentos){
-        return 0;
+    
+    private ArrayList<String> seleccionarContenidos(ArrayList<Integer> contenidosSeleccionados, ArrayList<String> listaContenidos){
+        ArrayList<String> contenidos = new ArrayList<>();
+        try{
+            for (Integer contenidoSeleccionado : contenidosSeleccionados) {
+                contenidos.add(listaContenidos.get(contenidoSeleccionado));
+                
+            }
+        } catch (IndexOutOfBoundsException ex){
+            contenidos = new ArrayList<>();
+            contenidos.add(" ");
+        }
+        return contenidos;
     }
 
 }
