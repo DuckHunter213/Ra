@@ -10,7 +10,7 @@ package util;
  * @author gerar
  */
 public enum enumContenidosEspecificos {
-    CONTENIDO_PROCEDIMENTAL {
+    CONTENIDO_PROCEDIMENTAL  {
         @Override
         public String toString() {
             return "procedimentales";
@@ -20,6 +20,12 @@ public enum enumContenidosEspecificos {
         @Override
         public String toString() {
             return "declarativo";
+        }
+    },
+    CONTENIDO_ACTITUDINAL {
+        @Override
+        public String toString() {
+            return "actitudinal";
         }
     },
     MATERIA_FISICA {

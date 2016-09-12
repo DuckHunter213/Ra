@@ -21,8 +21,6 @@ public class ContenidosFijos{
     private ContenidosGenerales contenidosGeneralesCierre;
     private ContenidosGenerales contenidosGeneralesDesarrollo;
     private ContenidosGenerales contenidosGeneralesInicio;
-    public ContenidosGenerales m_ContenidosGenerales;
-    public ContenidosEspecificos m_ContenidosEspecificos;
     
     private ArrayList<String> listarContenidosGenericos(String tipoListado){
         ArrayList<String> contenidos = new ArrayList<>();
@@ -30,11 +28,14 @@ public class ContenidosFijos{
         ContenidosGenerales misContenidosGenerales;
         if (isAsignaturaValida(asignatura) == 1){
             switch(tipoListado){
-                case "declarativos":   
+                case "declarativo":   
                     contenidos = contenidosEspecificos.listarContenidosEspecificos(this.asignatura, enumContenidosEspecificos.CONTENIDO_DECLARATIVO.toString());
                     break;
                 case "procedimentales":
                     contenidos = contenidosEspecificos.listarContenidosEspecificos(asignatura, enumContenidosEspecificos.CONTENIDO_PROCEDIMENTAL.toString());                    
+                    break;
+                case "actitudinales":
+                    contenidos = contenidosEspecificos.listarContenidosEspecificos(asignatura, enumContenidosEspecificos.CONTENIDO_ACTITUDINAL.toString());                    
                     break;
                 case "instrumentos":
                     misContenidosGenerales = new ContenidosGenerales();
@@ -87,26 +88,31 @@ public class ContenidosFijos{
 
     /**
      * En la sección "Saberes necesarios para el desarrollo de competencias" de la rúbrica, enlista los contenidos que irán dentro del espacio "Contenidos Declarativos"
-     * @param asignatura Recibe una asignatura válida
      * @return Regresa un ArrayList con uns lista de contenidos declarativos, en caso de que no existan contenidos, regresa una lista de un solo elemento
      */
     public ArrayList<String> listarContenidosDeclarativos(){
-        ArrayList<String> contenidos = listarContenidosGenericos("declarativos");
+        ArrayList<String> contenidos = listarContenidosGenericos(enumContenidosEspecificos.CONTENIDO_DECLARATIVO.toString());
         return contenidos;
     }
     /**
      * En la sección "Saberes necesarios para el desarrollo de competencias" de la rúbrica, enlista los contenidos  que irán dentro del espacio "Contenidos Procedimentales"
-     * @param asignatura Recibe una asignatura válida
      * @return Regresa un ArrayList con uns lista de contenidos procedimentales, en caso de que no existan contenidos, regresa una lista de un solo elemento
      */
     public ArrayList<String> listarContenidosProcedimentales(){
-        ArrayList<String> contenidos = listarContenidosGenericos("procedimentales");
+        ArrayList<String> contenidos = listarContenidosGenericos(enumContenidosEspecificos.CONTENIDO_PROCEDIMENTAL.toString());
+        return contenidos;
+    }
+    /**
+     * En la sección "Saberes necesarios para el desarrollo de competencias" de la rúbrica, enlista los contenidos  que irán dentro del espacio "Contenidos Actitudinales"
+     * @return Regresa un ArrayList con uns lista de contenidos procedimentales, en caso de que no existan contenidos, regresa una lista de un solo elemento
+     */
+    public ArrayList<String> listarContenidosActitudinales(){
+        ArrayList<String> contenidos = listarContenidosGenericos(enumContenidosEspecificos.CONTENIDO_ACTITUDINAL.toString());
         return contenidos;
     }
     
     /**
      * En la sección "Actividades para el desarrollo de competencias" de la rúbrica, en "Competencias a las que contribuye", enlista los contenidos Disciplinares de la sección matemáticas
-     * @param asignatura Recibe una asignatura válida
      * @return Regresa un ArrayList con uns lista de COMPETENCIAS DISCIPLINARES DEL ÁREA DE MATEMÁTICAS, en caso de que no existan contenidos, regresa una lista de un solo elemento
      */
     public ArrayList<String> listarCompetenciasDisciplinaresMatematicas(){
@@ -115,7 +121,6 @@ public class ContenidosFijos{
     }
     /**
      * En la sección "Actividades para el desarrollo de competencias" de la rúbrica, en "Competencias a las que contribuye", enlista los contenidos Disciplinares de la sección ciencias experimentales
-     * @param asignatura Recibe una asignatura válida
      * @return Regresa un ArrayList con uns lista de COMPETENCIAS DISCIPLINARES DEL ÁREA DE CIENCIAS EXPERIMENTALES, en caso de que no existan contenidos, regresa una lista de un solo elemento
      */
     public ArrayList<String> listarCompetenciasDisciplinaresCienciasExperimentales(){
@@ -124,7 +129,6 @@ public class ContenidosFijos{
     }
     /**
      * En la sección "Actividades para el desarrollo de competencias" de la rúbrica, en "Competencias a las que contribuye", enlista los contenidos Disciplinares de la sección ciencias sociales
-     * @param asignatura Recibe una asignatura válida
      * @return Regresa un ArrayList con uns lista de COMPETENCIAS DISCIPLINARES DEL ÁREA DE CIENCIAS SOCIALES, en caso de que no existan contenidos, regresa una lista de un solo elemento
      */
     public ArrayList<String> listarCompetenciasDisciplinaresCienciasSociales(){
@@ -133,7 +137,6 @@ public class ContenidosFijos{
     }
     /**
      * En la sección "Actividades para el desarrollo de competencias" de la rúbrica, en "Competencias a las que contribuye", enlista los contenidos Disciplinares de la sección comunicación
-     * @param asignatura Recibe una asignatura válida
      * @return Regresa un ArrayList con uns lista de COMPETENCIAS DISCIPLINARES DEL ÁREA DE COMUNICACIÓN, en caso de que no existan contenidos, regresa una lista de un solo elemento
      */
     public ArrayList<String> listarCompetenciasDisciplinaresComunicaciones(){
@@ -143,7 +146,6 @@ public class ContenidosFijos{
     
     /**
      * En la sección "Actividades para el desarrollo de competencias" de la rúbrica, en "Competencias a las que contribuye", enlista los contenidos genericos  DE APRENDIZAJE
-     * @param asignatura Recibe una asignatura válida
      * @return Regresa un ArrayList con uns lista de COMPETENCIAS GENERICAS, en caso de que no existan contenidos, regresa una lista de un solo elemento
      */
     public ArrayList<String> listarCompetenciasGenericasAprende(){
@@ -158,7 +160,6 @@ public class ContenidosFijos{
     }
     /**
      * En la sección "Actividades para el desarrollo de competencias" de la rúbrica, en "Competencias a las que contribuye", enlista los contenidos genericos  DE AUTODETERMINA
-     * @param asignatura Recibe una asignatura válida
      * @return Regresa un ArrayList con uns lista de COMPETENCIAS GENERICAS, en caso de que no existan contenidos, regresa una lista de un solo elemento
      */
     public ArrayList<String> listarCompetenciasGenericasAutodetermina(){
@@ -167,7 +168,6 @@ public class ContenidosFijos{
     }
     /**
      * En la sección "Actividades para el desarrollo de competencias" de la rúbrica, en "Competencias a las que contribuye", enlista los contenidos genericos  DE EXPRESA
-     * @param asignatura Recibe una asignatura válida
      * @return Regresa un ArrayList con uns lista de COMPETENCIAS GENERICAS, en caso de que no existan contenidos, regresa una lista de un solo elemento
      */
     public ArrayList<String> listarCompetenciasGenericaseExpresa(){
@@ -176,7 +176,6 @@ public class ContenidosFijos{
     }
     /**
      * En la sección "Actividades para el desarrollo de competencias" de la rúbrica, en "Competencias a las que contribuye", enlista los contenidos genericos  DE PARTICIPA
-     * @param asignatura Recibe una asignatura válida
      * @return Regresa un ArrayList con uns lista de COMPETENCIAS GENERICAS, en caso de que no existan contenidos, regresa una lista de un solo elemento
      */
     public ArrayList<String> listarCompetenciasGenericaseParticipa(){
@@ -185,7 +184,6 @@ public class ContenidosFijos{
     }
     /**
      * En la sección "Actividades para el desarrollo de competencias" de la rúbrica, en "Competencias a las que contribuye", enlista los contenidos genericos  DE PIENSA
-     * @param asignatura Recibe una asignatura válida
      * @return Regresa un ArrayList con uns lista de COMPETENCIAS GENERICAS, en caso de que no existan contenidos, regresa una lista de un solo elemento
      */
     public ArrayList<String> listarCompetenciasGenericasePiensa(){
@@ -194,18 +192,15 @@ public class ContenidosFijos{
     }
     /**
      * En la sección "Actividades para el desarrollo de competencias" de la rúbrica, en "Competencias a las que contribuye", enlista los contenidos genericos  DE TRABAJA
-     * @param asignatura Recibe una asignatura válida
      * @return Regresa un ArrayList con uns lista de COMPETENCIAS GENERICAS, en caso de que no existan contenidos, regresa una lista de un solo elemento
      */
     public ArrayList<String> listarCompetenciasGenericaseTrabaja(){
         ArrayList<String> contenidos = listarCompetencias(enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_TRABAJA.toString() );
         return contenidos;
     }
-    
-    
+        
     /**
      * En la sección "Evidencias de aprendizaje" de la rúbrica,enlista los contenidos INSTRUMENTOS DE EVALUACIÓN
-     * @param asignatura Recibe una asignatura válida
      * @return Regresa un ArrayList con uns lista de COMPETENCIAS GENERICAS, en caso de que no existan contenidos, regresa una lista de un solo elemento
      */
     public ArrayList<String> listarInstrumentosDeEvaluacion(){
@@ -214,13 +209,62 @@ public class ContenidosFijos{
     }
     /**
      * En la sección "Evidencias de aprendizaje" de la rúbrica,enlista los contenidos EVIDENCIAS DE APRENDIZAJE
-     * @param asignatura Recibe una asignatura válida
      * @return Regresa un ArrayList con uns lista de COMPETENCIAS GENERICAS, en caso de que no existan contenidos, regresa una lista de un solo elemento
      */
     public ArrayList<String> listarEvidenciasDeAprendizaje(){
         ArrayList<String> contenidos = listarContenidosGenericos("evidencias");
         return contenidos;
     }
+    
+    
+    private int setContenidosParaDesarrollo(ArrayList<Integer> contenidosSeleccionados, String tipoContenido){        
+        int resultado;
+            contenidosEspecificos = new ContenidosEspecificos();
+        if (contenidosSeleccionados.isEmpty() ){
+            return resultado = 0;
+        }
+        else{
+            resultado = contenidosEspecificos.setContenidosEspecificos(asignatura, contenidosSeleccionados, tipoContenido);
+        }
+        if (resultado > 1)
+            resultado = 1;
+        return  resultado;
+    }
+    
+     /**
+     * En la sección "Saberes Necesarios para el desarrollo" de la rúbrica, captura todos los contenidos DECLARATIVOS
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0 (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0 lista no conserva ningún valor, si es 1, conserva al menos 1 resultado, y si es -1, los límites del contenido elegido son incorrectos
+     */
+    public int setContenidosDeclarativos(ArrayList<Integer> contenidosSeleccionados){
+        int resultado  = setContenidosParaDesarrollo(contenidosSeleccionados, enumContenidosEspecificos.CONTENIDO_DECLARATIVO.toString());
+        return resultado;
+    }
+     /**
+     * En la sección "Saberes Necesarios para el desarrollo" de la rúbrica, captura todos los contenidos PROCEDIMENTALES
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0 (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0 lista no conserva ningún valor, si es 1, conserva al menos 1 resultado, y si es -1, los límites del contenido elegido son incorrectos
+     */
+    public int setContenidosProcedimentales(ArrayList<Integer> contenidosSeleccionados){
+        int resultado  = setContenidosParaDesarrollo(contenidosSeleccionados, enumContenidosEspecificos.CONTENIDO_PROCEDIMENTAL.toString());
+        return resultado;
+    }
+     /**
+     * En la sección "Saberes Necesarios para el desarrollo" de la rúbrica, captura todos los contenidos ACTITUDINALES
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0 (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0 lista no conserva ningún valor, si es 1, conserva al menos 1 resultado, y si es -1, los límites del contenido elegido son incorrectos
+     */
+    public int setContenidosActitudinales(ArrayList<Integer> contenidosSeleccionados){
+        int resultado  = setContenidosParaDesarrollo(contenidosSeleccionados, enumContenidosEspecificos.CONTENIDO_ACTITUDINAL.toString());
+        return resultado;
+    }
+    
+    public int setCompetenciasDisciplinaresMatematicas(){
+        int resultado = 0;
+        
+        return resultado;
+    }
+    
     
     /**
      *

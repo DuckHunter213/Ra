@@ -113,7 +113,7 @@ public class GestorFicheroTest{
     public void testGetContenidosGeneralesInstrumentos() throws Exception{
         GestorFichero instance = new GestorFichero();
         int expResult = 12;
-        int result = instance.getContenidosGenerales("instrumentosDeEvaluacion").size();
+        int result = instance.getContenidosGenerales("instrumentosDeEvaluación").size();
         assertEquals(expResult, result);
     }
 

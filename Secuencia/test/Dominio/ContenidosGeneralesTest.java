@@ -5,6 +5,7 @@
  */
 package Dominio;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -123,7 +124,6 @@ public class ContenidosGeneralesTest {
         int result = instance.listarCompetencias(enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_PARTICIPA.toString()).size();
         assertEquals(expResult, result);
     }
-
     
     
     
@@ -139,6 +139,50 @@ public class ContenidosGeneralesTest {
         ContenidosGenerales instance = new ContenidosGenerales();
         int expResult = 12;
         int result = instance.listarOtrosContenidos(enumContenidosGenerales.TIPO_CONT_GENERICO_INSTRUMENTOS.toString()).size();
+        assertEquals(expResult, result);
+    }
+    
+    
+    
+    @Test
+    public void testGetCompetenciasElegidasValido(){
+        ContenidosGenerales instance = new ContenidosGenerales();
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        contenidosSeleccionados.add(0);
+        contenidosSeleccionados.add(2);
+        contenidosSeleccionados.add(3);        
+        int expResult = 3;
+        int result = instance.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_DISCIPLINAR.toString(), enumContenidosGenerales.TIPO_CONT_DISCIPLINAR_MATEMATICAS.toString()).size();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testGetCompetenciasElegidasVacio(){
+        ContenidosGenerales instance = new ContenidosGenerales();
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();     
+        int expResult = 1;
+        int result = instance.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_DISCIPLINAR.toString(), enumContenidosGenerales.TIPO_CONT_DISCIPLINAR_MATEMATICAS.toString()).size();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testGetCompetenciasElegidasErrorLimiteSuperior(){
+        ContenidosGenerales instance = new ContenidosGenerales();
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        contenidosSeleccionados.add(0);
+        contenidosSeleccionados.add(2);
+        contenidosSeleccionados.add(13);
+        int expResult = 1;
+        int result = instance.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_DISCIPLINAR.toString(), enumContenidosGenerales.TIPO_CONT_DISCIPLINAR_MATEMATICAS.toString()).size();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testGetCompetenciasElegidasErrorLimiteInferior(){
+        ContenidosGenerales instance = new ContenidosGenerales();
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        contenidosSeleccionados.add(-1);
+        contenidosSeleccionados.add(2);
+        contenidosSeleccionados.add(3);
+        int expResult = 1;
+        int result = instance.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_DISCIPLINAR.toString(), enumContenidosGenerales.TIPO_CONT_DISCIPLINAR_MATEMATICAS.toString()).size();
         assertEquals(expResult, result);
     }
 }

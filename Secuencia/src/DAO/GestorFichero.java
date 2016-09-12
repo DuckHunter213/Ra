@@ -31,10 +31,7 @@ public class GestorFichero{
         return path;
     }   
     private static String crearPathContenidosEspecificos(Asignatura asignatura){
-        String path = System.getProperty("user.dir")
-            + System.getProperty("file.separator") + "src"
-            + System.getProperty("file.separator") + "Archivos"
-            + System.getProperty("file.separator") + "Asignaturas"
+        String path = crearPathInicial()
             + System.getProperty("file.separator") + asignatura.getAsignatura()
             + System.getProperty("file.separator") + Integer.toString(asignatura.getSemestre()) + ".csv";
         return path;
@@ -206,7 +203,6 @@ public class GestorFichero{
     public ArrayList<String> getCompetenciasGenerales(String competencia, String tipoCompetencia){
         ArrayList<String> contenidosGenerales = new ArrayList<>();
         String pathCarpeta = crearPathContenidosGenerales(competencia);
-
         try{
             CsvReader archivo = new CsvReader(pathCarpeta);
             archivo.setDelimiter(';');
