@@ -94,5 +94,5 @@ public enum enumContenidosGenerales {
             return "InstrumentosDeEvaluación";
         }
     }
-    
+
 }

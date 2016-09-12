@@ -8,7 +8,7 @@ package Dominio;
  * @version 1.0
  * @created 08-sep.-2016 11:44:47 p. m.
  */
-public class ContenidosAgregadosInformativos{
+public class ContenidosAgregadosInformativos {
 
     private String asignaturasRelacionadas = " ";
     private String fuentesInformacion = " ";
@@ -16,11 +16,11 @@ public class ContenidosAgregadosInformativos{
     private String propositoSecuencia = " ";
     private String recursosMateriales = " ";
 
-    public ContenidosAgregadosInformativos(){
+    public ContenidosAgregadosInformativos() {
 
     }
 
-    public void finalize() throws Throwable{
+    public void finalize() throws Throwable {
 
     }
 

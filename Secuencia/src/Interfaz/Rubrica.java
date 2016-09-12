@@ -9,12 +9,12 @@ package Interfaz;
  *
  * @author DARKENSES
  */
-public class Rubrica extends javax.swing.JPanel{
+public class Rubrica extends javax.swing.JPanel {
 
     /**
      * Creates new form Rubrica
      */
-    public Rubrica(){
+    public Rubrica() {
         initComponents();
     }
 

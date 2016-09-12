@@ -19,26 +19,25 @@ import static org.junit.Assert.*;
  * @author gerar
  */
 public class AsignaturaTest {
-    
+
     public AsignaturaTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
-
 
     /**
      * Test of listarAsignaturas method, of class Asignatura.
@@ -56,6 +55,7 @@ public class AsignaturaTest {
 
     /**
      * Test of listarBloques method, of class Asignatura.
+     *
      * @throws java.lang.Exception
      */
     @Test
@@ -69,7 +69,7 @@ public class AsignaturaTest {
         expResult.add("Bloque 2");
         expResult.add("Bloque 3");
         expResult.add("Bloque 4");
-        ArrayList<String> result = instance.listarBloques("Física",1);
+        ArrayList<String> result = instance.listarBloques("Física", 1);
         assertEquals(expResult, result);
     }
 

@@ -21,20 +21,21 @@ import util.enumContenidosEspecificos;
  * @author gerar
  */
 public class ContenidosFijosTest {
-        Asignatura asignatura;
-        ContenidosFijos instance;
-    
+
+    Asignatura asignatura;
+    ContenidosFijos instance;
+
     public ContenidosFijosTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
         asignatura = new Asignatura();
@@ -44,7 +45,7 @@ public class ContenidosFijosTest {
         instance = new ContenidosFijos();
         instance.setAsignatura(asignatura);
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -53,19 +54,19 @@ public class ContenidosFijosTest {
      * Test of setAsignatura method, of class ContenidosFijos.
      */
     @Test
-        @SuppressWarnings("empty-statement")
+    @SuppressWarnings("empty-statement")
     public void testSetAsignatura() {
         Asignatura asignatura2 = new Asignatura();
         asignatura2.setAsignatura(enumContenidosEspecificos.MATERIA_FISICA.toString());
         asignatura2.setSemestre(Integer.parseInt(enumContenidosEspecificos.SEMESTRE_1.toString()));
         asignatura2.setBloque(Integer.parseInt(enumContenidosEspecificos.BLOQUE_1.toString()));;
         int expResult = 0;
-        if (asignatura2.getAsignatura().equals(asignatura.getAsignatura())){
-            if (asignatura2.getSemestre() == asignatura.getSemestre()){
-                if (asignatura2.getBloque() == asignatura.getBloque()){
+        if (asignatura2.getAsignatura().equals(asignatura.getAsignatura())) {
+            if (asignatura2.getSemestre() == asignatura.getSemestre()) {
+                if (asignatura2.getBloque() == asignatura.getBloque()) {
                     expResult = 1;
                 }
-            }            
+            }
         }
         assertEquals(expResult, 1);
     }
@@ -79,13 +80,9 @@ public class ContenidosFijosTest {
         int result = instance.listarContenidosDeclarativos().size();
         assertEquals(expResult, result);
     }
-    
-    
-    
-    
-    
+
     @Test
-    public void testSetContenidosDeclarativos(){
+    public void testSetContenidosDeclarativos() {
         int expResult = 1;
         ArrayList<Integer> listaSeleccion = new ArrayList<>();
         listaSeleccion.add(0);
@@ -93,8 +90,9 @@ public class ContenidosFijosTest {
         int result = instance.setContenidosDeclarativos(listaSeleccion);
         assertEquals(expResult, result);
     }
+
     @Test
-    public void testSetContenidosDeclarativosLimitesErroneosSuperior(){
+    public void testSetContenidosDeclarativosLimitesErroneosSuperior() {
         int expResult = -1;
         ArrayList<Integer> listaSeleccion = new ArrayList<>();
         listaSeleccion.add(0);
@@ -102,8 +100,9 @@ public class ContenidosFijosTest {
         int result = instance.setContenidosDeclarativos(listaSeleccion);
         assertEquals(expResult, result);
     }
+
     @Test
-    public void testSetContenidosDeclarativosLimitesErroneosInferior(){
+    public void testSetContenidosDeclarativosLimitesErroneosInferior() {
         int expResult = -1;
         ArrayList<Integer> listaSeleccion = new ArrayList<>();
         listaSeleccion.add(-2);
@@ -111,16 +110,17 @@ public class ContenidosFijosTest {
         int result = instance.setContenidosDeclarativos(listaSeleccion);
         assertEquals(expResult, result);
     }
+
     @Test
-    public void testSetContenidosDeclarativosVacio(){
+    public void testSetContenidosDeclarativosVacio() {
         int expResult = 0;
         ArrayList<Integer> listaSeleccion = new ArrayList<>();
         int result = instance.setContenidosDeclarativos(listaSeleccion);
         assertEquals(expResult, result);
     }
-    
+
     @Test
-    public void testSetContenidosProcedimentales(){
+    public void testSetContenidosProcedimentales() {
         int expResult = 1;
         ArrayList<Integer> listaSeleccion = new ArrayList<>();
         listaSeleccion.add(0);
@@ -128,8 +128,9 @@ public class ContenidosFijosTest {
         int result = instance.setContenidosProcedimentales(listaSeleccion);
         assertEquals(expResult, result);
     }
+
     @Test
-    public void testSetContenidosProcedimentalesLimitesErroneosSuperior(){
+    public void testSetContenidosProcedimentalesLimitesErroneosSuperior() {
         int expResult = -1;
         ArrayList<Integer> listaSeleccion = new ArrayList<>();
         listaSeleccion.add(0);
@@ -137,8 +138,9 @@ public class ContenidosFijosTest {
         int result = instance.setContenidosProcedimentales(listaSeleccion);
         assertEquals(expResult, result);
     }
+
     @Test
-    public void testSetContenidosProcedimentalesLimitesErroneosInferior(){
+    public void testSetContenidosProcedimentalesLimitesErroneosInferior() {
         int expResult = -1;
         ArrayList<Integer> listaSeleccion = new ArrayList<>();
         listaSeleccion.add(-2);
@@ -146,16 +148,15 @@ public class ContenidosFijosTest {
         int result = instance.setContenidosProcedimentales(listaSeleccion);
         assertEquals(expResult, result);
     }
+
     @Test
-    public void testSetContenidosProcedimentalesVacio(){
+    public void testSetContenidosProcedimentalesVacio() {
         int expResult = 0;
         ArrayList<Integer> listaSeleccion = new ArrayList<>();
         int result = instance.setContenidosProcedimentales(listaSeleccion);
         assertEquals(expResult, result);
     }
-    
-    
-    
+
     /**
      * Test of listarContenidosProcedimentales method, of class ContenidosFijos.
      */
@@ -165,8 +166,10 @@ public class ContenidosFijosTest {
         int result = instance.listarContenidosProcedimentales().size();
         assertEquals(expResult, result);
     }
+
     /**
-     * Test of listarCompetenciasDisciplinaresMatematicas method, of class ContenidosFijos.
+     * Test of listarCompetenciasDisciplinaresMatematicas method, of class
+     * ContenidosFijos.
      */
     @Test
     public void testListarCompetenciasDisciplinaresMatematicas() {
@@ -174,8 +177,10 @@ public class ContenidosFijosTest {
         int result = instance.listarCompetenciasDisciplinaresMatematicas().size();
         assertEquals(expResult, result);
     }
+
     /**
-     * Test of listarCompetenciasDisciplinaresCienciasExperimentales method, of class ContenidosFijos.
+     * Test of listarCompetenciasDisciplinaresCienciasExperimentales method, of
+     * class ContenidosFijos.
      */
     @Test
     public void testListarCompetenciasDisciplinaresCienciasExperimentales() {
@@ -183,8 +188,10 @@ public class ContenidosFijosTest {
         int result = instance.listarCompetenciasDisciplinaresCienciasExperimentales().size();
         assertEquals(expResult, result);
     }
+
     /**
-     * Test of listarCompetenciasDisciplinaresCienciasSociales method, of class ContenidosFijos.
+     * Test of listarCompetenciasDisciplinaresCienciasSociales method, of class
+     * ContenidosFijos.
      */
     @Test
     public void testListarCompetenciasDisciplinaresCienciasSociales() {
@@ -192,8 +199,10 @@ public class ContenidosFijosTest {
         int result = instance.listarCompetenciasDisciplinaresCienciasSociales().size();
         assertEquals(expResult, result);
     }
+
     /**
-     * Test of listarCompetenciasDisciplinaresComunicaciones method, of class ContenidosFijos.
+     * Test of listarCompetenciasDisciplinaresComunicaciones method, of class
+     * ContenidosFijos.
      */
     @Test
     public void testListarCompetenciasDisciplinaresComunicaciones() {
@@ -201,8 +210,10 @@ public class ContenidosFijosTest {
         int result = instance.listarCompetenciasDisciplinaresComunicaciones().size();
         assertEquals(expResult, result);
     }
+
     /**
-     * Test of listarCompetenciasGenericasAprende method, of class ContenidosFijos.
+     * Test of listarCompetenciasGenericasAprende method, of class
+     * ContenidosFijos.
      */
     @Test
     public void testListarCompetenciasGenericasAprende() {
@@ -210,8 +221,10 @@ public class ContenidosFijosTest {
         int result = instance.listarCompetenciasGenericasAprende().size();
         assertEquals(expResult, result);
     }
+
     /**
-     * Test of listarCompetenciasGenericasAutodetermina method, of class ContenidosFijos.
+     * Test of listarCompetenciasGenericasAutodetermina method, of class
+     * ContenidosFijos.
      */
     @Test
     public void testListarCompetenciasGenericasAutodetermina() {
@@ -219,8 +232,10 @@ public class ContenidosFijosTest {
         int result = instance.listarCompetenciasGenericasAutodetermina().size();
         assertEquals(expResult, result);
     }
+
     /**
-     * Test of listarCompetenciasGenericaseExpresa method, of class ContenidosFijos.
+     * Test of listarCompetenciasGenericaseExpresa method, of class
+     * ContenidosFijos.
      */
     @Test
     public void testListarCompetenciasGenericaseExpresa() {
@@ -228,8 +243,10 @@ public class ContenidosFijosTest {
         int result = instance.listarCompetenciasGenericaseExpresa().size();
         assertEquals(expResult, result);
     }
+
     /**
-     * Test of listarCompetenciasGenericaseParticipa method, of class ContenidosFijos.
+     * Test of listarCompetenciasGenericaseParticipa method, of class
+     * ContenidosFijos.
      */
     @Test
     public void testListarCompetenciasGenericaseParticipa() {
@@ -237,8 +254,10 @@ public class ContenidosFijosTest {
         int result = instance.listarCompetenciasGenericaseParticipa().size();
         assertEquals(expResult, result);
     }
+
     /**
-     * Test of listarCompetenciasGenericasePiensa method, of class ContenidosFijos.
+     * Test of listarCompetenciasGenericasePiensa method, of class
+     * ContenidosFijos.
      */
     @Test
     public void testListarCompetenciasGenericasePiensa() {
@@ -246,8 +265,10 @@ public class ContenidosFijosTest {
         int result = instance.listarCompetenciasGenericasePiensa().size();
         assertEquals(expResult, result);
     }
+
     /**
-     * Test of listarCompetenciasGenericaseTrabaja method, of class ContenidosFijos.
+     * Test of listarCompetenciasGenericaseTrabaja method, of class
+     * ContenidosFijos.
      */
     @Test
     public void testListarCompetenciasGenericaseTrabaja() {
@@ -255,6 +276,7 @@ public class ContenidosFijosTest {
         int result = instance.listarCompetenciasGenericaseTrabaja().size();
         assertEquals(expResult, result);
     }
+
     /**
      * Test of listarInstrumentosDeEvaluacion method, of class ContenidosFijos.
      */
@@ -264,6 +286,7 @@ public class ContenidosFijosTest {
         int result = instance.listarInstrumentosDeEvaluacion().size();
         assertEquals(expResult, result);
     }
+
     /**
      * Test of listarEvidenciasDeAprendizaje method, of class ContenidosFijos.
      */

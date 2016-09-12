@@ -9,46 +9,46 @@ import java.util.ArrayList;
  * @version 1.0
  * @created 08-sep.-2016 11:45:17 p. m.
  */
-public class Asignatura{
+public class Asignatura {
 
     private int bloque = 0;
     private GestorFichero gestorFichero;
     private String nombreAsignatura = " ";
     private int semestre = 0;
 
-    public Asignatura(){
+    public Asignatura() {
 
     }
 
-    public void finalize() throws Throwable{
+    public void finalize() throws Throwable {
 
     }
 
-    public String getAsignatura(){
+    public String getAsignatura() {
         return nombreAsignatura;
     }
 
-    public int getBloque(){
+    public int getBloque() {
         return bloque;
     }
 
-    public int getSemestre(){
+    public int getSemestre() {
         return semestre;
     }
 
-    public ArrayList<String> listarAsignaturas() throws IOException{
+    public ArrayList<String> listarAsignaturas() throws IOException {
         gestorFichero = new GestorFichero();
         ArrayList<String> asignaturas = gestorFichero.getAsignaturas();
         return asignaturas;
     }
 
-    public ArrayList<String> listarBloques(String nombreAsignatura, int semestre) throws IOException{
+    public ArrayList<String> listarBloques(String nombreAsignatura, int semestre) throws IOException {
         gestorFichero = new GestorFichero();
         ArrayList<String> bloques = gestorFichero.getBloquesAsignatura(nombreAsignatura, semestre);
         return bloques;
     }
 
-    public ArrayList<String> listarSemestres(String asignatura){
+    public ArrayList<String> listarSemestres(String asignatura) {
         gestorFichero = new GestorFichero();
         ArrayList<String> semestres = new ArrayList<>();
         semestres = (ArrayList<String>) gestorFichero.getSemestresAsignatura(asignatura).clone();
@@ -60,10 +60,10 @@ public class Asignatura{
      * @param asignatura
      * @return
      */
-    public int setAsignatura(String asignatura){
-        if (asignatura.isEmpty() || asignatura == null){
+    public int setAsignatura(String asignatura) {
+        if (asignatura.isEmpty() || asignatura == null) {
             return 0;
-        }else{
+        } else {
             this.nombreAsignatura = asignatura;
             return 1;
         }
@@ -74,10 +74,10 @@ public class Asignatura{
      * @param bloque
      * @return
      */
-    public int setBloque(int bloque){
-        if (bloque<0 || bloque > 15){
+    public int setBloque(int bloque) {
+        if (bloque < 0 || bloque > 15) {
             return 0;
-        }else{
+        } else {
             this.bloque = bloque;
             return 1;
         }
@@ -88,10 +88,10 @@ public class Asignatura{
      * @param semestre
      * @return
      */
-    public int setSemestre(int semestre){
-        if (semestre<0 || semestre > 20){
+    public int setSemestre(int semestre) {
+        if (semestre < 0 || semestre > 20) {
             return 0;
-        }else{
+        } else {
             this.semestre = semestre;
             return 1;
         }
