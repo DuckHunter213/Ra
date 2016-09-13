@@ -18,8 +18,6 @@ public class ContenidosFijos {
 
     private Asignatura asignatura;
     private ContenidosEspecificos contenidosEspecificos;
-    private ContenidosGenerales contenidosGeneralesCierre;
-    private ContenidosGenerales contenidosGeneralesDesarrollo;
     private ContenidosGenerales contenidosGenerales;
     
     private ArrayList<String> competenciasDisciplinaresMatematicasInicio;
@@ -41,6 +39,18 @@ public class ContenidosFijos {
     private ArrayList<String> competenciasGenericasParticipaInicio;
     private ArrayList<String> competenciasGenericasPiensaInicio;
     private ArrayList<String> competenciasGenericasTrabajaInicio;
+    private ArrayList<String> competenciasGenericasAprendeDesarrollo;
+    private ArrayList<String> competenciasGenericasAutodeterminaDesarrollo;
+    private ArrayList<String> competenciasGenericasExpresaDesarrollo;
+    private ArrayList<String> competenciasGenericasParticipaDesarrollo;
+    private ArrayList<String> competenciasGenericasPiensaDesarrollo;
+    private ArrayList<String> competenciasGenericasTrabajaDesarrollo;
+    private ArrayList<String> competenciasGenericasAprendeCierre;
+    private ArrayList<String> competenciasGenericasAutodeterminaCierre;
+    private ArrayList<String> competenciasGenericasExpresaCierre;
+    private ArrayList<String> competenciasGenericasParticipaCierre;
+    private ArrayList<String> competenciasGenericasPiensaCierre;
+    private ArrayList<String> competenciasGenericasTrabajaCierre;
 
     private ArrayList<String> listarContenidosGenericos(String tipoListado) {
         ArrayList<String> contenidos = new ArrayList<>();
@@ -810,7 +820,7 @@ public class ContenidosFijos {
             return resultado;
         } else {
             try{
-                competenciasGenericasAutodeterminaInicio = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_APRENDE.toString());
+                competenciasGenericasAutodeterminaInicio = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_AUTODETERMINA.toString());
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasAutodeterminaInicio = new ArrayList<>();
@@ -843,7 +853,7 @@ public class ContenidosFijos {
             return resultado;
         } else {
             try{
-                competenciasGenericasExpresaInicio = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_APRENDE.toString());
+                competenciasGenericasExpresaInicio = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_EXPRESA.toString());
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasExpresaInicio = new ArrayList<>();
@@ -876,7 +886,7 @@ public class ContenidosFijos {
             return resultado;
         } else {
             try{
-                competenciasGenericasParticipaInicio = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_APRENDE.toString());
+                competenciasGenericasParticipaInicio = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_PARTICIPA.toString());
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasParticipaInicio = new ArrayList<>();
@@ -909,7 +919,7 @@ public class ContenidosFijos {
             return resultado;
         } else {
             try{
-                competenciasGenericasPiensaInicio = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_APRENDE.toString());
+                competenciasGenericasPiensaInicio = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_PIENSA.toString());
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasPiensaInicio = new ArrayList<>();
@@ -942,7 +952,7 @@ public class ContenidosFijos {
             return resultado;
         } else {
             try{
-                competenciasGenericasTrabajaInicio = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_APRENDE.toString());
+                competenciasGenericasTrabajaInicio = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_TRABAJA.toString());
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasTrabajaInicio = new ArrayList<>();
@@ -956,4 +966,401 @@ public class ContenidosFijos {
         return resultado;
     }
     
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS GENERICAS;
+     * para la sección de DESARROLLO, GUARDA LOS CONTENIDOS SELECCIONADOS DE APRENDE DE FORMA AUTÓNOMA
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0, la lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setCompetenciasGenericasAprendeDesarrollo(ArrayList<Integer> contenidosSeleccionados){
+        int resultado;
+        competenciasGenericasAprendeDesarrollo = new ArrayList<>();
+        contenidosGenerales = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            competenciasGenericasAprendeDesarrollo.add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                competenciasGenericasAprendeDesarrollo = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_APRENDE.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                competenciasGenericasAprendeDesarrollo = new ArrayList<>();
+                competenciasGenericasAprendeDesarrollo.add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS GENERICAS;
+     * para la sección de DESARROLLO, GUARDA LOS CONTENIDOS SELECCIONADOS DE SE AUTODETERMINA Y CUIDAD DE SÍ
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0, la lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setCompetenciasGenericasAutodeterminaDesarrollo(ArrayList<Integer> contenidosSeleccionados){
+        int resultado;
+        competenciasGenericasAutodeterminaDesarrollo = new ArrayList<>();
+        contenidosGenerales = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            competenciasGenericasAutodeterminaDesarrollo.add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                competenciasGenericasAutodeterminaDesarrollo = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_AUTODETERMINA.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                competenciasGenericasAutodeterminaDesarrollo = new ArrayList<>();
+                competenciasGenericasAutodeterminaDesarrollo.add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS GENERICAS;
+     * para la sección de DESARROLLO, GUARDA LOS CONTENIDOS SELECCIONADOS DE SE EXPRESA Y COMUNICA
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0, la lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setCompetenciasGenericasExpresaDesarrollo(ArrayList<Integer> contenidosSeleccionados){
+        int resultado;
+        competenciasGenericasExpresaDesarrollo = new ArrayList<>();
+        contenidosGenerales = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            competenciasGenericasExpresaDesarrollo.add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                competenciasGenericasExpresaDesarrollo = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_EXPRESA.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                competenciasGenericasExpresaDesarrollo = new ArrayList<>();
+                competenciasGenericasExpresaDesarrollo.add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS GENERICAS;
+     * para la sección de DESARROLLO, GUARDA LOS CONTENIDOS SELECCIONADOS DE PARTICIPA CON RESPONSABILIDAD
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0, la lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setCompetenciasGenericasParticipaDesarrollo(ArrayList<Integer> contenidosSeleccionados){
+        int resultado;
+        competenciasGenericasParticipaDesarrollo = new ArrayList<>();
+        contenidosGenerales = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            competenciasGenericasParticipaDesarrollo.add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                competenciasGenericasParticipaDesarrollo = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_PARTICIPA.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                competenciasGenericasParticipaDesarrollo = new ArrayList<>();
+                competenciasGenericasParticipaDesarrollo.add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS GENERICAS;
+     * para la sección de DESARROLLO, GUARDA LOS CONTENIDOS SELECCIONADOS DE PIENSA CRÍTICA Y REFLEXIVAMENTE
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0, la lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setCompetenciasGenericasPiensaDesarrollo(ArrayList<Integer> contenidosSeleccionados){
+        int resultado;
+        competenciasGenericasPiensaDesarrollo = new ArrayList<>();
+        contenidosGenerales = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            competenciasGenericasPiensaDesarrollo.add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                competenciasGenericasPiensaDesarrollo = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_PIENSA.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                competenciasGenericasPiensaDesarrollo = new ArrayList<>();
+                competenciasGenericasPiensaDesarrollo.add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS GENERICAS;
+     * para la sección de DESARROLLO, GUARDA LOS CONTENIDOS SELECCIONADOS DE TRABAJA EN FORMA COLABORATIVA
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0, la lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setCompetenciasGenericasTrabajaDesarrollo(ArrayList<Integer> contenidosSeleccionados){
+        int resultado;
+        competenciasGenericasTrabajaDesarrollo = new ArrayList<>();
+        contenidosGenerales = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            competenciasGenericasTrabajaDesarrollo.add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                competenciasGenericasTrabajaDesarrollo = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_TRABAJA.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                competenciasGenericasTrabajaDesarrollo = new ArrayList<>();
+                competenciasGenericasTrabajaDesarrollo.add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS GENERICAS;
+     * para la sección de CIERRE, GUARDA LOS CONTENIDOS SELECCIONADOS DE APRENDE DE FORMA AUTÓNOMA
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0, la lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setCompetenciasGenericasAprendeCierre(ArrayList<Integer> contenidosSeleccionados){
+        int resultado;
+        competenciasGenericasAprendeCierre = new ArrayList<>();
+        contenidosGenerales = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            competenciasGenericasAprendeCierre.add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                competenciasGenericasAprendeCierre = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_APRENDE.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                competenciasGenericasAprendeCierre = new ArrayList<>();
+                competenciasGenericasAprendeCierre.add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS GENERICAS;
+     * para la sección de CIERRE, GUARDA LOS CONTENIDOS SELECCIONADOS DE SE AUTODETERMINA Y CUIDAD DE SÍ
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0, la lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setCompetenciasGenericasAutodeterminaCierre(ArrayList<Integer> contenidosSeleccionados){
+        int resultado;
+        competenciasGenericasAutodeterminaCierre = new ArrayList<>();
+        contenidosGenerales = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            competenciasGenericasAutodeterminaCierre.add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                competenciasGenericasAutodeterminaCierre = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_AUTODETERMINA.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                competenciasGenericasAutodeterminaCierre = new ArrayList<>();
+                competenciasGenericasAutodeterminaCierre.add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS GENERICAS;
+     * para la sección de CIERRE, GUARDA LOS CONTENIDOS SELECCIONADOS DE SE EXPRESA Y COMUNICA
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0, la lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setCompetenciasGenericasExpresaCierre(ArrayList<Integer> contenidosSeleccionados){
+        int resultado;
+        competenciasGenericasExpresaCierre = new ArrayList<>();
+        contenidosGenerales = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            competenciasGenericasExpresaCierre.add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                competenciasGenericasExpresaCierre = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_EXPRESA.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                competenciasGenericasExpresaCierre = new ArrayList<>();
+                competenciasGenericasExpresaCierre.add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS GENERICAS;
+     * para la sección de CIERRE, GUARDA LOS CONTENIDOS SELECCIONADOS DE PARTICIPA CON RESPONSABILIDAD
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0, la lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setCompetenciasGenericasParticipaCierre(ArrayList<Integer> contenidosSeleccionados){
+        int resultado;
+        competenciasGenericasParticipaCierre = new ArrayList<>();
+        contenidosGenerales = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            competenciasGenericasParticipaCierre.add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                competenciasGenericasParticipaCierre = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_PARTICIPA.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                competenciasGenericasParticipaCierre = new ArrayList<>();
+                competenciasGenericasParticipaCierre.add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS GENERICAS;
+     * para la sección de CIERRE, GUARDA LOS CONTENIDOS SELECCIONADOS DE PIENSA CRÍTICA Y REFLEXIVAMENTE
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0, la lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setCompetenciasGenericasPiensaCierre(ArrayList<Integer> contenidosSeleccionados){
+        int resultado;
+        competenciasGenericasPiensaCierre = new ArrayList<>();
+        contenidosGenerales = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            competenciasGenericasPiensaCierre.add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                competenciasGenericasPiensaCierre = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_PIENSA.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                competenciasGenericasPiensaCierre = new ArrayList<>();
+                competenciasGenericasPiensaCierre.add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS GENERICAS;
+     * para la sección de CIERRE, GUARDA LOS CONTENIDOS SELECCIONADOS DE TRABAJA EN FORMA COLABORATIVA
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0, la lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setCompetenciasGenericasTrabajaCierre(ArrayList<Integer> contenidosSeleccionados){
+        int resultado;
+        competenciasGenericasTrabajaCierre = new ArrayList<>();
+        contenidosGenerales = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            competenciasGenericasTrabajaCierre.add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                competenciasGenericasTrabajaCierre = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_GENERICO.toString(), enumContenidosGenerales.TIPO_CONT_GENERICO_TRABAJA.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                competenciasGenericasTrabajaCierre = new ArrayList<>();
+                competenciasGenericasTrabajaCierre.add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
 }

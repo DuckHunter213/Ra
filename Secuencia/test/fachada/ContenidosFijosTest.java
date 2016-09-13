@@ -355,7 +355,6 @@ public class ContenidosFijosTest {
         assertEquals(expResult, result);
     }
 
-
     @Test
     public void testSetDisciplinaresComunicacionCieElegidasValido() {
         ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
@@ -393,6 +392,7 @@ public class ContenidosFijosTest {
         int result = instance.setCompetenciasDisciplinaresComunicacionCierre(contenidosSeleccionados);
         assertEquals(expResult, result);
     }
+    
     
     @Test
     public void testSetGenericaAprendeIniValido() {
@@ -432,4 +432,79 @@ public class ContenidosFijosTest {
         assertEquals(expResult, result);
     }
 
+    @Test
+    public void testSetGenericaExpresaDesValido() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        contenidosSeleccionados.add(0);
+        contenidosSeleccionados.add(2);
+        contenidosSeleccionados.add(1);
+        int expResult = 1;
+        int result = instance.setCompetenciasGenericasExpresaDesarrollo(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSetGenericaExpresaDesVacio() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        int expResult = -1;
+        int result = instance.setCompetenciasGenericasExpresaDesarrollo(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSetGenericaExpresaDesFueraLimiteSuperior() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        contenidosSeleccionados.add(0);
+        contenidosSeleccionados.add(2);
+        contenidosSeleccionados.add(23);
+        int expResult = -1;
+        int result = instance.setCompetenciasGenericasExpresaDesarrollo(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSetGenericaExpresaDesElegidasFueraLimiteInferior() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        contenidosSeleccionados.add(-3);
+        contenidosSeleccionados.add(2);
+        contenidosSeleccionados.add(1);
+        int expResult = -1;
+        int result = instance.setCompetenciasGenericasExpresaDesarrollo(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testSetGenericaAprendeCieValido() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        contenidosSeleccionados.add(0);
+        contenidosSeleccionados.add(2);
+        contenidosSeleccionados.add(1);
+        int expResult = 1;
+        int result = instance.setCompetenciasGenericasParticipaCierre(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSetGenericaAprendeCieVacio() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        int expResult = -1;
+        int result = instance.setCompetenciasGenericasParticipaCierre(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSetGenericaAprendeCieFueraLimiteSuperior() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        contenidosSeleccionados.add(0);
+        contenidosSeleccionados.add(2);
+        contenidosSeleccionados.add(23);
+        int expResult = -1;
+        int result = instance.setCompetenciasGenericasParticipaCierre(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSetGenericaAprendeCieElegidasFueraLimiteInferior() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        contenidosSeleccionados.add(-3);
+        contenidosSeleccionados.add(2);
+        contenidosSeleccionados.add(1);
+        int expResult = -1;
+        int result = instance.setCompetenciasGenericasParticipaCierre(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
 }
