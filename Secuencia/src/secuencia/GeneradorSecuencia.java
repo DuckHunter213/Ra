@@ -2,6 +2,9 @@ package Secuencia;
 
 import Fachada.ContenidosAgregados;
 import Fachada.ContenidosFijos;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.PdfWriter;
 
 /**
  * @author Gerardo Mares
@@ -14,7 +17,7 @@ public class GeneradorSecuencia {
     private ContenidosFijos contenidosFijos;
 
     public GeneradorSecuencia() {
-
+        
     }
 
     public void finalize() throws Throwable {

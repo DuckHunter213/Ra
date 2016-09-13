@@ -43,10 +43,10 @@ public class Rubrica extends javax.swing.JFrame{
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         docenteTextField = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        fechaInicioTextField = new javax.swing.JTextField();
+        sesionesTextField = new javax.swing.JTextField();
+        secuenciaTextField = new javax.swing.JTextField();
+        periodoEscolarTextField = new javax.swing.JTextField();
         jPanel15 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -121,30 +121,26 @@ public class Rubrica extends javax.swing.JFrame{
 
         jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField2.setText("jTextField1");
+        jTextField2.setText("<Rellenar>");
 
         jTextField3.setEditable(false);
         jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField3.setText("jTextField1");
+        jTextField3.setText("<Rellenar>");
 
         docenteTextField.setEditable(false);
         docenteTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        jTextField5.setEditable(false);
-        jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField5.setText("jTextField1");
+        fechaInicioTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        fechaInicioTextField.setText("<Rellenar>");
 
-        jTextField6.setEditable(false);
-        jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField6.setText("jTextField1");
+        sesionesTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        sesionesTextField.setText("<Rellenar>");
 
-        jTextField7.setEditable(false);
-        jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField7.setText("jTextField1");
+        secuenciaTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        secuenciaTextField.setText("<Rellenar>");
 
-        jTextField8.setEditable(false);
-        jTextField8.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField8.setText("jTextField1");
+        periodoEscolarTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        periodoEscolarTextField.setText("<Rellenar>");
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -166,16 +162,16 @@ public class Rubrica extends javax.swing.JFrame{
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.CENTER, jPanel14Layout.createSequentialGroup()
-                                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(periodoEscolarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(secuenciaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(sesionesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaInicioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(docenteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel14Layout.createSequentialGroup()
@@ -214,10 +210,10 @@ public class Rubrica extends javax.swing.JFrame{
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(periodoEscolarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(secuenciaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sesionesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fechaInicioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -544,6 +540,7 @@ public class Rubrica extends javax.swing.JFrame{
     public static javax.swing.JTextField asignaturaTextField;
     public static javax.swing.JTextField docenteTextField;
     private javax.swing.border.EmptyBorder emptyBorder1;
+    private javax.swing.JTextField fechaInicioTextField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -584,10 +581,9 @@ public class Rubrica extends javax.swing.JFrame{
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField periodoEscolarTextField;
+    private javax.swing.JTextField secuenciaTextField;
+    private javax.swing.JTextField sesionesTextField;
     // End of variables declaration//GEN-END:variables
     
 }
