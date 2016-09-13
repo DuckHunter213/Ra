@@ -177,8 +177,9 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         Rubrica rubrica = new Rubrica();
+        Rubrica.asignaturaTextField.setText((String) asignaturaComboBox.getSelectedItem());
         rubrica.setVisible(true);
-        
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
@@ -229,7 +230,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JComboBox<String> asignaturaComboBox;
+    public static javax.swing.JComboBox<String> asignaturaComboBox;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;

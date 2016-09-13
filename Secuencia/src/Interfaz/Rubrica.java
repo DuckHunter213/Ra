@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Interfaz;
-
+import Interfaz.Menu;
 /**
  *
  * @author DARKENSES
@@ -542,7 +542,7 @@ public class Rubrica extends javax.swing.JFrame{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField asignaturaTextField;
+    public static javax.swing.JTextField asignaturaTextField;
     private javax.swing.border.EmptyBorder emptyBorder1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -590,4 +590,5 @@ public class Rubrica extends javax.swing.JFrame{
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
+    
 }
