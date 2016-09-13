@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
 /**
@@ -71,21 +72,11 @@ public class Menu extends javax.swing.JFrame {
         jLabel4.setText("Docente");
 
         jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
 
         jComboBox2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         asignaturaComboBox.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         asignaturaComboBox.setModel(new DefaultComboBoxModel(asignaturas.toArray()));
-        asignaturaComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                asignaturaComboBoxActionPerformed(evt);
-            }
-        });
 
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextField1.setToolTipText("");
@@ -180,20 +171,14 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void asignaturaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignaturaComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_asignaturaComboBoxActionPerformed
-
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        Rubrica rubrica = new Rubrica();
         rubrica.setVisible(true);
+        
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
@@ -244,7 +229,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> asignaturaComboBox;
+    public javax.swing.JComboBox<String> asignaturaComboBox;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
