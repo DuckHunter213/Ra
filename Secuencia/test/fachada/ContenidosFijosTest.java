@@ -301,7 +301,7 @@ public class ContenidosFijosTest {
     
     
     @Test
-    public void testSetDisciplinaresMatematicasElegidasValido() {
+    public void testSetDisciplinaresMatematicasIniElegidasValido() {
         ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
         contenidosSeleccionados.add(0);
         contenidosSeleccionados.add(2);
@@ -311,14 +311,14 @@ public class ContenidosFijosTest {
         assertEquals(expResult, result);
     }
     @Test
-    public void testSetDisciplinaresMatematicasElegidasVacio() {
+    public void testSetDisciplinaresMatematicasIniElegidasVacio() {
         ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
         int expResult = -1;
         int result = instance.setCompetenciasDisciplinaresMatematicasInicio(contenidosSeleccionados);
         assertEquals(expResult, result);
     }
     @Test
-    public void testSetDisciplinaresMatematicasElegidasFueraLimiteSuperior() {
+    public void testSetDisciplinaresMatematicasIniElegidasFueraLimiteSuperior() {
         ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
         contenidosSeleccionados.add(0);
         contenidosSeleccionados.add(2);
@@ -328,13 +328,90 @@ public class ContenidosFijosTest {
         assertEquals(expResult, result);
     }
     @Test
-    public void testSetDisciplinaresMatematicasElegidasFueraLimiteInferior() {
+    public void testSetDisciplinaresMatematicasIniElegidasFueraLimiteInferior() {
         ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
         contenidosSeleccionados.add(-3);
         contenidosSeleccionados.add(2);
         contenidosSeleccionados.add(1);
         int expResult = -1;
         int result = instance.setCompetenciasDisciplinaresMatematicasInicio(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testSetDisciplinaresCienciasSocialesDesElegidasValido() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        contenidosSeleccionados.add(0);
+        contenidosSeleccionados.add(2);
+        contenidosSeleccionados.add(3);
+        int expResult = 1;
+        int result = instance.setCompetenciasDisciplinaresCienciasSocialesDesarrollo(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSetDisciplinaresCienciasSocialesDesElegidasVacio() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        int expResult = -1;
+        int result = instance.setCompetenciasDisciplinaresCienciasSocialesDesarrollo(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSetDisciplinaresCienciasSocialesDesElegidasFueraLimiteSuperior() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        contenidosSeleccionados.add(0);
+        contenidosSeleccionados.add(2);
+        contenidosSeleccionados.add(23);
+        int expResult = -1;
+        int result = instance.setCompetenciasDisciplinaresCienciasSocialesDesarrollo(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSetDisciplinaresCienciasSocialesDesElegidasFueraLimiteInferior() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        contenidosSeleccionados.add(-3);
+        contenidosSeleccionados.add(2);
+        contenidosSeleccionados.add(1);
+        int expResult = -1;
+        int result = instance.setCompetenciasDisciplinaresCienciasSocialesDesarrollo(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
+
+
+    @Test
+    public void testSetDisciplinaresComunicacionCieElegidasValido() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        contenidosSeleccionados.add(0);
+        contenidosSeleccionados.add(2);
+        contenidosSeleccionados.add(3);
+        int expResult = 1;
+        int result = instance.setCompetenciasDisciplinaresComunicacionCierre(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSetDisciplinaresComunicacionCieElegidasVacio() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        int expResult = -1;
+        int result = instance.setCompetenciasDisciplinaresComunicacionCierre(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSetDisciplinaresComunicacionCieElegidasFueraLimiteSuperior() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        contenidosSeleccionados.add(0);
+        contenidosSeleccionados.add(2);
+        contenidosSeleccionados.add(23);
+        int expResult = -1;
+        int result = instance.setCompetenciasDisciplinaresComunicacionCierre(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSetDisciplinaresComunicacionCieElegidasFueraLimiteInferior() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        contenidosSeleccionados.add(-3);
+        contenidosSeleccionados.add(2);
+        contenidosSeleccionados.add(1);
+        int expResult = -1;
+        int result = instance.setCompetenciasDisciplinaresComunicacionCierre(contenidosSeleccionados);
         assertEquals(expResult, result);
     }
 
