@@ -64,7 +64,7 @@ public class ContenidosGenerales {
      * @param tipoContenido
      * @return Un ArrayList con lo que se seleccionó
      */
-    public ArrayList<String> getOtrosContenidos(ArrayList<Integer> contenidosSeleccionados, String tipoContenido) {
+    public ArrayList<String> getOtrosContenidos(ArrayList<Integer> contenidosSeleccionados, String tipoContenido) throws IndexOutOfBoundsException{
         ArrayList<String> contenidos = new ArrayList<>();
         if (contenidosSeleccionados.isEmpty()) {
             contenidos.add(" ");
@@ -73,20 +73,22 @@ public class ContenidosGenerales {
         ArrayList<String> listaContenidos;
         listaContenidos = listarOtrosContenidos(tipoContenido);
         gestorFichero = new GestorFichero();
-        contenidos = seleccionarContenidos(contenidosSeleccionados, listaContenidos);
+        try{
+            contenidos = seleccionarContenidos(contenidosSeleccionados, listaContenidos);            
+        }catch (IndexOutOfBoundsException ex){
+            throw new IndexOutOfBoundsException("límites erroneos");            
+        }
         return contenidos;
     }
 
-    private ArrayList<String> seleccionarContenidos(ArrayList<Integer> contenidosSeleccionados, ArrayList<String> listaContenidos) {
+    private ArrayList<String> seleccionarContenidos(ArrayList<Integer> contenidosSeleccionados, ArrayList<String> listaContenidos) throws IndexOutOfBoundsException{
         ArrayList<String> contenidos = new ArrayList<>();
         try {
             for (Integer contenidoSeleccionado : contenidosSeleccionados) {
                 contenidos.add(listaContenidos.get(contenidoSeleccionado));
-
             }
         } catch (IndexOutOfBoundsException ex) {
-            contenidos = new ArrayList<>();
-            contenidos.add(" ");
+            throw new IndexOutOfBoundsException("límites erroneos");
         }
         return contenidos;
     }

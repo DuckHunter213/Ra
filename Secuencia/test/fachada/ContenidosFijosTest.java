@@ -15,6 +15,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import util.enumContenidosEspecificos;
+import util.enumContenidosGenerales;
 
 /**
  *
@@ -294,6 +295,46 @@ public class ContenidosFijosTest {
     public void testListarEvidenciasDeAprendizaje() {
         int expResult = 13;
         int result = instance.listarEvidenciasDeAprendizaje().size();
+        assertEquals(expResult, result);
+    }
+    
+    
+    
+    @Test
+    public void testSetDisciplinaresMatematicasElegidasValido() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        contenidosSeleccionados.add(0);
+        contenidosSeleccionados.add(2);
+        contenidosSeleccionados.add(3);
+        int expResult = 1;
+        int result = instance.setCompetenciasDisciplinaresMatematicasInicio(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSetDisciplinaresMatematicasElegidasVacio() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        int expResult = -1;
+        int result = instance.setCompetenciasDisciplinaresMatematicasInicio(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSetDisciplinaresMatematicasElegidasFueraLimiteSuperior() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        contenidosSeleccionados.add(0);
+        contenidosSeleccionados.add(2);
+        contenidosSeleccionados.add(13);
+        int expResult = -1;
+        int result = instance.setCompetenciasDisciplinaresMatematicasInicio(contenidosSeleccionados);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testSetDisciplinaresMatematicasElegidasFueraLimiteInferior() {
+        ArrayList<Integer> contenidosSeleccionados = new ArrayList<>();
+        contenidosSeleccionados.add(-3);
+        contenidosSeleccionados.add(2);
+        contenidosSeleccionados.add(1);
+        int expResult = -1;
+        int result = instance.setCompetenciasDisciplinaresMatematicasInicio(contenidosSeleccionados);
         assertEquals(expResult, result);
     }
 

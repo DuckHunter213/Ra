@@ -21,6 +21,10 @@ public class ContenidosFijos {
     private ContenidosGenerales contenidosGeneralesCierre;
     private ContenidosGenerales contenidosGeneralesDesarrollo;
     private ContenidosGenerales contenidosGeneralesInicio;
+    private ArrayList<String> competenciasDisciplinaresMatematicasInicio;
+    private ArrayList<String> competenciasDisciplinaresComunicacionInicio;
+    private ArrayList<String> competenciasDisciplinaresCienciasSocialesInicio;
+    private ArrayList<String> competenciasDisciplinaresCienciasExperimentalesInicio;
 
     private ArrayList<String> listarContenidosGenericos(String tipoListado) {
         ArrayList<String> contenidos = new ArrayList<>();
@@ -308,7 +312,6 @@ public class ContenidosFijos {
         }
         return resultado;
     }
-
     /**
      * En la sección "Saberes Necesarios para el desarrollo" de la rúbrica,
      * captura todos los contenidos DECLARATIVOS
@@ -338,7 +341,6 @@ public class ContenidosFijos {
         int resultado = setContenidosParaDesarrollo(contenidosSeleccionados, enumContenidosEspecificos.CONTENIDO_PROCEDIMENTAL.toString());
         return resultado;
     }
-
     /**
      * En la sección "Saberes Necesarios para el desarrollo" de la rúbrica,
      * captura todos los contenidos ACTITUDINALES
@@ -354,9 +356,132 @@ public class ContenidosFijos {
         return resultado;
     }
 
-    public int setCompetenciasDisciplinaresMatematicas() {
-        int resultado = 0;
-
+    
+    
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS DISCIPLINARES,
+     * para la sección de INICIO, GUARDA LOS CONTENIDOS SELECCIONADOS DE MATEMÁTICAS
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0 lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setCompetenciasDisciplinaresMatematicasInicio(ArrayList<Integer> contenidosSeleccionados) {
+        int resultado;
+        competenciasDisciplinaresMatematicasInicio = new ArrayList<>();
+        contenidosGeneralesInicio = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            competenciasDisciplinaresMatematicasInicio.add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                resultado = 1;
+                competenciasDisciplinaresMatematicasInicio = contenidosGeneralesInicio.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_DISCIPLINAR.toString(), enumContenidosGenerales.TIPO_CONT_DISCIPLINAR_MATEMATICAS.toString());
+            }catch(IndexOutOfBoundsException ex){
+                competenciasDisciplinaresMatematicasInicio = new ArrayList<>();
+                competenciasDisciplinaresMatematicasInicio.add(" ");
+                resultado = -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS DISCIPLINARES,
+     * para la sección de INICIO, GUARDA LOS CONTENIDOS SELECCIONADOS DE COMUNICACIÓN
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0 lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setCompetenciasDisciplinaresComunicacionInicio(ArrayList<Integer> contenidosSeleccionados) {
+        int resultado;
+        competenciasDisciplinaresComunicacionInicio = new ArrayList<>();
+        contenidosGeneralesInicio = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            competenciasDisciplinaresMatematicasInicio.add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                resultado = 1;
+                competenciasDisciplinaresComunicacionInicio = contenidosGeneralesInicio.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_DISCIPLINAR.toString(), enumContenidosGenerales.TIPO_CONT_DISCIPLINAR_COMUNICACION.toString());                
+            } catch (IndexOutOfBoundsException ex){
+                competenciasDisciplinaresMatematicasInicio = new ArrayList<>();
+                competenciasDisciplinaresMatematicasInicio.add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS DISCIPLINARES,
+     * para la sección de INICIO, GUARDA LOS CONTENIDOS SELECCIONADOS DE CIENCIAS SOCIALES
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0 lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setCompetenciasDisciplinaresCienciasSocialesInicio(ArrayList<Integer> contenidosSeleccionados) {
+        int resultado;
+        competenciasDisciplinaresCienciasSocialesInicio = new ArrayList<>();
+        contenidosGeneralesInicio = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            competenciasDisciplinaresCienciasSocialesInicio.add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{ //COPIAR EL TRY CATCH EN LOS MÉTODOS DE ABAJO
+                competenciasDisciplinaresCienciasSocialesInicio = contenidosGeneralesInicio.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_DISCIPLINAR.toString(), enumContenidosGenerales.TIPO_CONT_DISCIPLINAR_CIENCIAS_SOCIALES.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                competenciasDisciplinaresCienciasSocialesInicio = new ArrayList<>();
+                competenciasDisciplinaresCienciasSocialesInicio.add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS DISCIPLINARES,
+     * para la sección de INICIO, GUARDA LOS CONTENIDOS SELECCIONADOS DE CIENCIAS EXPERIMENTALES
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0 lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setCompetenciasDisciplinaresCienciasExperimentalesInicio(ArrayList<Integer> contenidosSeleccionados) {
+        int resultado;
+        competenciasDisciplinaresCienciasExperimentalesInicio = new ArrayList<>();
+        contenidosGeneralesInicio = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            competenciasDisciplinaresCienciasExperimentalesInicio.add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            competenciasDisciplinaresCienciasExperimentalesInicio = contenidosGeneralesInicio.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_DISCIPLINAR.toString(), enumContenidosGenerales.TIPO_CONT_DISCIPLINAR_CIENCIAS_EXPERIMENTALES.toString());
+            resultado = 1;
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
         return resultado;
     }
 
