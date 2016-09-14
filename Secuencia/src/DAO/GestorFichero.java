@@ -95,7 +95,6 @@ public class GestorFichero {
             String[] arregloArchivos = directorio.list();
             for (String file : arregloArchivos) {
                 if (file != null) {
-                    System.out.println(file);
                     archivos.add(file);
                 }
             }
