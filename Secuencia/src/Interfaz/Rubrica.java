@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Interfaz;
-import Interfaz.Menu;
+import Interfaz.MenuRubrica;
 /**
  *
  * @author DARKENSES

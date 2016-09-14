@@ -19,7 +19,7 @@ import javax.swing.JPanel;
  *
  * @author DARKENSES
  */
-public class Menu extends javax.swing.JFrame {
+public class MenuRubrica extends javax.swing.JFrame {
 
     Asignatura asignatura;
     List<String> asignaturas;
@@ -29,7 +29,7 @@ public class Menu extends javax.swing.JFrame {
      *
      * @throws java.io.IOException
      */
-    public Menu() throws IOException {
+    public MenuRubrica() throws IOException {
         asignatura = new Asignatura();
         asignaturas = asignatura.listarAsignaturas();
         initComponents();
@@ -177,8 +177,11 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         Rubrica rubrica = new Rubrica();
+        Asignatura asignatura = new Asignatura();
         Rubrica.asignaturaTextField.setText((String) asignaturaComboBox.getSelectedItem());
+        asignatura.setAsignatura((String) asignaturaComboBox.getSelectedItem());
         Rubrica.docenteTextField.setText(docenteTextField.getText());
+        
         rubrica.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
@@ -204,14 +207,15 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuRubrica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuRubrica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuRubrica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuRubrica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /*
@@ -220,9 +224,9 @@ public class Menu extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new Menu().setVisible(true);
+                    new MenuRubrica().setVisible(true);
                 } catch (IOException ex) {
-                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(MenuRubrica.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
