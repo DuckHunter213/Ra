@@ -52,7 +52,11 @@ public class ContenidosGenerales {
         ArrayList<String> listaContenidos;
         listaContenidos = listarCompetencias(tipoCompetencia, nombreCompetencia);
         gestorFichero = new GestorFichero();
-        contenidos = seleccionarContenidos(contenidosSeleccionados, listaContenidos);
+        try{
+            contenidos = seleccionarContenidos(contenidosSeleccionados, listaContenidos);            
+        }catch(IndexOutOfBoundsException){
+            contenidos.add(" ");
+        }
         return contenidos;
     }
 
