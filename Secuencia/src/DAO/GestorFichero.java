@@ -152,8 +152,7 @@ public class GestorFichero {
                 String[] arregloArchivos = directorio.list();
                 for (String file : arregloArchivos) {
                     if (file != null) {
-                        System.out.println(file);
-                        archivos.add(file);
+                        archivos.add(file.substring(0, 1));
                     }
                 }
             } catch (Exception ex) {
