@@ -51,6 +51,13 @@ public class ContenidosFijos {
     private ArrayList<String> competenciasGenericasParticipaCierre;
     private ArrayList<String> competenciasGenericasPiensaCierre;
     private ArrayList<String> competenciasGenericasTrabajaCierre;
+    
+    private ArrayList<String> instrumentosDeEvaluacionInicio;
+    private ArrayList<String> instrumentosDeEvaluacionDesarrollo;
+    private ArrayList<String> instrumentosDeEvaluacionCierre;
+    private ArrayList<String> evidenciasDeAprendizajeInicio;
+    private ArrayList<String> evidenciasDeAprendizajeDesarrollo;
+    private ArrayList<String> evidenciasDeAprendizajeCierre;
 
     private ArrayList<String> listarContenidosGenericos(String tipoListado) {
         ArrayList<String> contenidos = new ArrayList<>();
@@ -315,14 +322,13 @@ public class ContenidosFijos {
     private int setContenidosParaDesarrollo(ArrayList<Integer> contenidosSeleccionados, String tipoContenido) {
         int resultado;
         contenidosEspecificos = new ContenidosEspecificos();
-        if (contenidosSeleccionados.isEmpty()) {
-            return resultado = 0;
-        } else {
-            resultado = contenidosEspecificos.setContenidosEspecificos(asignatura, contenidosSeleccionados, tipoContenido);
-        }
+        resultado = contenidosEspecificos.setContenidosEspecificos(asignatura, contenidosSeleccionados, tipoContenido);
         if (resultado > 1) {
             resultado = 1;
         }
+        if (contenidosSeleccionados.isEmpty()) {
+            resultado = 0;
+        } 
         return resultado;
     }
     /**
@@ -367,7 +373,7 @@ public class ContenidosFijos {
         int resultado = setContenidosParaDesarrollo(contenidosSeleccionados, enumContenidosEspecificos.CONTENIDO_ACTITUDINAL.toString());
         return resultado;
     }
-    
+        
     /**
      * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS DISCIPLINARES,
      * para la sección de INICIO, GUARDA LOS CONTENIDOS SELECCIONADOS DE MATEMÁTICAS
@@ -383,7 +389,7 @@ public class ContenidosFijos {
         competenciasDisciplinaresMatematicasInicio = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasDisciplinaresMatematicasInicio.add(" ");
+            getCompetenciasDisciplinaresMatematicasInicio().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -392,7 +398,7 @@ public class ContenidosFijos {
                 competenciasDisciplinaresMatematicasInicio = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_DISCIPLINAR.toString(), enumContenidosGenerales.TIPO_CONT_DISCIPLINAR_MATEMATICAS.toString());
             }catch(IndexOutOfBoundsException ex){
                 competenciasDisciplinaresMatematicasInicio = new ArrayList<>();
-                competenciasDisciplinaresMatematicasInicio.add(" ");
+                getCompetenciasDisciplinaresMatematicasInicio().add(" ");
                 resultado = -1;
             }
         }
@@ -416,7 +422,7 @@ public class ContenidosFijos {
         competenciasDisciplinaresComunicacionInicio = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasDisciplinaresComunicacionInicio.add(" ");
+            getCompetenciasDisciplinaresComunicacionInicio().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -425,7 +431,7 @@ public class ContenidosFijos {
                 competenciasDisciplinaresComunicacionInicio = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_DISCIPLINAR.toString(), enumContenidosGenerales.TIPO_CONT_DISCIPLINAR_COMUNICACION.toString());                
             } catch (IndexOutOfBoundsException ex){
                 competenciasDisciplinaresComunicacionInicio = new ArrayList<>();
-                competenciasDisciplinaresComunicacionInicio.add(" ");
+                getCompetenciasDisciplinaresComunicacionInicio().add(" ");
                 return -1;
             }
         }
@@ -449,7 +455,7 @@ public class ContenidosFijos {
         competenciasDisciplinaresCienciasSocialesInicio = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasDisciplinaresCienciasSocialesInicio.add(" ");
+            getCompetenciasDisciplinaresCienciasSocialesInicio().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -458,7 +464,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasDisciplinaresCienciasSocialesInicio = new ArrayList<>();
-                competenciasDisciplinaresCienciasSocialesInicio.add(" ");
+                getCompetenciasDisciplinaresCienciasSocialesInicio().add(" ");
                 return -1;
             }
         }
@@ -482,7 +488,7 @@ public class ContenidosFijos {
         competenciasDisciplinaresCienciasExperimentalesInicio = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasDisciplinaresCienciasExperimentalesInicio.add(" ");
+            getCompetenciasDisciplinaresCienciasExperimentalesInicio().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -491,7 +497,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasDisciplinaresCienciasExperimentalesInicio = new ArrayList<>();
-                competenciasDisciplinaresCienciasExperimentalesInicio.add(" ");
+                getCompetenciasDisciplinaresCienciasExperimentalesInicio().add(" ");
                 return -1;
             }
         }
@@ -516,7 +522,7 @@ public class ContenidosFijos {
         competenciasDisciplinaresMatematicasDesarrollo = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasDisciplinaresMatematicasDesarrollo.add(" ");
+            getCompetenciasDisciplinaresMatematicasDesarrollo().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -525,7 +531,7 @@ public class ContenidosFijos {
                 competenciasDisciplinaresMatematicasDesarrollo = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_DISCIPLINAR.toString(), enumContenidosGenerales.TIPO_CONT_DISCIPLINAR_MATEMATICAS.toString());
             }catch(IndexOutOfBoundsException ex){
                 competenciasDisciplinaresMatematicasDesarrollo = new ArrayList<>();
-                competenciasDisciplinaresMatematicasDesarrollo.add(" ");
+                getCompetenciasDisciplinaresMatematicasDesarrollo().add(" ");
                 resultado = -1;
             }
         }
@@ -549,7 +555,7 @@ public class ContenidosFijos {
         competenciasDisciplinaresComunicacionDesarrollo = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasDisciplinaresComunicacionDesarrollo.add(" ");
+            getCompetenciasDisciplinaresComunicacionDesarrollo().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -558,7 +564,7 @@ public class ContenidosFijos {
                 competenciasDisciplinaresComunicacionDesarrollo = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_DISCIPLINAR.toString(), enumContenidosGenerales.TIPO_CONT_DISCIPLINAR_COMUNICACION.toString());                
             } catch (IndexOutOfBoundsException ex){
                 competenciasDisciplinaresComunicacionDesarrollo = new ArrayList<>();
-                competenciasDisciplinaresComunicacionDesarrollo.add(" ");
+                getCompetenciasDisciplinaresComunicacionDesarrollo().add(" ");
                 return -1;
             }
         }
@@ -582,7 +588,7 @@ public class ContenidosFijos {
         competenciasDisciplinaresCienciasSocialesDesarrollo = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasDisciplinaresCienciasSocialesDesarrollo.add(" ");
+            getCompetenciasDisciplinaresCienciasSocialesDesarrollo().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -591,7 +597,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasDisciplinaresCienciasSocialesDesarrollo = new ArrayList<>();
-                competenciasDisciplinaresCienciasSocialesDesarrollo.add(" ");
+                getCompetenciasDisciplinaresCienciasSocialesDesarrollo().add(" ");
                 return -1;
             }
         }
@@ -615,7 +621,7 @@ public class ContenidosFijos {
         competenciasDisciplinaresCienciasExperimentalesDesarrollo = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasDisciplinaresCienciasExperimentalesDesarrollo.add(" ");
+            getCompetenciasDisciplinaresCienciasExperimentalesDesarrollo().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -624,7 +630,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasDisciplinaresCienciasExperimentalesDesarrollo = new ArrayList<>();
-                competenciasDisciplinaresCienciasExperimentalesDesarrollo.add(" ");
+                getCompetenciasDisciplinaresCienciasExperimentalesDesarrollo().add(" ");
                 return -1;
             }
         }
@@ -649,7 +655,7 @@ public class ContenidosFijos {
         competenciasDisciplinaresMatematicasCierre = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasDisciplinaresMatematicasCierre.add(" ");
+            getCompetenciasDisciplinaresMatematicasCierre().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -658,7 +664,7 @@ public class ContenidosFijos {
                 competenciasDisciplinaresMatematicasCierre = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_DISCIPLINAR.toString(), enumContenidosGenerales.TIPO_CONT_DISCIPLINAR_MATEMATICAS.toString());
             }catch(IndexOutOfBoundsException ex){
                 competenciasDisciplinaresMatematicasCierre = new ArrayList<>();
-                competenciasDisciplinaresMatematicasCierre.add(" ");
+                getCompetenciasDisciplinaresMatematicasCierre().add(" ");
                 resultado = -1;
             }
         }
@@ -682,7 +688,7 @@ public class ContenidosFijos {
         competenciasDisciplinaresComunicacionCierre = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasDisciplinaresComunicacionCierre.add(" ");
+            getCompetenciasDisciplinaresComunicacionCierre().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -691,7 +697,7 @@ public class ContenidosFijos {
                 competenciasDisciplinaresComunicacionCierre = contenidosGenerales.getCompetenciasElegidas(contenidosSeleccionados, enumContenidosGenerales.CONTENIDO_DISCIPLINAR.toString(), enumContenidosGenerales.TIPO_CONT_DISCIPLINAR_COMUNICACION.toString());                
             } catch (IndexOutOfBoundsException ex){
                 competenciasDisciplinaresComunicacionCierre = new ArrayList<>();
-                competenciasDisciplinaresComunicacionCierre.add(" ");
+                getCompetenciasDisciplinaresComunicacionCierre().add(" ");
                 return -1;
             }
         }
@@ -715,7 +721,7 @@ public class ContenidosFijos {
         competenciasDisciplinaresCienciasSocialesCierre = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasDisciplinaresCienciasSocialesCierre.add(" ");
+            getCompetenciasDisciplinaresCienciasSocialesCierre().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -724,7 +730,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasDisciplinaresCienciasSocialesCierre = new ArrayList<>();
-                competenciasDisciplinaresCienciasSocialesCierre.add(" ");
+                getCompetenciasDisciplinaresCienciasSocialesCierre().add(" ");
                 return -1;
             }
         }
@@ -748,7 +754,7 @@ public class ContenidosFijos {
         competenciasDisciplinaresCienciasExperimentalesCierre = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasDisciplinaresCienciasExperimentalesCierre.add(" ");
+            getCompetenciasDisciplinaresCienciasExperimentalesCierre().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -757,7 +763,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasDisciplinaresCienciasExperimentalesCierre = new ArrayList<>();
-                competenciasDisciplinaresCienciasExperimentalesCierre.add(" ");
+                getCompetenciasDisciplinaresCienciasExperimentalesCierre().add(" ");
                 return -1;
             }
         }
@@ -782,7 +788,7 @@ public class ContenidosFijos {
         competenciasGenericasAprendeInicio = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasGenericasAprendeInicio.add(" ");
+            getCompetenciasGenericasAprendeInicio().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -791,7 +797,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasAprendeInicio = new ArrayList<>();
-                competenciasGenericasAprendeInicio.add(" ");
+                getCompetenciasGenericasAprendeInicio().add(" ");
                 return -1;
             }
         }
@@ -815,7 +821,7 @@ public class ContenidosFijos {
         competenciasGenericasAutodeterminaInicio = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasGenericasAutodeterminaInicio.add(" ");
+            getCompetenciasGenericasAutodeterminaInicio().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -824,7 +830,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasAutodeterminaInicio = new ArrayList<>();
-                competenciasGenericasAutodeterminaInicio.add(" ");
+                getCompetenciasGenericasAutodeterminaInicio().add(" ");
                 return -1;
             }
         }
@@ -848,7 +854,7 @@ public class ContenidosFijos {
         competenciasGenericasExpresaInicio = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasGenericasExpresaInicio.add(" ");
+            getCompetenciasGenericasExpresaInicio().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -857,7 +863,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasExpresaInicio = new ArrayList<>();
-                competenciasGenericasExpresaInicio.add(" ");
+                getCompetenciasGenericasExpresaInicio().add(" ");
                 return -1;
             }
         }
@@ -881,7 +887,7 @@ public class ContenidosFijos {
         competenciasGenericasParticipaInicio = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasGenericasParticipaInicio.add(" ");
+            getCompetenciasGenericasParticipaInicio().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -890,7 +896,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasParticipaInicio = new ArrayList<>();
-                competenciasGenericasParticipaInicio.add(" ");
+                getCompetenciasGenericasParticipaInicio().add(" ");
                 return -1;
             }
         }
@@ -914,7 +920,7 @@ public class ContenidosFijos {
         competenciasGenericasPiensaInicio = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasGenericasPiensaInicio.add(" ");
+            getCompetenciasGenericasPiensaInicio().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -923,7 +929,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasPiensaInicio = new ArrayList<>();
-                competenciasGenericasPiensaInicio.add(" ");
+                getCompetenciasGenericasPiensaInicio().add(" ");
                 return -1;
             }
         }
@@ -947,7 +953,7 @@ public class ContenidosFijos {
         competenciasGenericasTrabajaInicio = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasGenericasTrabajaInicio.add(" ");
+            getCompetenciasGenericasTrabajaInicio().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -956,7 +962,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasTrabajaInicio = new ArrayList<>();
-                competenciasGenericasTrabajaInicio.add(" ");
+                getCompetenciasGenericasTrabajaInicio().add(" ");
                 return -1;
             }
         }
@@ -981,7 +987,7 @@ public class ContenidosFijos {
         competenciasGenericasAprendeDesarrollo = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasGenericasAprendeDesarrollo.add(" ");
+            getCompetenciasGenericasAprendeDesarrollo().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -990,7 +996,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasAprendeDesarrollo = new ArrayList<>();
-                competenciasGenericasAprendeDesarrollo.add(" ");
+                getCompetenciasGenericasAprendeDesarrollo().add(" ");
                 return -1;
             }
         }
@@ -1014,7 +1020,7 @@ public class ContenidosFijos {
         competenciasGenericasAutodeterminaDesarrollo = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasGenericasAutodeterminaDesarrollo.add(" ");
+            getCompetenciasGenericasAutodeterminaDesarrollo().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -1023,7 +1029,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasAutodeterminaDesarrollo = new ArrayList<>();
-                competenciasGenericasAutodeterminaDesarrollo.add(" ");
+                getCompetenciasGenericasAutodeterminaDesarrollo().add(" ");
                 return -1;
             }
         }
@@ -1047,7 +1053,7 @@ public class ContenidosFijos {
         competenciasGenericasExpresaDesarrollo = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasGenericasExpresaDesarrollo.add(" ");
+            getCompetenciasGenericasExpresaDesarrollo().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -1056,7 +1062,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasExpresaDesarrollo = new ArrayList<>();
-                competenciasGenericasExpresaDesarrollo.add(" ");
+                getCompetenciasGenericasExpresaDesarrollo().add(" ");
                 return -1;
             }
         }
@@ -1080,7 +1086,7 @@ public class ContenidosFijos {
         competenciasGenericasParticipaDesarrollo = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasGenericasParticipaDesarrollo.add(" ");
+            getCompetenciasGenericasParticipaDesarrollo().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -1089,7 +1095,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasParticipaDesarrollo = new ArrayList<>();
-                competenciasGenericasParticipaDesarrollo.add(" ");
+                getCompetenciasGenericasParticipaDesarrollo().add(" ");
                 return -1;
             }
         }
@@ -1113,7 +1119,7 @@ public class ContenidosFijos {
         competenciasGenericasPiensaDesarrollo = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasGenericasPiensaDesarrollo.add(" ");
+            getCompetenciasGenericasPiensaDesarrollo().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -1122,7 +1128,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasPiensaDesarrollo = new ArrayList<>();
-                competenciasGenericasPiensaDesarrollo.add(" ");
+                getCompetenciasGenericasPiensaDesarrollo().add(" ");
                 return -1;
             }
         }
@@ -1146,7 +1152,7 @@ public class ContenidosFijos {
         competenciasGenericasTrabajaDesarrollo = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasGenericasTrabajaDesarrollo.add(" ");
+            getCompetenciasGenericasTrabajaDesarrollo().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -1155,7 +1161,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasTrabajaDesarrollo = new ArrayList<>();
-                competenciasGenericasTrabajaDesarrollo.add(" ");
+                getCompetenciasGenericasTrabajaDesarrollo().add(" ");
                 return -1;
             }
         }
@@ -1180,7 +1186,7 @@ public class ContenidosFijos {
         competenciasGenericasAprendeCierre = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasGenericasAprendeCierre.add(" ");
+            getCompetenciasGenericasAprendeCierre().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -1189,7 +1195,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasAprendeCierre = new ArrayList<>();
-                competenciasGenericasAprendeCierre.add(" ");
+                getCompetenciasGenericasAprendeCierre().add(" ");
                 return -1;
             }
         }
@@ -1213,7 +1219,7 @@ public class ContenidosFijos {
         competenciasGenericasAutodeterminaCierre = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasGenericasAutodeterminaCierre.add(" ");
+            getCompetenciasGenericasAutodeterminaCierre().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -1222,7 +1228,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasAutodeterminaCierre = new ArrayList<>();
-                competenciasGenericasAutodeterminaCierre.add(" ");
+                getCompetenciasGenericasAutodeterminaCierre().add(" ");
                 return -1;
             }
         }
@@ -1246,7 +1252,7 @@ public class ContenidosFijos {
         competenciasGenericasExpresaCierre = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasGenericasExpresaCierre.add(" ");
+            getCompetenciasGenericasExpresaCierre().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -1255,7 +1261,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasExpresaCierre = new ArrayList<>();
-                competenciasGenericasExpresaCierre.add(" ");
+                getCompetenciasGenericasExpresaCierre().add(" ");
                 return -1;
             }
         }
@@ -1279,7 +1285,7 @@ public class ContenidosFijos {
         competenciasGenericasParticipaCierre = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasGenericasParticipaCierre.add(" ");
+            getCompetenciasGenericasParticipaCierre().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -1288,7 +1294,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasParticipaCierre = new ArrayList<>();
-                competenciasGenericasParticipaCierre.add(" ");
+                getCompetenciasGenericasParticipaCierre().add(" ");
                 return -1;
             }
         }
@@ -1312,7 +1318,7 @@ public class ContenidosFijos {
         competenciasGenericasPiensaCierre = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasGenericasPiensaCierre.add(" ");
+            getCompetenciasGenericasPiensaCierre().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -1321,7 +1327,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasPiensaCierre = new ArrayList<>();
-                competenciasGenericasPiensaCierre.add(" ");
+                getCompetenciasGenericasPiensaCierre().add(" ");
                 return -1;
             }
         }
@@ -1345,7 +1351,7 @@ public class ContenidosFijos {
         competenciasGenericasTrabajaCierre = new ArrayList<>();
         contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
-            competenciasGenericasTrabajaCierre.add(" ");
+            getCompetenciasGenericasTrabajaCierre().add(" ");
             resultado = -1;
             return resultado;
         } else {
@@ -1354,7 +1360,7 @@ public class ContenidosFijos {
                 resultado = 1;
             } catch (IndexOutOfBoundsException ex){
                 competenciasGenericasTrabajaCierre = new ArrayList<>();
-                competenciasGenericasTrabajaCierre.add(" ");
+                getCompetenciasGenericasTrabajaCierre().add(" ");
                 return -1;
             }
         }
@@ -1362,5 +1368,447 @@ public class ContenidosFijos {
             resultado = 1;
         }
         return resultado;
+    }
+        
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS GENERICAS;
+     * para la sección de INICIO, GUARDA LOS CONTENIDOS SELECCIONADOS DE INSTRUMENTOS DE EVALUACIÓN
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0, la lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setInstrumentosDeEvaluacionInicio(ArrayList<Integer> contenidosSeleccionados){
+        int resultado;
+        instrumentosDeEvaluacionInicio = new ArrayList<>();
+        contenidosGenerales = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            getInstrumentosDeEvaluacionInicio().add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                instrumentosDeEvaluacionInicio = contenidosGenerales.getOtrosContenidos(contenidosSeleccionados, enumContenidosGenerales.TIPO_CONT_GENERICO_INSTRUMENTOS.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                instrumentosDeEvaluacionInicio = new ArrayList<>();
+                getInstrumentosDeEvaluacionInicio().add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS GENERICAS;
+     * para la sección de DESARROLLO, GUARDA LOS CONTENIDOS SELECCIONADOS DE INSTRUMENTOS DE EVALUACIÓN
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0, la lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setInstrumentosDeEvaluacionDesarrollo(ArrayList<Integer> contenidosSeleccionados){
+        int resultado;
+        instrumentosDeEvaluacionDesarrollo = new ArrayList<>();
+        contenidosGenerales = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            getInstrumentosDeEvaluacionDesarrollo().add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                instrumentosDeEvaluacionDesarrollo = contenidosGenerales.getOtrosContenidos(contenidosSeleccionados, enumContenidosGenerales.TIPO_CONT_GENERICO_INSTRUMENTOS.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                instrumentosDeEvaluacionDesarrollo = new ArrayList<>();
+                getInstrumentosDeEvaluacionDesarrollo().add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS GENERICAS;
+     * para la sección de CIERRE, GUARDA LOS CONTENIDOS SELECCIONADOS DE INSTRUMENTOS DE EVALUACIÓN
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0, la lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setInstrumentosDeEvaluacionCierre(ArrayList<Integer> contenidosSeleccionados){
+        int resultado;
+        instrumentosDeEvaluacionCierre = new ArrayList<>();
+        contenidosGenerales = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            getInstrumentosDeEvaluacionCierre().add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                instrumentosDeEvaluacionCierre = contenidosGenerales.getOtrosContenidos(contenidosSeleccionados, enumContenidosGenerales.TIPO_CONT_GENERICO_INSTRUMENTOS.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                instrumentosDeEvaluacionCierre = new ArrayList<>();
+                getInstrumentosDeEvaluacionCierre().add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS GENERICAS;
+     * para la sección de INICIO, GUARDA LOS CONTENIDOS SELECCIONADOS DE EVIDENCIAS DE APRENDIZAJE
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0, la lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setEvidenciasDeAprendizajeInicio(ArrayList<Integer> contenidosSeleccionados){
+        int resultado;
+        evidenciasDeAprendizajeInicio = new ArrayList<>();
+        contenidosGenerales = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            getEvidenciasDeAprendizajeInicio().add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                evidenciasDeAprendizajeInicio = contenidosGenerales.getOtrosContenidos(contenidosSeleccionados, enumContenidosGenerales.TIPO_CONT_GENERICO_EVIDENCIAS.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                evidenciasDeAprendizajeInicio = new ArrayList<>();
+                getEvidenciasDeAprendizajeInicio().add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS GENERICAS;
+     * para la sección de DESARROLLO, GUARDA LOS CONTENIDOS SELECCIONADOS DE EVIDENCIAS DE APRENDIZAJE
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0, la lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setEvidenciasDeAprendizajeCierre(ArrayList<Integer> contenidosSeleccionados){
+        int resultado;
+        evidenciasDeAprendizajeDesarrollo = new ArrayList<>();
+        contenidosGenerales = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            getEvidenciasDeAprendizajeDesarrollo().add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                evidenciasDeAprendizajeDesarrollo = contenidosGenerales.getOtrosContenidos(contenidosSeleccionados, enumContenidosGenerales.TIPO_CONT_GENERICO_EVIDENCIAS.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                evidenciasDeAprendizajeDesarrollo = new ArrayList<>();
+                getEvidenciasDeAprendizajeDesarrollo().add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+    /**
+     * En la sección "Actividades para el desarrollo...", dentro de las COMPETENCIAS GENERICAS;
+     * para la sección de CIERRE, GUARDA LOS CONTENIDOS SELECCIONADOS DE EVIDENCIAS DE APRENDIZAJE
+     *
+     * @param contenidosSeleccionados un ArrayList< Integer > empezando desde 0
+     * (cero) numerando SOLAMENTE LO QUE SE QUIERE MANTENER
+     * @return un número, si es 0, la lista no conserva ningún valor, si es 1,
+     * conserva al menos 1 resultado, y si es -1, los límites del contenido
+     * elegido son incorrectos
+     */
+    public int setEvidenciasDeAprendizajeDesarrollo(ArrayList<Integer> contenidosSeleccionados){
+        int resultado;
+        evidenciasDeAprendizajeCierre = new ArrayList<>();
+        contenidosGenerales = new ContenidosGenerales();
+        if (contenidosSeleccionados.isEmpty()) {
+            getEvidenciasDeAprendizajeCierre().add(" ");
+            resultado = -1;
+            return resultado;
+        } else {
+            try{
+                evidenciasDeAprendizajeCierre = contenidosGenerales.getOtrosContenidos(contenidosSeleccionados, enumContenidosGenerales.TIPO_CONT_GENERICO_EVIDENCIAS.toString());
+                resultado = 1;
+            } catch (IndexOutOfBoundsException ex){
+                evidenciasDeAprendizajeCierre = new ArrayList<>();
+                getEvidenciasDeAprendizajeCierre().add(" ");
+                return -1;
+            }
+        }
+        if (resultado > 1) {
+            resultado = 1;
+        }
+        return resultado;
+    }
+
+    /**
+     * Regresa los contenidos DECLARATIVOS GUARDADOS
+     * @return 
+     */
+    public ArrayList<String> getContenidosDeclarativos(){
+        return contenidosEspecificos.getContenidosDeclarativosSeleccionados();
+    }
+    /**
+     * Regresa los contenidos PROCEDIMENTALES GUARDADOS
+     * @return 
+     */
+    public ArrayList<String> getContenidosProcedimentales(){
+        return contenidosEspecificos.getContenidosProcedimentalesSeleccionados();
+    }
+    /**
+     * Regresa los contenidos ACTITUDINALES GUARDADOS
+     * @return 
+     */
+    public ArrayList<String> getContenidosActitudinales(){
+        return contenidosEspecificos.getContenidosActitudinalesSeleccionados();
+    }
+    
+    /**
+     * @return the competenciasDisciplinaresMatematicasInicio
+     */
+    public ArrayList<String> getCompetenciasDisciplinaresMatematicasInicio() {
+        return competenciasDisciplinaresMatematicasInicio;
+    }
+    /**
+     * @return the competenciasDisciplinaresComunicacionInicio
+     */
+    public ArrayList<String> getCompetenciasDisciplinaresComunicacionInicio() {
+        return competenciasDisciplinaresComunicacionInicio;
+    }
+    /**
+     * @return the competenciasDisciplinaresCienciasSocialesInicio
+     */
+    public ArrayList<String> getCompetenciasDisciplinaresCienciasSocialesInicio() {
+        return competenciasDisciplinaresCienciasSocialesInicio;
+    }
+    /**
+     * @return the competenciasDisciplinaresCienciasExperimentalesInicio
+     */
+    public ArrayList<String> getCompetenciasDisciplinaresCienciasExperimentalesInicio() {
+        return competenciasDisciplinaresCienciasExperimentalesInicio;
+    }
+    /**
+     * @return the competenciasDisciplinaresMatematicasDesarrollo
+     */
+    public ArrayList<String> getCompetenciasDisciplinaresMatematicasDesarrollo() {
+        return competenciasDisciplinaresMatematicasDesarrollo;
+    }
+    /**
+     * @return the competenciasDisciplinaresComunicacionDesarrollo
+     */
+    public ArrayList<String> getCompetenciasDisciplinaresComunicacionDesarrollo() {
+        return competenciasDisciplinaresComunicacionDesarrollo;
+    }
+    /**
+     * @return the competenciasDisciplinaresCienciasSocialesDesarrollo
+     */
+    public ArrayList<String> getCompetenciasDisciplinaresCienciasSocialesDesarrollo() {
+        return competenciasDisciplinaresCienciasSocialesDesarrollo;
+    }
+    /**
+     * @return the competenciasDisciplinaresCienciasExperimentalesDesarrollo
+     */
+    public ArrayList<String> getCompetenciasDisciplinaresCienciasExperimentalesDesarrollo() {
+        return competenciasDisciplinaresCienciasExperimentalesDesarrollo;
+    }
+    /**
+     * @return the competenciasDisciplinaresMatematicasCierre
+     */
+    public ArrayList<String> getCompetenciasDisciplinaresMatematicasCierre() {
+        return competenciasDisciplinaresMatematicasCierre;
+    }
+    /**
+     * @return the competenciasDisciplinaresComunicacionCierre
+     */
+    public ArrayList<String> getCompetenciasDisciplinaresComunicacionCierre() {
+        return competenciasDisciplinaresComunicacionCierre;
+    }
+    /**
+     * @return the competenciasDisciplinaresCienciasSocialesCierre
+     */
+    public ArrayList<String> getCompetenciasDisciplinaresCienciasSocialesCierre() {
+        return competenciasDisciplinaresCienciasSocialesCierre;
+    }
+    /**
+     * @return the competenciasDisciplinaresCienciasExperimentalesCierre
+     */
+    public ArrayList<String> getCompetenciasDisciplinaresCienciasExperimentalesCierre() {
+        return competenciasDisciplinaresCienciasExperimentalesCierre;
+    }
+    
+    /**
+     * @return the competenciasGenericasAprendeInicio
+     */
+    public ArrayList<String> getCompetenciasGenericasAprendeInicio() {
+        return competenciasGenericasAprendeInicio;
+    }
+    /**
+     * @return the competenciasGenericasAutodeterminaInicio
+     */
+    public ArrayList<String> getCompetenciasGenericasAutodeterminaInicio() {
+        return competenciasGenericasAutodeterminaInicio;
+    }
+    /**
+     * @return the competenciasGenericasExpresaInicio
+     */
+    public ArrayList<String> getCompetenciasGenericasExpresaInicio() {
+        return competenciasGenericasExpresaInicio;
+    }
+    /**
+     * @return the competenciasGenericasParticipaInicio
+     */
+    public ArrayList<String> getCompetenciasGenericasParticipaInicio() {
+        return competenciasGenericasParticipaInicio;
+    }
+    /**
+     * @return the competenciasGenericasPiensaInicio
+     */
+    public ArrayList<String> getCompetenciasGenericasPiensaInicio() {
+        return competenciasGenericasPiensaInicio;
+    }
+    /**
+     * @return the competenciasGenericasTrabajaInicio
+     */
+    public ArrayList<String> getCompetenciasGenericasTrabajaInicio() {
+        return competenciasGenericasTrabajaInicio;
+    }
+    /**
+     * @return the competenciasGenericasAprendeDesarrollo
+     */
+    public ArrayList<String> getCompetenciasGenericasAprendeDesarrollo() {
+        return competenciasGenericasAprendeDesarrollo;
+    }
+    /**
+     * @return the competenciasGenericasAutodeterminaDesarrollo
+     */
+    public ArrayList<String> getCompetenciasGenericasAutodeterminaDesarrollo() {
+        return competenciasGenericasAutodeterminaDesarrollo;
+    }
+    /**
+     * @return the competenciasGenericasExpresaDesarrollo
+     */
+    public ArrayList<String> getCompetenciasGenericasExpresaDesarrollo() {
+        return competenciasGenericasExpresaDesarrollo;
+    }
+    /**
+     * @return the competenciasGenericasParticipaDesarrollo
+     */
+    public ArrayList<String> getCompetenciasGenericasParticipaDesarrollo() {
+        return competenciasGenericasParticipaDesarrollo;
+    }
+    /**
+     * @return the competenciasGenericasPiensaDesarrollo
+     */
+    public ArrayList<String> getCompetenciasGenericasPiensaDesarrollo() {
+        return competenciasGenericasPiensaDesarrollo;
+    }
+    /**
+     * @return the competenciasGenericasTrabajaDesarrollo
+     */
+    public ArrayList<String> getCompetenciasGenericasTrabajaDesarrollo() {
+        return competenciasGenericasTrabajaDesarrollo;
+    }
+    /**
+     * @return the competenciasGenericasAprendeCierre
+     */
+    public ArrayList<String> getCompetenciasGenericasAprendeCierre() {
+        return competenciasGenericasAprendeCierre;
+    }
+    /**
+     * @return the competenciasGenericasAutodeterminaCierre
+     */
+    public ArrayList<String> getCompetenciasGenericasAutodeterminaCierre() {
+        return competenciasGenericasAutodeterminaCierre;
+    }
+    /**
+     * @return the competenciasGenericasExpresaCierre
+     */
+    public ArrayList<String> getCompetenciasGenericasExpresaCierre() {
+        return competenciasGenericasExpresaCierre;
+    }
+    /**
+     * @return the competenciasGenericasParticipaCierre
+     */
+    public ArrayList<String> getCompetenciasGenericasParticipaCierre() {
+        return competenciasGenericasParticipaCierre;
+    }
+    /**
+     * @return the competenciasGenericasPiensaCierre
+     */
+    public ArrayList<String> getCompetenciasGenericasPiensaCierre() {
+        return competenciasGenericasPiensaCierre;
+    }
+    /**
+     * @return the competenciasGenericasTrabajaCierre
+     */
+    public ArrayList<String> getCompetenciasGenericasTrabajaCierre() {
+        return competenciasGenericasTrabajaCierre;
+    }
+    
+    /**
+     * @return the instrumentosDeEvaluacionInicio
+     */
+    public ArrayList<String> getInstrumentosDeEvaluacionInicio() {
+        return instrumentosDeEvaluacionInicio;
+    }
+    /**
+     * @return the instrumentosDeEvaluacionDesarrollo
+     */
+    public ArrayList<String> getInstrumentosDeEvaluacionDesarrollo() {
+        return instrumentosDeEvaluacionDesarrollo;
+    }
+    /**
+     * @return the instrumentosDeEvaluacionCierre
+     */
+    public ArrayList<String> getInstrumentosDeEvaluacionCierre() {
+        return instrumentosDeEvaluacionCierre;
+    }
+
+    /**
+     * @return the evidenciasDeAprendizajeInicio
+     */
+    public ArrayList<String> getEvidenciasDeAprendizajeInicio() {
+        return evidenciasDeAprendizajeInicio;
+    }
+    /**
+     * @return the evidenciasDeAprendizajeDesarrollo
+     */
+    public ArrayList<String> getEvidenciasDeAprendizajeDesarrollo() {
+        return evidenciasDeAprendizajeDesarrollo;
+    }
+    /**
+     * @return the evidenciasDeAprendizajeCierre
+     */
+    public ArrayList<String> getEvidenciasDeAprendizajeCierre() {
+        return evidenciasDeAprendizajeCierre;
     }
 }

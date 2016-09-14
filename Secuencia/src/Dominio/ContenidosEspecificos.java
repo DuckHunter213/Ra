@@ -18,10 +18,6 @@ public class ContenidosEspecificos {
     private ArrayList<String> contenidosProcedimentalesSeleccionados;
     private ArrayList<String> contenidosActitudinalesSeleccionados;
 
-    public ArrayList<String> getContenidosEspecificos() {
-        return null;
-    }
-
     /**
      *
      * @param asignatura
@@ -46,18 +42,30 @@ public class ContenidosEspecificos {
      */
     public int setContenidosEspecificos(Asignatura asignatura, ArrayList<Integer> contenidosSeleccionados, String tipoContenido) {
         int resultado = 0;
-        if (contenidosSeleccionados.isEmpty()) {
-            return 0;
-        }
         gestorFichero = new GestorFichero();
         switch (tipoContenido) {
             case ("declarativo"):
+                if (contenidosSeleccionados.isEmpty()) {
+                    contenidosDeclarativosSeleccionados = new ArrayList<>();
+                    contenidosDeclarativosSeleccionados.add(" ");
+                    return 0;
+                }
                 resultado = setContenidosDeclarativos(asignatura, contenidosSeleccionados, tipoContenido);
                 break;
             case ("procedimentales"):
+                if (contenidosSeleccionados.isEmpty()) {
+                    contenidosProcedimentalesSeleccionados = new ArrayList<>();
+                    contenidosProcedimentalesSeleccionados.add(" ");
+                    return 0;
+                }
                 resultado = setContenidosProcedimentales(asignatura, contenidosSeleccionados, tipoContenido);
                 break;
             case ("actitudinal"):
+                if (contenidosSeleccionados.isEmpty()) {
+                    contenidosActitudinalesSeleccionados = new ArrayList<>();
+                    contenidosActitudinalesSeleccionados.add(" ");
+                    return 0;
+                }
                 resultado = setContenidosActitudinales(asignatura, contenidosSeleccionados, tipoContenido);
                 break;
             default:
@@ -68,47 +76,69 @@ public class ContenidosEspecificos {
         }
         return resultado;
     }
-
     private int setContenidosDeclarativos(Asignatura asignatura, ArrayList<Integer> contenidosSeleccionados, String tipoContenido) {
         int resultado = 0;
         ArrayList<String> contenidosDeclarativos = gestorFichero.getContenidosEspecificos(asignatura, tipoContenido);
         contenidosDeclarativosSeleccionados = new ArrayList<>();
         try {
             contenidosSeleccionados.stream().forEach((Integer contenidoSeleccionado) -> {
-                contenidosDeclarativosSeleccionados.add(contenidosDeclarativos.get(contenidoSeleccionado));
+                getContenidosDeclarativosSeleccionados().add(contenidosDeclarativos.get(contenidoSeleccionado));
             });
         } catch (IndexOutOfBoundsException ex) {
+            contenidosDeclarativosSeleccionados = new ArrayList<>();
+            contenidosDeclarativosSeleccionados.add(" ");
             return -1;
         }
-        return contenidosDeclarativosSeleccionados.size();
+        return getContenidosDeclarativosSeleccionados().size();
     }
-
     private int setContenidosProcedimentales(Asignatura asignatura, ArrayList<Integer> contenidosSeleccionados, String tipoContenido) {
         int resultado = 0;
         ArrayList<String> contenidosDeclarativos = gestorFichero.getContenidosEspecificos(asignatura, tipoContenido);
         contenidosProcedimentalesSeleccionados = new ArrayList<>();
         try {
             contenidosSeleccionados.stream().forEach((Integer contenidoSeleccionado) -> {
-                contenidosProcedimentalesSeleccionados.add(contenidosDeclarativos.get(contenidoSeleccionado));
+                getContenidosProcedimentalesSeleccionados().add(contenidosDeclarativos.get(contenidoSeleccionado));
             });
         } catch (IndexOutOfBoundsException ex) {
+            contenidosProcedimentalesSeleccionados = new ArrayList<>();
+            contenidosProcedimentalesSeleccionados.add(" ");
             return -1;
         }
-        return contenidosProcedimentalesSeleccionados.size();
+        return getContenidosProcedimentalesSeleccionados().size();
     }
-
     private int setContenidosActitudinales(Asignatura asignatura, ArrayList<Integer> contenidosSeleccionados, String tipoContenido) {
         int resultado = 0;
         ArrayList<String> contenidosDeclarativos = gestorFichero.getContenidosEspecificos(asignatura, tipoContenido);
         contenidosActitudinalesSeleccionados = new ArrayList<>();
         try {
             contenidosSeleccionados.stream().forEach((Integer contenidoSeleccionado) -> {
-                contenidosActitudinalesSeleccionados.add(contenidosDeclarativos.get(contenidoSeleccionado));
+                getContenidosActitudinalesSeleccionados().add(contenidosDeclarativos.get(contenidoSeleccionado));
             });
         } catch (IndexOutOfBoundsException ex) {
+            contenidosActitudinalesSeleccionados = new ArrayList<>();
+            contenidosActitudinalesSeleccionados.add(" ");
             return -1;
         }
-        return contenidosActitudinalesSeleccionados.size();
+        return getContenidosActitudinalesSeleccionados().size();
+    }
+
+    /**
+     * @return the contenidosDeclarativosSeleccionados
+     */
+    public ArrayList<String> getContenidosDeclarativosSeleccionados() {
+        return contenidosDeclarativosSeleccionados;
+    }
+    /**
+     * @return the contenidosProcedimentalesSeleccionados
+     */
+    public ArrayList<String> getContenidosProcedimentalesSeleccionados() {
+        return contenidosProcedimentalesSeleccionados;
+    }
+    /**
+     * @return the contenidosActitudinalesSeleccionados
+     */
+    public ArrayList<String> getContenidosActitudinalesSeleccionados() {
+        return contenidosActitudinalesSeleccionados;
     }
 
 }
