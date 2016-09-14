@@ -168,9 +168,8 @@ public class GestorFichero {
      */
     public ArrayList<String> getContenidosGenerales(String tipoContenido) {
         ArrayList<String> contenidosGenerales = new ArrayList<>();
-        String pathCarpeta = crearPathContenidosGenerales(tipoContenido);
-
         try {
+        String pathCarpeta = crearPathContenidosGenerales(tipoContenido);
             CsvReader archivo = new CsvReader(pathCarpeta);
             archivo.setDelimiter(';');
             contenidosGenerales = cargarContenidosGenerales(archivo);

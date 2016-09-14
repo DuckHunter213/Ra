@@ -54,7 +54,7 @@ public class ContenidosGenerales {
         gestorFichero = new GestorFichero();
         try{
             contenidos = seleccionarContenidos(contenidosSeleccionados, listaContenidos);            
-        }catch(IndexOutOfBoundsException){
+        }catch(IndexOutOfBoundsException ex){
             contenidos.add(" ");
         }
         return contenidos;
