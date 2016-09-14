@@ -14,6 +14,7 @@ public class Asignatura {
     private int bloque = 0;
     private GestorFichero gestorFichero;
     private String nombreAsignatura = " ";
+    private String nombreCompletoMaestro = " ";
     private int semestre = 0;
 
     public Asignatura() {
@@ -93,6 +94,25 @@ public class Asignatura {
             return 0;
         } else {
             this.semestre = semestre;
+            return 1;
+        }
+    }
+
+    /**
+     * @return the nombreCompletoMaestro
+     */
+    public String getNombreCompletoMaestro() {
+        return nombreCompletoMaestro;
+    }
+
+    /**
+     * @param nombreCompletoMaestro the nombreCompletoMaestro to set
+     */
+    public int setNombreCompletoMaestro(String nombreCompletoMaestro) {
+        if (nombreCompletoMaestro.isEmpty() || nombreCompletoMaestro == null) {
+            return 0;
+        } else {
+        this.nombreCompletoMaestro = nombreCompletoMaestro;
             return 1;
         }
     }

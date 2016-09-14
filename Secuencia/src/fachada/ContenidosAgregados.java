@@ -11,15 +11,12 @@ import java.util.ArrayList;
  */
 public class ContenidosAgregados {
 
-    private ArrayList<ContenidosAgregadosGenerales> contenidosAgregadosGenerales;
-    private ContenidosAgregadosInformativos contenidosAgregadosInformativos;
+    private ArrayList<ContenidosAgregadosGenerales> contenidosGeneralesAprendizaje;
+    private ContenidosAgregadosInformativos contenidosGeneralesEnsenianza;
     private String fechaInicio = " ";
-    private String nombreCompletoDocente = " ";
     private int numeroSecuencia = 0;
     private int numeroSesiones = 0;
     private String periodoEscolar = " ";
-    public ContenidosAgregadosGenerales m_ContenidosAgregadosGenerales;
-    public ContenidosAgregadosInformativos m_ContenidosAgregadosInformativos;
 
     public ContenidosAgregados() {
 
