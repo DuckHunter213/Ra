@@ -43,16 +43,16 @@ public class Asignatura {
         return asignaturas;
     }
 
-    public ArrayList<String> listarBloques(String nombreAsignatura, int semestre) throws IOException {
+    public ArrayList<String> listarBloques() throws IOException {
         gestorFichero = new GestorFichero();
-        ArrayList<String> bloques = gestorFichero.getBloquesAsignatura(nombreAsignatura, semestre);
+        ArrayList<String> bloques = gestorFichero.getBloquesAsignatura(this.nombreAsignatura, this.semestre);
         return bloques;
     }
 
-    public ArrayList<String> listarSemestres(String asignatura) {
+    public ArrayList<String> listarSemestres() {
         gestorFichero = new GestorFichero();
         ArrayList<String> semestres = new ArrayList<>();
-        semestres = (ArrayList<String>) gestorFichero.getSemestresAsignatura(asignatura).clone();
+        semestres = (ArrayList<String>) gestorFichero.getSemestresAsignatura(this.nombreAsignatura).clone();
         return semestres;
     }
 
