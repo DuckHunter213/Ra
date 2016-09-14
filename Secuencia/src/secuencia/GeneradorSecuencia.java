@@ -17,8 +17,9 @@ public class GeneradorSecuencia {
     private ContenidosFijos contenidosFijos;
     private Asignatura asignatura;
 
-    public GeneradorSecuencia(Asignatura asignatura) {
-        asignatura.getAsignatura();
+
+    public GeneradorSecuencia(){
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public void finalize() throws Throwable {

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaz;
 import Fachada.*;
 /**
@@ -10,11 +5,14 @@ import Fachada.*;
  * @author DARKENSES
  */
 public class Rubrica extends javax.swing.JFrame{
+    private final Asignatura asignatura;
 
     /**
      * Creates new form Rubrica
+     * @param asignatura
      */
-    public Rubrica(){
+    public Rubrica(Asignatura asignatura){
+        this.asignatura = asignatura;
         initComponents();
     }
 
@@ -113,11 +111,7 @@ public class Rubrica extends javax.swing.JFrame{
 
         asignaturaTextField.setEditable(false);
         asignaturaTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        asignaturaTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                asignaturaTextFieldActionPerformed(evt);
-            }
-        });
+        asignaturaTextField.setText(asignatura.getAsignatura());
 
         jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -490,10 +484,6 @@ public class Rubrica extends javax.swing.JFrame{
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void asignaturaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignaturaTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_asignaturaTextFieldActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -530,14 +520,13 @@ public class Rubrica extends javax.swing.JFrame{
          */
         java.awt.EventQueue.invokeLater(new Runnable(){
             public void run(){
-                new Rubrica().setVisible(true);
             }
 
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JTextField asignaturaTextField;
+    private javax.swing.JTextField asignaturaTextField;
     public static javax.swing.JTextField docenteTextField;
     private javax.swing.border.EmptyBorder emptyBorder1;
     private javax.swing.JTextField fechaInicioTextField;

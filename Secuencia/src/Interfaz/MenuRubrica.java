@@ -164,11 +164,10 @@ public class MenuRubrica extends javax.swing.JFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void iniciarRubricaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarRubricaButtonMouseClicked
-        Rubrica rubrica = new Rubrica();
-        Rubrica.asignaturaTextField.setText((String) asignaturaComboBox.getSelectedItem());
         asignatura.setAsignatura((String) asignaturaComboBox.getSelectedItem());
         Rubrica.docenteTextField.setText(docenteTextField.getText());
 
+        Rubrica rubrica = new Rubrica(asignatura);
         rubrica.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_iniciarRubricaButtonMouseClicked
