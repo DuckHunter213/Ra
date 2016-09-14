@@ -1,19 +1,18 @@
 package Secuencia;
-import Interfaz.MenuRubrica;
-import Fachada.Asignatura;
-import Secuencia.GeneradorSecuencia;
+
+import Fachada.*;
 import java.io.IOException;
+
 /**
  *
  * @author Luis Fernando
  */
-public class Secuencia {
+public class Secuencia{
+    Asignatura asignatura = new Asignatura();
+    ContenidosAgregados contenidoAgregados = new ContenidosAgregados();
+    ContenidosFijos contenidosFijos = new ContenidosFijos();
 
-    public static void main(String[] args) throws IOException {
-        MenuRubrica menu = new MenuRubrica();
-        
-        menu.setVisible(true);
-        
+    public void main(String[] args) throws IOException{
+        GeneradorSecuencia generador = new GeneradorSecuencia(asignatura, contenidoAgregados, contenidosFijos);
     }
-
 }

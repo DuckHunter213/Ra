@@ -1,17 +1,26 @@
 package Interfaz;
+
 import Fachada.*;
+
 /**
  *
  * @author DARKENSES
  */
 public class Rubrica extends javax.swing.JFrame{
+    private final ContenidosFijos contenidosFijos;
+    private final ContenidosAgregados contenidosAgregados;
     private final Asignatura asignatura;
 
     /**
      * Creates new form Rubrica
+     *
      * @param asignatura
+     * @param contenidosAgregados
+     * @param contenidosFijos
      */
-    public Rubrica(Asignatura asignatura){
+    public Rubrica(Asignatura asignatura, ContenidosAgregados contenidosAgregados, ContenidosFijos contenidosFijos){
+        this.contenidosFijos = contenidosFijos;
+        this.contenidosAgregados = contenidosAgregados;
         this.asignatura = asignatura;
         initComponents();
     }
@@ -487,7 +496,7 @@ public class Rubrica extends javax.swing.JFrame{
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]){
+    public void main(String args[]){
         /*
          * Set the Nimbus look and feel
          */
@@ -520,6 +529,7 @@ public class Rubrica extends javax.swing.JFrame{
          */
         java.awt.EventQueue.invokeLater(new Runnable(){
             public void run(){
+                new Rubrica(asignatura, contenidosAgregados, contenidosFijos).setVisible(true);
             }
 
         });
@@ -574,5 +584,5 @@ public class Rubrica extends javax.swing.JFrame{
     private javax.swing.JTextField secuenciaTextField;
     private javax.swing.JTextField sesionesTextField;
     // End of variables declaration//GEN-END:variables
-    
+
 }

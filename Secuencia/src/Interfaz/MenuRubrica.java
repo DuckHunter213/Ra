@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaz;
 
 import Fachada.*;
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -17,18 +12,25 @@ import javax.swing.DefaultComboBoxModel;
  * @author Luis Fernando
  */
 public class MenuRubrica extends javax.swing.JFrame{
-
-    Asignatura asignatura;
-    List<String> asignaturas;
+    private final Asignatura asignatura;
+    private final ContenidosAgregados contenidosAgregados;
+    private final ContenidosFijos contenidosFijos;
+    ArrayList<String> listaAsignaturas;
 
     /**
      * Creates new form Menu
      *
+     * @param asignatura
+     * @param contenidosAgregados
+     * @param contenidosFijos
      * @throws java.io.IOException
      */
-    public MenuRubrica() throws IOException{
-        Asignatura asignatura = new Asignatura();
-        asignaturas = asignatura.listarAsignaturas();
+
+    public MenuRubrica(Asignatura asignatura, ContenidosAgregados contenidosAgregados, ContenidosFijos contenidosFijos) throws IOException{
+        this.asignatura = asignatura;
+        this.contenidosAgregados = contenidosAgregados;
+        this.contenidosFijos = contenidosFijos;
+        listaAsignaturas = asignatura.listarAsignaturas();
         initComponents();
     }
 
@@ -73,7 +75,7 @@ public class MenuRubrica extends javax.swing.JFrame{
         bloqueComboBox.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         asignaturaComboBox.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        asignaturaComboBox.setModel(new DefaultComboBoxModel(asignaturas.toArray()));
+        asignaturaComboBox.setModel(new DefaultComboBoxModel(listaAsignaturas.toArray()));
 
         docenteTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         docenteTextField.setToolTipText("");
@@ -164,10 +166,10 @@ public class MenuRubrica extends javax.swing.JFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void iniciarRubricaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarRubricaButtonMouseClicked
+        Rubrica rubrica = new Rubrica(asignatura, contenidosAgregados, contenidosFijos);
+        rubrica.docenteTextField.setText(docenteTextField.getText());
         asignatura.setAsignatura((String) asignaturaComboBox.getSelectedItem());
-        Rubrica.docenteTextField.setText(docenteTextField.getText());
 
-        Rubrica rubrica = new Rubrica(asignatura);
         rubrica.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_iniciarRubricaButtonMouseClicked
@@ -175,7 +177,7 @@ public class MenuRubrica extends javax.swing.JFrame{
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]){
+    public void main(String args[]){
         /*
          * Set the Nimbus look and feel
          */
@@ -207,21 +209,17 @@ public class MenuRubrica extends javax.swing.JFrame{
         /*
          * Create and display the form
          */
-        java.awt.EventQueue.invokeLater(new Runnable(){
-            public void run(){
-                try{
-                    new MenuRubrica().setVisible(true);
-                }catch (IOException ex){
-                    Logger.getLogger(MenuRubrica.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
+        java.awt.EventQueue.invokeLater(() -> {
+            try{
+                new MenuRubrica(asignatura, contenidosAgregados, contenidosFijos).setVisible(true);
+            }catch (IOException ex){
+                Logger.getLogger(MenuRubrica.class.getName()).log(Level.SEVERE, null, ex);
             }
-
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JComboBox<String> asignaturaComboBox;
+    private javax.swing.JComboBox<String> asignaturaComboBox;
     private javax.swing.JLabel asignaturaLabel;
     private javax.swing.JComboBox<String> bloqueComboBox;
     private javax.swing.JLabel bloqueLabel;
