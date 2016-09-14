@@ -110,11 +110,14 @@ public class Asignatura {
      * @return 
      */
     public int setNombreCompletoMaestro(String nombreCompletoMaestro) {
-        if (nombreCompletoMaestro.isEmpty() || nombreCompletoMaestro == null) {
-            return 0;
-        } else {
-        this.nombreCompletoMaestro = nombreCompletoMaestro;
+        try{
+            if (nombreCompletoMaestro.isEmpty())
+                return -1;
+            if (nombreCompletoMaestro.length() > 450)
+                return 0;
             return 1;
+        }catch(NullPointerException ex){
+            return -1;
         }
     }
 
