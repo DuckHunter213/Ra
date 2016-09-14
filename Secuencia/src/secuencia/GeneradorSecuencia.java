@@ -1,8 +1,6 @@
 package Secuencia;
 
-import Fachada.Asignatura;
-import Fachada.ContenidosAgregados;
-import Fachada.ContenidosFijos;
+import Fachada.*;
 import Interfaz.MenuRubrica;
 import java.io.IOException;
 
@@ -12,10 +10,20 @@ import java.io.IOException;
  * @created 08-sep.-2016 11:44:55 p. m.
  */
 public class GeneradorSecuencia{
-
-    GeneradorSecuencia(Asignatura asignatura, ContenidosAgregados contenidoAgregados, ContenidosFijos contenidosFijos) throws IOException{
+    
+    private static Asignatura asignatura = new Asignatura();
+    private static ContenidosAgregados contenidoAgregados = new ContenidosAgregados();
+    private static ContenidosFijos contenidosFijos = new ContenidosFijos();
+    
+    
+    public GeneradorSecuencia() throws IOException{
         MenuRubrica menuRubrica = new MenuRubrica(asignatura, contenidoAgregados, contenidosFijos);
         menuRubrica.setVisible(true);
+    }
+    
+    public void recuperarDatos(){
+        System.out.println(this.asignatura.getAsignatura());
+        System.out.println("Salida");
     }
 
     public void finalize() throws Throwable{

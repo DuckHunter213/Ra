@@ -7,9 +7,9 @@ import Fachada.*;
  * @author DARKENSES
  */
 public class Rubrica extends javax.swing.JFrame{
-    private final ContenidosFijos contenidosFijos;
-    private final ContenidosAgregados contenidosAgregados;
-    private final Asignatura asignatura;
+    private static ContenidosFijos contenidosFijos;
+    private static ContenidosAgregados contenidosAgregados;
+    private static Asignatura asignatura;
 
     /**
      * Creates new form Rubrica
@@ -132,6 +132,7 @@ public class Rubrica extends javax.swing.JFrame{
 
         docenteTextField.setEditable(false);
         docenteTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        docenteTextField.setText(asignatura.getNombreCompletoMaestro());
 
         fechaInicioTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         fechaInicioTextField.setText("<Rellenar>");
@@ -496,7 +497,7 @@ public class Rubrica extends javax.swing.JFrame{
     /**
      * @param args the command line arguments
      */
-    public void main(String args[]){
+    public static void main(String args[]){
         /*
          * Set the Nimbus look and feel
          */
@@ -537,7 +538,7 @@ public class Rubrica extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField asignaturaTextField;
-    public static javax.swing.JTextField docenteTextField;
+    private javax.swing.JTextField docenteTextField;
     private javax.swing.border.EmptyBorder emptyBorder1;
     private javax.swing.JTextField fechaInicioTextField;
     private javax.swing.JButton jButton1;

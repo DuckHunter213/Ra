@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -12,10 +13,12 @@ import javax.swing.DefaultComboBoxModel;
  * @author Luis Fernando
  */
 public class MenuRubrica extends javax.swing.JFrame{
-    private final Asignatura asignatura;
-    private final ContenidosAgregados contenidosAgregados;
-    private final ContenidosFijos contenidosFijos;
-    ArrayList<String> listaAsignaturas;
+    private static Asignatura asignatura;
+    private static ContenidosAgregados contenidosAgregados;
+    private static ContenidosFijos contenidosFijos;
+    ArrayList<String> listarAsignaturas;
+    ArrayList<String> listarSemestres;
+    ArrayList<String> listarBloques;
 
     /**
      * Creates new form Menu
@@ -25,12 +28,13 @@ public class MenuRubrica extends javax.swing.JFrame{
      * @param contenidosFijos
      * @throws java.io.IOException
      */
-
     public MenuRubrica(Asignatura asignatura, ContenidosAgregados contenidosAgregados, ContenidosFijos contenidosFijos) throws IOException{
         this.asignatura = asignatura;
         this.contenidosAgregados = contenidosAgregados;
         this.contenidosFijos = contenidosFijos;
-        listaAsignaturas = asignatura.listarAsignaturas();
+        listarAsignaturas = asignatura.listarAsignaturas();
+        listarSemestres = asignatura.listarSemestres();
+        listarBloques = asignatura.listarBloques();
         initComponents();
     }
 
@@ -71,11 +75,31 @@ public class MenuRubrica extends javax.swing.JFrame{
         docenteLabel.setText("Docente");
 
         semestreComboBox.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        semestreComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cambioEstadoSemestre(evt);
+            }
+        });
 
         bloqueComboBox.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         asignaturaComboBox.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        asignaturaComboBox.setModel(new DefaultComboBoxModel(listaAsignaturas.toArray()));
+        asignaturaComboBox.setModel(new DefaultComboBoxModel(listarAsignaturas.toArray()));
+        asignaturaComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cambioEstadoAsignatura(evt);
+            }
+        });
+        asignaturaComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Entrada(evt);
+            }
+        });
+        asignaturaComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                asignaturaComboBoxActionPerformed(evt);
+            }
+        });
 
         docenteTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         docenteTextField.setToolTipText("");
@@ -166,18 +190,36 @@ public class MenuRubrica extends javax.swing.JFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void iniciarRubricaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarRubricaButtonMouseClicked
+        asignatura.setNombreCompletoMaestro(docenteTextField.getText());
         Rubrica rubrica = new Rubrica(asignatura, contenidosAgregados, contenidosFijos);
-        rubrica.docenteTextField.setText(docenteTextField.getText());
-        asignatura.setAsignatura((String) asignaturaComboBox.getSelectedItem());
-
         rubrica.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_iniciarRubricaButtonMouseClicked
 
+    private void asignaturaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignaturaComboBoxActionPerformed
+
+    }//GEN-LAST:event_asignaturaComboBoxActionPerformed
+
+    private void Entrada(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada
+
+    }//GEN-LAST:event_Entrada
+
+    private void cambioEstadoAsignatura(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cambioEstadoAsignatura
+        asignatura.setAsignatura((String) (asignaturaComboBox.getSelectedItem()));
+        listarSemestres = asignatura.listarSemestres();
+        semestreComboBox.setModel(new DefaultComboBoxModel(listarSemestres.toArray()));
+    }//GEN-LAST:event_cambioEstadoAsignatura
+
+    private void cambioEstadoSemestre(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cambioEstadoSemestre
+        asignatura.setBloque((int) bloqueComboBox.getSelectedItem());
+        listarBloques = asignatura.listarBloques();
+        semestreComboBox.setModel(new DefaultComboBoxModel(listarBloques.toArray()));
+    }//GEN-LAST:event_cambioEstadoSemestre
+
     /**
      * @param args the command line arguments
      */
-    public void main(String args[]){
+    public static void main(String args[]){
         /*
          * Set the Nimbus look and feel
          */
@@ -228,7 +270,7 @@ public class MenuRubrica extends javax.swing.JFrame{
     private javax.swing.JTextField docenteTextField;
     private javax.swing.JButton iniciarRubricaButton;
     private javax.swing.JLabel instruccionesLabel;
-    private javax.swing.JComboBox<String> semestreComboBox;
+    private volatile javax.swing.JComboBox<String> semestreComboBox;
     private javax.swing.JLabel semestreLabel;
     private javax.swing.JLabel subtituloLabel;
     // End of variables declaration//GEN-END:variables
