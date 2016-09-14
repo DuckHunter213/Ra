@@ -107,6 +107,7 @@ public class Asignatura {
 
     /**
      * @param nombreCompletoMaestro the nombreCompletoMaestro to set
+     * @return 
      */
     public int setNombreCompletoMaestro(String nombreCompletoMaestro) {
         if (nombreCompletoMaestro.isEmpty() || nombreCompletoMaestro == null) {

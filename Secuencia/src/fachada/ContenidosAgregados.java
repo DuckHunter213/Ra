@@ -1,7 +1,5 @@
 package Fachada;
 
-import Dominio.ContenidosAgregadosInformativos;
-import Dominio.ContenidosAgregadosGenerales;
 import java.util.ArrayList;
 
 /**
@@ -11,12 +9,21 @@ import java.util.ArrayList;
  */
 public class ContenidosAgregados {
 
-    private ArrayList<ContenidosAgregadosGenerales> contenidosGeneralesAprendizaje;
-    private ContenidosAgregadosInformativos contenidosGeneralesEnsenianza;
+    private String contenidosGeneralesAprendizajeInicio = " ";
+    private String contenidosGeneralesEnsenianzaInicio = " ";
+    private String contenidosGeneralesAprendizajeDesarrollo = " ";
+    private String contenidosGeneralesEnsenianzaDesarrollo = " ";
+    private String contenidosGeneralesAprendizajeCierre = " ";
+    private String contenidosGeneralesEnsenianzaCierre = " ";
     private String fechaInicio = " ";
     private int numeroSecuencia = 0;
     private int numeroSesiones = 0;
     private String periodoEscolar = " ";
+    private String asignaturasRelacionadas = " ";
+    private String fuentesInformacion = " ";
+    private String observaciones = " ";
+    private String propositoSecuencia = " ";
+    private String recursosMateriales = " ";
 
     public ContenidosAgregados() {
 
@@ -26,13 +33,6 @@ public class ContenidosAgregados {
 
     }
 
-    public ArrayList<ContenidosAgregadosGenerales> getContenidosGenerales() {
-        return null;
-    }
-
-    public ContenidosAgregadosInformativos getContenidosInformativos() {
-        return null;
-    }
 
     public String getFechaInicio() {
         return "";
