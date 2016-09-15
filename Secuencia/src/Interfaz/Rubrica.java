@@ -43,7 +43,7 @@ public class Rubrica extends javax.swing.JFrame{
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        numeroSecuenciaLabel = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         asignaturaTextField = new javax.swing.JTextField();
@@ -52,7 +52,7 @@ public class Rubrica extends javax.swing.JFrame{
         docenteTextField = new javax.swing.JTextField();
         fechaInicioTextField = new javax.swing.JTextField();
         sesionesTextField = new javax.swing.JTextField();
-        secuenciaTextField = new javax.swing.JTextField();
+        numeroSecuenciaTextField = new javax.swing.JTextField();
         periodoEscolarTextField = new javax.swing.JTextField();
         jPanel15 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -106,9 +106,9 @@ public class Rubrica extends javax.swing.JFrame{
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Periodo escolar");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Numero de secuencia");
+        numeroSecuenciaLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        numeroSecuenciaLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        numeroSecuenciaLabel.setText("Numero de secuencia");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -140,11 +140,21 @@ public class Rubrica extends javax.swing.JFrame{
         sesionesTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         sesionesTextField.setText("<Rellenar>");
 
-        secuenciaTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        secuenciaTextField.setText("<Rellenar>");
+        numeroSecuenciaTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        numeroSecuenciaTextField.setText("<Rellenar>");
+        numeroSecuenciaTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                numeroSecuenciaClick(evt);
+            }
+        });
 
         periodoEscolarTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         periodoEscolarTextField.setText("<Rellenar>");
+        periodoEscolarTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                periodoEscolarClick(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -164,11 +174,11 @@ public class Rubrica extends javax.swing.JFrame{
                                     .addGroup(jPanel14Layout.createSequentialGroup()
                                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(numeroSecuenciaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.CENTER, jPanel14Layout.createSequentialGroup()
                                         .addComponent(periodoEscolarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(secuenciaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(numeroSecuenciaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(sesionesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -209,13 +219,13 @@ public class Rubrica extends javax.swing.JFrame{
                 .addGap(15, 15, 15)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel6)
+                    .addComponent(numeroSecuenciaLabel)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(periodoEscolarTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(secuenciaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numeroSecuenciaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sesionesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fechaInicioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
@@ -494,6 +504,16 @@ public class Rubrica extends javax.swing.JFrame{
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void periodoEscolarClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_periodoEscolarClick
+        if("<Rellenar>".equals(periodoEscolarTextField.getText()))
+            periodoEscolarTextField.setText("");
+    }//GEN-LAST:event_periodoEscolarClick
+
+    private void numeroSecuenciaClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_numeroSecuenciaClick
+        if("<Rellenar>".equals(numeroSecuenciaTextField.getText()))
+            periodoEscolarTextField.setText("");
+    }//GEN-LAST:event_numeroSecuenciaClick
+
     /**
      * @param args the command line arguments
      */
@@ -550,7 +570,6 @@ public class Rubrica extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -580,8 +599,9 @@ public class Rubrica extends javax.swing.JFrame{
     private javax.swing.JTabbedPane jTabbedPane6;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JLabel numeroSecuenciaLabel;
+    private javax.swing.JTextField numeroSecuenciaTextField;
     private javax.swing.JTextField periodoEscolarTextField;
-    private javax.swing.JTextField secuenciaTextField;
     private javax.swing.JTextField semestreTextField;
     private javax.swing.JTextField sesionesTextField;
     // End of variables declaration//GEN-END:variables

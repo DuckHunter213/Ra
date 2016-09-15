@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  * @version 1.0
  * @created 08-sep.-2016 11:45:17 p. m.
  */
-public class Asignatura {
+public class Asignatura{
 
     private String bloque = " ";
     private GestorFichero gestorFichero;
@@ -19,38 +19,38 @@ public class Asignatura {
     private String nombreCompletoMaestro = " ";
     private int semestre = 0;
 
-    public Asignatura() {
+    public Asignatura(){
 
     }
 
-    public void finalize() throws Throwable {
+    public void finalize() throws Throwable{
 
     }
 
-    public String getAsignatura() {
+    public String getAsignatura(){
         return nombreAsignatura;
     }
 
-    public String getBloque() {
+    public String getBloque(){
         return bloque;
     }
 
-    public int getSemestre() {
+    public int getSemestre(){
         return semestre;
     }
 
     public ArrayList<String> listarAsignaturas(){
         gestorFichero = new GestorFichero();
         ArrayList<String> asignaturas;
-        try {
+        try{
             asignaturas = gestorFichero.getAsignaturas();
-        } catch (IOException ex) {
+        }catch (IOException ex){
             asignaturas = new ArrayList<>();
         }
         return asignaturas;
     }
 
-    public ArrayList<String> listarBloques() {
+    public ArrayList<String> listarBloques(){
         gestorFichero = new GestorFichero();
         ArrayList<String> bloques = gestorFichero.getBloquesAsignatura(this.nombreAsignatura, this.semestre);
         return bloques;
@@ -68,10 +68,10 @@ public class Asignatura {
      * @param asignatura
      * @return
      */
-    public int setAsignatura(String asignatura) {
-        if (asignatura.isEmpty() || asignatura == null) {
+    public int setAsignatura(String asignatura){
+        if (asignatura.isEmpty() || asignatura == null){
             return 0;
-        } else {
+        }else{
             this.nombreAsignatura = asignatura;
             return 1;
         }
@@ -82,10 +82,10 @@ public class Asignatura {
      * @param bloque
      * @return
      */
-    public int setBloque(String bloque) {
-        if (bloque.isEmpty() || bloque == null) {
+    public int setBloque(String bloque){
+        if (bloque.isEmpty() || bloque == null){
             return 0;
-        } else {
+        }else{
             this.bloque = bloque;
             return 1;
         }
@@ -96,10 +96,10 @@ public class Asignatura {
      * @param semestre
      * @return
      */
-    public int setSemestre(int semestre) {
-        if (semestre < 0 || semestre > 20) {
+    public int setSemestre(int semestre){
+        if (semestre < 0 || semestre > 20){
             return 0;
-        } else {
+        }else{
             this.semestre = semestre;
             return 1;
         }
@@ -108,22 +108,26 @@ public class Asignatura {
     /**
      * @return the nombreCompletoMaestro
      */
-    public String getNombreCompletoMaestro() {
+    public String getNombreCompletoMaestro(){
         return nombreCompletoMaestro;
     }
 
     /**
      * @param nombreCompletoMaestro the nombreCompletoMaestro to set
-     * @return 
+     * @return
      */
-    public int setNombreCompletoMaestro(String nombreCompletoMaestro) {
+    public int setNombreCompletoMaestro(String nombreCompletoMaestro){
         try{
-            if (nombreCompletoMaestro.isEmpty())
+            if (nombreCompletoMaestro.isEmpty()){
                 return -1;
-            if (nombreCompletoMaestro.length() > 450)
+            }
+            if (nombreCompletoMaestro.length() > 450){
                 return 0;
+            }
+            this.nombreCompletoMaestro = nombreCompletoMaestro;
             return 1;
-        }catch(NullPointerException ex){
+
+        }catch (NullPointerException ex){
             return -1;
         }
     }

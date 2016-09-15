@@ -33,9 +33,12 @@ public class MenuRubrica extends javax.swing.JFrame{
         this.contenidosAgregados = contenidosAgregados;
         this.contenidosFijos = contenidosFijos;
         listarAsignaturas = asignatura.listarAsignaturas();
+        listarAsignaturas.add(0, "<Selecionar>");
         listarSemestres = asignatura.listarSemestres();
         listarBloques = asignatura.listarBloques();
         initComponents();
+        
+        
     }
 
     /**
@@ -195,12 +198,14 @@ public class MenuRubrica extends javax.swing.JFrame{
     private void cambioEstadoAsignatura(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cambioEstadoAsignatura
         asignatura.setAsignatura((String) (asignaturaComboBox.getSelectedItem()));
         listarSemestres = asignatura.listarSemestres();
+        listarSemestres.add(0, "<Selecionar>");
         semestreComboBox.setModel(new DefaultComboBoxModel(listarSemestres.toArray()));
     }//GEN-LAST:event_cambioEstadoAsignatura
 
     private void cambioEstadoSemestre(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cambioEstadoSemestre
         asignatura.setSemestre(Integer.valueOf((String)semestreComboBox.getSelectedItem()));
         listarBloques = asignatura.listarBloques();
+        listarBloques.add(0, "<Selecionar>");
         bloqueComboBox.setModel(new DefaultComboBoxModel(listarBloques.toArray()));
     }//GEN-LAST:event_cambioEstadoSemestre
 
