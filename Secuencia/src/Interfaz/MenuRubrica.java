@@ -82,6 +82,11 @@ public class MenuRubrica extends javax.swing.JFrame{
         });
 
         bloqueComboBox.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        bloqueComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cambioItemBloque(evt);
+            }
+        });
 
         asignaturaComboBox.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         asignaturaComboBox.setModel(new DefaultComboBoxModel(listarAsignaturas.toArray()));
@@ -90,22 +95,13 @@ public class MenuRubrica extends javax.swing.JFrame{
                 cambioEstadoAsignatura(evt);
             }
         });
-        asignaturaComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Entrada(evt);
-            }
-        });
-        asignaturaComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                asignaturaComboBoxActionPerformed(evt);
-            }
-        });
 
         docenteTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         docenteTextField.setToolTipText("");
 
         iniciarRubricaButton.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         iniciarRubricaButton.setText("Iniciar Rubrica");
+        iniciarRubricaButton.setEnabled(false);
         iniciarRubricaButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iniciarRubricaButtonMouseClicked(evt);
@@ -196,14 +192,6 @@ public class MenuRubrica extends javax.swing.JFrame{
         this.setVisible(false);
     }//GEN-LAST:event_iniciarRubricaButtonMouseClicked
 
-    private void asignaturaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignaturaComboBoxActionPerformed
-
-    }//GEN-LAST:event_asignaturaComboBoxActionPerformed
-
-    private void Entrada(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Entrada
-
-    }//GEN-LAST:event_Entrada
-
     private void cambioEstadoAsignatura(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cambioEstadoAsignatura
         asignatura.setAsignatura((String) (asignaturaComboBox.getSelectedItem()));
         try{
@@ -215,7 +203,7 @@ public class MenuRubrica extends javax.swing.JFrame{
     }//GEN-LAST:event_cambioEstadoAsignatura
 
     private void cambioEstadoSemestre(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cambioEstadoSemestre
-        asignatura.setBloque((String) semestreComboBox.getSelectedItem());
+        asignatura.setSemestre(Integer.getInteger((String) semestreComboBox.getSelectedItem()));
         try{
             listarBloques = asignatura.listarBloques();
         }catch (IOException ex){
@@ -223,6 +211,11 @@ public class MenuRubrica extends javax.swing.JFrame{
         }
         bloqueComboBox.setModel(new DefaultComboBoxModel(listarBloques.toArray()));
     }//GEN-LAST:event_cambioEstadoSemestre
+
+    private void cambioItemBloque(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cambioItemBloque
+        asignatura.setBloque((String) bloqueComboBox.getSelectedItem());
+        iniciarRubricaButton.setEnabled(true);
+    }//GEN-LAST:event_cambioItemBloque
 
     /**
      * @param args the command line arguments
