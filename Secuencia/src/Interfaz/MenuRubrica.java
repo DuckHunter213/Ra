@@ -194,21 +194,13 @@ public class MenuRubrica extends javax.swing.JFrame{
 
     private void cambioEstadoAsignatura(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cambioEstadoAsignatura
         asignatura.setAsignatura((String) (asignaturaComboBox.getSelectedItem()));
-        try{
-            listarSemestres = asignatura.listarSemestres();
-        }catch (IOException ex){
-            Logger.getLogger(MenuRubrica.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        listarSemestres = asignatura.listarSemestres();
         semestreComboBox.setModel(new DefaultComboBoxModel(listarSemestres.toArray()));
     }//GEN-LAST:event_cambioEstadoAsignatura
 
     private void cambioEstadoSemestre(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cambioEstadoSemestre
-        asignatura.setSemestre(Integer.getInteger((String) semestreComboBox.getSelectedItem()));
-        try{
-            listarBloques = asignatura.listarBloques();
-        }catch (IOException ex){
-            Logger.getLogger(MenuRubrica.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        asignatura.setSemestre(Integer.valueOf((String)semestreComboBox.getSelectedItem()));
+        listarBloques = asignatura.listarBloques();
         bloqueComboBox.setModel(new DefaultComboBoxModel(listarBloques.toArray()));
     }//GEN-LAST:event_cambioEstadoSemestre
 
