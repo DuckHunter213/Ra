@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class Asignatura {
 
-    private int bloque = 0;
+    private String bloque = " ";
     private GestorFichero gestorFichero;
     private String nombreAsignatura = " ";
     private String nombreCompletoMaestro = " ";
@@ -29,7 +29,7 @@ public class Asignatura {
         return nombreAsignatura;
     }
 
-    public int getBloque() {
+    public String getBloque() {
         return bloque;
     }
 
@@ -49,7 +49,7 @@ public class Asignatura {
         return bloques;
     }
 
-    public ArrayList<String> listarSemestres() {
+    public ArrayList<String> listarSemestres() throws IOException {
         gestorFichero = new GestorFichero();
         ArrayList<String> semestres = new ArrayList<>();
         semestres = (ArrayList<String>) gestorFichero.getSemestresAsignatura(this.nombreAsignatura).clone();
@@ -75,8 +75,8 @@ public class Asignatura {
      * @param bloque
      * @return
      */
-    public int setBloque(int bloque) {
-        if (bloque < 0 || bloque > 15) {
+    public int setBloque(String bloque) {
+        if (bloque.isEmpty() || bloque == null) {
             return 0;
         } else {
             this.bloque = bloque;
