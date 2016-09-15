@@ -3,6 +3,8 @@ package Fachada;
 import DAO.GestorFichero;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Gerardo Mares
@@ -37,19 +39,24 @@ public class Asignatura {
         return semestre;
     }
 
-    public ArrayList<String> listarAsignaturas() throws IOException {
+    public ArrayList<String> listarAsignaturas(){
         gestorFichero = new GestorFichero();
-        ArrayList<String> asignaturas = gestorFichero.getAsignaturas();
+        ArrayList<String> asignaturas;
+        try {
+            asignaturas = gestorFichero.getAsignaturas();
+        } catch (IOException ex) {
+            asignaturas = new ArrayList<>();
+        }
         return asignaturas;
     }
 
-    public ArrayList<String> listarBloques() throws IOException {
+    public ArrayList<String> listarBloques() {
         gestorFichero = new GestorFichero();
         ArrayList<String> bloques = gestorFichero.getBloquesAsignatura(this.nombreAsignatura, this.semestre);
         return bloques;
     }
 
-    public ArrayList<String> listarSemestres() throws IOException {
+    public ArrayList<String> listarSemestres(){
         gestorFichero = new GestorFichero();
         ArrayList<String> semestres = new ArrayList<>();
         semestres = (ArrayList<String>) gestorFichero.getSemestresAsignatura(this.nombreAsignatura).clone();

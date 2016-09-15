@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -19,9 +20,6 @@ public class GestorFichero {
 
     }
 
-    public void finalize() throws Throwable {
-
-    }
 
     private static String crearPathInicial() {
         String path = System.getProperty("user.dir")
@@ -66,9 +64,7 @@ public class GestorFichero {
     private static ArrayList<String> cargarContenidosGenerales(CsvReader archivo) throws IOException {
         ArrayList<String> contenidosGenerales = new ArrayList<>();
         while (archivo.readRecord()) {
-            for (String contenido : archivo.getValues()) {
-                contenidosGenerales.add(contenido);
-            }
+            contenidosGenerales.addAll(Arrays.asList(archivo.getValues()));
         }
         return contenidosGenerales;
     }
@@ -108,14 +104,15 @@ public class GestorFichero {
      *
      * @param nombreAsignatura
      * @param semestreAsignatura
+     * @return 
      */
-    public ArrayList<String> getBloquesAsignatura(String nombreAsignatura, int semestreAsignatura) throws FileNotFoundException, IOException {
+    public ArrayList<String> getBloquesAsignatura(String nombreAsignatura, int semestreAsignatura){
         ArrayList<String> archivos = new ArrayList<>();
         String pathCarpeta = crearPathInicial()
                 + System.getProperty("file.separator") + nombreAsignatura
                 + System.getProperty("file.separator") + Integer.toString(semestreAsignatura) + ".csv";
 
-        if (nombreAsignatura.isEmpty() || nombreAsignatura == " ") {
+        if (nombreAsignatura.isEmpty() || " ".equals(nombreAsignatura)) {
             archivos.add("No hay bloques disponibles :(");
         } else {
             try {
@@ -144,7 +141,7 @@ public class GestorFichero {
         ArrayList<String> archivos = new ArrayList<>();
         String pathCarpeta = crearPathInicial()
                 + System.getProperty("file.separator") + nombreAsignatura;
-        if (nombreAsignatura.isEmpty() || nombreAsignatura == " ") {
+        if (nombreAsignatura.isEmpty() || " ".equals(nombreAsignatura)) {
             archivos.add("No hay semestres disponibles :(");
         } else {
             try {
@@ -164,7 +161,8 @@ public class GestorFichero {
 
     /**
      *
-     * @param asignatura
+     * @param tipoContenido
+     * @return 
      */
     public ArrayList<String> getContenidosGenerales(String tipoContenido) {
         ArrayList<String> contenidosGenerales = new ArrayList<>();
@@ -182,6 +180,8 @@ public class GestorFichero {
     /**
      *
      * @param asignatura
+     * @param tipoContenido
+     * @return 
      */
     public ArrayList<String> getContenidosEspecificos(Asignatura asignatura, String tipoContenido) {
         ArrayList<String> contenidosEspecificos = new ArrayList<>();
@@ -203,7 +203,9 @@ public class GestorFichero {
 
     /**
      *
-     * @param asignatura
+     * @param competencia
+     * @param tipoCompetencia
+     * @return 
      */
     public ArrayList<String> getCompetenciasGenerales(String competencia, String tipoCompetencia) {
         ArrayList<String> contenidosGenerales = new ArrayList<>();

@@ -43,7 +43,7 @@ public class AsignaturaTest {
      * Test of listarAsignaturas method, of class Asignatura.
      */
     @Test
-    public void testListarAsignaturas() throws Exception {
+    public void testListarAsignaturas() {
         System.out.println("listarAsignaturas");
         Asignatura instance = new Asignatura();
         ArrayList<String> expResult = new ArrayList<>();
@@ -59,17 +59,19 @@ public class AsignaturaTest {
      * @throws java.lang.Exception
      */
     @Test
-    public void testListarBloques() throws Exception {
+    public void testListarBloques() {
         System.out.println("listarBloques");
         String nombreAsignatura = "";
         int semestre = 0;
         Asignatura instance = new Asignatura();
+        instance.setAsignatura("Física");
+        instance.setSemestre(1);
         ArrayList<String> expResult = new ArrayList<>();
         expResult.add("Bloque 1");
         expResult.add("Bloque 2");
         expResult.add("Bloque 3");
         expResult.add("Bloque 4");
-        ArrayList<String> result = instance.listarBloques("Física", "1");
+        ArrayList<String> result = instance.listarBloques();
         assertEquals(expResult, result);
     }
 
@@ -80,10 +82,12 @@ public class AsignaturaTest {
     public void testListarSemestres() {
         System.out.println("listarSemestres");
         Asignatura instance = new Asignatura();
+        instance.setAsignatura("Física");
+        instance.setBloque("1");
         ArrayList<String> expResult = new ArrayList<>();
-        expResult.add("1.csv");
-        expResult.add("3.csv");
-        ArrayList<String> result = instance.listarSemestres("Física");
+        expResult.add("1");
+        expResult.add("3");
+        ArrayList<String> result = instance.listarSemestres();
         assertEquals(expResult, result);
     }
 
