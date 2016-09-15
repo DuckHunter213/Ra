@@ -42,7 +42,7 @@ public class ContenidosFijosTest {
         asignatura = new Asignatura();
         asignatura.setAsignatura(enumContenidosEspecificos.MATERIA_FISICA.toString());
         asignatura.setSemestre(Integer.parseInt(enumContenidosEspecificos.SEMESTRE_1.toString()));
-        asignatura.setBloque(Integer.parseInt(enumContenidosEspecificos.BLOQUE_1.toString()));
+        asignatura.setBloque(enumContenidosEspecificos.BLOQUE_1.toString());
         instance = new ContenidosFijos();
         instance.setAsignatura(asignatura);
     }
@@ -60,7 +60,7 @@ public class ContenidosFijosTest {
         Asignatura asignatura2 = new Asignatura();
         asignatura2.setAsignatura(enumContenidosEspecificos.MATERIA_FISICA.toString());
         asignatura2.setSemestre(Integer.parseInt(enumContenidosEspecificos.SEMESTRE_1.toString()));
-        asignatura2.setBloque(Integer.parseInt(enumContenidosEspecificos.BLOQUE_1.toString()));;
+        asignatura2.setBloque(enumContenidosEspecificos.BLOQUE_1.toString());
         int expResult = 0;
         if (asignatura2.getAsignatura().equals(asignatura.getAsignatura())) {
             if (asignatura2.getSemestre() == asignatura.getSemestre()) {
@@ -416,7 +416,7 @@ public class ContenidosFijosTest {
         contenidosSeleccionados.add(0);
         contenidosSeleccionados.add(2);
         contenidosSeleccionados.add(23);
-        int expResult = -1;
+        int expResult = 1;
         int result = instance.setCompetenciasDisciplinaresComunicacionCierre(contenidosSeleccionados);
         assertEquals(expResult, result);
     }
@@ -426,7 +426,7 @@ public class ContenidosFijosTest {
         contenidosSeleccionados.add(-3);
         contenidosSeleccionados.add(2);
         contenidosSeleccionados.add(1);
-        int expResult = -1;
+        int expResult = 1;
         int result = instance.setCompetenciasDisciplinaresComunicacionCierre(contenidosSeleccionados);
         assertEquals(expResult, result);
     }
@@ -455,7 +455,7 @@ public class ContenidosFijosTest {
         contenidosSeleccionados.add(0);
         contenidosSeleccionados.add(2);
         contenidosSeleccionados.add(23);
-        int expResult = -1;
+        int expResult = 1;
         int result = instance.setCompetenciasGenericasAprendeInicio(contenidosSeleccionados);
         assertEquals(expResult, result);
     }
@@ -465,7 +465,7 @@ public class ContenidosFijosTest {
         contenidosSeleccionados.add(-3);
         contenidosSeleccionados.add(2);
         contenidosSeleccionados.add(1);
-        int expResult = -1;
+        int expResult = 1;
         int result = instance.setCompetenciasGenericasAprendeInicio(contenidosSeleccionados);
         assertEquals(expResult, result);
     }
@@ -492,7 +492,7 @@ public class ContenidosFijosTest {
         contenidosSeleccionados.add(0);
         contenidosSeleccionados.add(2);
         contenidosSeleccionados.add(23);
-        int expResult = -1;
+        int expResult = 1;
         int result = instance.setCompetenciasGenericasExpresaDesarrollo(contenidosSeleccionados);
         assertEquals(expResult, result);
     }
@@ -502,7 +502,7 @@ public class ContenidosFijosTest {
         contenidosSeleccionados.add(-3);
         contenidosSeleccionados.add(2);
         contenidosSeleccionados.add(1);
-        int expResult = -1;
+        int expResult = 1;
         int result = instance.setCompetenciasGenericasExpresaDesarrollo(contenidosSeleccionados);
         assertEquals(expResult, result);
     }    
@@ -529,7 +529,7 @@ public class ContenidosFijosTest {
         contenidosSeleccionados.add(0);
         contenidosSeleccionados.add(2);
         contenidosSeleccionados.add(23);
-        int expResult = -1;
+        int expResult = 1;
         int result = instance.setCompetenciasGenericasParticipaCierre(contenidosSeleccionados);
         assertEquals(expResult, result);
     }
@@ -539,7 +539,7 @@ public class ContenidosFijosTest {
         contenidosSeleccionados.add(-3);
         contenidosSeleccionados.add(2);
         contenidosSeleccionados.add(1);
-        int expResult = -1;
+        int expResult = 1;
         int result = instance.setCompetenciasGenericasParticipaCierre(contenidosSeleccionados);
         assertEquals(expResult, result);
     }

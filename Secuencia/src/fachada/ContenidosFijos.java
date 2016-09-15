@@ -103,7 +103,7 @@ public class ContenidosFijos {
     private int isAsignaturaValida(Asignatura asignatura) {
         if (asignatura.getAsignatura().isEmpty() || asignatura.getAsignatura().equals("")) {
             return ASIGNATURA_INVALIDA;
-        } else if (asignatura.getBloque() <= 0) {
+        } else if (asignatura.getBloque().isEmpty()) {
             return ASIGNATURA_INVALIDA;
         } else if (asignatura.getSemestre() <= 0) {
             return ASIGNATURA_INVALIDA;

@@ -209,7 +209,7 @@ public class GestorFicheroTest {
         Asignatura asignatura = new Asignatura();
         asignatura.setAsignatura("Física");
         asignatura.setSemestre(1);
-        asignatura.setBloque(1);
+        asignatura.setBloque("1");
         int expResult = 5;
         int result = instance.getContenidosEspecificos(asignatura, "declarativo").size();
         assertEquals(expResult, result);
@@ -221,7 +221,7 @@ public class GestorFicheroTest {
         Asignatura asignatura = new Asignatura();
         asignatura.setAsignatura("Física");
         asignatura.setSemestre(1);
-        asignatura.setBloque(3);
+        asignatura.setBloque("3");
         int expResult = 3;
         int result = instance.getContenidosEspecificos(asignatura, "declarativo").size();
         assertEquals(expResult, result);
@@ -233,7 +233,7 @@ public class GestorFicheroTest {
         Asignatura asignatura = new Asignatura();
         asignatura.setAsignatura("Física");
         asignatura.setSemestre(3);
-        asignatura.setBloque(3);
+        asignatura.setBloque("3");
         int expResult = 3;
         int result = instance.getContenidosEspecificos(asignatura, "declarativo").size();
         assertEquals(expResult, result);
@@ -245,7 +245,7 @@ public class GestorFicheroTest {
         Asignatura asignatura = new Asignatura();
         asignatura.setAsignatura("Física");
         asignatura.setSemestre(4);
-        asignatura.setBloque(3);
+        asignatura.setBloque("3");
         int expResult = 1;
         int result = instance.getContenidosEspecificos(asignatura, "declarativo").size();
         assertEquals(expResult, result);
@@ -257,7 +257,7 @@ public class GestorFicheroTest {
         Asignatura asignatura = new Asignatura();
         asignatura.setAsignatura("Física");
         asignatura.setSemestre(1);
-        asignatura.setBloque(1);
+        asignatura.setBloque("1");
         int expResult = 4;
         int result = instance.getContenidosEspecificos(asignatura, "procedimentales").size();
         assertEquals(expResult, result);
@@ -269,7 +269,7 @@ public class GestorFicheroTest {
         Asignatura asignatura = new Asignatura();
         asignatura.setAsignatura("Física");
         asignatura.setSemestre(1);
-        asignatura.setBloque(3);
+        asignatura.setBloque("3");
         int expResult = 4;
         int result = instance.getContenidosEspecificos(asignatura, "procedimentales").size();
         assertEquals(expResult, result);
@@ -281,7 +281,7 @@ public class GestorFicheroTest {
         Asignatura asignatura = new Asignatura();
         asignatura.setAsignatura("Física");
         asignatura.setSemestre(3);
-        asignatura.setBloque(3);
+        asignatura.setBloque("3");
         int expResult = 1;
         int result = instance.getContenidosEspecificos(asignatura, "procedimentales").size();
         assertEquals(expResult, result);
@@ -293,7 +293,7 @@ public class GestorFicheroTest {
         Asignatura asignatura = new Asignatura();
         asignatura.setAsignatura("asd");
         asignatura.setSemestre(4);
-        asignatura.setBloque(3);
+        asignatura.setBloque("3");
         int expResult = 1;
         int result = instance.getContenidosEspecificos(asignatura, "declarativo").size();
         assertEquals(expResult, result);

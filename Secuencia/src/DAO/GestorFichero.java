@@ -50,7 +50,7 @@ public class GestorFichero {
     private static ArrayList<String> cargarContenidosEspecificos(Asignatura asignatura, CsvReader archivo, String tipoContenido) throws IOException {
         ArrayList<String> contenidosGenerales = new ArrayList<>();
         while (archivo.readRecord()) {
-            String bloqueBuscado = Integer.toString(asignatura.getBloque()) + " " + tipoContenido;
+            String bloqueBuscado = asignatura.getBloque() + " " + tipoContenido;
             String bloqueRecibido = archivo.get(0);
             if (bloqueRecibido.indexOf(bloqueBuscado) > 0) {
                 for (String contenido : archivo.getValues()) {

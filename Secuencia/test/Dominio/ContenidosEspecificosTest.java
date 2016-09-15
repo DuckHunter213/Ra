@@ -47,7 +47,7 @@ public class ContenidosEspecificosTest {
         Asignatura asignatura = new Asignatura();
         asignatura.setAsignatura(enumContenidosEspecificos.MATERIA_FISICA.toString());
         asignatura.setSemestre(Integer.parseInt(enumContenidosEspecificos.SEMESTRE_3.toString()));
-        asignatura.setBloque(Integer.parseInt(enumContenidosEspecificos.BLOQUE_3.toString()));
+        asignatura.setBloque(enumContenidosEspecificos.BLOQUE_3.toString());
         int result = instance.listarContenidosEspecificos(asignatura, enumContenidosEspecificos.CONTENIDO_PROCEDIMENTAL.toString()).size();
         assertEquals(expResult, result);
     }
@@ -59,7 +59,7 @@ public class ContenidosEspecificosTest {
         Asignatura asignatura = new Asignatura();
         asignatura.setAsignatura(enumContenidosEspecificos.MATERIA_FISICA.toString());
         asignatura.setSemestre(Integer.parseInt(enumContenidosEspecificos.SEMESTRE_1.toString()));
-        asignatura.setBloque(Integer.parseInt(enumContenidosEspecificos.BLOQUE_1.toString()));
+        asignatura.setBloque(enumContenidosEspecificos.BLOQUE_1.toString());
         int result = instance.listarContenidosEspecificos(asignatura, enumContenidosEspecificos.CONTENIDO_PROCEDIMENTAL.toString()).size();
         assertEquals(expResult, result);
     }
@@ -71,7 +71,7 @@ public class ContenidosEspecificosTest {
         Asignatura asignatura = new Asignatura();
         asignatura.setAsignatura(enumContenidosEspecificos.MATERIA_FISICA.toString());
         asignatura.setSemestre(Integer.parseInt(enumContenidosEspecificos.SEMESTRE_3.toString()));
-        asignatura.setBloque(Integer.parseInt(enumContenidosEspecificos.BLOQUE_3.toString()));
+        asignatura.setBloque(enumContenidosEspecificos.BLOQUE_3.toString());
         int result = instance.listarContenidosEspecificos(asignatura, enumContenidosEspecificos.CONTENIDO_DECLARATIVO.toString()).size();
         assertEquals(expResult, result);
     }
@@ -83,7 +83,7 @@ public class ContenidosEspecificosTest {
         Asignatura asignatura = new Asignatura();
         asignatura.setAsignatura(enumContenidosEspecificos.MATERIA_FISICA.toString());
         asignatura.setSemestre(Integer.parseInt(enumContenidosEspecificos.SEMESTRE_1.toString()));
-        asignatura.setBloque(Integer.parseInt(enumContenidosEspecificos.BLOQUE_1.toString()));
+        asignatura.setBloque(enumContenidosEspecificos.BLOQUE_1.toString());
         int result = instance.listarContenidosEspecificos(asignatura, enumContenidosEspecificos.CONTENIDO_DECLARATIVO.toString()).size();
         assertEquals(expResult, result);
     }
@@ -99,7 +99,7 @@ public class ContenidosEspecificosTest {
         Asignatura asignatura = new Asignatura();
         asignatura.setAsignatura(enumContenidosEspecificos.MATERIA_FISICA.toString());
         asignatura.setSemestre(Integer.parseInt(enumContenidosEspecificos.SEMESTRE_1.toString()));
-        asignatura.setBloque(Integer.parseInt(enumContenidosEspecificos.BLOQUE_1.toString()));
+        asignatura.setBloque(enumContenidosEspecificos.BLOQUE_1.toString());
         instance.setContenidosEspecificos(asignatura, listaSeleccion, enumContenidosEspecificos.CONTENIDO_DECLARATIVO.toString());
         int result = instance.getContenidosDeclarativosSeleccionados().size();
         assertEquals(expResult, result);
@@ -115,7 +115,7 @@ public class ContenidosEspecificosTest {
         Asignatura asignatura = new Asignatura();
         asignatura.setAsignatura(enumContenidosEspecificos.MATERIA_FISICA.toString());
         asignatura.setSemestre(Integer.parseInt(enumContenidosEspecificos.SEMESTRE_3.toString()));
-        asignatura.setBloque(Integer.parseInt(enumContenidosEspecificos.BLOQUE_3.toString()));
+        asignatura.setBloque(enumContenidosEspecificos.BLOQUE_3.toString());
         instance.setContenidosEspecificos(asignatura, listaSeleccion, enumContenidosEspecificos.CONTENIDO_DECLARATIVO.toString());
         int result = instance.getContenidosDeclarativosSeleccionados().size();
         assertEquals(expResult, result);
@@ -131,7 +131,7 @@ public class ContenidosEspecificosTest {
         Asignatura asignatura = new Asignatura();
         asignatura.setAsignatura(enumContenidosEspecificos.MATERIA_FISICA.toString());
         asignatura.setSemestre(Integer.parseInt(enumContenidosEspecificos.SEMESTRE_1.toString()));
-        asignatura.setBloque(Integer.parseInt(enumContenidosEspecificos.BLOQUE_1.toString()));
+        asignatura.setBloque(enumContenidosEspecificos.BLOQUE_1.toString());
         instance.setContenidosEspecificos(asignatura, listaSeleccion, enumContenidosEspecificos.CONTENIDO_PROCEDIMENTAL.toString());
         ArrayList<String> lista = instance.getContenidosProcedimentalesSeleccionados();
         int result = 0;
@@ -151,7 +151,7 @@ public class ContenidosEspecificosTest {
         Asignatura asignatura = new Asignatura();
         asignatura.setAsignatura(enumContenidosEspecificos.MATERIA_FISICA.toString());
         asignatura.setSemestre(Integer.parseInt(enumContenidosEspecificos.SEMESTRE_1.toString()));
-        asignatura.setBloque(Integer.parseInt(enumContenidosEspecificos.BLOQUE_1.toString()));
+        asignatura.setBloque(enumContenidosEspecificos.BLOQUE_1.toString());
         instance.setContenidosEspecificos(asignatura, listaSeleccion, enumContenidosEspecificos.CONTENIDO_PROCEDIMENTAL.toString());        ArrayList<String> lista = instance.getContenidosProcedimentalesSeleccionados();
         int result = 0;
         if (lista.size() == 1){

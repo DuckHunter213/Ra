@@ -69,7 +69,7 @@ public class AsignaturaTest {
         expResult.add("Bloque 2");
         expResult.add("Bloque 3");
         expResult.add("Bloque 4");
-        ArrayList<String> result = instance.listarBloques("Física", 1);
+        ArrayList<String> result = instance.listarBloques("Física", "1");
         assertEquals(expResult, result);
     }
 
