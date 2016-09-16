@@ -191,6 +191,9 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <Events>
+        <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="cambioPropiedadDocenteTextField"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="iniciarRubricaButton">
       <Properties>

@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -101,6 +100,11 @@ public class MenuRubrica extends javax.swing.JFrame{
 
         docenteTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         docenteTextField.setToolTipText("");
+        docenteTextField.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                cambioPropiedadDocenteTextField(evt);
+            }
+        });
 
         iniciarRubricaButton.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         iniciarRubricaButton.setText("Iniciar Rubrica");
@@ -193,6 +197,8 @@ public class MenuRubrica extends javax.swing.JFrame{
         Rubrica rubrica = new Rubrica(asignatura, contenidosAgregados, contenidosFijos);
         rubrica.setVisible(true);
         this.setVisible(false);
+        
+        
     }//GEN-LAST:event_iniciarRubricaButtonMouseClicked
 
     private void cambioEstadoAsignatura(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cambioEstadoAsignatura
@@ -207,12 +213,17 @@ public class MenuRubrica extends javax.swing.JFrame{
         listarBloques = asignatura.listarBloques();
         listarBloques.add(0, "<Selecionar>");
         bloqueComboBox.setModel(new DefaultComboBoxModel(listarBloques.toArray()));
+        iniciarRubricaButton.setEnabled(true);
     }//GEN-LAST:event_cambioEstadoSemestre
 
     private void cambioItemBloque(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cambioItemBloque
         asignatura.setBloque((String) bloqueComboBox.getSelectedItem());
-        iniciarRubricaButton.setEnabled(true);
+        
     }//GEN-LAST:event_cambioItemBloque
+
+    private void cambioPropiedadDocenteTextField(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cambioPropiedadDocenteTextField
+        
+    }//GEN-LAST:event_cambioPropiedadDocenteTextField
 
     /**
      * @param args the command line arguments
