@@ -26,7 +26,6 @@ public class Rubrica extends javax.swing.JFrame{
         Rubrica.asignatura = asignatura;
         
         initComponents();
-        this.setResizable(false);
     }
 
     /**
@@ -398,9 +397,9 @@ public class Rubrica extends javax.swing.JFrame{
         jLabel2.setText("Contenido Procedimental");
 
         jList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            ArrayList<String> strings = contenidosFijos.listarContenidosProcedimentales() ;
+            public int getSize() { return strings.size(); }
+            public String getElementAt(int i) { return strings.get(i); }
         });
         jScrollPane7.setViewportView(jList2);
 
@@ -434,9 +433,9 @@ public class Rubrica extends javax.swing.JFrame{
         jLabel4.setText("Contenido Actitudinal");
 
         jList4.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            ArrayList<String> strings = contenidosFijos.listarContenidosActitudinales();
+            public int getSize() { return strings.size(); }
+            public String getElementAt(int i) { return strings.get(i); }
         });
         jScrollPane9.setViewportView(jList4);
 
