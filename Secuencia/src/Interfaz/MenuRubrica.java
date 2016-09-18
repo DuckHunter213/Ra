@@ -200,6 +200,7 @@ public class MenuRubrica extends javax.swing.JFrame{
             asignatura.setNombreCompletoMaestro(docenteTextField.getText());
             Rubrica rubrica = new Rubrica(asignatura, contenidosAgregados, contenidosFijos);
             rubrica.setVisible(true);
+            rubrica.setResizable(false);
             this.setVisible(false);
         }
     }//GEN-LAST:event_iniciarRubricaButtonMouseClicked
