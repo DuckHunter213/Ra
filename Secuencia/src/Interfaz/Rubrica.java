@@ -24,7 +24,7 @@ public class Rubrica extends javax.swing.JFrame{
         this.contenidosAgregados = contenidosAgregados;
         this.asignatura = asignatura;
         initComponents();
-        
+
     }
 
     /**
@@ -37,7 +37,7 @@ public class Rubrica extends javax.swing.JFrame{
     private void initComponents() {
 
         emptyBorder1 = (javax.swing.border.EmptyBorder)javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1);
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        principalTabbedPane = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         semestreLabel = new javax.swing.JLabel();
@@ -78,16 +78,16 @@ public class Rubrica extends javax.swing.JFrame{
         jScrollPane9 = new javax.swing.JScrollPane();
         jList4 = new javax.swing.JList<>();
         jPanel3 = new javax.swing.JPanel();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
+        competenciasInicioTabbedPane = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
+        competenciasDesarolloTabbedPane = new javax.swing.JTabbedPane();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jTabbedPane4 = new javax.swing.JTabbedPane();
-        jTabbedPane5 = new javax.swing.JTabbedPane();
+        competenciasCierreTabbedPane = new javax.swing.JTabbedPane();
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
@@ -103,12 +103,12 @@ public class Rubrica extends javax.swing.JFrame{
         observacionesReflexionesTextArea = new javax.swing.JTextArea();
         observacionesReflexionesLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        siguienteButton = new javax.swing.JButton();
+        regresarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTabbedPane1.setToolTipText("");
+        principalTabbedPane.setToolTipText("");
 
         jPanel14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -162,9 +162,19 @@ public class Rubrica extends javax.swing.JFrame{
 
         fechaInicioTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         fechaInicioTextField.setText("<Rellenar>");
+        fechaInicioTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fechaInicioTextFieldMouseClicked(evt);
+            }
+        });
 
         numeroSesionesTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         numeroSesionesTextField.setText("<Rellenar>");
+        numeroSesionesTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                numeroSesionClick(evt);
+            }
+        });
 
         numeroSecuenciaTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         numeroSecuenciaTextField.setText("<Rellenar>");
@@ -323,7 +333,7 @@ public class Rubrica extends javax.swing.JFrame{
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Inicio", jPanel1);
+        principalTabbedPane.addTab("Inicio", jPanel1);
 
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
         jPanel16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -457,7 +467,7 @@ public class Rubrica extends javax.swing.JFrame{
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Contenidos", jPanel2);
+        principalTabbedPane.addTab("Contenidos", jPanel2);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -470,7 +480,7 @@ public class Rubrica extends javax.swing.JFrame{
             .addGap(0, 454, Short.MAX_VALUE)
         );
 
-        jTabbedPane2.addTab("Inicio", jPanel4);
+        competenciasInicioTabbedPane.addTab("Inicio", jPanel4);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -483,7 +493,7 @@ public class Rubrica extends javax.swing.JFrame{
             .addGap(0, 454, Short.MAX_VALUE)
         );
 
-        jTabbedPane2.addTab("Competencias", jPanel5);
+        competenciasInicioTabbedPane.addTab("Competencias", jPanel5);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -496,20 +506,20 @@ public class Rubrica extends javax.swing.JFrame{
             .addGap(0, 454, Short.MAX_VALUE)
         );
 
-        jTabbedPane2.addTab("Evidencias / Instrumentos", jPanel6);
+        competenciasInicioTabbedPane.addTab("Evidencias / Instrumentos", jPanel6);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2)
+            .addComponent(competenciasInicioTabbedPane)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2)
+            .addComponent(competenciasInicioTabbedPane)
         );
 
-        jTabbedPane1.addTab("Competencias / Inicio", jPanel3);
+        principalTabbedPane.addTab("Competencias / Inicio", jPanel3);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -522,7 +532,7 @@ public class Rubrica extends javax.swing.JFrame{
             .addGap(0, 454, Short.MAX_VALUE)
         );
 
-        jTabbedPane3.addTab("Desarollo", jPanel7);
+        competenciasDesarolloTabbedPane.addTab("Desarollo", jPanel7);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -535,7 +545,7 @@ public class Rubrica extends javax.swing.JFrame{
             .addGap(0, 454, Short.MAX_VALUE)
         );
 
-        jTabbedPane3.addTab("Competencias", jPanel8);
+        competenciasDesarolloTabbedPane.addTab("Competencias", jPanel8);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -548,9 +558,9 @@ public class Rubrica extends javax.swing.JFrame{
             .addComponent(jTabbedPane4)
         );
 
-        jTabbedPane3.addTab("Evidencias / Instrumentos", jPanel9);
+        competenciasDesarolloTabbedPane.addTab("Evidencias / Instrumentos", jPanel9);
 
-        jTabbedPane1.addTab("Competencias / Desarollo", jTabbedPane3);
+        principalTabbedPane.addTab("Competencias / Desarollo", competenciasDesarolloTabbedPane);
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -563,7 +573,7 @@ public class Rubrica extends javax.swing.JFrame{
             .addGap(0, 454, Short.MAX_VALUE)
         );
 
-        jTabbedPane5.addTab("Cierre", jPanel10);
+        competenciasCierreTabbedPane.addTab("Cierre", jPanel10);
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -576,7 +586,7 @@ public class Rubrica extends javax.swing.JFrame{
             .addGap(0, 454, Short.MAX_VALUE)
         );
 
-        jTabbedPane5.addTab("Competencias", jPanel11);
+        competenciasCierreTabbedPane.addTab("Competencias", jPanel11);
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -589,9 +599,9 @@ public class Rubrica extends javax.swing.JFrame{
             .addComponent(jTabbedPane6)
         );
 
-        jTabbedPane5.addTab("Evidencias / Instrumentos", jPanel12);
+        competenciasCierreTabbedPane.addTab("Evidencias / Instrumentos", jPanel12);
 
-        jTabbedPane1.addTab("Competencias / Cierre", jTabbedPane5);
+        principalTabbedPane.addTab("Competencias / Cierre", competenciasCierreTabbedPane);
 
         recursosMaterialesTextArea.setColumns(20);
         recursosMaterialesTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -653,16 +663,21 @@ public class Rubrica extends javax.swing.JFrame{
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Recursos", jPanel13);
+        principalTabbedPane.addTab("Recursos", jPanel13);
 
-        jButton1.setText("Siguiente");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        siguienteButton.setText("Siguiente");
+        siguienteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                siguienteButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Regresar");
+        regresarButton.setText("Regresar");
+        regresarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regresarButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -670,42 +685,128 @@ public class Rubrica extends javax.swing.JFrame{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(regresarButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(siguienteButton)
                 .addContainerGap())
             .addComponent(jSeparator1)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(principalTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(principalTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(siguienteButton)
+                    .addComponent(regresarButton))
                 .addGap(0, 28, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void siguienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteButtonActionPerformed
+
+        switch (principalTabbedPane.getSelectedIndex()){
+            case 0:
+                principalTabbedPane.setSelectedIndex(principalTabbedPane.getSelectedIndex() + 1);
+                break;
+            case 1:
+                principalTabbedPane.setSelectedIndex(principalTabbedPane.getSelectedIndex() + 1);
+                break;
+            case 2:
+                if (competenciasInicioTabbedPane.getSelectedIndex() == 2){
+                    principalTabbedPane.setSelectedIndex(principalTabbedPane.getSelectedIndex() + 1);
+                    break;
+                }
+                competenciasInicioTabbedPane.setSelectedIndex(competenciasInicioTabbedPane.getSelectedIndex() + 1);
+                break;
+            case 3:
+                if (competenciasDesarolloTabbedPane.getSelectedIndex() == 2){
+                    principalTabbedPane.setSelectedIndex(principalTabbedPane.getSelectedIndex() + 1);
+                    break;
+                }
+                competenciasDesarolloTabbedPane.setSelectedIndex(competenciasDesarolloTabbedPane.getSelectedIndex() + 1);
+                break;
+            case 4:
+                if (competenciasCierreTabbedPane.getSelectedIndex() == 2){
+                    principalTabbedPane.setSelectedIndex(principalTabbedPane.getSelectedIndex() + 1);
+                    break;
+                }
+                competenciasCierreTabbedPane.setSelectedIndex(competenciasCierreTabbedPane.getSelectedIndex() + 1);
+                break;
+            case 5:
+                //Aqui poner el codigo de advetencia para generar la rubrica
+                break;
+            default:
+
+        }
+
+    }//GEN-LAST:event_siguienteButtonActionPerformed
 
     private void periodoEscolarClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_periodoEscolarClick
-        if("<Rellenar>".equals(periodoEscolarTextField.getText()))
+        if ("<Rellenar>".equals(periodoEscolarTextField.getText())){
             periodoEscolarTextField.setText("");
+        }
     }//GEN-LAST:event_periodoEscolarClick
 
     private void numeroSecuenciaClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_numeroSecuenciaClick
-        if("<Rellenar>".equals(numeroSecuenciaTextField.getText()))
-            periodoEscolarTextField.setText("");
+        if ("<Rellenar>".equals(numeroSecuenciaTextField.getText())){
+            numeroSecuenciaTextField.setText("");
+        }
     }//GEN-LAST:event_numeroSecuenciaClick
+
+    private void numeroSesionClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_numeroSesionClick
+        if ("<Rellenar>".equals(numeroSesionesTextField.getText())){
+            numeroSesionesTextField.setText("");
+        }
+    }//GEN-LAST:event_numeroSesionClick
+
+    private void fechaInicioTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fechaInicioTextFieldMouseClicked
+        if ("<Rellenar>".equals(fechaInicioTextField.getText())){
+            fechaInicioTextField.setText("");
+        }
+    }//GEN-LAST:event_fechaInicioTextFieldMouseClicked
+
+    private void regresarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarButtonActionPerformed
+        
+         switch (principalTabbedPane.getSelectedIndex()){
+            case 0:
+                break;
+            case 1:
+                principalTabbedPane.setSelectedIndex(principalTabbedPane.getSelectedIndex() - 1);
+                break;
+            case 2:
+                if (competenciasInicioTabbedPane.getSelectedIndex() == 0){
+                    principalTabbedPane.setSelectedIndex(principalTabbedPane.getSelectedIndex() - 1);
+                    break;
+                }
+                competenciasInicioTabbedPane.setSelectedIndex(competenciasInicioTabbedPane.getSelectedIndex() - 1);
+                break;
+            case 3:
+                if (competenciasDesarolloTabbedPane.getSelectedIndex() == 0){
+                    principalTabbedPane.setSelectedIndex(principalTabbedPane.getSelectedIndex() - 1);
+                    break;
+                }
+                competenciasDesarolloTabbedPane.setSelectedIndex(competenciasDesarolloTabbedPane.getSelectedIndex() - 1);
+                break;
+            case 4:
+                if (competenciasCierreTabbedPane.getSelectedIndex() == 0){
+                    principalTabbedPane.setSelectedIndex(principalTabbedPane.getSelectedIndex() - 1);
+                    break;
+                }
+                competenciasCierreTabbedPane.setSelectedIndex(competenciasCierreTabbedPane.getSelectedIndex() - 1);
+                break;
+            case 5:
+                principalTabbedPane.setSelectedIndex(principalTabbedPane.getSelectedIndex() - 1);
+                break;
+            default:
+
+        }
+    }//GEN-LAST:event_regresarButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -754,6 +855,9 @@ public class Rubrica extends javax.swing.JFrame{
     private javax.swing.JTextField asignaturaTextField;
     private javax.swing.JLabel bloqueLabel;
     private javax.swing.JTextField bloqueTextField;
+    private javax.swing.JTabbedPane competenciasCierreTabbedPane;
+    private javax.swing.JTabbedPane competenciasDesarolloTabbedPane;
+    private javax.swing.JTabbedPane competenciasInicioTabbedPane;
     private javax.swing.JList<String> contenidoDeclarativoList;
     private javax.swing.JLabel docenteLabel;
     private javax.swing.JTextField docenteTextField;
@@ -762,14 +866,10 @@ public class Rubrica extends javax.swing.JFrame{
     private javax.swing.JTextField fechaInicioTextField;
     private javax.swing.JLabel fuentesInformacionLabel;
     private javax.swing.JTextArea fuentesInformacionTextArea;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JList<String> jList2;
-    private javax.swing.JList<String> jList3;
     private javax.swing.JList<String> jList4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -779,12 +879,8 @@ public class Rubrica extends javax.swing.JFrame{
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel20;
-    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
-    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -800,14 +896,9 @@ public class Rubrica extends javax.swing.JFrame{
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTabbedPane jTabbedPane5;
     private javax.swing.JTabbedPane jTabbedPane6;
     private javax.swing.JLabel numeroSecuenciaLabel;
     private javax.swing.JTextField numeroSecuenciaTextField;
@@ -819,12 +910,15 @@ public class Rubrica extends javax.swing.JFrame{
     private javax.swing.JTextArea otrasMateriasRelacionTextArea;
     private javax.swing.JLabel periodoEscolarLabel;
     private javax.swing.JTextField periodoEscolarTextField;
+    private javax.swing.JTabbedPane principalTabbedPane;
     private javax.swing.JLabel propositoSecuenciaLabel;
     private javax.swing.JTextArea propositoSecuenciaTextArea;
     private javax.swing.JLabel recursosMaterialesLabel;
     private javax.swing.JTextArea recursosMaterialesTextArea;
+    private javax.swing.JButton regresarButton;
     private javax.swing.JLabel semestreLabel;
     private javax.swing.JTextField semestreTextField;
+    private javax.swing.JButton siguienteButton;
     // End of variables declaration//GEN-END:variables
 
 }

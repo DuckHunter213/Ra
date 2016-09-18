@@ -36,8 +36,7 @@ public class MenuRubrica extends javax.swing.JFrame{
         listarSemestres = asignatura.listarSemestres();
         listarBloques = asignatura.listarBloques();
         initComponents();
-        
-        
+
     }
 
     /**
@@ -192,13 +191,17 @@ public class MenuRubrica extends javax.swing.JFrame{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void validar(){
+        iniciarRubricaButton.setEnabled(true);
+    }
+    
     private void iniciarRubricaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarRubricaButtonMouseClicked
-        asignatura.setNombreCompletoMaestro(docenteTextField.getText());
-        Rubrica rubrica = new Rubrica(asignatura, contenidosAgregados, contenidosFijos);
-        rubrica.setVisible(true);
-        this.setVisible(false);
-        
-        
+        if (iniciarRubricaButton.isEnabled()){
+            asignatura.setNombreCompletoMaestro(docenteTextField.getText());
+            Rubrica rubrica = new Rubrica(asignatura, contenidosAgregados, contenidosFijos);
+            rubrica.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_iniciarRubricaButtonMouseClicked
 
     private void cambioEstadoAsignatura(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cambioEstadoAsignatura
@@ -209,16 +212,16 @@ public class MenuRubrica extends javax.swing.JFrame{
     }//GEN-LAST:event_cambioEstadoAsignatura
 
     private void cambioEstadoSemestre(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cambioEstadoSemestre
-        asignatura.setSemestre(Integer.valueOf((String)semestreComboBox.getSelectedItem()));
+        asignatura.setSemestre(Integer.valueOf((String) semestreComboBox.getSelectedItem()));
         listarBloques = asignatura.listarBloques();
         listarBloques.add(0, "<Selecionar>");
         bloqueComboBox.setModel(new DefaultComboBoxModel(listarBloques.toArray()));
-        iniciarRubricaButton.setEnabled(true);
+
     }//GEN-LAST:event_cambioEstadoSemestre
 
     private void cambioItemBloque(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cambioItemBloque
         asignatura.setBloque((String) bloqueComboBox.getSelectedItem());
-        
+        validar();
     }//GEN-LAST:event_cambioItemBloque
 
     private void cambioPropiedadDocenteTextField(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cambioPropiedadDocenteTextField
