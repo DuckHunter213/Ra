@@ -52,7 +52,7 @@ public class GestorFichero {
             String bloqueRecibido = archivo.get(0);
             if (bloqueRecibido.indexOf(bloqueBuscado) >= 0) {
                 for (String contenido : archivo.getValues()) {
-                    if (!(contenido.indexOf(bloqueBuscado) > 0) && contenido.length() > 2) {
+                    if (!(contenido.indexOf(bloqueBuscado) >= 0) && contenido.length() > 2) {
                         contenidosGenerales.add(contenido);
                     }
                 }
