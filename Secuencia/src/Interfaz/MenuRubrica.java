@@ -207,7 +207,7 @@ public class MenuRubrica extends javax.swing.JFrame{
 
     private void cambioEstadoAsignatura(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cambioEstadoAsignatura
         asignatura.setAsignatura((String) (asignaturaComboBox.getSelectedItem()));
-        contenidosFijos.setAsignatura(asignatura);
+        
         listarSemestres = asignatura.listarSemestres();
         listarSemestres.add(0, "<Selecionar>");
         semestreComboBox.setModel(new DefaultComboBoxModel(listarSemestres.toArray()));

@@ -24,7 +24,7 @@ public class Rubrica extends javax.swing.JFrame{
         Rubrica.contenidosFijos = contenidosFijos;
         Rubrica.contenidosAgregados = contenidosAgregados;
         Rubrica.asignatura = asignatura;
-        
+        contenidosFijos.setAsignatura(asignatura);
         initComponents();
     }
 
@@ -383,10 +383,8 @@ public class Rubrica extends javax.swing.JFrame{
             .addGroup(contenidoDeclarativoPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(contenidoDeclarativoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contenidoDeclarativoPanelLayout.createSequentialGroup()
-                        .addComponent(contenidoDeclarativoLabel)
-                        .addGap(130, 130, 130))
-                    .addComponent(jScrollPane6))
+                    .addComponent(contenidoDeclarativoLabel)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         contenidoDeclarativoPanelLayout.setVerticalGroup(
@@ -395,8 +393,8 @@ public class Rubrica extends javax.swing.JFrame{
                 .addContainerGap()
                 .addComponent(contenidoDeclarativoLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6)
-                .addContainerGap())
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         contenidoProcedimentalPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -411,6 +409,9 @@ public class Rubrica extends javax.swing.JFrame{
             public int getSize() { return strings.size(); }
             public String getElementAt(int i) { return strings.get(i); }
         });
+        jList2.setAutoscrolls(false);
+        jList2.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        jList2.setValueIsAdjusting(true);
         jScrollPane7.setViewportView(jList2);
 
         javax.swing.GroupLayout contenidoProcedimentalPanelLayout = new javax.swing.GroupLayout(contenidoProcedimentalPanel);
@@ -420,10 +421,8 @@ public class Rubrica extends javax.swing.JFrame{
             .addGroup(contenidoProcedimentalPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(contenidoProcedimentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contenidoProcedimentalPanelLayout.createSequentialGroup()
-                        .addComponent(contenidoProcedimentalLabel)
-                        .addGap(130, 130, 130))
-                    .addComponent(jScrollPane7))
+                    .addComponent(contenidoProcedimentalLabel)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         contenidoProcedimentalPanelLayout.setVerticalGroup(
@@ -432,8 +431,8 @@ public class Rubrica extends javax.swing.JFrame{
                 .addContainerGap()
                 .addComponent(contenidoProcedimentalLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         contenidoActitudinalPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -458,9 +457,9 @@ public class Rubrica extends javax.swing.JFrame{
                 .addContainerGap()
                 .addGroup(contenidoActitudinalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(contenidoActitudinalPanelLayout.createSequentialGroup()
-                        .addComponent(contenidoActitudinalLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(contenidoActitudinalLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                         .addGap(130, 130, 130))
-                    .addComponent(jScrollPane9))
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         contenidoActitudinalPanelLayout.setVerticalGroup(
@@ -469,8 +468,8 @@ public class Rubrica extends javax.swing.JFrame{
                 .addContainerGap()
                 .addComponent(contenidoActitudinalLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout contenidoPanelLayout = new javax.swing.GroupLayout(contenidoPanel);
@@ -491,8 +490,8 @@ public class Rubrica extends javax.swing.JFrame{
             .addGroup(contenidoPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(contenidoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(contenidoActitudinalPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(contenidoProcedimentalPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(contenidoActitudinalPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(contenidoDeclarativoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
