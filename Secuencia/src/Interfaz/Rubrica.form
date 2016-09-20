@@ -251,7 +251,7 @@
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Numero de secuencia"/>
+                    <Property name="text" type="java.lang.String" value="N&#xfa;mero de secuencia"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="numeroSesionesLabel">
@@ -260,7 +260,7 @@
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Numero de sesiones"/>
+                    <Property name="text" type="java.lang.String" value="N&#xfa;mero de sesiones"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="fechaInicioLabel">
@@ -409,7 +409,7 @@
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="Proposito de la secuencia"/>
+                    <Property name="text" type="java.lang.String" value="Prop&#xf3;sito de la secuencia"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="otrasMateriasRelacionLabel">
@@ -921,6 +921,9 @@
                           <SubComponents>
                             <Component class="javax.swing.JList" name="competenciasDisiplinaresInicio">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Segoe UI" size="12" style="0"/>
+                                </Property>
                                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                   <Connection code="new javax.swing.AbstractListModel&lt;String&gt;() {&#xa;    ArrayList&lt;String&gt; strings = unirListasContenidosDisiplinares();&#xa;    public int getSize() { return strings.size(); }&#xa;    public String getElementAt(int i) { return strings.get(i); }&#xa;}" type="code"/>
                                 </Property>
@@ -979,6 +982,9 @@
                           <SubComponents>
                             <Component class="javax.swing.JList" name="competenciasGenericasInicio">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Segoe UI" size="12" style="0"/>
+                                </Property>
                                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                   <Connection code="new javax.swing.AbstractListModel&lt;String&gt;() {&#xa;    ArrayList&lt;String&gt; strings = unirListasContenidosGenericos();&#xa;    public int getSize() { return strings.size(); }&#xa;    public String getElementAt(int i) { return strings.get(i); }&#xa;}" type="code"/>
                                 </Property>
@@ -1099,12 +1105,19 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JList" name="jList1">
+                            <Component class="javax.swing.JList" name="competenciasInicioEvidenciasList">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Segoe UI" size="12" style="0"/>
+                                </Property>
                                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                   <Connection code="new javax.swing.AbstractListModel&lt;String&gt;() {&#xa;    ArrayList&lt;String&gt; strings = contenidosFijos.listarEvidenciasDeAprendizaje();&#xa;    public int getSize() { return strings.size(); }&#xa;    public String getElementAt(int i) { return strings.get(i); }&#xa;}" type="code"/>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="competenciasInicioEvidenciasListMouseEntered"/>
+                                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="competenciasInicioEvidenciasListMouseExited"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
@@ -1153,12 +1166,19 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JList" name="jList2">
+                            <Component class="javax.swing.JList" name="competenciasInicioInstrumentosList">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Segoe UI" size="12" style="0"/>
+                                </Property>
                                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                   <Connection code="new javax.swing.AbstractListModel&lt;String&gt;() {&#xa;    ArrayList&lt;String&gt; strings = contenidosFijos.listarInstrumentosDeEvaluacion();&#xa;    public int getSize() { return strings.size(); }&#xa;    public String getElementAt(int i) { return strings.get(i); }&#xa;}" type="code"/>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="competenciasInicioInstrumentosListMouseEntered"/>
+                                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="competenciasInicioInstrumentosListMouseExited"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
