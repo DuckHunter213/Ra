@@ -2,15 +2,12 @@ package Interfaz;
 
 import Fachada.*;
 import java.awt.AWTException;
-import java.awt.AWTKeyStroke;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JCheckBox;
-import javax.swing.JPanel;
+
 
 
 /**
@@ -21,15 +18,6 @@ public class Rubrica extends javax.swing.JFrame{
     private static ContenidosFijos contenidosFijos;
     private static ContenidosAgregados contenidosAgregados;
     private static Asignatura asignatura;
-    
-    ArrayList<String> contenidoDeclarativo = new ArrayList<>();
-    List<JCheckBox> checkboxes = new ArrayList<>();
-    
-    private ArrayList<String> unirListasEvidencias(){
-        ArrayList<String> lista = new ArrayList();
-        
-        return lista;
-    }
     
     private ArrayList<String> unirListasContenidosGenericos(){
         ArrayList<String> lista = new ArrayList();
@@ -101,13 +89,6 @@ public class Rubrica extends javax.swing.JFrame{
         }
     }
     
-    public void crearBoxes(ArrayList<String> lista, JPanel panel){
-        for (String element : contenidosFijos.listarContenidosDeclarativos()) {
-            JCheckBox box = new JCheckBox(element);
-            checkboxes.add(box);
-            contenidoDeclarativoPanel.add(box);
-        }
-    }
     /**
      * Creates new form Rubrica
      *
@@ -236,19 +217,19 @@ public class Rubrica extends javax.swing.JFrame{
         jPanel22 = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
         jScrollPane23 = new javax.swing.JScrollPane();
-        jList7 = new javax.swing.JList<>();
+        competenciasCierreDisiplinaresList = new javax.swing.JList<>();
         jPanel24 = new javax.swing.JPanel();
         jScrollPane24 = new javax.swing.JScrollPane();
-        jList8 = new javax.swing.JList<>();
+        competenciasCierreGenericasList = new javax.swing.JList<>();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jPanel25 = new javax.swing.JPanel();
         jPanel26 = new javax.swing.JPanel();
         jScrollPane25 = new javax.swing.JScrollPane();
-        jList9 = new javax.swing.JList<>();
+        competenciasCierreEvidenciasList = new javax.swing.JList<>();
         jPanel27 = new javax.swing.JPanel();
         jScrollPane26 = new javax.swing.JScrollPane();
-        jList10 = new javax.swing.JList<>();
+        competenciasCierreIntrumentosList1 = new javax.swing.JList<>();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         recursosPanel = new javax.swing.JPanel();
@@ -431,10 +412,12 @@ public class Rubrica extends javax.swing.JFrame{
         otrasMateriasRelacionLabel.setText("Otras materias con las que se relaciona");
 
         otrasMateriasRelacionTextArea.setColumns(20);
+        otrasMateriasRelacionTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         otrasMateriasRelacionTextArea.setRows(5);
         jScrollPane1.setViewportView(otrasMateriasRelacionTextArea);
 
         propositoSecuenciaTextArea.setColumns(20);
+        propositoSecuenciaTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         propositoSecuenciaTextArea.setRows(5);
         jScrollPane2.setViewportView(propositoSecuenciaTextArea);
 
@@ -491,6 +474,7 @@ public class Rubrica extends javax.swing.JFrame{
         contenidoDeclarativoPanel.setBackground(new java.awt.Color(255, 255, 255));
         contenidoDeclarativoPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        contenidoDeclarativoList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         contenidoDeclarativoList.setModel(new javax.swing.AbstractListModel<String>() {
             ArrayList<String> strings = contenidosFijos.listarContenidosDeclarativos();
             public int getSize() { return strings.size(); }
@@ -526,6 +510,7 @@ public class Rubrica extends javax.swing.JFrame{
         contenidoProcedimentalPanel.setBackground(new java.awt.Color(255, 255, 255));
         contenidoProcedimentalPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        contenidoProcedimentalList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         contenidoProcedimentalList.setModel(new javax.swing.AbstractListModel<String>() {
             ArrayList<String> strings = contenidosFijos.listarContenidosProcedimentales();
             public int getSize() { return strings.size(); }
@@ -561,6 +546,7 @@ public class Rubrica extends javax.swing.JFrame{
         contenidoActitudinalPanel.setBackground(new java.awt.Color(255, 255, 255));
         contenidoActitudinalPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        contenidoActitudinalList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         contenidoActitudinalList.setModel(new javax.swing.AbstractListModel<String>() {
             ArrayList<String> strings = contenidosFijos.listarContenidosActitudinales();
             public int getSize() { return strings.size(); }
@@ -645,10 +631,12 @@ public class Rubrica extends javax.swing.JFrame{
         jLabel1.setText("Enseñanza");
 
         competenciasInicioEnsenanzaTextArea.setColumns(20);
+        competenciasInicioEnsenanzaTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         competenciasInicioEnsenanzaTextArea.setRows(5);
         jScrollPane8.setViewportView(competenciasInicioEnsenanzaTextArea);
 
         competenciasInicioAprendizajeTextArea.setColumns(20);
+        competenciasInicioAprendizajeTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         competenciasInicioAprendizajeTextArea.setRows(5);
         jScrollPane10.setViewportView(competenciasInicioAprendizajeTextArea);
 
@@ -925,10 +913,12 @@ public class Rubrica extends javax.swing.JFrame{
         jLabel5.setText("Aprendizaje");
 
         competenciasDesarolloAprendizajeTextArea.setColumns(20);
+        competenciasDesarolloAprendizajeTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         competenciasDesarolloAprendizajeTextArea.setRows(5);
         jScrollPane11.setViewportView(competenciasDesarolloAprendizajeTextArea);
 
         competenciasDesarolloEnsenanzaTextArea.setColumns(20);
+        competenciasDesarolloEnsenanzaTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         competenciasDesarolloEnsenanzaTextArea.setRows(5);
         jScrollPane12.setViewportView(competenciasDesarolloEnsenanzaTextArea);
 
@@ -970,6 +960,7 @@ public class Rubrica extends javax.swing.JFrame{
         jPanel17.setBackground(new java.awt.Color(255, 255, 255));
         jPanel17.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        competenciasDesarolloDisiplinaresList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         competenciasDesarolloDisiplinaresList.setModel(new javax.swing.AbstractListModel<String>() {
             ArrayList<String> strings = unirListasContenidosDisiplinares();
             public int getSize() { return strings.size(); }
@@ -1005,6 +996,7 @@ public class Rubrica extends javax.swing.JFrame{
         jPanel18.setBackground(new java.awt.Color(255, 255, 255));
         jPanel18.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        competenciasDesarolloGenericasList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         competenciasDesarolloGenericasList.setModel(new javax.swing.AbstractListModel<String>() {
             ArrayList<String> strings = unirListasContenidosGenericos();
             public int getSize() { return strings.size(); }
@@ -1077,6 +1069,7 @@ public class Rubrica extends javax.swing.JFrame{
         jPanel20.setBackground(new java.awt.Color(255, 255, 255));
         jPanel20.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        competenciasDesarolloEvidenciasList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         competenciasDesarolloEvidenciasList.setModel(new javax.swing.AbstractListModel<String>() {
             ArrayList<String> strings = contenidosFijos.listarEvidenciasDeAprendizaje();
             public int getSize() { return strings.size(); }
@@ -1112,10 +1105,19 @@ public class Rubrica extends javax.swing.JFrame{
         jPanel21.setBackground(new java.awt.Color(255, 255, 255));
         jPanel21.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        competenciasDesarolloInstrumentosList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         competenciasDesarolloInstrumentosList.setModel(new javax.swing.AbstractListModel<String>() {
             ArrayList<String> strings = contenidosFijos.listarInstrumentosDeEvaluacion();
             public int getSize() { return strings.size(); }
             public String getElementAt(int i) { return strings.get(i); }
+        });
+        competenciasDesarolloInstrumentosList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                competenciasDesarolloInstrumentosListMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                competenciasDesarolloInstrumentosListMouseExited(evt);
+            }
         });
         jScrollPane22.setViewportView(competenciasDesarolloInstrumentosList);
 
@@ -1182,10 +1184,12 @@ public class Rubrica extends javax.swing.JFrame{
         jLabel7.setText("Aprendizaje");
 
         jTextArea5.setColumns(20);
+        jTextArea5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextArea5.setRows(5);
         jScrollPane13.setViewportView(jTextArea5);
 
         jTextArea6.setColumns(20);
+        jTextArea6.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTextArea6.setRows(5);
         jScrollPane14.setViewportView(jTextArea6);
 
@@ -1227,12 +1231,21 @@ public class Rubrica extends javax.swing.JFrame{
         jPanel23.setBackground(new java.awt.Color(255, 255, 255));
         jPanel23.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jList7.setModel(new javax.swing.AbstractListModel<String>() {
+        competenciasCierreDisiplinaresList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        competenciasCierreDisiplinaresList.setModel(new javax.swing.AbstractListModel<String>() {
             ArrayList<String> strings = unirListasContenidosDisiplinares();
             public int getSize() { return strings.size(); }
             public String getElementAt(int i) { return strings.get(i); }
         });
-        jScrollPane23.setViewportView(jList7);
+        competenciasCierreDisiplinaresList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                competenciasCierreDisiplinaresListMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                competenciasCierreDisiplinaresListMouseExited(evt);
+            }
+        });
+        jScrollPane23.setViewportView(competenciasCierreDisiplinaresList);
 
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
         jPanel23.setLayout(jPanel23Layout);
@@ -1254,12 +1267,21 @@ public class Rubrica extends javax.swing.JFrame{
         jPanel24.setBackground(new java.awt.Color(255, 255, 255));
         jPanel24.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jList8.setModel(new javax.swing.AbstractListModel<String>() {
+        competenciasCierreGenericasList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        competenciasCierreGenericasList.setModel(new javax.swing.AbstractListModel<String>() {
             ArrayList<String> strings = unirListasContenidosGenericos();
             public int getSize() { return strings.size(); }
             public String getElementAt(int i) { return strings.get(i); }
         });
-        jScrollPane24.setViewportView(jList8);
+        competenciasCierreGenericasList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                competenciasCierreGenericasListMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                competenciasCierreGenericasListMouseExited(evt);
+            }
+        });
+        jScrollPane24.setViewportView(competenciasCierreGenericasList);
 
         javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
         jPanel24.setLayout(jPanel24Layout);
@@ -1318,12 +1340,21 @@ public class Rubrica extends javax.swing.JFrame{
         jPanel26.setBackground(new java.awt.Color(255, 255, 255));
         jPanel26.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jList9.setModel(new javax.swing.AbstractListModel<String>() {
+        competenciasCierreEvidenciasList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        competenciasCierreEvidenciasList.setModel(new javax.swing.AbstractListModel<String>() {
             ArrayList<String> strings = contenidosFijos.listarEvidenciasDeAprendizaje();
             public int getSize() { return strings.size(); }
             public String getElementAt(int i) { return strings.get(i); }
         });
-        jScrollPane25.setViewportView(jList9);
+        competenciasCierreEvidenciasList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                competenciasCierreEvidenciasListMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                competenciasCierreEvidenciasListMouseExited(evt);
+            }
+        });
+        jScrollPane25.setViewportView(competenciasCierreEvidenciasList);
 
         javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
         jPanel26.setLayout(jPanel26Layout);
@@ -1345,12 +1376,21 @@ public class Rubrica extends javax.swing.JFrame{
         jPanel27.setBackground(new java.awt.Color(255, 255, 255));
         jPanel27.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jList10.setModel(new javax.swing.AbstractListModel<String>() {
+        competenciasCierreIntrumentosList1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        competenciasCierreIntrumentosList1.setModel(new javax.swing.AbstractListModel<String>() {
             ArrayList<String> strings = contenidosFijos.listarInstrumentosDeEvaluacion();
             public int getSize() { return strings.size(); }
             public String getElementAt(int i) { return strings.get(i); }
         });
-        jScrollPane26.setViewportView(jList10);
+        competenciasCierreIntrumentosList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                competenciasCierreIntrumentosList1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                competenciasCierreIntrumentosList1MouseExited(evt);
+            }
+        });
+        jScrollPane26.setViewportView(competenciasCierreIntrumentosList1);
 
         javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
         jPanel27.setLayout(jPanel27Layout);
@@ -1544,7 +1584,8 @@ public class Rubrica extends javax.swing.JFrame{
                 competenciasCierreTabbedPane.setSelectedIndex(competenciasCierreTabbedPane.getSelectedIndex() + 1);
                 break;
             case 5:
-                //Aqui poner el codigo de advetencia para generar la rubrica
+                Confirmar ventana = new Confirmar();
+                ventana.setVisible(true);
                 break;
             default:
 
@@ -1686,12 +1727,52 @@ public class Rubrica extends javax.swing.JFrame{
     }//GEN-LAST:event_competenciasDesarolloGenericasListMouseExited
 
     private void competenciasDesarolloEvidenciasListMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_competenciasDesarolloEvidenciasListMouseEntered
-        // TODO add your handling code here:
+        presionarControl();
     }//GEN-LAST:event_competenciasDesarolloEvidenciasListMouseEntered
 
     private void competenciasDesarolloEvidenciasListMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_competenciasDesarolloEvidenciasListMouseExited
-        // TODO add your handling code here:
+        soltarControl();
     }//GEN-LAST:event_competenciasDesarolloEvidenciasListMouseExited
+
+    private void competenciasDesarolloInstrumentosListMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_competenciasDesarolloInstrumentosListMouseEntered
+        presionarControl();
+    }//GEN-LAST:event_competenciasDesarolloInstrumentosListMouseEntered
+
+    private void competenciasDesarolloInstrumentosListMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_competenciasDesarolloInstrumentosListMouseExited
+        soltarControl();
+    }//GEN-LAST:event_competenciasDesarolloInstrumentosListMouseExited
+
+    private void competenciasCierreDisiplinaresListMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_competenciasCierreDisiplinaresListMouseEntered
+        presionarControl();
+    }//GEN-LAST:event_competenciasCierreDisiplinaresListMouseEntered
+
+    private void competenciasCierreDisiplinaresListMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_competenciasCierreDisiplinaresListMouseExited
+        soltarControl();
+    }//GEN-LAST:event_competenciasCierreDisiplinaresListMouseExited
+
+    private void competenciasCierreGenericasListMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_competenciasCierreGenericasListMouseEntered
+        presionarControl();
+    }//GEN-LAST:event_competenciasCierreGenericasListMouseEntered
+
+    private void competenciasCierreGenericasListMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_competenciasCierreGenericasListMouseExited
+        soltarControl();
+    }//GEN-LAST:event_competenciasCierreGenericasListMouseExited
+
+    private void competenciasCierreEvidenciasListMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_competenciasCierreEvidenciasListMouseEntered
+        presionarControl();
+    }//GEN-LAST:event_competenciasCierreEvidenciasListMouseEntered
+
+    private void competenciasCierreEvidenciasListMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_competenciasCierreEvidenciasListMouseExited
+        soltarControl();
+    }//GEN-LAST:event_competenciasCierreEvidenciasListMouseExited
+
+    private void competenciasCierreIntrumentosList1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_competenciasCierreIntrumentosList1MouseEntered
+        presionarControl();
+    }//GEN-LAST:event_competenciasCierreIntrumentosList1MouseEntered
+
+    private void competenciasCierreIntrumentosList1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_competenciasCierreIntrumentosList1MouseExited
+        soltarControl();
+    }//GEN-LAST:event_competenciasCierreIntrumentosList1MouseExited
 
     /**
      * @param args the command line arguments
@@ -1741,6 +1822,10 @@ public class Rubrica extends javax.swing.JFrame{
     private javax.swing.JLabel bloqueLabel;
     private javax.swing.JTextField bloqueTextField;
     private javax.swing.JPanel cierrePanel;
+    private javax.swing.JList<String> competenciasCierreDisiplinaresList;
+    private javax.swing.JList<String> competenciasCierreEvidenciasList;
+    private javax.swing.JList<String> competenciasCierreGenericasList;
+    private javax.swing.JList<String> competenciasCierreIntrumentosList1;
     private javax.swing.JTabbedPane competenciasCierreTabbedPane;
     private javax.swing.JTextArea competenciasDesarolloAprendizajeTextArea;
     private javax.swing.JList<String> competenciasDesarolloDisiplinaresList;
@@ -1793,10 +1878,6 @@ public class Rubrica extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList10;
-    private javax.swing.JList<String> jList7;
-    private javax.swing.JList<String> jList8;
-    private javax.swing.JList<String> jList9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel14;
