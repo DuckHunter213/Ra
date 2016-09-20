@@ -402,8 +402,11 @@ public class Rubrica extends javax.swing.JFrame{
             public String getElementAt(int i) { return strings.get(i); }
         });
         contenidoDeclarativoList.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                contenidoDeclarativoListMouseClicked(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                contenidoDeclarativoListMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                contenidoDeclarativoListMouseExited(evt);
             }
         });
         jScrollPane6.setViewportView(contenidoDeclarativoList);
@@ -1309,7 +1312,17 @@ public class Rubrica extends javax.swing.JFrame{
         }
     }//GEN-LAST:event_regresarButtonActionPerformed
 
-    private void contenidoDeclarativoListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contenidoDeclarativoListMouseClicked
+    private void contenidoDeclarativoListMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contenidoDeclarativoListMouseExited
+        try{
+            Robot robot = new Robot();
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+            
+        }catch (AWTException ex){
+            Logger.getLogger(Rubrica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_contenidoDeclarativoListMouseExited
+
+    private void contenidoDeclarativoListMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contenidoDeclarativoListMouseEntered
         try{
             Robot robot = new Robot();
             robot.keyPress(KeyEvent.VK_CONTROL);
@@ -1317,7 +1330,7 @@ public class Rubrica extends javax.swing.JFrame{
         }catch (AWTException ex){
             Logger.getLogger(Rubrica.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_contenidoDeclarativoListMouseClicked
+    }//GEN-LAST:event_contenidoDeclarativoListMouseEntered
 
     /**
      * @param args the command line arguments
