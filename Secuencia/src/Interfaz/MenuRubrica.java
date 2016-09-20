@@ -106,7 +106,7 @@ public class MenuRubrica extends javax.swing.JFrame{
         });
 
         iniciarRubricaButton.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        iniciarRubricaButton.setText("Iniciar Rubrica");
+        iniciarRubricaButton.setText("Iniciar Rúbrica");
         iniciarRubricaButton.setEnabled(false);
         iniciarRubricaButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
