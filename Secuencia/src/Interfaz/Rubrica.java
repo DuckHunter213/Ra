@@ -1,6 +1,7 @@
 package Interfaz;
 
 import Fachada.*;
+import com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -8,6 +9,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JList;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -18,7 +21,12 @@ public class Rubrica extends javax.swing.JFrame{
     private static ContenidosAgregados contenidosAgregados;
     private static Asignatura asignatura;
 
+    private void setearGenerico(){
+        
+    }
     private void setearValores(){
+        ArrayList contenidosDeclarativos, contenidosProcedimentales, contenidosActitudinales;
+
         contenidosAgregados.setPeriodoEscolar(periodoEscolarTextField.getText());
         contenidosAgregados.setNumeroSecuencia(Integer.parseInt(numeroSecuenciaTextField.getText()));
         contenidosAgregados.setNumeroSesiones(Integer.parseInt(numeroSesionesTextField.getText()));
@@ -26,14 +34,18 @@ public class Rubrica extends javax.swing.JFrame{
         contenidosAgregados.setPropositoSecuencia(propositoSecuenciaTextArea.getText());
         contenidosAgregados.setAsignaturasRelacionadas(asignaturasRelacionadasTextArea.getText());
         //Segunda Ventana
-        contenidosFijos.setContenidosDeclarativos();
-        contenidosFijos.setContenidosProcedimentales();
-        contenidosFijos.setContenidosActitudinales();
+        contenidosDeclarativos = (ArrayList) contenidoDeclarativoList.getSelectedValuesList();
+        contenidosFijos.setContenidosDeclarativos(contenidosDeclarativos);
+        contenidosProcedimentales = (ArrayList) contenidoProcedimentalList.getSelectedValuesList();
+        contenidosFijos.setContenidosProcedimentales(contenidosProcedimentales);
+        contenidosActitudinales = (ArrayList) contenidoActitudinalList.getSelectedValuesList();
+        contenidosFijos.setContenidosActitudinales(contenidosActitudinales);
         //Tercera Ventana (Inicio)
         contenidosAgregados.setContenidosGeneralesEnsenianzaInicio(contenidosGeneralesEnsenianzaInicioTextArea.getText());
         contenidosAgregados.setContenidosGeneralesAprendizajeInicio(contenidosGeneralesAprendizajeInicioTextArea.getText());
         ////Competencias
-        contenidosFijos.setCompetenciasGenericasAprendeInicio();
+        ArrayList competenciasGenericasAprendeInicio;
+        contenidosFijos.setCompetenciasGenericasAprendeInicio(competenciasGenericasAprendeInicio);
         contenidosFijos.setCompetenciasGenericasAutodeterminaInicio();
         contenidosFijos.setCompetenciasGenericasExpresaInicio();
         contenidosFijos.setCompetenciasGenericasParticipaInicio();
@@ -80,6 +92,7 @@ public class Rubrica extends javax.swing.JFrame{
         ////Evidencias
         contenidosFijos.setEvidenciasDeAprendizajeCierre();
         contenidosFijos.setInstrumentosDeEvaluacionCierre();
+
         //Sexta Ventana
         contenidosAgregados.setRecursosMateriales(recursosMaterialesTextArea.getText());
         contenidosAgregados.setFuentesInformacion(fuentesInformacionTextArea.getText());
@@ -1873,6 +1886,11 @@ public class Rubrica extends javax.swing.JFrame{
          */
         java.awt.EventQueue.invokeLater(new Runnable(){
             public void run(){
+                try{
+                    UIManager.setLookAndFeel(new WindowsClassicLookAndFeel());
+                }catch (UnsupportedLookAndFeelException ex){
+                    Logger.getLogger(Rubrica.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 new Rubrica(asignatura, contenidosAgregados, contenidosFijos).setVisible(true);
             }
 
