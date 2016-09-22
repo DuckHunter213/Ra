@@ -7,8 +7,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-
+import javax.swing.JList;
 
 /**
  *
@@ -18,7 +17,75 @@ public class Rubrica extends javax.swing.JFrame{
     private static ContenidosFijos contenidosFijos;
     private static ContenidosAgregados contenidosAgregados;
     private static Asignatura asignatura;
-    
+
+    private void setearValores(){
+        contenidosAgregados.setPeriodoEscolar(periodoEscolarTextField.getText());
+        contenidosAgregados.setNumeroSecuencia(Integer.parseInt(numeroSecuenciaTextField.getText()));
+        contenidosAgregados.setNumeroSesiones(Integer.parseInt(numeroSesionesTextField.getText()));
+        contenidosAgregados.setFechaInicio(fechaInicioTextField.getText());
+        contenidosAgregados.setPropositoSecuencia(propositoSecuenciaTextArea.getText());
+        contenidosAgregados.setAsignaturasRelacionadas(asignaturasRelacionadasTextArea.getText());
+        //Segunda Ventana
+        contenidosFijos.setContenidosDeclarativos();
+        contenidosFijos.setContenidosProcedimentales();
+        contenidosFijos.setContenidosActitudinales();
+        //Tercera Ventana (Inicio)
+        contenidosAgregados.setContenidosGeneralesEnsenianzaInicio(contenidosGeneralesEnsenianzaInicioTextArea.getText());
+        contenidosAgregados.setContenidosGeneralesAprendizajeInicio(contenidosGeneralesAprendizajeInicioTextArea.getText());
+        ////Competencias
+        contenidosFijos.setCompetenciasGenericasAprendeInicio();
+        contenidosFijos.setCompetenciasGenericasAutodeterminaInicio();
+        contenidosFijos.setCompetenciasGenericasExpresaInicio();
+        contenidosFijos.setCompetenciasGenericasParticipaInicio();
+        contenidosFijos.setCompetenciasGenericasTrabajaInicio();
+        //-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<
+        contenidosFijos.setCompetenciasDisciplinaresCienciasExperimentalesInicio();
+        contenidosFijos.setCompetenciasDisciplinaresCienciasSocialesInicio();
+        contenidosFijos.setCompetenciasDisciplinaresComunicacionInicio();
+        contenidosFijos.setCompetenciasDisciplinaresMatematicasInicio();
+        ////Evidencias
+        contenidosFijos.setEvidenciasDeAprendizajeInicio();
+        contenidosFijos.setInstrumentosDeEvaluacionInicio();
+        //Cuarta Ventana (Desarollo)
+        contenidosAgregados.setContenidosGeneralesEnsenianzaDesarrollo(contenidosGeneralesEnsenianzaDesarolloTextArea.getText());
+        contenidosAgregados.setContenidosGeneralesAprendizajeDesarrollo(contenidosGeneralesAprendizajeDesarolloTextArea.getText());
+        ////Competencias
+        contenidosFijos.setCompetenciasGenericasAprendeDesarrollo();
+        contenidosFijos.setCompetenciasGenericasAutodeterminaDesarrollo();
+        contenidosFijos.setCompetenciasGenericasExpresaDesarrollo();
+        contenidosFijos.setCompetenciasGenericasParticipaDesarrollo();
+        contenidosFijos.setCompetenciasGenericasTrabajaDesarrollo();
+        //-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<
+        contenidosFijos.setCompetenciasDisciplinaresCienciasExperimentalesDesarrollo();
+        contenidosFijos.setCompetenciasDisciplinaresCienciasSocialesDesarrollo();
+        contenidosFijos.setCompetenciasDisciplinaresComunicacionDesarrollo();
+        contenidosFijos.setCompetenciasDisciplinaresMatematicasDesarrollo();
+        ////Evidencias
+        contenidosFijos.setEvidenciasDeAprendizajeDesarrollo();
+        contenidosFijos.setInstrumentosDeEvaluacionDesarrollo();
+        //Quinta Ventana (Cierre)
+        contenidosAgregados.setContenidosGeneralesEnsenianzaCierre(contenidosGeneralesEnsenianzaCierreTextArea.getText());
+        contenidosAgregados.setContenidosGeneralesAprendizajeCierre(contenidosGeneralesAprendizajeCierreTextArea.getText());
+        ////Competencias
+        contenidosFijos.setCompetenciasGenericasAprendeCierre();
+        contenidosFijos.setCompetenciasGenericasAutodeterminaCierre();
+        contenidosFijos.setCompetenciasGenericasExpresaCierre();
+        contenidosFijos.setCompetenciasGenericasParticipaCierre();
+        contenidosFijos.setCompetenciasGenericasTrabajaCierre();
+        //-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<
+        contenidosFijos.setCompetenciasDisciplinaresCienciasExperimentalesCierre();
+        contenidosFijos.setCompetenciasDisciplinaresCienciasSocialesCierre();
+        contenidosFijos.setCompetenciasDisciplinaresComunicacionCierre();
+        contenidosFijos.setCompetenciasDisciplinaresMatematicasCierre();
+        ////Evidencias
+        contenidosFijos.setEvidenciasDeAprendizajeCierre();
+        contenidosFijos.setInstrumentosDeEvaluacionCierre();
+        //Sexta Ventana
+        contenidosAgregados.setRecursosMateriales(recursosMaterialesTextArea.getText());
+        contenidosAgregados.setFuentesInformacion(fuentesInformacionTextArea.getText());
+        contenidosAgregados.setObservaciones(observacionesReflexionesTextArea.getText());
+    }
+
     private ArrayList<String> unirListasContenidosGenericos(){
         ArrayList<String> lista = new ArrayList();
         lista.add("APRENDE");
@@ -33,7 +100,7 @@ public class Rubrica extends javax.swing.JFrame{
         contenidosFijos.listarCompetenciasGenericaseExpresa().stream().forEach((string) -> {
             lista.add(string);
         });
-        lista.add("MATEMÁTICAS");
+        lista.add("PARTICIPA");
         contenidosFijos.listarCompetenciasGenericaseParticipa().stream().forEach((string) -> {
             lista.add(string);
         });
@@ -47,7 +114,7 @@ public class Rubrica extends javax.swing.JFrame{
         });
         return lista;
     }
-    
+
     private ArrayList<String> unirListasContenidosDisiplinares(){
         ArrayList<String> lista = new ArrayList();
         lista.add("CIENCIAS EXPERIMENTALES");
@@ -68,27 +135,27 @@ public class Rubrica extends javax.swing.JFrame{
         });
         return lista;
     }
-    
+
     private void presionarControl(){
         try{
             Robot robot = new Robot();
             robot.keyPress(KeyEvent.VK_CONTROL);
-            
+
         }catch (AWTException ex){
             Logger.getLogger(Rubrica.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     private void soltarControl(){
         try{
             Robot robot = new Robot();
             robot.keyRelease(KeyEvent.VK_CONTROL);
-            
+
         }catch (AWTException ex){
             Logger.getLogger(Rubrica.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     /**
      * Creates new form Rubrica
      *
@@ -137,7 +204,7 @@ public class Rubrica extends javax.swing.JFrame{
         propositoSecuenciaLabel = new javax.swing.JLabel();
         otrasMateriasRelacionLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        otrasMateriasRelacionTextArea = new javax.swing.JTextArea();
+        asignaturasRelacionadasTextArea = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         propositoSecuenciaTextArea = new javax.swing.JTextArea();
         contenidoPanel = new javax.swing.JPanel();
@@ -147,6 +214,7 @@ public class Rubrica extends javax.swing.JFrame{
         contenidoProcedimentalPanel = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         contenidoProcedimentalList = new javax.swing.JList<>();
+        contenidoProcedimentalList.setFixedCellWidth(-1);
         contenidoActitudinalPanel = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
         contenidoActitudinalList = new javax.swing.JList<>();
@@ -158,9 +226,9 @@ public class Rubrica extends javax.swing.JFrame{
         inicioPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        competenciasInicioEnsenanzaTextArea = new javax.swing.JTextArea();
+        contenidosGeneralesEnsenianzaInicioTextArea = new javax.swing.JTextArea();
         jScrollPane10 = new javax.swing.JScrollPane();
-        competenciasInicioAprendizajeTextArea = new javax.swing.JTextArea();
+        contenidosGeneralesAprendizajeInicioTextArea = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -184,9 +252,9 @@ public class Rubrica extends javax.swing.JFrame{
         desarolloPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
-        competenciasDesarolloAprendizajeTextArea = new javax.swing.JTextArea();
+        contenidosGeneralesAprendizajeDesarolloTextArea = new javax.swing.JTextArea();
         jScrollPane12 = new javax.swing.JScrollPane();
-        competenciasDesarolloEnsenanzaTextArea = new javax.swing.JTextArea();
+        contenidosGeneralesEnsenianzaDesarolloTextArea = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
@@ -210,9 +278,9 @@ public class Rubrica extends javax.swing.JFrame{
         cierrePanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane13 = new javax.swing.JScrollPane();
-        jTextArea5 = new javax.swing.JTextArea();
+        contenidosGeneralesAprendizajeCierreTextArea = new javax.swing.JTextArea();
         jScrollPane14 = new javax.swing.JScrollPane();
-        jTextArea6 = new javax.swing.JTextArea();
+        contenidosGeneralesEnsenianzaCierreTextArea = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         jPanel22 = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
@@ -411,10 +479,10 @@ public class Rubrica extends javax.swing.JFrame{
         otrasMateriasRelacionLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         otrasMateriasRelacionLabel.setText("Otras materias con las que se relaciona");
 
-        otrasMateriasRelacionTextArea.setColumns(20);
-        otrasMateriasRelacionTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        otrasMateriasRelacionTextArea.setRows(5);
-        jScrollPane1.setViewportView(otrasMateriasRelacionTextArea);
+        asignaturasRelacionadasTextArea.setColumns(20);
+        asignaturasRelacionadasTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        asignaturasRelacionadasTextArea.setRows(5);
+        jScrollPane1.setViewportView(asignaturasRelacionadasTextArea);
 
         propositoSecuenciaTextArea.setColumns(20);
         propositoSecuenciaTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -630,15 +698,15 @@ public class Rubrica extends javax.swing.JFrame{
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel1.setText("Enseñanza");
 
-        competenciasInicioEnsenanzaTextArea.setColumns(20);
-        competenciasInicioEnsenanzaTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        competenciasInicioEnsenanzaTextArea.setRows(5);
-        jScrollPane8.setViewportView(competenciasInicioEnsenanzaTextArea);
+        contenidosGeneralesEnsenianzaInicioTextArea.setColumns(20);
+        contenidosGeneralesEnsenianzaInicioTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        contenidosGeneralesEnsenianzaInicioTextArea.setRows(5);
+        jScrollPane8.setViewportView(contenidosGeneralesEnsenianzaInicioTextArea);
 
-        competenciasInicioAprendizajeTextArea.setColumns(20);
-        competenciasInicioAprendizajeTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        competenciasInicioAprendizajeTextArea.setRows(5);
-        jScrollPane10.setViewportView(competenciasInicioAprendizajeTextArea);
+        contenidosGeneralesAprendizajeInicioTextArea.setColumns(20);
+        contenidosGeneralesAprendizajeInicioTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        contenidosGeneralesAprendizajeInicioTextArea.setRows(5);
+        jScrollPane10.setViewportView(contenidosGeneralesAprendizajeInicioTextArea);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel3.setText("Aprendizaje");
@@ -912,15 +980,15 @@ public class Rubrica extends javax.swing.JFrame{
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel5.setText("Aprendizaje");
 
-        competenciasDesarolloAprendizajeTextArea.setColumns(20);
-        competenciasDesarolloAprendizajeTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        competenciasDesarolloAprendizajeTextArea.setRows(5);
-        jScrollPane11.setViewportView(competenciasDesarolloAprendizajeTextArea);
+        contenidosGeneralesAprendizajeDesarolloTextArea.setColumns(20);
+        contenidosGeneralesAprendizajeDesarolloTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        contenidosGeneralesAprendizajeDesarolloTextArea.setRows(5);
+        jScrollPane11.setViewportView(contenidosGeneralesAprendizajeDesarolloTextArea);
 
-        competenciasDesarolloEnsenanzaTextArea.setColumns(20);
-        competenciasDesarolloEnsenanzaTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        competenciasDesarolloEnsenanzaTextArea.setRows(5);
-        jScrollPane12.setViewportView(competenciasDesarolloEnsenanzaTextArea);
+        contenidosGeneralesEnsenianzaDesarolloTextArea.setColumns(20);
+        contenidosGeneralesEnsenianzaDesarolloTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        contenidosGeneralesEnsenianzaDesarolloTextArea.setRows(5);
+        jScrollPane12.setViewportView(contenidosGeneralesEnsenianzaDesarolloTextArea);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel6.setText("Enseñanza");
@@ -1183,15 +1251,15 @@ public class Rubrica extends javax.swing.JFrame{
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel7.setText("Aprendizaje");
 
-        jTextArea5.setColumns(20);
-        jTextArea5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextArea5.setRows(5);
-        jScrollPane13.setViewportView(jTextArea5);
+        contenidosGeneralesAprendizajeCierreTextArea.setColumns(20);
+        contenidosGeneralesAprendizajeCierreTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        contenidosGeneralesAprendizajeCierreTextArea.setRows(5);
+        jScrollPane13.setViewportView(contenidosGeneralesAprendizajeCierreTextArea);
 
-        jTextArea6.setColumns(20);
-        jTextArea6.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextArea6.setRows(5);
-        jScrollPane14.setViewportView(jTextArea6);
+        contenidosGeneralesEnsenianzaCierreTextArea.setColumns(20);
+        contenidosGeneralesEnsenianzaCierreTextArea.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        contenidosGeneralesEnsenianzaCierreTextArea.setRows(5);
+        jScrollPane14.setViewportView(contenidosGeneralesEnsenianzaCierreTextArea);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel8.setText("Enseñanza");
@@ -1584,8 +1652,9 @@ public class Rubrica extends javax.swing.JFrame{
                 competenciasCierreTabbedPane.setSelectedIndex(competenciasCierreTabbedPane.getSelectedIndex() + 1);
                 break;
             case 5:
-                Confirmar ventana = new Confirmar();
-                ventana.setVisible(true);
+                setearValores();
+                Confirmar confirmar = new Confirmar(this, rootPaneCheckingEnabled);
+                confirmar.setVisible(true);
                 break;
             default:
 
@@ -1618,8 +1687,8 @@ public class Rubrica extends javax.swing.JFrame{
     }//GEN-LAST:event_fechaInicioTextFieldMouseClicked
 
     private void regresarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarButtonActionPerformed
-        
-         switch (principalTabbedPane.getSelectedIndex()){
+
+        switch (principalTabbedPane.getSelectedIndex()){
             case 0:
                 break;
             case 1:
@@ -1794,13 +1863,7 @@ public class Rubrica extends javax.swing.JFrame{
                     break;
                 }
             }
-        }catch (ClassNotFoundException ex){
-            java.util.logging.Logger.getLogger(Rubrica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }catch (InstantiationException ex){
-            java.util.logging.Logger.getLogger(Rubrica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }catch (IllegalAccessException ex){
-            java.util.logging.Logger.getLogger(Rubrica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }catch (javax.swing.UnsupportedLookAndFeelException ex){
+        }catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex){
             java.util.logging.Logger.getLogger(Rubrica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -1819,6 +1882,7 @@ public class Rubrica extends javax.swing.JFrame{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel asignaturaLabel;
     private javax.swing.JTextField asignaturaTextField;
+    private javax.swing.JTextArea asignaturasRelacionadasTextArea;
     private javax.swing.JLabel bloqueLabel;
     private javax.swing.JTextField bloqueTextField;
     private javax.swing.JPanel cierrePanel;
@@ -1827,17 +1891,13 @@ public class Rubrica extends javax.swing.JFrame{
     private javax.swing.JList<String> competenciasCierreGenericasList;
     private javax.swing.JList<String> competenciasCierreIntrumentosList1;
     private javax.swing.JTabbedPane competenciasCierreTabbedPane;
-    private javax.swing.JTextArea competenciasDesarolloAprendizajeTextArea;
     private javax.swing.JList<String> competenciasDesarolloDisiplinaresList;
-    private javax.swing.JTextArea competenciasDesarolloEnsenanzaTextArea;
     private javax.swing.JList<String> competenciasDesarolloEvidenciasList;
     private javax.swing.JList<String> competenciasDesarolloGenericasList;
     private javax.swing.JList<String> competenciasDesarolloInstrumentosList;
     private javax.swing.JTabbedPane competenciasDesarolloTabbedPane;
     private javax.swing.JList<String> competenciasDisiplinaresInicio;
     private javax.swing.JList<String> competenciasGenericasInicio;
-    private javax.swing.JTextArea competenciasInicioAprendizajeTextArea;
-    private javax.swing.JTextArea competenciasInicioEnsenanzaTextArea;
     private javax.swing.JList<String> competenciasInicioEvidenciasList;
     private javax.swing.JList<String> competenciasInicioInstrumentosList;
     private javax.swing.JTabbedPane competenciasInicioTabbedPane;
@@ -1851,6 +1911,12 @@ public class Rubrica extends javax.swing.JFrame{
     private javax.swing.JLabel contenidoProcedimentalLabel;
     private javax.swing.JList<String> contenidoProcedimentalList;
     private javax.swing.JPanel contenidoProcedimentalPanel;
+    private javax.swing.JTextArea contenidosGeneralesAprendizajeCierreTextArea;
+    private javax.swing.JTextArea contenidosGeneralesAprendizajeDesarolloTextArea;
+    private javax.swing.JTextArea contenidosGeneralesAprendizajeInicioTextArea;
+    private javax.swing.JTextArea contenidosGeneralesEnsenianzaCierreTextArea;
+    private javax.swing.JTextArea contenidosGeneralesEnsenianzaDesarolloTextArea;
+    private javax.swing.JTextArea contenidosGeneralesEnsenianzaInicioTextArea;
     private javax.swing.JPanel desarolloPanel;
     private javax.swing.JLabel docenteLabel;
     private javax.swing.JTextField docenteTextField;
@@ -1927,8 +1993,6 @@ public class Rubrica extends javax.swing.JFrame{
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextArea5;
-    private javax.swing.JTextArea jTextArea6;
     private javax.swing.JLabel numeroSecuenciaLabel;
     private javax.swing.JTextField numeroSecuenciaTextField;
     private javax.swing.JLabel numeroSesionesLabel;
@@ -1936,7 +2000,6 @@ public class Rubrica extends javax.swing.JFrame{
     private javax.swing.JLabel observacionesReflexionesLabel;
     private javax.swing.JTextArea observacionesReflexionesTextArea;
     private javax.swing.JLabel otrasMateriasRelacionLabel;
-    private javax.swing.JTextArea otrasMateriasRelacionTextArea;
     private javax.swing.JLabel periodoEscolarLabel;
     private javax.swing.JTextField periodoEscolarTextField;
     private javax.swing.JTabbedPane principalTabbedPane;
