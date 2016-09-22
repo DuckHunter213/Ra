@@ -18,7 +18,7 @@ import java.io.IOException;
 public class Lector {
 
     public static void main(String[] args) {
-        Document documento = new Document(PageSize.LETTER, 0, 0, 40, 40);
+        Document documento = new Document(PageSize.LETTER, -40, -40, 40, 40);
         try {
             PdfWriter.getInstance(documento, new FileOutputStream("Ejemplo1.pdf"));
             documento.open();
@@ -29,7 +29,6 @@ public class Lector {
             PdfPCell cell = new PdfPCell(new Phrase(" "));
             //Encabezado con imágenes
             table = new PdfPTable(1);
-            table.setWidthPercentage(100);
             cell.setHorizontalAlignment(Element.ALIGN_CENTER);
             Image imagen = Image.getInstance("Encabezado.png");
             cell = new PdfPCell(imagen, true);
@@ -40,7 +39,6 @@ public class Lector {
 
             //Primera parte rellenable
             table = new PdfPTable(8);
-            table.setWidthPercentage(100);
             cell = new PdfPCell(new Phrase(" "));
             cell.setHorizontalAlignment(Element.ALIGN_CENTER);
             cell.setPaddingBottom(5);
