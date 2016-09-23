@@ -98,12 +98,8 @@ public class MenuRubrica extends javax.swing.JFrame{
         });
 
         docenteTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        docenteTextField.setText("Doctor Profesor Ojeda");
         docenteTextField.setToolTipText("");
-        docenteTextField.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                cambioPropiedadDocenteTextField(evt);
-            }
-        });
 
         iniciarRubricaButton.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         iniciarRubricaButton.setText("Iniciar Rúbrica");
@@ -197,7 +193,9 @@ public class MenuRubrica extends javax.swing.JFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     public void validar(){
-        iniciarRubricaButton.setEnabled(true);
+        if(asignaturaComboBox.getSelectedIndex()!=0 && !"".equals(docenteTextField.getText()) && asignaturaComboBox.getSelectedIndex()!=0 && bloqueComboBox.getSelectedIndex()!=0){
+            iniciarRubricaButton.setEnabled(true);
+        }
     }
     
     private void iniciarRubricaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarRubricaButtonMouseClicked
@@ -215,6 +213,7 @@ public class MenuRubrica extends javax.swing.JFrame{
         listarSemestres = asignatura.listarSemestres();
         listarSemestres.add(0, "<Selecionar>");
         semestreComboBox.setModel(new DefaultComboBoxModel(listarSemestres.toArray()));
+        validar();
     }//GEN-LAST:event_cambioEstadoAsignatura
 
     private void cambioEstadoSemestre(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cambioEstadoSemestre
@@ -222,7 +221,7 @@ public class MenuRubrica extends javax.swing.JFrame{
         listarBloques = asignatura.listarBloques();
         listarBloques.add(0, "<Selecionar>");
         bloqueComboBox.setModel(new DefaultComboBoxModel(listarBloques.toArray()));
-
+        validar();
     }//GEN-LAST:event_cambioEstadoSemestre
 
     private void cambioItemBloque(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cambioItemBloque
@@ -230,12 +229,8 @@ public class MenuRubrica extends javax.swing.JFrame{
         validar();
     }//GEN-LAST:event_cambioItemBloque
 
-    private void cambioPropiedadDocenteTextField(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cambioPropiedadDocenteTextField
-        
-    }//GEN-LAST:event_cambioPropiedadDocenteTextField
-
     private void iniciarRubricaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarRubricaButtonActionPerformed
-        // TODO add your handling code here:
+        validar();
     }//GEN-LAST:event_iniciarRubricaButtonActionPerformed
 
     /**
