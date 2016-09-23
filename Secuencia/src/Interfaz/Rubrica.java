@@ -1605,7 +1605,7 @@ public class Rubrica extends javax.swing.JFrame{
             case 5:
                 setearValores();
                 Confirmar confirmar = new Confirmar(this, rootPaneCheckingEnabled);
-                confirmar.pasarValores(this.asignatura, this.contenidosFijos, this.contenidosAgregados);
+                confirmar.generarPDF(this.asignatura, this.contenidosFijos, this.contenidosAgregados);
                 confirmar.setVisible(true);
                 break;
             default:

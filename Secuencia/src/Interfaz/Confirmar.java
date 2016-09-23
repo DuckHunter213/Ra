@@ -33,10 +33,12 @@ public class Confirmar extends javax.swing.JDialog {
      */
     public static final int RET_OK = 1;
 
-    public void pasarValores(Asignatura asignatura, ContenidosFijos contenidosFijos, ContenidosAgregados contenidosAgregados) {
+    public void generarPDF(Asignatura asignatura, ContenidosFijos contenidosFijos, ContenidosAgregados contenidosAgregados) {
         this.asignatura = asignatura;
         this.contenidosFijos = contenidosFijos;
-        this.contenidosAgregados = this.contenidosAgregados;
+        this.contenidosAgregados = contenidosAgregados;
+        Lector lector = new Lector(contenidosAgregados, contenidosFijos, asignatura);
+        lector.crearArchivo();
     }
 
     /**
@@ -44,10 +46,7 @@ public class Confirmar extends javax.swing.JDialog {
      */
     public Confirmar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-
         initComponents();
-        Lector lector = new Lector(contenidosAgregados, contenidosFijos, asignatura);
-        lector.crearArchivo();
 
         // Close the dialog when Esc is pressed
         String cancelName = "cancel";

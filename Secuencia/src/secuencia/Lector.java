@@ -32,14 +32,6 @@ public class Lector {
     }
     
     public void crearArchivo(){
-        Asignatura asignatura = new Asignatura();
-        asignatura.setAsignatura("Física") ;
-        asignatura.setBloque("2") ;
-        asignatura.setNombreCompletoMaestro("Prueba") ;
-        asignatura.setSemestre(2) ;
-        
-        
-        
         Document documento = new Document(PageSize.LETTER, -40, -40, 40, 40);
         try {
             PdfWriter.getInstance(documento, new FileOutputStream("Ejemplo1.pdf"));
@@ -84,7 +76,7 @@ public class Lector {
             cell.setColspan(4);
             cell.setBackgroundColor(BaseColor.WHITE);       
                                  
-            contenido = new Phrase(asignatura.getAsignatura(), estiloContenidoCelda);   
+            contenido = new Phrase(asignatura.getAsignatura(), estiloContenidoCelda);
             cell.setPhrase(contenido);
             table.addCell(cell);
             cell.setColspan(4);

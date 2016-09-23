@@ -31,7 +31,6 @@ public class GeneradorSecuencia{
     public GeneradorSecuencia() throws IOException{
         MenuRubrica menuRubrica = new MenuRubrica(asignatura, contenidoAgregados, contenidosFijos);
         menuRubrica.setVisible(true);
-        Lector lector = new Lector(contenidoAgregados, contenidosFijos, asignatura);
     }
 
     public void finalize() throws Throwable{
