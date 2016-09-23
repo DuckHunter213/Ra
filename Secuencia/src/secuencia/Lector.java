@@ -300,18 +300,45 @@ public class Lector {
             cell.setPhrase(contenido);
             cell.setColspan(3);
             
-            
+            contenido = new Phrase(contenidosAgregados.getContenidosGeneralesEnsenianzaInicio(), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             table.addCell(cell);
             
+            contenido = new Phrase(contenidosAgregados.getContenidosGeneralesAprendizajeInicio(), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             table.addCell(cell);
             
+            contenido = new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasDisciplinaresMatematicasInicio()), estiloContenidoCelda);
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasDisciplinaresComunicacionInicio()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasDisciplinaresCienciasSocialesInicio()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasDisciplinaresCienciasExperimentalesInicio()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
             table.addCell(cell);
             
+            
+            contenido = new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasGenericasTrabajaInicio()), estiloContenidoCelda);
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasGenericasPiensaInicio()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasGenericasParticipaInicio()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasGenericasExpresaInicio()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasGenericasAutodeterminaInicio()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasGenericasAprendeInicio()), estiloContenidoCelda));
             table.addCell(cell);
             
+            contenido = new Phrase(convertirArrayToString(contenidosFijos.getEvidenciasDeAprendizajeInicio()), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             cell.setColspan(2);
             table.addCell(cell);
             
+            contenido = new Phrase(convertirArrayToString(contenidosFijos.getInstrumentosDeEvaluacionInicio()), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             table.addCell(cell);
             documento.add(table);
 
