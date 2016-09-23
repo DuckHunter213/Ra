@@ -1,6 +1,8 @@
 package secuencia;
 
 import Fachada.Asignatura;
+import Fachada.ContenidosAgregados;
+import Fachada.ContenidosFijos;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -17,8 +19,28 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class Lector {
-
+    private static ContenidosAgregados contenidosAgregados;
+    private static ContenidosFijos contenidosFijos;
+    private static Asignatura asignatura;
+    private static Font estiloContenidoCelda;
+    
+    
+    public Lector(ContenidosAgregados contenidosAgregados, ContenidosFijos contenidosFijos, Asignatura asignatura){
+        this.contenidosAgregados = contenidosAgregados;
+        this.contenidosFijos = contenidosFijos;
+        this.asignatura = asignatura;
+        this.estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.NORMAL);
+    }
+    
     public static void main(String[] args) {
+        Asignatura asignatura = new Asignatura();
+        asignatura.setAsignatura("Física") ;
+        asignatura.setBloque("2") ;
+        asignatura.setNombreCompletoMaestro("Prueba") ;
+        asignatura.setSemestre(2) ;
+        
+        
+        
         Document documento = new Document(PageSize.LETTER, -40, -40, 40, 40);
         try {
             PdfWriter.getInstance(documento, new FileOutputStream("Ejemplo1.pdf"));
@@ -40,6 +62,7 @@ public class Lector {
 
             //Primera parte rellenable
             table = new PdfPTable(8);
+            
             cell = new PdfPCell(new Phrase(" "));
             cell.setHorizontalAlignment(Element.ALIGN_CENTER);
             cell.setPaddingBottom(5);
@@ -58,18 +81,17 @@ public class Lector {
             table.addCell(cell);
 
             cell = new PdfPCell(new Phrase(" "));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
             cell.setColspan(4);
-            cell.setBackgroundColor(BaseColor.WHITE);
-
-            Asignatura asignatura = new Asignatura();
-            asignatura.setAsignatura("Física");
-            asignatura.setNombreCompletoMaestro("Pedro");
-            
-            
-            cell.setPhrase(new Phrase(asignatura.getAsignatura()));
+            cell.setBackgroundColor(BaseColor.WHITE);       
+                                 
+            contenido = new Phrase(asignatura.getAsignatura(), estiloContenidoCelda);   
+            cell.setPhrase(contenido);
             table.addCell(cell);
             cell.setColspan(4);
-            cell.setPhrase(new Phrase(asignatura.getNombreCompletoMaestro()));
+            
+            contenido = new Phrase(asignatura.getNombreCompletoMaestro(), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             table.addCell(cell);
             documento.add(table);
 
@@ -115,18 +137,32 @@ public class Lector {
             contenido = new Phrase(" ");
             cell.setPhrase(contenido);
             cell.setBackgroundColor(BaseColor.WHITE);
+            
+            contenido = new Phrase(Integer.toString(asignatura.getSemestre()), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             cell.setColspan(1);
             table.addCell(cell);
+            contenido = new Phrase(" ");
+            cell.setPhrase(contenido);
+            
+            
             cell.setColspan(1);
             table.addCell(cell);
+            
             cell.setColspan(1);
             table.addCell(cell);
+            
             cell.setColspan(1);
             table.addCell(cell);
+            
+            cell.setColspan(2);
+            table.addCell(cell);            
+            
+            contenido = new Phrase(asignatura.getBloque(), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             cell.setColspan(2);
             table.addCell(cell);
-            cell.setColspan(2);
-            table.addCell(cell);
+            
             documento.add(table);
             documento.add(new Paragraph("\n"));
 
@@ -144,6 +180,8 @@ public class Lector {
             contenido = new Phrase(" ");
             cell.setPhrase(contenido);
             cell.setColspan(6);
+            
+            
             cell.setBackgroundColor(BaseColor.WHITE);
             table.addCell(cell);
 
@@ -157,6 +195,8 @@ public class Lector {
             cell.setPhrase(contenido);
             cell.setColspan(6);
             cell.setBackgroundColor(BaseColor.WHITE);
+            
+            
             table.addCell(cell);
             documento.add(table);
 
@@ -186,12 +226,15 @@ public class Lector {
             table.addCell(cell);
 
             contenido = new Phrase(" ");
+            
             cell.setPhrase(contenido);
             cell.setColspan(1);
             cell.setBackgroundColor(BaseColor.WHITE);
             table.addCell(cell);
+            
             cell.setColspan(1);
             table.addCell(cell);
+            
             cell.setColspan(1);
             table.addCell(cell);
             documento.add(table);
@@ -245,12 +288,19 @@ public class Lector {
             estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.BOLD);
             cell.setPhrase(contenido);
             cell.setColspan(3);
+            
+            
             table.addCell(cell);
+            
             table.addCell(cell);
+            
             table.addCell(cell);
+            
             table.addCell(cell);
+            
             cell.setColspan(2);
             table.addCell(cell);
+            
             table.addCell(cell);
             documento.add(table);
 
@@ -303,12 +353,18 @@ public class Lector {
             estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.BOLD);
             cell.setPhrase(contenido);
             cell.setColspan(3);
+            
             table.addCell(cell);
+            
             table.addCell(cell);
+            
             table.addCell(cell);
+            
             table.addCell(cell);
+            
             cell.setColspan(2);
             table.addCell(cell);
+            
             table.addCell(cell);
             documento.add(table);
 
@@ -361,12 +417,18 @@ public class Lector {
             estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.BOLD);
             cell.setPhrase(contenido);
             cell.setColspan(3);
+            
             table.addCell(cell);
+            
             table.addCell(cell);
+            
             table.addCell(cell);
+            
             table.addCell(cell);
+            
             cell.setColspan(2);
             table.addCell(cell);
+            
             table.addCell(cell);
             documento.add(table);
             documento.add(new Paragraph("\n"));
@@ -388,6 +450,8 @@ public class Lector {
             cell.setBackgroundColor(BaseColor.WHITE);
             contenido = new Phrase(" ");
             cell.setPhrase(contenido);
+            
+            
             table.addCell(cell);
             table.addCell(cell);
 
@@ -400,6 +464,8 @@ public class Lector {
             cell.setBackgroundColor(BaseColor.WHITE);
             contenido = new Phrase(" ");
             cell.setPhrase(contenido);
+            
+            
             table.addCell(cell);
             documento.add(table);
 
