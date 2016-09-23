@@ -113,6 +113,11 @@ public class MenuRubrica extends javax.swing.JFrame{
                 iniciarRubricaButtonMouseClicked(evt);
             }
         });
+        iniciarRubricaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iniciarRubricaButtonActionPerformed(evt);
+            }
+        });
 
         subtituloLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         subtituloLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -229,6 +234,10 @@ public class MenuRubrica extends javax.swing.JFrame{
     private void cambioPropiedadDocenteTextField(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cambioPropiedadDocenteTextField
         
     }//GEN-LAST:event_cambioPropiedadDocenteTextField
+
+    private void iniciarRubricaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarRubricaButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iniciarRubricaButtonActionPerformed
 
     /**
      * @param args the command line arguments

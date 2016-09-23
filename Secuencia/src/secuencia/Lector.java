@@ -1,5 +1,6 @@
-package pdf;
+package secuencia;
 
+import Fachada.Asignatura;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -60,8 +61,15 @@ public class Lector {
             cell.setColspan(4);
             cell.setBackgroundColor(BaseColor.WHITE);
 
+            Asignatura asignatura = new Asignatura();
+            asignatura.setAsignatura("Física");
+            asignatura.setNombreCompletoMaestro("Pedro");
+            
+            
+            cell.setPhrase(new Phrase(asignatura.getAsignatura()));
             table.addCell(cell);
             cell.setColspan(4);
+            cell.setPhrase(new Phrase(asignatura.getNombreCompletoMaestro()));
             table.addCell(cell);
             documento.add(table);
 
