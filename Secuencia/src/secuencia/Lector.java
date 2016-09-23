@@ -17,7 +17,9 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Lector {
     private static ContenidosAgregados contenidosAgregados;
@@ -26,12 +28,23 @@ public class Lector {
     
     private static String convertirArrayToString(ArrayList<String> contenidos){
         String cadena= " ";
-        if (contenidos.isEmpty())
+        if (contenidos == null || contenidos.isEmpty())
             return " ";
         for (String contenido : contenidos) {
-            cadena = cadena + contenido + "\n";
+            cadena = cadena + contenido;
+            cadena += "\n\n";
         }
         return cadena;
+    }
+    
+    public static String generadorDeIdentificador(){
+        Date fecha = new Date();
+        String nombreMateria = asignatura.getAsignatura();
+        nombreMateria = nombreMateria.substring(0, 3);
+        SimpleDateFormat formateadorDeFecha = new SimpleDateFormat("yyMMddHH");
+        String identificadorGenerado = formateadorDeFecha.format(fecha);
+        identificadorGenerado =  nombreMateria + (String) identificadorGenerado + ".pdf";
+        return identificadorGenerado;
     }
     
     public Lector(ContenidosAgregados contenidosAgregados, ContenidosFijos contenidosFijos, Asignatura asignatura){
@@ -43,7 +56,7 @@ public class Lector {
     public void crearArchivo(){
         Document documento = new Document(PageSize.LETTER, -40, -40, 40, 40);
         try {
-            PdfWriter.getInstance(documento, new FileOutputStream("Ejemplo1.pdf"));
+            PdfWriter.getInstance(documento, new FileOutputStream(generadorDeIdentificador()));
             documento.open();
             Font estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.NORMAL);
             Phrase contenido = new Phrase("Asignatura", estiloContenidoCelda);
@@ -98,12 +111,12 @@ public class Lector {
             //Parte baja Primera parte rellenable
             table = new PdfPTable(8);
             estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 9, Font.BOLD);
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
             cell.setPaddingBottom(5);
 
             contenido = new Phrase("Semestre", estiloContenidoCelda);
             cell.setPhrase(contenido);
             cell.setColspan(1);
-            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
             cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(cell);
 
@@ -296,7 +309,8 @@ public class Lector {
 
             contenido = new Phrase(" ");
             cell.setBackgroundColor(BaseColor.WHITE);
-            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.BOLD);
+            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.NORMAL);
+            cell.setHorizontalAlignment(Element.ALIGN_JUSTIFIED);
             cell.setPhrase(contenido);
             cell.setColspan(3);
             
@@ -343,14 +357,13 @@ public class Lector {
             documento.add(table);
 
             //Actividades para el desarrollo DESARROLLO
+            
             table = new PdfPTable(16);
             cell.setPaddingBottom(5);
+            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 9, Font.BOLD);
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 
-            contenido = new Phrase("Actividades para el desarrollo de competencias", estiloContenidoCelda);
-            cell.setPhrase(contenido);
-            cell.setColspan(16);
             cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
-            table.addCell(cell);
             contenido = new Phrase("Desarrollo", estiloContenidoCelda);
             cell.setPhrase(contenido);
             cell.setColspan(6);
@@ -388,33 +401,63 @@ public class Lector {
 
             contenido = new Phrase(" ");
             cell.setBackgroundColor(BaseColor.WHITE);
-            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.BOLD);
+            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.NORMAL);
+            cell.setHorizontalAlignment(Element.ALIGN_JUSTIFIED);
             cell.setPhrase(contenido);
             cell.setColspan(3);
             
+            contenido = new Phrase(contenidosAgregados.getContenidosGeneralesEnsenianzaDesarrollo(), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             table.addCell(cell);
             
+            contenido = new Phrase(contenidosAgregados.getContenidosGeneralesAprendizajeDesarrollo(), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             table.addCell(cell);
             
+            contenido = new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasDisciplinaresMatematicasDesarrollo()), estiloContenidoCelda);
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasDisciplinaresComunicacionDesarrollo()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasDisciplinaresCienciasSocialesDesarrollo()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasDisciplinaresCienciasExperimentalesDesarrollo()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
             table.addCell(cell);
             
+            
+            contenido = new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasGenericasTrabajaDesarrollo()), estiloContenidoCelda);
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasGenericasPiensaDesarrollo()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasGenericasParticipaDesarrollo()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasGenericasExpresaDesarrollo()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasGenericasAutodeterminaDesarrollo()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasGenericasAprendeDesarrollo()), estiloContenidoCelda));
             table.addCell(cell);
             
+            contenido = new Phrase(convertirArrayToString(contenidosFijos.getEvidenciasDeAprendizajeDesarrollo()), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             cell.setColspan(2);
             table.addCell(cell);
             
+            contenido = new Phrase(convertirArrayToString(contenidosFijos.getInstrumentosDeEvaluacionDesarrollo()), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             table.addCell(cell);
             documento.add(table);
-
+            
+            
+            
             //Actividades para el desarrollo CIERRE
+            
             table = new PdfPTable(16);
             cell.setPaddingBottom(5);
+            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 9, Font.BOLD);
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 
-            contenido = new Phrase("Actividades para el desarrollo de competencias", estiloContenidoCelda);
-            cell.setPhrase(contenido);
-            cell.setColspan(16);
             cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
-            table.addCell(cell);
             contenido = new Phrase("Cierre", estiloContenidoCelda);
             cell.setPhrase(contenido);
             cell.setColspan(6);
@@ -452,28 +495,61 @@ public class Lector {
 
             contenido = new Phrase(" ");
             cell.setBackgroundColor(BaseColor.WHITE);
-            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.BOLD);
+            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.NORMAL);
+            cell.setHorizontalAlignment(Element.ALIGN_JUSTIFIED);
             cell.setPhrase(contenido);
             cell.setColspan(3);
             
+            contenido = new Phrase(contenidosAgregados.getContenidosGeneralesEnsenianzaCierre(), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             table.addCell(cell);
             
+            contenido = new Phrase(contenidosAgregados.getContenidosGeneralesAprendizajeCierre(), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             table.addCell(cell);
             
+            contenido = new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasDisciplinaresMatematicasCierre()), estiloContenidoCelda);
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasDisciplinaresComunicacionCierre()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasDisciplinaresCienciasSocialesCierre()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasDisciplinaresCienciasExperimentalesCierre()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
             table.addCell(cell);
             
+            
+            contenido = new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasGenericasTrabajaCierre()), estiloContenidoCelda);
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasGenericasPiensaCierre()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasGenericasParticipaCierre()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasGenericasExpresaCierre()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasGenericasAutodeterminaCierre()), estiloContenidoCelda));
+            cell.setPhrase(contenido);
+            contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasGenericasAprendeCierre()), estiloContenidoCelda));
             table.addCell(cell);
             
+            contenido = new Phrase(convertirArrayToString(contenidosFijos.getEvidenciasDeAprendizajeCierre()), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             cell.setColspan(2);
             table.addCell(cell);
             
+            contenido = new Phrase(convertirArrayToString(contenidosFijos.getInstrumentosDeEvaluacionCierre()), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             table.addCell(cell);
             documento.add(table);
+            
+            
             documento.add(new Paragraph("\n"));
 
             //RECURSOS
             table = new PdfPTable(2);
             cell.setPaddingBottom(5);
+            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 9, Font.BOLD);
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 
             contenido = new Phrase("Recursos materiales", estiloContenidoCelda);
             cell.setPhrase(contenido);
@@ -486,21 +562,30 @@ public class Lector {
             table.addCell(cell);
             cell.setColspan(1);
             cell.setBackgroundColor(BaseColor.WHITE);
-            contenido = new Phrase(" ");
-            cell.setPhrase(contenido);
+            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 9, Font.NORMAL);
+            cell.setHorizontalAlignment(Element.ALIGN_JUSTIFIED);
             
-            
+            contenido = new Phrase(contenidosAgregados.getRecursosMateriales(), estiloContenidoCelda);
+            cell.setPhrase(contenido);            
             table.addCell(cell);
+            
+            contenido = new Phrase(contenidosAgregados.getFuentesInformacion(), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             table.addCell(cell);
 
+            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 9, Font.BOLD);
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
             cell.setColspan(2);
             contenido = new Phrase("Observaciones y/o reflexiones", estiloContenidoCelda);
             cell.setPhrase(contenido);
             cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(cell);
             cell.setColspan(2);
+            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 9, Font.NORMAL);
+            cell.setHorizontalAlignment(Element.ALIGN_JUSTIFIED);
             cell.setBackgroundColor(BaseColor.WHITE);
-            contenido = new Phrase(" ");
+            contenido = new Phrase(contenidosAgregados.getObservaciones(), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             cell.setPhrase(contenido);
             
             

@@ -98,7 +98,7 @@ public class MenuRubrica extends javax.swing.JFrame{
         });
 
         docenteTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        docenteTextField.setText("Doctor Profesor Ojeda");
+        docenteTextField.setText("José Manuel Ojeda Pereda");
         docenteTextField.setToolTipText("");
 
         iniciarRubricaButton.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
