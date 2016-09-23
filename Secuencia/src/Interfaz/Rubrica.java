@@ -9,8 +9,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JList;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+
 
 /**
  *
@@ -21,8 +20,8 @@ public class Rubrica extends javax.swing.JFrame{
     private static ContenidosAgregados contenidosAgregados;
     private static Asignatura asignatura;
 
-    private void setearGenerico(){
-        
+    private void setearGenerico(JList lista){
+        ArrayList<Integer> lis = (ArrayList) lista.getSelectedValuesList();
     }
     private void setearValores(){
         ArrayList contenidosDeclarativos, contenidosProcedimentales, contenidosActitudinales;
@@ -44,7 +43,7 @@ public class Rubrica extends javax.swing.JFrame{
         contenidosAgregados.setContenidosGeneralesEnsenianzaInicio(contenidosGeneralesEnsenianzaInicioTextArea.getText());
         contenidosAgregados.setContenidosGeneralesAprendizajeInicio(contenidosGeneralesAprendizajeInicioTextArea.getText());
         ////Competencias
-        ArrayList competenciasGenericasAprendeInicio;
+    /*    ArrayList competenciasGenericasAprendeInicio;
         contenidosFijos.setCompetenciasGenericasAprendeInicio(competenciasGenericasAprendeInicio);
         contenidosFijos.setCompetenciasGenericasAutodeterminaInicio();
         contenidosFijos.setCompetenciasGenericasExpresaInicio();
@@ -92,7 +91,7 @@ public class Rubrica extends javax.swing.JFrame{
         ////Evidencias
         contenidosFijos.setEvidenciasDeAprendizajeCierre();
         contenidosFijos.setInstrumentosDeEvaluacionCierre();
-
+    */
         //Sexta Ventana
         contenidosAgregados.setRecursosMateriales(recursosMaterialesTextArea.getText());
         contenidosAgregados.setFuentesInformacion(fuentesInformacionTextArea.getText());
@@ -1886,11 +1885,6 @@ public class Rubrica extends javax.swing.JFrame{
          */
         java.awt.EventQueue.invokeLater(new Runnable(){
             public void run(){
-                try{
-                    UIManager.setLookAndFeel(new WindowsClassicLookAndFeel());
-                }catch (UnsupportedLookAndFeelException ex){
-                    Logger.getLogger(Rubrica.class.getName()).log(Level.SEVERE, null, ex);
-                }
                 new Rubrica(asignatura, contenidosAgregados, contenidosFijos).setVisible(true);
             }
 
