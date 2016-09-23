@@ -17,13 +17,22 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Lector {
     private static ContenidosAgregados contenidosAgregados;
     private static ContenidosFijos contenidosFijos;
     private static Asignatura asignatura;
     
-    
+    private static String convertirArrayToString(ArrayList<String> contenidos){
+        String cadena= " ";
+        if (contenidos.isEmpty())
+            return " ";
+        for (String contenido : contenidos) {
+            cadena = cadena + contenido + "\n";
+        }
+        return cadena;
+    }
     
     public Lector(ContenidosAgregados contenidosAgregados, ContenidosFijos contenidosFijos, Asignatura asignatura){
         this.contenidosAgregados = contenidosAgregados;
@@ -136,16 +145,23 @@ public class Lector {
             contenido = new Phrase(" ");
             cell.setPhrase(contenido);
             
-            
+            contenido = new Phrase(contenidosAgregados.getPeriodoEscolar(), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             cell.setColspan(1);
             table.addCell(cell);
             
+            contenido = new Phrase(Integer.toString(contenidosAgregados.getNumeroSecuencia()), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             cell.setColspan(1);
             table.addCell(cell);
             
+            contenido = new Phrase(Integer.toString(contenidosAgregados.getNumeroSesiones()), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             cell.setColspan(1);
             table.addCell(cell);
             
+            contenido = new Phrase(contenidosAgregados.getFechaInicio(), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             cell.setColspan(2);
             table.addCell(cell);            
             
@@ -168,11 +184,9 @@ public class Lector {
             cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(cell);
 
-            contenido = new Phrase(" ");
+            contenido = new Phrase(contenidosAgregados.getPropositoSecuencia(), estiloContenidoCelda);
             cell.setPhrase(contenido);
             cell.setColspan(6);
-            
-            
             cell.setBackgroundColor(BaseColor.WHITE);
             table.addCell(cell);
 
@@ -182,7 +196,7 @@ public class Lector {
             cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(cell);
 
-            contenido = new Phrase(" ");
+            contenido = new Phrase(contenidosAgregados.getAsignaturasRelacionadas(), estiloContenidoCelda);
             cell.setPhrase(contenido);
             cell.setColspan(6);
             cell.setBackgroundColor(BaseColor.WHITE);
@@ -221,11 +235,17 @@ public class Lector {
             cell.setPhrase(contenido);
             cell.setColspan(1);
             cell.setBackgroundColor(BaseColor.WHITE);
+            contenido = new Phrase(convertirArrayToString(contenidosFijos.getContenidosDeclarativos()), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             table.addCell(cell);
             
+            contenido = new Phrase(convertirArrayToString(contenidosFijos.getContenidosProcedimentales()), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             cell.setColspan(1);
             table.addCell(cell);
             
+            contenido = new Phrase(convertirArrayToString(contenidosFijos.getContenidosActitudinales()), estiloContenidoCelda);
+            cell.setPhrase(contenido);
             cell.setColspan(1);
             table.addCell(cell);
             documento.add(table);

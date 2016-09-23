@@ -12,6 +12,7 @@ import util.enumContenidosGenerales;
  * @created 08-sep.-2016 11:45:03 p. m.
  */
 public class ContenidosFijos {
+    
 
     public final int ASIGNATURA_VALIDA = 1;
     public final int ASIGNATURA_INVALIDA = 0;
@@ -58,15 +59,20 @@ public class ContenidosFijos {
     private ArrayList<String> evidenciasDeAprendizajeInicio;
     private ArrayList<String> evidenciasDeAprendizajeDesarrollo;
     private ArrayList<String> evidenciasDeAprendizajeCierre;
+    
+    
+    public ContenidosFijos(){
+        contenidosEspecificos = new ContenidosEspecificos();
+        contenidosGenerales = new ContenidosGenerales();
+    }
 
     private ArrayList<String> listarContenidosGenericos(String tipoListado) {
         ArrayList<String> contenidos = new ArrayList<>();
-        contenidosEspecificos = new ContenidosEspecificos();
         ContenidosGenerales misContenidosGenerales;
         if (isAsignaturaValida(asignatura) == 1) {
             switch (tipoListado) {
                 case "declarativo":
-                    contenidos = contenidosEspecificos.listarContenidosEspecificos(this.asignatura, enumContenidosEspecificos.CONTENIDO_DECLARATIVO.toString());
+                    contenidos = contenidosEspecificos.listarContenidosEspecificos(asignatura, enumContenidosEspecificos.CONTENIDO_DECLARATIVO.toString());
                     break;
                 case "procedimentales":
                     contenidos = contenidosEspecificos.listarContenidosEspecificos(asignatura, enumContenidosEspecificos.CONTENIDO_PROCEDIMENTAL.toString());
@@ -321,7 +327,6 @@ public class ContenidosFijos {
     
     private int setContenidosParaDesarrollo(ArrayList<Integer> contenidosSeleccionados, String tipoContenido) {
         int resultado;
-        contenidosEspecificos = new ContenidosEspecificos();
         resultado = contenidosEspecificos.setContenidosEspecificos(asignatura, contenidosSeleccionados, tipoContenido);
         if (resultado > 1) {
             resultado = 1;
@@ -387,7 +392,6 @@ public class ContenidosFijos {
     public int setCompetenciasDisciplinaresMatematicasInicio(ArrayList<Integer> contenidosSeleccionados) {
         int resultado;
         competenciasDisciplinaresMatematicasInicio = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasDisciplinaresMatematicasInicio().add(" ");
             resultado = -1;
@@ -420,7 +424,6 @@ public class ContenidosFijos {
     public int setCompetenciasDisciplinaresComunicacionInicio(ArrayList<Integer> contenidosSeleccionados) {
         int resultado;
         competenciasDisciplinaresComunicacionInicio = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasDisciplinaresComunicacionInicio().add(" ");
             resultado = -1;
@@ -453,7 +456,6 @@ public class ContenidosFijos {
     public int setCompetenciasDisciplinaresCienciasSocialesInicio(ArrayList<Integer> contenidosSeleccionados) {
         int resultado;
         competenciasDisciplinaresCienciasSocialesInicio = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasDisciplinaresCienciasSocialesInicio().add(" ");
             resultado = -1;
@@ -486,7 +488,6 @@ public class ContenidosFijos {
     public int setCompetenciasDisciplinaresCienciasExperimentalesInicio(ArrayList<Integer> contenidosSeleccionados) {
         int resultado;
         competenciasDisciplinaresCienciasExperimentalesInicio = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasDisciplinaresCienciasExperimentalesInicio().add(" ");
             resultado = -1;
@@ -520,7 +521,6 @@ public class ContenidosFijos {
     public int setCompetenciasDisciplinaresMatematicasDesarrollo(ArrayList<Integer> contenidosSeleccionados) {
         int resultado;
         competenciasDisciplinaresMatematicasDesarrollo = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasDisciplinaresMatematicasDesarrollo().add(" ");
             resultado = -1;
@@ -553,7 +553,6 @@ public class ContenidosFijos {
     public int setCompetenciasDisciplinaresComunicacionDesarrollo(ArrayList<Integer> contenidosSeleccionados) {
         int resultado;
         competenciasDisciplinaresComunicacionDesarrollo = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasDisciplinaresComunicacionDesarrollo().add(" ");
             resultado = -1;
@@ -586,7 +585,6 @@ public class ContenidosFijos {
     public int setCompetenciasDisciplinaresCienciasSocialesDesarrollo(ArrayList<Integer> contenidosSeleccionados) {
         int resultado;
         competenciasDisciplinaresCienciasSocialesDesarrollo = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasDisciplinaresCienciasSocialesDesarrollo().add(" ");
             resultado = -1;
@@ -619,7 +617,6 @@ public class ContenidosFijos {
     public int setCompetenciasDisciplinaresCienciasExperimentalesDesarrollo(ArrayList<Integer> contenidosSeleccionados) {
         int resultado;
         competenciasDisciplinaresCienciasExperimentalesDesarrollo = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasDisciplinaresCienciasExperimentalesDesarrollo().add(" ");
             resultado = -1;
@@ -653,7 +650,6 @@ public class ContenidosFijos {
     public int setCompetenciasDisciplinaresMatematicasCierre(ArrayList<Integer> contenidosSeleccionados) {
         int resultado;
         competenciasDisciplinaresMatematicasCierre = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasDisciplinaresMatematicasCierre().add(" ");
             resultado = -1;
@@ -686,7 +682,6 @@ public class ContenidosFijos {
     public int setCompetenciasDisciplinaresComunicacionCierre(ArrayList<Integer> contenidosSeleccionados) {
         int resultado;
         competenciasDisciplinaresComunicacionCierre = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasDisciplinaresComunicacionCierre().add(" ");
             resultado = -1;
@@ -719,7 +714,6 @@ public class ContenidosFijos {
     public int setCompetenciasDisciplinaresCienciasSocialesCierre(ArrayList<Integer> contenidosSeleccionados) {
         int resultado;
         competenciasDisciplinaresCienciasSocialesCierre = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasDisciplinaresCienciasSocialesCierre().add(" ");
             resultado = -1;
@@ -752,7 +746,6 @@ public class ContenidosFijos {
     public int setCompetenciasDisciplinaresCienciasExperimentalesCierre(ArrayList<Integer> contenidosSeleccionados) {
         int resultado;
         competenciasDisciplinaresCienciasExperimentalesCierre = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasDisciplinaresCienciasExperimentalesCierre().add(" ");
             resultado = -1;
@@ -786,7 +779,6 @@ public class ContenidosFijos {
     public int setCompetenciasGenericasAprendeInicio(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         competenciasGenericasAprendeInicio = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasGenericasAprendeInicio().add(" ");
             resultado = -1;
@@ -819,7 +811,6 @@ public class ContenidosFijos {
     public int setCompetenciasGenericasAutodeterminaInicio(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         competenciasGenericasAutodeterminaInicio = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasGenericasAutodeterminaInicio().add(" ");
             resultado = -1;
@@ -852,7 +843,6 @@ public class ContenidosFijos {
     public int setCompetenciasGenericasExpresaInicio(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         competenciasGenericasExpresaInicio = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasGenericasExpresaInicio().add(" ");
             resultado = -1;
@@ -885,7 +875,6 @@ public class ContenidosFijos {
     public int setCompetenciasGenericasParticipaInicio(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         competenciasGenericasParticipaInicio = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasGenericasParticipaInicio().add(" ");
             resultado = -1;
@@ -918,7 +907,6 @@ public class ContenidosFijos {
     public int setCompetenciasGenericasPiensaInicio(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         competenciasGenericasPiensaInicio = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasGenericasPiensaInicio().add(" ");
             resultado = -1;
@@ -951,7 +939,6 @@ public class ContenidosFijos {
     public int setCompetenciasGenericasTrabajaInicio(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         competenciasGenericasTrabajaInicio = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasGenericasTrabajaInicio().add(" ");
             resultado = -1;
@@ -985,7 +972,6 @@ public class ContenidosFijos {
     public int setCompetenciasGenericasAprendeDesarrollo(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         competenciasGenericasAprendeDesarrollo = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasGenericasAprendeDesarrollo().add(" ");
             resultado = -1;
@@ -1018,7 +1004,6 @@ public class ContenidosFijos {
     public int setCompetenciasGenericasAutodeterminaDesarrollo(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         competenciasGenericasAutodeterminaDesarrollo = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasGenericasAutodeterminaDesarrollo().add(" ");
             resultado = -1;
@@ -1051,7 +1036,6 @@ public class ContenidosFijos {
     public int setCompetenciasGenericasExpresaDesarrollo(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         competenciasGenericasExpresaDesarrollo = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasGenericasExpresaDesarrollo().add(" ");
             resultado = -1;
@@ -1084,7 +1068,6 @@ public class ContenidosFijos {
     public int setCompetenciasGenericasParticipaDesarrollo(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         competenciasGenericasParticipaDesarrollo = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasGenericasParticipaDesarrollo().add(" ");
             resultado = -1;
@@ -1117,7 +1100,6 @@ public class ContenidosFijos {
     public int setCompetenciasGenericasPiensaDesarrollo(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         competenciasGenericasPiensaDesarrollo = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasGenericasPiensaDesarrollo().add(" ");
             resultado = -1;
@@ -1150,7 +1132,6 @@ public class ContenidosFijos {
     public int setCompetenciasGenericasTrabajaDesarrollo(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         competenciasGenericasTrabajaDesarrollo = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasGenericasTrabajaDesarrollo().add(" ");
             resultado = -1;
@@ -1184,7 +1165,6 @@ public class ContenidosFijos {
     public int setCompetenciasGenericasAprendeCierre(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         competenciasGenericasAprendeCierre = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasGenericasAprendeCierre().add(" ");
             resultado = -1;
@@ -1217,7 +1197,6 @@ public class ContenidosFijos {
     public int setCompetenciasGenericasAutodeterminaCierre(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         competenciasGenericasAutodeterminaCierre = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasGenericasAutodeterminaCierre().add(" ");
             resultado = -1;
@@ -1250,7 +1229,6 @@ public class ContenidosFijos {
     public int setCompetenciasGenericasExpresaCierre(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         competenciasGenericasExpresaCierre = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasGenericasExpresaCierre().add(" ");
             resultado = -1;
@@ -1283,7 +1261,6 @@ public class ContenidosFijos {
     public int setCompetenciasGenericasParticipaCierre(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         competenciasGenericasParticipaCierre = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasGenericasParticipaCierre().add(" ");
             resultado = -1;
@@ -1316,7 +1293,6 @@ public class ContenidosFijos {
     public int setCompetenciasGenericasPiensaCierre(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         competenciasGenericasPiensaCierre = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasGenericasPiensaCierre().add(" ");
             resultado = -1;
@@ -1349,7 +1325,6 @@ public class ContenidosFijos {
     public int setCompetenciasGenericasTrabajaCierre(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         competenciasGenericasTrabajaCierre = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getCompetenciasGenericasTrabajaCierre().add(" ");
             resultado = -1;
@@ -1383,7 +1358,6 @@ public class ContenidosFijos {
     public int setInstrumentosDeEvaluacionInicio(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         instrumentosDeEvaluacionInicio = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getInstrumentosDeEvaluacionInicio().add(" ");
             resultado = -1;
@@ -1416,7 +1390,6 @@ public class ContenidosFijos {
     public int setInstrumentosDeEvaluacionDesarrollo(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         instrumentosDeEvaluacionDesarrollo = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getInstrumentosDeEvaluacionDesarrollo().add(" ");
             resultado = -1;
@@ -1449,7 +1422,6 @@ public class ContenidosFijos {
     public int setInstrumentosDeEvaluacionCierre(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         instrumentosDeEvaluacionCierre = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getInstrumentosDeEvaluacionCierre().add(" ");
             resultado = -1;
@@ -1483,7 +1455,6 @@ public class ContenidosFijos {
     public int setEvidenciasDeAprendizajeInicio(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         evidenciasDeAprendizajeInicio = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getEvidenciasDeAprendizajeInicio().add(" ");
             resultado = -1;
@@ -1516,7 +1487,6 @@ public class ContenidosFijos {
     public int setEvidenciasDeAprendizajeCierre(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         evidenciasDeAprendizajeDesarrollo = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getEvidenciasDeAprendizajeDesarrollo().add(" ");
             resultado = -1;
@@ -1549,7 +1519,6 @@ public class ContenidosFijos {
     public int setEvidenciasDeAprendizajeDesarrollo(ArrayList<Integer> contenidosSeleccionados){
         int resultado;
         evidenciasDeAprendizajeCierre = new ArrayList<>();
-        contenidosGenerales = new ContenidosGenerales();
         if (contenidosSeleccionados.isEmpty()) {
             getEvidenciasDeAprendizajeCierre().add(" ");
             resultado = -1;

@@ -93,11 +93,11 @@ public class ContenidosEspecificos {
     }
     private int setContenidosProcedimentales(Asignatura asignatura, ArrayList<Integer> contenidosSeleccionados, String tipoContenido) {
         int resultado = 0;
-        ArrayList<String> contenidosDeclarativos = gestorFichero.getContenidosEspecificos(asignatura, tipoContenido);
+        ArrayList<String> contenidosProcedimentales = gestorFichero.getContenidosEspecificos(asignatura, tipoContenido);
         contenidosProcedimentalesSeleccionados = new ArrayList<>();
         try {
             contenidosSeleccionados.stream().forEach((Integer contenidoSeleccionado) -> {
-                getContenidosProcedimentalesSeleccionados().add(contenidosDeclarativos.get(contenidoSeleccionado));
+                getContenidosProcedimentalesSeleccionados().add(contenidosProcedimentales.get(contenidoSeleccionado));
             });
         } catch (IndexOutOfBoundsException ex) {
             contenidosProcedimentalesSeleccionados = new ArrayList<>();
@@ -108,11 +108,11 @@ public class ContenidosEspecificos {
     }
     private int setContenidosActitudinales(Asignatura asignatura, ArrayList<Integer> contenidosSeleccionados, String tipoContenido) {
         int resultado = 0;
-        ArrayList<String> contenidosDeclarativos = gestorFichero.getContenidosEspecificos(asignatura, tipoContenido);
+        ArrayList<String> contenidosActitudinales = gestorFichero.getContenidosEspecificos(asignatura, tipoContenido);
         contenidosActitudinalesSeleccionados = new ArrayList<>();
         try {
             contenidosSeleccionados.stream().forEach((Integer contenidoSeleccionado) -> {
-                getContenidosActitudinalesSeleccionados().add(contenidosDeclarativos.get(contenidoSeleccionado));
+                getContenidosActitudinalesSeleccionados().add(contenidosActitudinales.get(contenidoSeleccionado));
             });
         } catch (IndexOutOfBoundsException ex) {
             contenidosActitudinalesSeleccionados = new ArrayList<>();
