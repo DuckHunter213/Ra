@@ -1,17 +1,13 @@
 package Interfaz;
 
 import Fachada.*;
-import com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel;
 import java.awt.AWTException;
 import java.awt.Dimension;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JList;
 
 /**
  *
@@ -107,7 +103,7 @@ public class Rubrica extends javax.swing.JFrame{
             Logger.getLogger(Rubrica.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
     private void soltarControl(){
         try{
             Robot robot = new Robot();
