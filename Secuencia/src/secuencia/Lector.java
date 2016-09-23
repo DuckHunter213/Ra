@@ -22,17 +22,16 @@ public class Lector {
     private static ContenidosAgregados contenidosAgregados;
     private static ContenidosFijos contenidosFijos;
     private static Asignatura asignatura;
-    private static Font estiloContenidoCelda;
+    
     
     
     public Lector(ContenidosAgregados contenidosAgregados, ContenidosFijos contenidosFijos, Asignatura asignatura){
         this.contenidosAgregados = contenidosAgregados;
         this.contenidosFijos = contenidosFijos;
         this.asignatura = asignatura;
-        this.estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.NORMAL);
     }
     
-    public static void main(String[] args) {
+    public void crearArchivo(){
         Asignatura asignatura = new Asignatura();
         asignatura.setAsignatura("Física") ;
         asignatura.setBloque("2") ;

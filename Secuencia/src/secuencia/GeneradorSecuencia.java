@@ -34,10 +34,6 @@ public class GeneradorSecuencia{
         Lector lector = new Lector(contenidoAgregados, contenidosFijos, asignatura);
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ee22c396abff2fcf965fc8c01afc0173ca03585e
     public void finalize() throws Throwable{
 
     }

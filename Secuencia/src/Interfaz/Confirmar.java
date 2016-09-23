@@ -13,12 +13,17 @@ import javax.swing.ActionMap;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
+import secuencia.Lector;
 
 /**
  *
  * @author DARKENSES
  */
-public class Confirmar extends javax.swing.JDialog{
+public class Confirmar extends javax.swing.JDialog {
+
+    Asignatura asignatura;
+    ContenidosFijos contenidosFijos;
+    ContenidosAgregados contenidosAgregados;
     /**
      * A return status code - returned if Cancel button has been pressed
      */
@@ -28,22 +33,29 @@ public class Confirmar extends javax.swing.JDialog{
      */
     public static final int RET_OK = 1;
 
+    public void pasarValores(Asignatura asignatura, ContenidosFijos contenidosFijos, ContenidosAgregados contenidosAgregados) {
+        this.asignatura = asignatura;
+        this.contenidosFijos = contenidosFijos;
+        this.contenidosAgregados = this.contenidosAgregados;
+    }
+
     /**
      * Creates new form Confirmar
      */
-    public Confirmar(java.awt.Frame parent, boolean modal){
+    public Confirmar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        
-        
+
         initComponents();
+        Lector lector = new Lector(contenidosAgregados, contenidosFijos, asignatura);
+        lector.crearArchivo();
 
         // Close the dialog when Esc is pressed
         String cancelName = "cancel";
         InputMap inputMap = getRootPane().getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
         inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), cancelName);
         ActionMap actionMap = getRootPane().getActionMap();
-        actionMap.put(cancelName, new AbstractAction(){
-            public void actionPerformed(ActionEvent e){
+        actionMap.put(cancelName, new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
                 doClose(RET_CANCEL);
             }
 
@@ -53,7 +65,7 @@ public class Confirmar extends javax.swing.JDialog{
     /**
      * @return the return status of this dialog - one of RET_OK or RET_CANCEL
      */
-    public int getReturnStatus(){
+    public int getReturnStatus() {
         return returnStatus;
     }
 
@@ -164,10 +176,10 @@ public class Confirmar extends javax.swing.JDialog{
     }//GEN-LAST:event_closeDialog
 
     private void okButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_okButtonMouseClicked
-        
+
     }//GEN-LAST:event_okButtonMouseClicked
-    
-    private void doClose(int retStatus){
+
+    private void doClose(int retStatus) {
         returnStatus = retStatus;
         setVisible(false);
         dispose();
@@ -176,7 +188,7 @@ public class Confirmar extends javax.swing.JDialog{
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]){
+    public static void main(String args[]) {
         /*
          * Set the Nimbus look and feel
          */
@@ -186,20 +198,20 @@ public class Confirmar extends javax.swing.JDialog{
          * default look and feel. For details see
          * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
-        try{
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()){
-                if ("Nimbus".equals(info.getName())){
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        }catch (ClassNotFoundException ex){
+        } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(Confirmar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }catch (InstantiationException ex){
+        } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(Confirmar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }catch (IllegalAccessException ex){
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(Confirmar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }catch (javax.swing.UnsupportedLookAndFeelException ex){
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Confirmar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -207,12 +219,12 @@ public class Confirmar extends javax.swing.JDialog{
         /*
          * Create and display the dialog
          */
-        java.awt.EventQueue.invokeLater(new Runnable(){
-            public void run(){
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
                 Confirmar dialog = new Confirmar(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter(){
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
-                    public void windowClosing(java.awt.event.WindowEvent e){
+                    public void windowClosing(java.awt.event.WindowEvent e) {
                         System.exit(0);
                     }
 
