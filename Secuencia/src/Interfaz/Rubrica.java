@@ -3,6 +3,7 @@ package Interfaz;
 import Fachada.*;
 import com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel;
 import java.awt.AWTException;
+import java.awt.Dimension;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -208,6 +209,7 @@ public class Rubrica extends javax.swing.JFrame{
         jPanel7 = new javax.swing.JPanel();
         jScrollPane27 = new javax.swing.JScrollPane();
         jPanel8 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
         jScrollPane28 = new javax.swing.JScrollPane();
         CompetenciasDisciplinaresCienciasExperimentalesInicioList = new javax.swing.JList<>();
         jLabel19 = new javax.swing.JLabel();
@@ -216,10 +218,9 @@ public class Rubrica extends javax.swing.JFrame{
         jLabel20 = new javax.swing.JLabel();
         jScrollPane15 = new javax.swing.JScrollPane();
         CompetenciasDisciplinaresComunicacionInicioList = new javax.swing.JList<>();
+        jLabel21 = new javax.swing.JLabel();
         jScrollPane31 = new javax.swing.JScrollPane();
         CompetenciasDisciplinaresMatematicasInicioList = new javax.swing.JList<>();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jScrollPane19 = new javax.swing.JScrollPane();
         jPanel9 = new javax.swing.JPanel();
@@ -756,6 +757,12 @@ public class Rubrica extends javax.swing.JFrame{
         jScrollPane27.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane27.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
+        jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.Y_AXIS));
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel23.setText("Ciencias Experimentales");
+        jPanel8.add(jLabel23);
+
         CompetenciasDisciplinaresCienciasExperimentalesInicioList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         CompetenciasDisciplinaresCienciasExperimentalesInicioList.setModel(new javax.swing.AbstractListModel<String>() {
             ArrayList<String> strings = contenidosFijos.listarCompetenciasDisciplinaresCienciasExperimentales();
@@ -763,15 +770,19 @@ public class Rubrica extends javax.swing.JFrame{
             public String getElementAt(int i) { return strings.get(i); }
         });
         CompetenciasDisciplinaresCienciasExperimentalesInicioList.setAutoscrolls(false);
-        CompetenciasDisciplinaresCienciasExperimentalesInicioList.setMaximumSize(new java.awt.Dimension(78, 1000));
-        CompetenciasDisciplinaresCienciasExperimentalesInicioList.setMinimumSize(new java.awt.Dimension(578, 0));
         CompetenciasDisciplinaresCienciasExperimentalesInicioList.setName(""); // NOI18N
+        int i = contenidosFijos.listarCompetenciasDisciplinaresCienciasExperimentales().size();
+        Dimension dimension = new Dimension(i,0);
+        CompetenciasDisciplinaresCienciasExperimentalesInicioList.setPreferredSize(dimension);
         CompetenciasDisciplinaresCienciasExperimentalesInicioList.setValueIsAdjusting(true);
         CompetenciasDisciplinaresCienciasExperimentalesInicioList.setVisibleRowCount(contenidosFijos.listarCompetenciasDisciplinaresCienciasExperimentales().size());
         jScrollPane28.setViewportView(CompetenciasDisciplinaresCienciasExperimentalesInicioList);
 
+        jPanel8.add(jScrollPane28);
+
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel19.setText("Ciencias Sociales");
+        jPanel8.add(jLabel19);
 
         CompetenciasDisciplinaresCienciasSocialesInicioList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         CompetenciasDisciplinaresCienciasSocialesInicioList.setModel(new javax.swing.AbstractListModel<String>() {
@@ -780,11 +791,14 @@ public class Rubrica extends javax.swing.JFrame{
             public String getElementAt(int i) { return strings.get(i); }
         });
         CompetenciasDisciplinaresCienciasSocialesInicioList.setAutoscrolls(false);
-        CompetenciasDisciplinaresCienciasSocialesInicioList.setVisibleRowCount(200);
+        CompetenciasDisciplinaresCienciasSocialesInicioList.setVisibleRowCount(contenidosFijos.listarCompetenciasDisciplinaresCienciasSociales().size());
         jScrollPane29.setViewportView(CompetenciasDisciplinaresCienciasSocialesInicioList);
+
+        jPanel8.add(jScrollPane29);
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel20.setText("Comunicación");
+        jPanel8.add(jLabel20);
 
         CompetenciasDisciplinaresComunicacionInicioList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         CompetenciasDisciplinaresComunicacionInicioList.setModel(new javax.swing.AbstractListModel<String>() {
@@ -793,8 +807,14 @@ public class Rubrica extends javax.swing.JFrame{
             public String getElementAt(int i) { return strings.get(i); }
         });
         CompetenciasDisciplinaresComunicacionInicioList.setAutoscrolls(false);
-        CompetenciasDisciplinaresComunicacionInicioList.setVisibleRowCount(200);
+        CompetenciasDisciplinaresComunicacionInicioList.setVisibleRowCount(contenidosFijos.listarCompetenciasDisciplinaresComunicaciones().size());
         jScrollPane15.setViewportView(CompetenciasDisciplinaresComunicacionInicioList);
+
+        jPanel8.add(jScrollPane15);
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel21.setText("Matemáticas");
+        jPanel8.add(jLabel21);
 
         CompetenciasDisciplinaresMatematicasInicioList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         CompetenciasDisciplinaresMatematicasInicioList.setModel(new javax.swing.AbstractListModel<String>() {
@@ -802,53 +822,10 @@ public class Rubrica extends javax.swing.JFrame{
             public int getSize() { return strings.size(); }
             public String getElementAt(int i) { return strings.get(i); }
         });
-        CompetenciasDisciplinaresMatematicasInicioList.setVisibleRowCount(200);
+        CompetenciasDisciplinaresMatematicasInicioList.setVisibleRowCount(contenidosFijos.listarCompetenciasDisciplinaresMatematicas().size());
         jScrollPane31.setViewportView(CompetenciasDisciplinaresMatematicasInicioList);
 
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel21.setText("Matemáticas");
-
-        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel23.setText("Ciencias Experimentales");
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane28, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jScrollPane29, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jScrollPane31, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel23))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane28, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(201, 201, 201)
-                .addComponent(jLabel19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane29, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel20)
-                .addGap(11, 11, 11)
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel21)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane31, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel8.add(jScrollPane31);
 
         jScrollPane27.setViewportView(jPanel8);
 
