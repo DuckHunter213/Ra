@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 public class Lector {
     private static ContenidosAgregados contenidosAgregados;
@@ -31,8 +32,11 @@ public class Lector {
         if (contenidos == null || contenidos.isEmpty())
             return " ";
         for (String contenido : contenidos) {
-            cadena = cadena + contenido;
-            cadena += "\n\n";
+            if (contenido.length()<=10) {
+            } else {
+                cadena = cadena + contenido;
+                cadena += "\n\n";
+            }
         }
         return cadena;
     }
@@ -43,7 +47,8 @@ public class Lector {
         nombreMateria = nombreMateria.substring(0, 3);
         SimpleDateFormat formateadorDeFecha = new SimpleDateFormat("yyMMddHH");
         String identificadorGenerado = formateadorDeFecha.format(fecha);
-        identificadorGenerado =  nombreMateria + (String) identificadorGenerado + ".pdf";
+        Random aleatorio = new Random();
+        identificadorGenerado =  nombreMateria + "_" + (String) identificadorGenerado + aleatorio.nextInt(80)  + ".pdf";
         return identificadorGenerado;
     }
     
@@ -58,11 +63,12 @@ public class Lector {
         try {
             PdfWriter.getInstance(documento, new FileOutputStream(generadorDeIdentificador()));
             documento.open();
-            Font estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.NORMAL);
-            Phrase contenido = new Phrase("Asignatura", estiloContenidoCelda);
+            Font estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.BOLD);
+            Phrase contenido;
 
             PdfPTable table;
             PdfPCell cell = new PdfPCell(new Phrase(" "));
+            
             //Encabezado con imágenes
             table = new PdfPTable(1);
             cell.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -77,9 +83,7 @@ public class Lector {
             table = new PdfPTable(8);
             
             cell = new PdfPCell(new Phrase(" "));
-            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
             cell.setPaddingBottom(5);
-
             contenido = new Phrase("Asignatura", estiloContenidoCelda);
             cell.setHorizontalAlignment(Element.ALIGN_CENTER);
             cell.setPhrase(contenido);
@@ -95,6 +99,7 @@ public class Lector {
 
             cell = new PdfPCell(new Phrase(" "));
             cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.NORMAL);
             cell.setColspan(4);
             cell.setBackgroundColor(BaseColor.WHITE);       
                                  
@@ -150,6 +155,7 @@ public class Lector {
             contenido = new Phrase(" ");
             cell.setPhrase(contenido);
             cell.setBackgroundColor(BaseColor.WHITE);
+            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 9, Font.NORMAL);
             
             contenido = new Phrase(Integer.toString(asignatura.getSemestre()), estiloContenidoCelda);
             cell.setPhrase(contenido);
@@ -197,6 +203,7 @@ public class Lector {
             cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(cell);
 
+            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.NORMAL);
             contenido = new Phrase(contenidosAgregados.getPropositoSecuencia(), estiloContenidoCelda);
             cell.setPhrase(contenido);
             cell.setColspan(6);
@@ -209,6 +216,7 @@ public class Lector {
             cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(cell);
 
+            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.NORMAL);
             contenido = new Phrase(contenidosAgregados.getAsignaturasRelacionadas(), estiloContenidoCelda);
             cell.setPhrase(contenido);
             cell.setColspan(6);
@@ -221,6 +229,7 @@ public class Lector {
             //Saberes de la materia
             table = new PdfPTable(3);
             cell.setPaddingBottom(5);
+            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.BOLD);
 
             contenido = new Phrase("Saberes necesarios para el desarrollo de competencias", estiloContenidoCelda);
             cell.setPhrase(contenido);
@@ -245,6 +254,9 @@ public class Lector {
 
             contenido = new Phrase(" ");
             
+            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 9, Font.NORMAL);
+            cell.setHorizontalAlignment(Element.ALIGN_JUSTIFIED);
+            
             cell.setPhrase(contenido);
             cell.setColspan(1);
             cell.setBackgroundColor(BaseColor.WHITE);
@@ -267,6 +279,8 @@ public class Lector {
             table = new PdfPTable(16);
             cell.setPaddingBottom(5);
 
+            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.BOLD);
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
             contenido = new Phrase("Actividades para el desarrollo de competencias", estiloContenidoCelda);
             cell.setPhrase(contenido);
             cell.setColspan(16);
@@ -306,10 +320,13 @@ public class Lector {
             contenido = new Phrase("Genéricas(Atributos)", estiloContenidoCelda);
             cell.setPhrase(contenido);
             table.addCell(cell);
+            documento.add(table);
 
+            
+            table = new PdfPTable(16);
             contenido = new Phrase(" ");
             cell.setBackgroundColor(BaseColor.WHITE);
-            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.NORMAL);
+            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 9, Font.NORMAL);
             cell.setHorizontalAlignment(Element.ALIGN_JUSTIFIED);
             cell.setPhrase(contenido);
             cell.setColspan(3);
@@ -322,6 +339,7 @@ public class Lector {
             cell.setPhrase(contenido);
             table.addCell(cell);
             
+            cell.setUseAscender(true);
             contenido = new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasDisciplinaresMatematicasInicio()), estiloContenidoCelda);
             cell.setPhrase(contenido);
             contenido.add(new Phrase(convertirArrayToString(contenidosFijos.getCompetenciasDisciplinaresComunicacionInicio()), estiloContenidoCelda));
@@ -398,7 +416,10 @@ public class Lector {
             contenido = new Phrase("Genéricas(Atributos)", estiloContenidoCelda);
             cell.setPhrase(contenido);
             table.addCell(cell);
+            documento.add(table);
 
+            
+            table = new PdfPTable(16);
             contenido = new Phrase(" ");
             cell.setBackgroundColor(BaseColor.WHITE);
             estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.NORMAL);
@@ -492,7 +513,10 @@ public class Lector {
             contenido = new Phrase("Genéricas(Atributos)", estiloContenidoCelda);
             cell.setPhrase(contenido);
             table.addCell(cell);
+            documento.add(table);
 
+            
+            table = new PdfPTable(16);
             contenido = new Phrase(" ");
             cell.setBackgroundColor(BaseColor.WHITE);
             estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.NORMAL);
@@ -596,12 +620,15 @@ public class Lector {
             table = new PdfPTable(3);
             cell.setColspan(3);
             cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
+            estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 9, Font.BOLD);
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
             contenido = new Phrase("Validación", estiloContenidoCelda);
             cell.setPhrase(contenido);
             table.addCell(cell);
             cell.setColspan(1);
             cell.setBackgroundColor(BaseColor.WHITE);
             estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 7, Font.NORMAL);
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
             cell.setPaddingTop(50);
             contenido = new Phrase("NOMBRE Y FIRMA DEL DOCENTE(S)", estiloContenidoCelda);
             cell.setPhrase(contenido);
