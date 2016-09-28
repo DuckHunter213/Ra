@@ -20,7 +20,7 @@ import secuencia.Lector;
  * @author DARKENSES
  */
 public class Confirmar extends javax.swing.JDialog {
-
+    Rubrica rubrica;
     Asignatura asignatura;
     ContenidosFijos contenidosFijos;
     ContenidosAgregados contenidosAgregados;
@@ -175,7 +175,8 @@ public class Confirmar extends javax.swing.JDialog {
     }//GEN-LAST:event_closeDialog
 
     private void okButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_okButtonMouseClicked
-
+        rubrica.setearValores();
+        generarPDF(this.asignatura, this.contenidosFijos, this.contenidosAgregados);
     }//GEN-LAST:event_okButtonMouseClicked
 
     private void doClose(int retStatus) {

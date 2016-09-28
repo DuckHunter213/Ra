@@ -26,72 +26,80 @@ public class Rubrica extends javax.swing.JFrame{
         return list;
     }
 
-    private void setearValores(){
-        contenidosAgregados.setPeriodoEscolar(periodoEscolarTextField.getText());
-        contenidosAgregados.setNumeroSecuencia(Integer.parseInt(numeroSecuenciaTextField.getText()));
-        contenidosAgregados.setNumeroSesiones(Integer.parseInt(numeroSesionesTextField.getText()));
-        contenidosAgregados.setFechaInicio(fechaInicioTextField.getText());
-        contenidosAgregados.setPropositoSecuencia(propositoSecuenciaTextArea.getText());
-        contenidosAgregados.setAsignaturasRelacionadas(asignaturasRelacionadasTextArea.getText());
+    public int[] setearValores(){
+        int[] dato = new int[100];
+        dato[0] = contenidosAgregados.setPeriodoEscolar(periodoEscolarTextField.getText());
+        
+        try{
+            dato[1] = contenidosAgregados.setNumeroSecuencia(Integer.parseInt(numeroSecuenciaTextField.getText()));
+            dato[2] = contenidosAgregados.setNumeroSesiones(Integer.parseInt(numeroSesionesTextField.getText()));
+        }catch(NumberFormatException e){
+            
+        }
+        dato[3] = contenidosAgregados.setFechaInicio(fechaInicioTextField.getText());
+        dato[4] = contenidosAgregados.setPropositoSecuencia(propositoSecuenciaTextArea.getText());
+        dato[5] = contenidosAgregados.setAsignaturasRelacionadas(asignaturasRelacionadasTextArea.getText());
         //Segunda Ventana
-        contenidosFijos.setContenidosDeclarativos(pasarArray(contenidoDeclarativoList.getSelectedIndices()));
-        contenidosFijos.setContenidosProcedimentales(pasarArray(contenidoProcedimentalList.getSelectedIndices()));
-        contenidosFijos.setContenidosActitudinales(pasarArray(contenidoActitudinalList.getSelectedIndices()));
+        dato[6] = contenidosFijos.setContenidosDeclarativos(pasarArray(contenidoDeclarativoList.getSelectedIndices()));
+        dato[7] = contenidosFijos.setContenidosProcedimentales(pasarArray(contenidoProcedimentalList.getSelectedIndices()));
+        dato[8] = contenidosFijos.setContenidosActitudinales(pasarArray(contenidoActitudinalList.getSelectedIndices()));
         //Tercera Ventana
-        contenidosAgregados.setContenidosGeneralesEnsenianzaInicio(contenidosGeneralesEnsenianzaInicioTextArea.getText());
-        contenidosAgregados.setContenidosGeneralesAprendizajeInicio(contenidosGeneralesAprendizajeInicioTextArea.getText());
+        dato[9] = contenidosAgregados.setContenidosGeneralesEnsenianzaInicio(contenidosGeneralesEnsenianzaInicioTextArea.getText());
+        dato[10] = contenidosAgregados.setContenidosGeneralesAprendizajeInicio(contenidosGeneralesAprendizajeInicioTextArea.getText());
 
-        contenidosFijos.setCompetenciasGenericasAprendeInicio(pasarArray(competenciasGenericasAprendeInicioList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasGenericasAutodeterminaInicio(pasarArray(competenciasGenericasAutodeterminaInicioList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasGenericasExpresaInicio(pasarArray(competenciasGenericasExpresaInicioList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasGenericasParticipaInicio(pasarArray(competenciasGenericasParticipaInicioList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasGenericasPiensaInicio(pasarArray(competenciasGenericasPiensaInicioList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasGenericasTrabajaInicio(pasarArray(competenciasGenericasTrabajaInicioList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasDisciplinaresCienciasExperimentalesInicio(pasarArray(CompetenciasDisciplinaresCienciasExperimentalesInicioList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasDisciplinaresCienciasSocialesInicio(pasarArray(CompetenciasDisciplinaresCienciasSocialesInicioList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasDisciplinaresComunicacionInicio(pasarArray(CompetenciasDisciplinaresComunicacionInicioList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasDisciplinaresMatematicasInicio(pasarArray(CompetenciasDisciplinaresMatematicasInicioList.getSelectedIndices()));
+        dato[11] = contenidosFijos.setCompetenciasGenericasAprendeInicio(pasarArray(competenciasGenericasAprendeInicioList.getSelectedIndices()));
+        dato[12] = contenidosFijos.setCompetenciasGenericasAutodeterminaInicio(pasarArray(competenciasGenericasAutodeterminaInicioList.getSelectedIndices()));
+        dato[13] = contenidosFijos.setCompetenciasGenericasExpresaInicio(pasarArray(competenciasGenericasExpresaInicioList.getSelectedIndices()));
+        dato[14] = contenidosFijos.setCompetenciasGenericasParticipaInicio(pasarArray(competenciasGenericasParticipaInicioList.getSelectedIndices()));
+        dato[15] = contenidosFijos.setCompetenciasGenericasPiensaInicio(pasarArray(competenciasGenericasPiensaInicioList.getSelectedIndices()));
+        dato[16] = contenidosFijos.setCompetenciasGenericasTrabajaInicio(pasarArray(competenciasGenericasTrabajaInicioList.getSelectedIndices()));
+        dato[17] = contenidosFijos.setCompetenciasDisciplinaresCienciasExperimentalesInicio(pasarArray(CompetenciasDisciplinaresCienciasExperimentalesInicioList.getSelectedIndices()));
+        dato[18] = contenidosFijos.setCompetenciasDisciplinaresCienciasSocialesInicio(pasarArray(CompetenciasDisciplinaresCienciasSocialesInicioList.getSelectedIndices()));
+        dato[19] = contenidosFijos.setCompetenciasDisciplinaresComunicacionInicio(pasarArray(CompetenciasDisciplinaresComunicacionInicioList.getSelectedIndices()));
+        dato[20] = contenidosFijos.setCompetenciasDisciplinaresMatematicasInicio(pasarArray(CompetenciasDisciplinaresMatematicasInicioList.getSelectedIndices()));
         
-        contenidosFijos.setEvidenciasDeAprendizajeInicio(pasarArray(competenciasInicioEvidenciasList.getSelectedIndices()));
-        contenidosFijos.setInstrumentosDeEvaluacionInicio(pasarArray(competenciasInicioInstrumentosList.getSelectedIndices()));
+        dato[21] = contenidosFijos.setEvidenciasDeAprendizajeInicio(pasarArray(competenciasInicioEvidenciasList.getSelectedIndices()));
+        dato[22] = contenidosFijos.setInstrumentosDeEvaluacionInicio(pasarArray(competenciasInicioInstrumentosList.getSelectedIndices()));
         //Cuarta Ventana (Desarollo)
-        contenidosAgregados.setContenidosGeneralesEnsenianzaDesarrollo(contenidosGeneralesEnsenianzaDesarolloTextArea.getText());
-        contenidosAgregados.setContenidosGeneralesAprendizajeDesarrollo(contenidosGeneralesAprendizajeDesarolloTextArea.getText());
+        dato[23] = contenidosAgregados.setContenidosGeneralesEnsenianzaDesarrollo(contenidosGeneralesEnsenianzaDesarolloTextArea.getText());
+        dato[24] = contenidosAgregados.setContenidosGeneralesAprendizajeDesarrollo(contenidosGeneralesAprendizajeDesarolloTextArea.getText());
 
-        contenidosFijos.setCompetenciasGenericasAprendeDesarrollo(pasarArray(competenciasGenericasAprendeDesarrolloList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasGenericasAutodeterminaDesarrollo(pasarArray(competenciasGenericasAutodeterminaDesarrolloList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasGenericasExpresaDesarrollo(pasarArray(competenciasGenericasExpresaDesarrolloList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasGenericasParticipaDesarrollo(pasarArray(competenciasGenericasParticipaDesarrolloList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasGenericasTrabajaDesarrollo(pasarArray(competenciasGenericasTrabajaDesarrolloList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasDisciplinaresCienciasExperimentalesDesarrollo(pasarArray(competenciasDisciplinaresCienciasExperimentalesDesarrolloList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasDisciplinaresCienciasSocialesDesarrollo(pasarArray(competenciasDisciplinaresCienciasSocialesDesarrolloList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasDisciplinaresComunicacionDesarrollo(pasarArray(competenciasDisciplinaresComunicacionDesarrolloList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasDisciplinaresMatematicasDesarrollo(pasarArray(competenciasDisciplinaresMatematicasDesarrolloList.getSelectedIndices()));
+        dato[25] = contenidosFijos.setCompetenciasGenericasAprendeDesarrollo(pasarArray(competenciasGenericasAprendeDesarrolloList.getSelectedIndices()));
+        dato[26] = contenidosFijos.setCompetenciasGenericasAutodeterminaDesarrollo(pasarArray(competenciasGenericasAutodeterminaDesarrolloList.getSelectedIndices()));
+        dato[27] = contenidosFijos.setCompetenciasGenericasExpresaDesarrollo(pasarArray(competenciasGenericasExpresaDesarrolloList.getSelectedIndices()));
+        dato[28] = contenidosFijos.setCompetenciasGenericasParticipaDesarrollo(pasarArray(competenciasGenericasParticipaDesarrolloList.getSelectedIndices()));
+        dato[29] = contenidosFijos.setCompetenciasGenericasTrabajaDesarrollo(pasarArray(competenciasGenericasTrabajaDesarrolloList.getSelectedIndices()));
+        dato[30] = contenidosFijos.setCompetenciasDisciplinaresCienciasExperimentalesDesarrollo(pasarArray(competenciasDisciplinaresCienciasExperimentalesDesarrolloList.getSelectedIndices()));
+        dato[31] = contenidosFijos.setCompetenciasDisciplinaresCienciasSocialesDesarrollo(pasarArray(competenciasDisciplinaresCienciasSocialesDesarrolloList.getSelectedIndices()));
+        dato[32] = contenidosFijos.setCompetenciasDisciplinaresComunicacionDesarrollo(pasarArray(competenciasDisciplinaresComunicacionDesarrolloList.getSelectedIndices()));
+        dato[33] = contenidosFijos.setCompetenciasDisciplinaresMatematicasDesarrollo(pasarArray(competenciasDisciplinaresMatematicasDesarrolloList.getSelectedIndices()));
         
-        contenidosFijos.setEvidenciasDeAprendizajeDesarrollo(pasarArray(evidenciasDeAprendizajeDesarrolloList.getSelectedIndices()));
-        contenidosFijos.setInstrumentosDeEvaluacionDesarrollo(pasarArray(instrumentosDeEvaluacionDesarrolloList.getSelectedIndices()));
+        dato[34] = contenidosFijos.setEvidenciasDeAprendizajeDesarrollo(pasarArray(evidenciasDeAprendizajeDesarrolloList.getSelectedIndices()));
+        dato[35] = contenidosFijos.setInstrumentosDeEvaluacionDesarrollo(pasarArray(instrumentosDeEvaluacionDesarrolloList.getSelectedIndices()));
         //Quinta Ventana (Cierre)
-        contenidosAgregados.setContenidosGeneralesEnsenianzaCierre(contenidosGeneralesEnsenianzaCierreTextArea.getText());
-        contenidosAgregados.setContenidosGeneralesAprendizajeCierre(contenidosGeneralesAprendizajeCierreTextArea.getText());
+        dato[36] = contenidosAgregados.setContenidosGeneralesEnsenianzaCierre(contenidosGeneralesEnsenianzaCierreTextArea.getText());
+        dato[37] = contenidosAgregados.setContenidosGeneralesAprendizajeCierre(contenidosGeneralesAprendizajeCierreTextArea.getText());
         
-        contenidosFijos.setCompetenciasGenericasAprendeCierre(pasarArray(competenciasGenericasAprendeCierreList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasGenericasAutodeterminaCierre(pasarArray(competenciasGenericasAutodeterminaCierreList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasGenericasExpresaCierre(pasarArray(competenciasGenericasExpresaCierreList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasGenericasParticipaCierre(pasarArray(competenciasGenericasParticipaCierreList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasGenericasPiensaCierre(pasarArray(competenciasGenericasPiensaCierreList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasGenericasTrabajaCierre(pasarArray(competenciasGenericasTrabajaCierreList.getSelectedIndices()));
+        dato[38] = contenidosFijos.setCompetenciasGenericasAprendeCierre(pasarArray(competenciasGenericasAprendeCierreList.getSelectedIndices()));
+        dato[39] = contenidosFijos.setCompetenciasGenericasAutodeterminaCierre(pasarArray(competenciasGenericasAutodeterminaCierreList.getSelectedIndices()));
+        dato[40] = contenidosFijos.setCompetenciasGenericasExpresaCierre(pasarArray(competenciasGenericasExpresaCierreList.getSelectedIndices()));
+        dato[41] = contenidosFijos.setCompetenciasGenericasParticipaCierre(pasarArray(competenciasGenericasParticipaCierreList.getSelectedIndices()));
+        dato[42] = contenidosFijos.setCompetenciasGenericasPiensaCierre(pasarArray(competenciasGenericasPiensaCierreList.getSelectedIndices()));
+        dato[43] = contenidosFijos.setCompetenciasGenericasTrabajaCierre(pasarArray(competenciasGenericasTrabajaCierreList.getSelectedIndices()));
         
-        contenidosFijos.setCompetenciasDisciplinaresCienciasExperimentalesCierre(pasarArray(competenciasDisciplinaresCienciasExperimentalesCierreList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasDisciplinaresCienciasSocialesCierre(pasarArray(competenciasDisciplinaresCienciasSocialesCierreList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasDisciplinaresComunicacionCierre(pasarArray(competenciasDisciplinaresComunicacionCierreList.getSelectedIndices()));
-        contenidosFijos.setCompetenciasDisciplinaresMatematicasCierre(pasarArray(competenciasDisciplinaresMatematicasCierreList.getSelectedIndices()));
+        dato[44] = contenidosFijos.setCompetenciasDisciplinaresCienciasExperimentalesCierre(pasarArray(competenciasDisciplinaresCienciasExperimentalesCierreList.getSelectedIndices()));
+        dato[45] = contenidosFijos.setCompetenciasDisciplinaresCienciasSocialesCierre(pasarArray(competenciasDisciplinaresCienciasSocialesCierreList.getSelectedIndices()));
+        dato[46] = contenidosFijos.setCompetenciasDisciplinaresComunicacionCierre(pasarArray(competenciasDisciplinaresComunicacionCierreList.getSelectedIndices()));
+        dato[47] = contenidosFijos.setCompetenciasDisciplinaresMatematicasCierre(pasarArray(competenciasDisciplinaresMatematicasCierreList.getSelectedIndices()));
         
-        contenidosFijos.setEvidenciasDeAprendizajeCierre(pasarArray(evidenciasDeAprendizajeCierreList.getSelectedIndices()));
-        contenidosFijos.setInstrumentosDeEvaluacionCierre(pasarArray(instrumentosDeEvaluacionCierreList.getSelectedIndices()));
+        dato[48] = contenidosFijos.setEvidenciasDeAprendizajeCierre(pasarArray(evidenciasDeAprendizajeCierreList.getSelectedIndices()));
+        dato[49] = contenidosFijos.setInstrumentosDeEvaluacionCierre(pasarArray(instrumentosDeEvaluacionCierreList.getSelectedIndices()));
         //Sexta Ventana
-        contenidosAgregados.setRecursosMateriales(recursosMaterialesTextArea.getText());
-        contenidosAgregados.setFuentesInformacion(fuentesInformacionTextArea.getText());
-        contenidosAgregados.setObservaciones(observacionesReflexionesTextArea.getText());
+        dato[50] = contenidosAgregados.setRecursosMateriales(recursosMaterialesTextArea.getText());
+        dato[51] = contenidosAgregados.setFuentesInformacion(fuentesInformacionTextArea.getText());
+        dato[52] = contenidosAgregados.setObservaciones(observacionesReflexionesTextArea.getText());
+        
+        return dato;
     }
 
     private void presionarControl(){
@@ -114,13 +122,6 @@ public class Rubrica extends javax.swing.JFrame{
         }
     }
 
-    /**
-     * Creates new form Rubrica
-     *
-     * @param asignatura
-     * @param contenidosAgregados
-     * @param contenidosFijos
-     */
     public Rubrica(Asignatura asignatura, ContenidosAgregados contenidosAgregados, ContenidosFijos contenidosFijos){
         Rubrica.contenidosFijos = contenidosFijos;
         Rubrica.contenidosAgregados = contenidosAgregados;
@@ -2474,30 +2475,28 @@ public class Rubrica extends javax.swing.JFrame{
                 principalTabbedPane.setSelectedIndex(principalTabbedPane.getSelectedIndex() + 1);
                 break;
             case 2:
-                if (competenciasInicioTabbedPane.getSelectedIndex() == 2){
+                if (competenciasInicioTabbedPane.getSelectedIndex() == 3){
                     principalTabbedPane.setSelectedIndex(principalTabbedPane.getSelectedIndex() + 1);
                     break;
                 }
                 competenciasInicioTabbedPane.setSelectedIndex(competenciasInicioTabbedPane.getSelectedIndex() + 1);
                 break;
             case 3:
-                if (competenciasDesarolloTabbedPane.getSelectedIndex() == 2){
+                if (competenciasDesarolloTabbedPane.getSelectedIndex() == 3){
                     principalTabbedPane.setSelectedIndex(principalTabbedPane.getSelectedIndex() + 1);
                     break;
                 }
                 competenciasDesarolloTabbedPane.setSelectedIndex(competenciasDesarolloTabbedPane.getSelectedIndex() + 1);
                 break;
             case 4:
-                if (competenciasCierreTabbedPane.getSelectedIndex() == 2){
+                if (competenciasCierreTabbedPane.getSelectedIndex() == 3){
                     principalTabbedPane.setSelectedIndex(principalTabbedPane.getSelectedIndex() + 1);
                     break;
                 }
                 competenciasCierreTabbedPane.setSelectedIndex(competenciasCierreTabbedPane.getSelectedIndex() + 1);
                 break;
             case 5:
-                setearValores();
                 Confirmar confirmar = new Confirmar(this, rootPaneCheckingEnabled);
-                confirmar.generarPDF(this.asignatura, this.contenidosFijos, this.contenidosAgregados);
                 confirmar.setVisible(true);
                 break;
             default:
