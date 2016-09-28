@@ -97,6 +97,7 @@ public class MenuRubrica extends javax.swing.JFrame{
             }
         });
 
+        docenteTextField.setEditable(false);
         docenteTextField.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         docenteTextField.setText("José Manuel Ojeda Pereda");
         docenteTextField.setToolTipText("");
@@ -107,11 +108,6 @@ public class MenuRubrica extends javax.swing.JFrame{
         iniciarRubricaButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iniciarRubricaButtonMouseClicked(evt);
-            }
-        });
-        iniciarRubricaButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iniciarRubricaButtonActionPerformed(evt);
             }
         });
 
@@ -193,11 +189,21 @@ public class MenuRubrica extends javax.swing.JFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     public void validar(){
-        if(asignaturaComboBox.getSelectedIndex()!=0 && !"".equals(docenteTextField.getText()) && asignaturaComboBox.getSelectedIndex()!=0 && bloqueComboBox.getSelectedIndex()!=0){
-            iniciarRubricaButton.setEnabled(true);
+        if (asignaturaComboBox.getSelectedIndex() != 0){
+            if (semestreComboBox.getSelectedIndex() != 0){
+                if (bloqueComboBox.getSelectedIndex() != 0){
+                    iniciarRubricaButton.setEnabled(true);
+                }else{
+                    iniciarRubricaButton.setEnabled(false);
+                }
+            }else{
+                iniciarRubricaButton.setEnabled(false);
+            }
+        }else{
+            iniciarRubricaButton.setEnabled(false);
         }
     }
-    
+
     private void iniciarRubricaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarRubricaButtonMouseClicked
         if (iniciarRubricaButton.isEnabled()){
             asignatura.setNombreCompletoMaestro(docenteTextField.getText());
@@ -212,12 +218,20 @@ public class MenuRubrica extends javax.swing.JFrame{
         asignatura.setAsignatura((String) (asignaturaComboBox.getSelectedItem()));
         listarSemestres = asignatura.listarSemestres();
         listarSemestres.add(0, "<Selecionar>");
+        listarBloques = new ArrayList<>();
+        listarBloques.add(0, "<Selecionar>");
         semestreComboBox.setModel(new DefaultComboBoxModel(listarSemestres.toArray()));
+        bloqueComboBox.setModel(new DefaultComboBoxModel(listarBloques.toArray()));
         validar();
     }//GEN-LAST:event_cambioEstadoAsignatura
 
     private void cambioEstadoSemestre(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cambioEstadoSemestre
-        asignatura.setSemestre(Integer.valueOf((String) semestreComboBox.getSelectedItem()));
+        try{
+            asignatura.setSemestre(Integer.valueOf((String) semestreComboBox.getSelectedItem()));
+        }catch(NumberFormatException e){
+            asignatura.setSemestre(0);
+        }
+        
         listarBloques = asignatura.listarBloques();
         listarBloques.add(0, "<Selecionar>");
         bloqueComboBox.setModel(new DefaultComboBoxModel(listarBloques.toArray()));
@@ -228,10 +242,6 @@ public class MenuRubrica extends javax.swing.JFrame{
         asignatura.setBloque((String) bloqueComboBox.getSelectedItem());
         validar();
     }//GEN-LAST:event_cambioItemBloque
-
-    private void iniciarRubricaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarRubricaButtonActionPerformed
-        validar();
-    }//GEN-LAST:event_iniciarRubricaButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,7 +273,7 @@ public class MenuRubrica extends javax.swing.JFrame{
             java.util.logging.Logger.getLogger(MenuRubrica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         /*
          * Create and display the form
          */
