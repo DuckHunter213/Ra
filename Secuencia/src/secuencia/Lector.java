@@ -48,7 +48,7 @@ public class Lector {
         SimpleDateFormat formateadorDeFecha = new SimpleDateFormat("yyMMddHH");
         String identificadorGenerado = formateadorDeFecha.format(fecha);
         Random aleatorio = new Random();
-        identificadorGenerado =  nombreMateria + "_" + (String) identificadorGenerado + aleatorio.nextInt(80)  + ".pdf";
+        identificadorGenerado = System.getProperty("user.desktop") + nombreMateria + "_" + (String) identificadorGenerado + aleatorio.nextInt(80)  + ".pdf";
         return identificadorGenerado;
     }
     
@@ -58,7 +58,7 @@ public class Lector {
         this.asignatura = asignatura;
     }
     
-    public void crearArchivo(){
+    public void crearArchivo() throws DocumentException, IOException{
         Document documento = new Document(PageSize.LETTER, -40, -40, 40, 40);
         try {
             PdfWriter.getInstance(documento, new FileOutputStream(generadorDeIdentificador()));
@@ -645,9 +645,9 @@ public class Lector {
             documento.close();
 
         } catch (DocumentException e) {
-            System.out.println("Documento repetido");
+            throw new DocumentException("El documento está repetido");
         } catch (IOException e) {
-            System.out.println("Error en el archivo de salida");
+            throw new IOException ("no es posible escribir el archivo");
         }
     }
 
