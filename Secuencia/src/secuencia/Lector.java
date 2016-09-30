@@ -3,6 +3,7 @@ package secuencia;
 import Fachada.Asignatura;
 import Fachada.ContenidosAgregados;
 import Fachada.ContenidosFijos;
+import Interfaz.ElegirCarpetaDestino;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -21,11 +22,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 public class Lector {
     private static ContenidosAgregados contenidosAgregados;
     private static ContenidosFijos contenidosFijos;
     private static Asignatura asignatura;
+    private static final JPanel panelAdvertencias = new JPanel();
     
     private static String convertirArrayToString(ArrayList<String> contenidos){
         String cadena= " ";
@@ -48,7 +52,7 @@ public class Lector {
         SimpleDateFormat formateadorDeFecha = new SimpleDateFormat("yyMMddHH");
         String identificadorGenerado = formateadorDeFecha.format(fecha);
         Random aleatorio = new Random();
-        identificadorGenerado = System.getProperty("user.desktop") + nombreMateria + "_" + (String) identificadorGenerado + aleatorio.nextInt(80)  + ".pdf";
+        identificadorGenerado = "\\" + nombreMateria + "_" + (String) identificadorGenerado + aleatorio.nextInt(80)  + ".pdf";
         return identificadorGenerado;
     }
     
@@ -61,7 +65,10 @@ public class Lector {
     public void crearArchivo() throws DocumentException, IOException{
         Document documento = new Document(PageSize.LETTER, -40, -40, 40, 40);
         try {
-            PdfWriter.getInstance(documento, new FileOutputStream(generadorDeIdentificador()));
+            ElegirCarpetaDestino ruta = new ElegirCarpetaDestino();
+            String carpetaDestino = ruta.regresarRuta();
+            carpetaDestino += generadorDeIdentificador();
+            PdfWriter.getInstance(documento, new FileOutputStream(carpetaDestino));
             documento.open();
             Font estiloContenidoCelda = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.BOLD);
             Phrase contenido;
@@ -643,11 +650,15 @@ public class Lector {
             documento.add(table);
 
             documento.close();
+            JOptionPane.showMessageDialog(panelAdvertencias, "Documento creado", "El documento se ha creado", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (DocumentException e) {
-            throw new DocumentException("El documento está repetido");
+            JOptionPane.showMessageDialog(panelAdvertencias, "Archivo no creado", "Error al crear el archivo. Pruebe guardar en otra carpeta", JOptionPane.ERROR_MESSAGE);
         } catch (IOException e) {
-            throw new IOException ("no es posible escribir el archivo");
+            JOptionPane.showMessageDialog(panelAdvertencias, "Archivo no creado", "El archivo no se creó", JOptionPane.WARNING_MESSAGE);
+        }
+        finally{
+            panelAdvertencias.setVisible(true);
         }
     }
 
