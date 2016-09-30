@@ -1,11 +1,20 @@
 package Interfaz;
 
 import Fachada.*;
+import com.sun.java.swing.plaf.motif.MotifLookAndFeel;
+import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaAluOxideLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaPlainLookAndFeel;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.UIManager;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+import javax.swing.plaf.synth.SynthLookAndFeel;
+import org.jb2011.lnf.beautyeye.BeautyEyeLookAndFeelCross;
+import org.jb2011.lnf.beautyeye.BeautyEyeLookAndFeelWin;
 
 /**
  *
@@ -35,6 +44,18 @@ public class MenuRubrica extends javax.swing.JFrame{
         listarAsignaturas.add(0, "<Selecionar>");
         listarSemestres = asignatura.listarSemestres();
         listarBloques = asignatura.listarBloques();
+        
+        
+        
+        try {
+            UIManager.setLookAndFeel(new WindowsLookAndFeel());
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MenuRubrica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(MenuRubrica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    UIManager.put("RootPane.setupButtonVisible",false);
+        
         initComponents();
 
     }
