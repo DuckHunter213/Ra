@@ -2463,6 +2463,7 @@ public class Rubrica extends javax.swing.JFrame{
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void siguienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteButtonActionPerformed
@@ -2730,6 +2731,7 @@ public class Rubrica extends javax.swing.JFrame{
      * @param args the command line arguments
      */
     public static void main(String args[]){
+        
         /*
          * Set the Nimbus look and feel
          */
@@ -2757,6 +2759,7 @@ public class Rubrica extends javax.swing.JFrame{
         java.awt.EventQueue.invokeLater(new Runnable(){
             public void run(){
                 new Rubrica(asignatura, contenidosAgregados, contenidosFijos).setVisible(true);
+                
             }
 
         });
