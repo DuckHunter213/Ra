@@ -1,13 +1,19 @@
 package Interfaz;
 
 import Fachada.*;
+import com.itextpdf.text.DocumentException;
 import java.awt.AWTException;
 import java.awt.Dimension;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javafx.beans.binding.Bindings.and;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.WARNING_MESSAGE;
+import secuencia.Lector;
 
 /**
  *
@@ -26,15 +32,14 @@ public class Rubrica extends javax.swing.JFrame{
         return list;
     }
 
-    public int[] setearValores(){
+    private int[] setearValores(){
         int[] dato = new int[100];
         dato[0] = contenidosAgregados.setPeriodoEscolar(periodoEscolarTextField.getText());
-        
         try{
             dato[1] = contenidosAgregados.setNumeroSecuencia(Integer.parseInt(numeroSecuenciaTextField.getText()));
             dato[2] = contenidosAgregados.setNumeroSesiones(Integer.parseInt(numeroSesionesTextField.getText()));
-        }catch(NumberFormatException e){
-            
+        }catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(this, e, "cuidado", WARNING_MESSAGE);
         }
         dato[3] = contenidosAgregados.setFechaInicio(fechaInicioTextField.getText());
         dato[4] = contenidosAgregados.setPropositoSecuencia(propositoSecuenciaTextArea.getText());
@@ -46,72 +51,133 @@ public class Rubrica extends javax.swing.JFrame{
         //Tercera Ventana
         dato[9] = contenidosAgregados.setContenidosGeneralesEnsenianzaInicio(contenidosGeneralesEnsenianzaInicioTextArea.getText());
         dato[10] = contenidosAgregados.setContenidosGeneralesAprendizajeInicio(contenidosGeneralesAprendizajeInicioTextArea.getText());
-
+        //\\
         dato[11] = contenidosFijos.setCompetenciasGenericasAprendeInicio(pasarArray(competenciasGenericasAprendeInicioList.getSelectedIndices()));
         dato[12] = contenidosFijos.setCompetenciasGenericasAutodeterminaInicio(pasarArray(competenciasGenericasAutodeterminaInicioList.getSelectedIndices()));
         dato[13] = contenidosFijos.setCompetenciasGenericasExpresaInicio(pasarArray(competenciasGenericasExpresaInicioList.getSelectedIndices()));
         dato[14] = contenidosFijos.setCompetenciasGenericasParticipaInicio(pasarArray(competenciasGenericasParticipaInicioList.getSelectedIndices()));
         dato[15] = contenidosFijos.setCompetenciasGenericasPiensaInicio(pasarArray(competenciasGenericasPiensaInicioList.getSelectedIndices()));
         dato[16] = contenidosFijos.setCompetenciasGenericasTrabajaInicio(pasarArray(competenciasGenericasTrabajaInicioList.getSelectedIndices()));
+        //\\
         dato[17] = contenidosFijos.setCompetenciasDisciplinaresCienciasExperimentalesInicio(pasarArray(CompetenciasDisciplinaresCienciasExperimentalesInicioList.getSelectedIndices()));
         dato[18] = contenidosFijos.setCompetenciasDisciplinaresCienciasSocialesInicio(pasarArray(CompetenciasDisciplinaresCienciasSocialesInicioList.getSelectedIndices()));
         dato[19] = contenidosFijos.setCompetenciasDisciplinaresComunicacionInicio(pasarArray(CompetenciasDisciplinaresComunicacionInicioList.getSelectedIndices()));
         dato[20] = contenidosFijos.setCompetenciasDisciplinaresMatematicasInicio(pasarArray(CompetenciasDisciplinaresMatematicasInicioList.getSelectedIndices()));
-        
+        //\\
         dato[21] = contenidosFijos.setEvidenciasDeAprendizajeInicio(pasarArray(competenciasInicioEvidenciasList.getSelectedIndices()));
         dato[22] = contenidosFijos.setInstrumentosDeEvaluacionInicio(pasarArray(competenciasInicioInstrumentosList.getSelectedIndices()));
         //Cuarta Ventana (Desarollo)
         dato[23] = contenidosAgregados.setContenidosGeneralesEnsenianzaDesarrollo(contenidosGeneralesEnsenianzaDesarolloTextArea.getText());
         dato[24] = contenidosAgregados.setContenidosGeneralesAprendizajeDesarrollo(contenidosGeneralesAprendizajeDesarolloTextArea.getText());
-
+        //\\
         dato[25] = contenidosFijos.setCompetenciasGenericasAprendeDesarrollo(pasarArray(competenciasGenericasAprendeDesarrolloList.getSelectedIndices()));
         dato[26] = contenidosFijos.setCompetenciasGenericasAutodeterminaDesarrollo(pasarArray(competenciasGenericasAutodeterminaDesarrolloList.getSelectedIndices()));
         dato[27] = contenidosFijos.setCompetenciasGenericasExpresaDesarrollo(pasarArray(competenciasGenericasExpresaDesarrolloList.getSelectedIndices()));
         dato[28] = contenidosFijos.setCompetenciasGenericasParticipaDesarrollo(pasarArray(competenciasGenericasParticipaDesarrolloList.getSelectedIndices()));
         dato[29] = contenidosFijos.setCompetenciasGenericasTrabajaDesarrollo(pasarArray(competenciasGenericasTrabajaDesarrolloList.getSelectedIndices()));
+        //\\
         dato[30] = contenidosFijos.setCompetenciasDisciplinaresCienciasExperimentalesDesarrollo(pasarArray(competenciasDisciplinaresCienciasExperimentalesDesarrolloList.getSelectedIndices()));
         dato[31] = contenidosFijos.setCompetenciasDisciplinaresCienciasSocialesDesarrollo(pasarArray(competenciasDisciplinaresCienciasSocialesDesarrolloList.getSelectedIndices()));
         dato[32] = contenidosFijos.setCompetenciasDisciplinaresComunicacionDesarrollo(pasarArray(competenciasDisciplinaresComunicacionDesarrolloList.getSelectedIndices()));
         dato[33] = contenidosFijos.setCompetenciasDisciplinaresMatematicasDesarrollo(pasarArray(competenciasDisciplinaresMatematicasDesarrolloList.getSelectedIndices()));
-        
+        //\\
         dato[34] = contenidosFijos.setEvidenciasDeAprendizajeDesarrollo(pasarArray(evidenciasDeAprendizajeDesarrolloList.getSelectedIndices()));
         dato[35] = contenidosFijos.setInstrumentosDeEvaluacionDesarrollo(pasarArray(instrumentosDeEvaluacionDesarrolloList.getSelectedIndices()));
         //Quinta Ventana (Cierre)
         dato[36] = contenidosAgregados.setContenidosGeneralesEnsenianzaCierre(contenidosGeneralesEnsenianzaCierreTextArea.getText());
         dato[37] = contenidosAgregados.setContenidosGeneralesAprendizajeCierre(contenidosGeneralesAprendizajeCierreTextArea.getText());
-        
+        //\\
         dato[38] = contenidosFijos.setCompetenciasGenericasAprendeCierre(pasarArray(competenciasGenericasAprendeCierreList.getSelectedIndices()));
         dato[39] = contenidosFijos.setCompetenciasGenericasAutodeterminaCierre(pasarArray(competenciasGenericasAutodeterminaCierreList.getSelectedIndices()));
         dato[40] = contenidosFijos.setCompetenciasGenericasExpresaCierre(pasarArray(competenciasGenericasExpresaCierreList.getSelectedIndices()));
         dato[41] = contenidosFijos.setCompetenciasGenericasParticipaCierre(pasarArray(competenciasGenericasParticipaCierreList.getSelectedIndices()));
         dato[42] = contenidosFijos.setCompetenciasGenericasPiensaCierre(pasarArray(competenciasGenericasPiensaCierreList.getSelectedIndices()));
         dato[43] = contenidosFijos.setCompetenciasGenericasTrabajaCierre(pasarArray(competenciasGenericasTrabajaCierreList.getSelectedIndices()));
-        
+        //\\
         dato[44] = contenidosFijos.setCompetenciasDisciplinaresCienciasExperimentalesCierre(pasarArray(competenciasDisciplinaresCienciasExperimentalesCierreList.getSelectedIndices()));
         dato[45] = contenidosFijos.setCompetenciasDisciplinaresCienciasSocialesCierre(pasarArray(competenciasDisciplinaresCienciasSocialesCierreList.getSelectedIndices()));
         dato[46] = contenidosFijos.setCompetenciasDisciplinaresComunicacionCierre(pasarArray(competenciasDisciplinaresComunicacionCierreList.getSelectedIndices()));
         dato[47] = contenidosFijos.setCompetenciasDisciplinaresMatematicasCierre(pasarArray(competenciasDisciplinaresMatematicasCierreList.getSelectedIndices()));
-        
+        //\\
         dato[48] = contenidosFijos.setEvidenciasDeAprendizajeCierre(pasarArray(evidenciasDeAprendizajeCierreList.getSelectedIndices()));
         dato[49] = contenidosFijos.setInstrumentosDeEvaluacionCierre(pasarArray(instrumentosDeEvaluacionCierreList.getSelectedIndices()));
         //Sexta Ventana
         dato[50] = contenidosAgregados.setRecursosMateriales(recursosMaterialesTextArea.getText());
         dato[51] = contenidosAgregados.setFuentesInformacion(fuentesInformacionTextArea.getText());
         dato[52] = contenidosAgregados.setObservaciones(observacionesReflexionesTextArea.getText());
-        
+
         return dato;
+    }
+
+    private int[] validarCampos(){
+        int lista[];
+        int listaAux[] = new int[100];
+        lista = setearValores();
+        int i;
+        for (i = 0; i < 11; i++){
+            listaAux[i] = lista[i];
+        }
+        for (i = 11; i <= 16; i++){
+            if (lista[i] > 1){
+                listaAux[12] = 1;
+                i = 17;
+            }
+        }
+        for (i = 17; i <= 20; i++){
+            if (lista[i] > 1){
+                listaAux[13] = 1;
+                i = 21;
+            }
+        }
+        listaAux[14] = lista[21];
+        listaAux[15] = lista[22];
+        listaAux[16] = lista[23];
+        listaAux[17] = lista[24];
+        for (i = 25; i <= 29; i++){
+            if (lista[i] > 1){
+                listaAux[18] = 1;
+                i = 30;
+            }
+        }
+        for (i = 30; i <= 33; i++){
+            if (lista[i] > 1){
+                listaAux[19] = 1;
+                i = 34;
+            }
+        }
+        listaAux[20] = lista[34];
+        listaAux[21] = lista[35];
+        listaAux[22] = lista[36];
+        listaAux[23] = lista[37];
+        for (i = 38; i <= 43; i++){
+            if (lista[i] > 1){
+                listaAux[24] = 1;
+                i = 44;
+            }
+        }
+        for (i = 44; i <= 47; i++){
+            if (lista[i] > 1){
+                listaAux[25] = 1;
+                i = 48;
+            }
+        }
+        for (i = 48; i <= 52; i++){
+            listaAux[i - 22] = lista[i];
+        }
+
+        return listaAux;
     }
 
     private void presionarControl(){
         try{
             Robot robot = new Robot();
             robot.keyPress(KeyEvent.VK_CONTROL);
-            
+
         }catch (AWTException ex){
             Logger.getLogger(Rubrica.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     private void soltarControl(){
         try{
             Robot robot = new Robot();
@@ -2497,8 +2563,31 @@ public class Rubrica extends javax.swing.JFrame{
                 competenciasCierreTabbedPane.setSelectedIndex(competenciasCierreTabbedPane.getSelectedIndex() + 1);
                 break;
             case 5:
-                Confirmar confirmar = new Confirmar(this, rootPaneCheckingEnabled);
-                confirmar.setVisible(true);
+                int lista[] = validarCampos();
+                int desicion = 1;
+                for (int i = 0; i < lista.length; i++){
+                    if (lista[i] == -1){
+                        desicion = -1;
+                        break;
+                    }
+                }
+                int valor = 0;
+                if (desicion == -1){
+                    valor = JOptionPane.showOptionDialog(this, "¿Estás seguro de que deseas continuar?", " ¡Campos Vacios!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null, new Object[]{"Cancelar", "Si"}, "Cancelar");
+                }
+
+                if (valor == 1){
+                    setearValores();
+                    Lector lector = new Lector(contenidosAgregados, contenidosFijos, asignatura);
+                    try{
+                        lector.crearArchivo();
+                    }catch (DocumentException ex){
+                        Logger.getLogger(Rubrica.class.getName()).log(Level.SEVERE, null, ex);
+                    }catch (IOException ex){
+                        Logger.getLogger(Rubrica.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+
                 break;
             default:
 
@@ -2731,7 +2820,7 @@ public class Rubrica extends javax.swing.JFrame{
      * @param args the command line arguments
      */
     public static void main(String args[]){
-        
+
         /*
          * Set the Nimbus look and feel
          */
@@ -2759,7 +2848,7 @@ public class Rubrica extends javax.swing.JFrame{
         java.awt.EventQueue.invokeLater(new Runnable(){
             public void run(){
                 new Rubrica(asignatura, contenidosAgregados, contenidosFijos).setVisible(true);
-                
+
             }
 
         });
