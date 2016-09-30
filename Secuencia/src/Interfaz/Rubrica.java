@@ -36,10 +36,14 @@ public class Rubrica extends javax.swing.JFrame{
         int[] dato = new int[100];
         dato[0] = contenidosAgregados.setPeriodoEscolar(periodoEscolarTextField.getText());
         try{
-            dato[1] = contenidosAgregados.setNumeroSecuencia(Integer.parseInt(numeroSecuenciaTextField.getText()));
             dato[2] = contenidosAgregados.setNumeroSesiones(Integer.parseInt(numeroSesionesTextField.getText()));
         }catch (NumberFormatException e){
-            JOptionPane.showMessageDialog(this, e, "cuidado", WARNING_MESSAGE);
+            dato[2] = contenidosAgregados.setNumeroSesiones(0);
+        }
+        try{
+            dato[1] = contenidosAgregados.setNumeroSecuencia(Integer.parseInt(numeroSecuenciaTextField.getText()));
+        }catch (NumberFormatException e){
+            dato[1] = contenidosAgregados.setNumeroSecuencia(0);
         }
         dato[3] = contenidosAgregados.setFechaInicio(fechaInicioTextField.getText());
         dato[4] = contenidosAgregados.setPropositoSecuencia(propositoSecuenciaTextArea.getText());
@@ -998,7 +1002,7 @@ public class Rubrica extends javax.swing.JFrame{
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane27)
+            .addComponent(jScrollPane27, javax.swing.GroupLayout.DEFAULT_SIZE, 954, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1203,7 +1207,9 @@ public class Rubrica extends javax.swing.JFrame{
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane47, javax.swing.GroupLayout.PREFERRED_SIZE, 966, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addComponent(jScrollPane47, javax.swing.GroupLayout.PREFERRED_SIZE, 925, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 41, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1233,7 +1239,9 @@ public class Rubrica extends javax.swing.JFrame{
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane45, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addComponent(jScrollPane45, javax.swing.GroupLayout.PREFERRED_SIZE, 945, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 23, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1393,7 +1401,7 @@ public class Rubrica extends javax.swing.JFrame{
                 .addContainerGap()
                 .addGroup(desarolloPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane12)
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 926, Short.MAX_VALUE)
                     .addGroup(desarolloPanelLayout.createSequentialGroup()
                         .addGroup(desarolloPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -1551,7 +1559,7 @@ public class Rubrica extends javax.swing.JFrame{
         jPanel18.setLayout(jPanel18Layout);
         jPanel18Layout.setHorizontalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane32)
+            .addComponent(jScrollPane32, javax.swing.GroupLayout.DEFAULT_SIZE, 932, Short.MAX_VALUE)
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1756,7 +1764,7 @@ public class Rubrica extends javax.swing.JFrame{
         jPanel24.setLayout(jPanel24Layout);
         jPanel24Layout.setHorizontalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane50)
+            .addComponent(jScrollPane50, javax.swing.GroupLayout.DEFAULT_SIZE, 932, Short.MAX_VALUE)
         );
         jPanel24Layout.setVerticalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1919,7 +1927,7 @@ public class Rubrica extends javax.swing.JFrame{
                 .addContainerGap()
                 .addGroup(cierrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane14)
-                    .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 926, Short.MAX_VALUE)
                     .addGroup(cierrePanelLayout.createSequentialGroup()
                         .addGroup(cierrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
@@ -2076,7 +2084,7 @@ public class Rubrica extends javax.swing.JFrame{
         jPanel34.setLayout(jPanel34Layout);
         jPanel34Layout.setHorizontalGroup(
             jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane57, javax.swing.GroupLayout.DEFAULT_SIZE, 962, Short.MAX_VALUE)
+            .addComponent(jScrollPane57, javax.swing.GroupLayout.DEFAULT_SIZE, 922, Short.MAX_VALUE)
         );
         jPanel34Layout.setVerticalGroup(
             jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2290,7 +2298,7 @@ public class Rubrica extends javax.swing.JFrame{
         jPanel37.setLayout(jPanel37Layout);
         jPanel37Layout.setHorizontalGroup(
             jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane62)
+            .addComponent(jScrollPane62, javax.swing.GroupLayout.DEFAULT_SIZE, 932, Short.MAX_VALUE)
         );
         jPanel37Layout.setVerticalGroup(
             jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2457,8 +2465,8 @@ public class Rubrica extends javax.swing.JFrame{
             .addGroup(recursosPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(recursosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 971, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 971, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 931, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 931, Short.MAX_VALUE)
                     .addComponent(jScrollPane3)
                     .addGroup(recursosPanelLayout.createSequentialGroup()
                         .addGroup(recursosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2508,7 +2516,7 @@ public class Rubrica extends javax.swing.JFrame{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(808, Short.MAX_VALUE)
+                .addContainerGap(786, Short.MAX_VALUE)
                 .addComponent(regresarButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(siguienteButton)
