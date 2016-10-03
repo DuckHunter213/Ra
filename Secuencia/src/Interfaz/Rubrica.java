@@ -1384,8 +1384,8 @@ public class Rubrica extends javax.swing.JFrame{
         jScrollPane32.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane32.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        jPanel22.setMinimumSize(new java.awt.Dimension(900, 800));
-        jPanel22.setPreferredSize(new java.awt.Dimension(900, 800));
+        jPanel22.setMinimumSize(new java.awt.Dimension(900, 750));
+        jPanel22.setPreferredSize(new java.awt.Dimension(900, 750));
         jPanel22.setLayout(null);
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -1521,6 +1521,8 @@ public class Rubrica extends javax.swing.JFrame{
         jScrollPane50.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane50.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
+        jPanel32.setMinimumSize(new java.awt.Dimension(950, 1100));
+        jPanel32.setPreferredSize(new java.awt.Dimension(956, 1100));
         jPanel32.setLayout(null);
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -1546,7 +1548,7 @@ public class Rubrica extends javax.swing.JFrame{
         jScrollPane51.setViewportView(competenciasGenericasAprendeDesarrolloList);
 
         jPanel32.add(jScrollPane51);
-        jScrollPane51.setBounds(0, 16, 956, 162);
+        jScrollPane51.setBounds(0, 16, 920, 162);
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel16.setText("Autodetermina");
@@ -1571,7 +1573,7 @@ public class Rubrica extends javax.swing.JFrame{
         jScrollPane52.setViewportView(competenciasGenericasAutodeterminaDesarrolloList);
 
         jPanel32.add(jScrollPane52);
-        jScrollPane52.setBounds(0, 194, 956, 162);
+        jScrollPane52.setBounds(0, 194, 920, 162);
 
         jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel39.setText("Expresa");
@@ -1596,7 +1598,7 @@ public class Rubrica extends javax.swing.JFrame{
         jScrollPane53.setViewportView(competenciasGenericasExpresaDesarrolloList);
 
         jPanel32.add(jScrollPane53);
-        jScrollPane53.setBounds(0, 372, 956, 162);
+        jScrollPane53.setBounds(0, 372, 920, 162);
 
         jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel40.setText("Participa");
@@ -1621,7 +1623,7 @@ public class Rubrica extends javax.swing.JFrame{
         jScrollPane54.setViewportView(competenciasGenericasParticipaDesarrolloList);
 
         jPanel32.add(jScrollPane54);
-        jScrollPane54.setBounds(0, 550, 956, 162);
+        jScrollPane54.setBounds(0, 550, 920, 162);
 
         jLabel41.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel41.setText("Piensa");
@@ -1646,7 +1648,7 @@ public class Rubrica extends javax.swing.JFrame{
         jScrollPane55.setViewportView(competenciasGenericasPiensaDesarrolloList);
 
         jPanel32.add(jScrollPane55);
-        jScrollPane55.setBounds(0, 728, 956, 162);
+        jScrollPane55.setBounds(0, 728, 920, 162);
 
         jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel42.setText("Trabaja");
@@ -1671,7 +1673,7 @@ public class Rubrica extends javax.swing.JFrame{
         jScrollPane56.setViewportView(competenciasGenericasTrabajaDesarrolloList);
 
         jPanel32.add(jScrollPane56);
-        jScrollPane56.setBounds(0, 906, 956, 162);
+        jScrollPane56.setBounds(0, 906, 920, 162);
 
         jScrollPane50.setViewportView(jPanel32);
 
