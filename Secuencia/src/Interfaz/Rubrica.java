@@ -1328,7 +1328,7 @@ public class Rubrica extends javax.swing.JFrame{
 
         principalTabbedPane.addTab("Competencias / Inicio", jPanel3);
 
-        competenciasDesarolloTabbedPane.setBackground(new java.awt.Color(238, 238, 238));
+        competenciasDesarolloTabbedPane.setBackground(new java.awt.Color(204, 204, 204));
         competenciasDesarolloTabbedPane.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -1815,7 +1815,7 @@ public class Rubrica extends javax.swing.JFrame{
 
         principalTabbedPane.addTab("Competencias / Desarollo", competenciasDesarolloTabbedPane);
 
-        competenciasCierreTabbedPane.setBackground(new java.awt.Color(238, 238, 238));
+        competenciasCierreTabbedPane.setBackground(new java.awt.Color(204, 204, 204));
         competenciasCierreTabbedPane.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
