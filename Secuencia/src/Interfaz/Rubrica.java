@@ -370,7 +370,6 @@ public class Rubrica extends javax.swing.JFrame{
         contenidosGeneralesEnsenianzaCierreTextArea = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         jPanel33 = new javax.swing.JPanel();
-        jPanel34 = new javax.swing.JPanel();
         jScrollPane57 = new javax.swing.JScrollPane();
         jPanel35 = new javax.swing.JPanel();
         jLabel43 = new javax.swing.JLabel();
@@ -386,7 +385,6 @@ public class Rubrica extends javax.swing.JFrame{
         jScrollPane61 = new javax.swing.JScrollPane();
         competenciasDisciplinaresMatematicasCierreList = new javax.swing.JList<>();
         jPanel36 = new javax.swing.JPanel();
-        jPanel37 = new javax.swing.JPanel();
         jScrollPane62 = new javax.swing.JScrollPane();
         jPanel38 = new javax.swing.JPanel();
         jLabel47 = new javax.swing.JLabel();
@@ -1415,7 +1413,7 @@ public class Rubrica extends javax.swing.JFrame{
         jScrollPane33.setViewportView(competenciasDisciplinaresCienciasExperimentalesDesarrolloList);
 
         jPanel22.add(jScrollPane33);
-        jScrollPane33.setBounds(0, 16, 900, 162);
+        jScrollPane33.setBounds(0, 16, 910, 162);
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel22.setText("Ciencias Sociales");
@@ -1441,7 +1439,7 @@ public class Rubrica extends javax.swing.JFrame{
         jScrollPane34.setViewportView(competenciasDisciplinaresCienciasSocialesDesarrolloList);
 
         jPanel22.add(jScrollPane34);
-        jScrollPane34.setBounds(0, 194, 900, 162);
+        jScrollPane34.setBounds(0, 194, 910, 162);
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel25.setText("Comunicación");
@@ -1467,7 +1465,7 @@ public class Rubrica extends javax.swing.JFrame{
         jScrollPane19.setViewportView(competenciasDisciplinaresComunicacionDesarrolloList);
 
         jPanel22.add(jScrollPane19);
-        jScrollPane19.setBounds(0, 372, 900, 162);
+        jScrollPane19.setBounds(0, 372, 910, 162);
 
         jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel26.setText("Matemáticas");
@@ -1492,7 +1490,7 @@ public class Rubrica extends javax.swing.JFrame{
         jScrollPane46.setViewportView(competenciasDisciplinaresMatematicasDesarrolloList);
 
         jPanel22.add(jScrollPane46);
-        jScrollPane46.setBounds(0, 550, 900, 162);
+        jScrollPane46.setBounds(0, 550, 910, 162);
 
         jScrollPane32.setViewportView(jPanel22);
 
@@ -1868,13 +1866,17 @@ public class Rubrica extends javax.swing.JFrame{
 
         competenciasCierreTabbedPane.addTab("Cierre", cierrePanel);
 
-        jPanel34.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel34.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
         jScrollPane57.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        jPanel35.setMinimumSize(new java.awt.Dimension(956, 750));
+        jPanel35.setName(""); // NOI18N
+        jPanel35.setPreferredSize(new java.awt.Dimension(956, 750));
+        jPanel35.setLayout(null);
 
         jLabel43.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel43.setText("Ciencias Experimentales");
+        jPanel35.add(jLabel43);
+        jLabel43.setBounds(76, 0, 127, 16);
 
         competenciasDisciplinaresCienciasExperimentalesCierreList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         competenciasDisciplinaresCienciasExperimentalesCierreList.setModel(new javax.swing.AbstractListModel<String>() {
@@ -1897,8 +1899,13 @@ public class Rubrica extends javax.swing.JFrame{
         });
         jScrollPane58.setViewportView(competenciasDisciplinaresCienciasExperimentalesCierreList);
 
+        jPanel35.add(jScrollPane58);
+        jScrollPane58.setBounds(0, 16, 910, 162);
+
         jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel44.setText("Ciencias Sociales");
+        jPanel35.add(jLabel44);
+        jLabel44.setBounds(76, 178, 89, 16);
 
         competenciasDisciplinaresCienciasSocialesCierreList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         competenciasDisciplinaresCienciasSocialesCierreList.setModel(new javax.swing.AbstractListModel<String>() {
@@ -1918,8 +1925,13 @@ public class Rubrica extends javax.swing.JFrame{
         });
         jScrollPane59.setViewportView(competenciasDisciplinaresCienciasSocialesCierreList);
 
+        jPanel35.add(jScrollPane59);
+        jScrollPane59.setBounds(0, 194, 910, 162);
+
         jLabel45.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel45.setText("Comunicación");
+        jPanel35.add(jLabel45);
+        jLabel45.setBounds(76, 356, 78, 16);
 
         competenciasDisciplinaresComunicacionCierreList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         competenciasDisciplinaresComunicacionCierreList.setModel(new javax.swing.AbstractListModel<String>() {
@@ -1939,8 +1951,13 @@ public class Rubrica extends javax.swing.JFrame{
         });
         jScrollPane60.setViewportView(competenciasDisciplinaresComunicacionCierreList);
 
+        jPanel35.add(jScrollPane60);
+        jScrollPane60.setBounds(0, 372, 910, 162);
+
         jLabel46.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel46.setText("Matemáticas");
+        jPanel35.add(jLabel46);
+        jLabel46.setBounds(76, 534, 68, 16);
 
         competenciasDisciplinaresMatematicasCierreList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         competenciasDisciplinaresMatematicasCierreList.setModel(new javax.swing.AbstractListModel<String>() {
@@ -1959,56 +1976,10 @@ public class Rubrica extends javax.swing.JFrame{
         });
         jScrollPane61.setViewportView(competenciasDisciplinaresMatematicasCierreList);
 
-        javax.swing.GroupLayout jPanel35Layout = new javax.swing.GroupLayout(jPanel35);
-        jPanel35.setLayout(jPanel35Layout);
-        jPanel35Layout.setHorizontalGroup(
-            jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane58, javax.swing.GroupLayout.PREFERRED_SIZE, 956, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jScrollPane59, javax.swing.GroupLayout.PREFERRED_SIZE, 956, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jScrollPane60, javax.swing.GroupLayout.PREFERRED_SIZE, 956, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jScrollPane61, javax.swing.GroupLayout.PREFERRED_SIZE, 956, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(jPanel35Layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel43)
-                    .addComponent(jLabel44)
-                    .addComponent(jLabel45)
-                    .addComponent(jLabel46)))
-        );
-        jPanel35Layout.setVerticalGroup(
-            jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel35Layout.createSequentialGroup()
-                .addComponent(jLabel43)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jLabel44)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane59, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jLabel45)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane60, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jLabel46)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane61, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel35.add(jScrollPane61);
+        jScrollPane61.setBounds(0, 550, 910, 162);
 
         jScrollPane57.setViewportView(jPanel35);
-
-        javax.swing.GroupLayout jPanel34Layout = new javax.swing.GroupLayout(jPanel34);
-        jPanel34.setLayout(jPanel34Layout);
-        jPanel34Layout.setHorizontalGroup(
-            jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane57, javax.swing.GroupLayout.DEFAULT_SIZE, 922, Short.MAX_VALUE)
-        );
-        jPanel34Layout.setVerticalGroup(
-            jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel34Layout.createSequentialGroup()
-                .addComponent(jScrollPane57, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 280, Short.MAX_VALUE))
-        );
 
         javax.swing.GroupLayout jPanel33Layout = new javax.swing.GroupLayout(jPanel33);
         jPanel33.setLayout(jPanel33Layout);
@@ -2016,27 +1987,30 @@ public class Rubrica extends javax.swing.JFrame{
             jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel33Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane57, javax.swing.GroupLayout.DEFAULT_SIZE, 926, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel33Layout.setVerticalGroup(
             jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel33Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane57, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         competenciasCierreTabbedPane.addTab("Competencias Disiplinares", jPanel33);
 
-        jPanel37.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel37.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
         jScrollPane62.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane62.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
+        jPanel38.setMinimumSize(new java.awt.Dimension(956, 1100));
+        jPanel38.setPreferredSize(new java.awt.Dimension(956, 1100));
+        jPanel38.setLayout(null);
+
         jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel47.setText("Aprende");
+        jPanel38.add(jLabel47);
+        jLabel47.setBounds(115, 0, 45, 16);
 
         competenciasGenericasAprendeCierreList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         competenciasGenericasAprendeCierreList.setModel(new javax.swing.AbstractListModel<String>() {
@@ -2056,8 +2030,13 @@ public class Rubrica extends javax.swing.JFrame{
         });
         jScrollPane63.setViewportView(competenciasGenericasAprendeCierreList);
 
+        jPanel38.add(jScrollPane63);
+        jScrollPane63.setBounds(0, 16, 920, 162);
+
         jLabel48.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel48.setText("Autodetermina");
+        jPanel38.add(jLabel48);
+        jLabel48.setBounds(115, 178, 80, 16);
 
         competenciasGenericasAutodeterminaCierreList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         competenciasGenericasAutodeterminaCierreList.setModel(new javax.swing.AbstractListModel<String>() {
@@ -2077,8 +2056,13 @@ public class Rubrica extends javax.swing.JFrame{
         });
         jScrollPane64.setViewportView(competenciasGenericasAutodeterminaCierreList);
 
+        jPanel38.add(jScrollPane64);
+        jScrollPane64.setBounds(0, 194, 920, 162);
+
         jLabel49.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel49.setText("Expresa");
+        jPanel38.add(jLabel49);
+        jLabel49.setBounds(115, 356, 40, 16);
 
         competenciasGenericasExpresaCierreList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         competenciasGenericasExpresaCierreList.setModel(new javax.swing.AbstractListModel<String>() {
@@ -2098,8 +2082,13 @@ public class Rubrica extends javax.swing.JFrame{
         });
         jScrollPane65.setViewportView(competenciasGenericasExpresaCierreList);
 
+        jPanel38.add(jScrollPane65);
+        jScrollPane65.setBounds(0, 372, 920, 162);
+
         jLabel50.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel50.setText("Participa");
+        jPanel38.add(jLabel50);
+        jLabel50.setBounds(115, 534, 46, 16);
 
         competenciasGenericasParticipaCierreList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         competenciasGenericasParticipaCierreList.setModel(new javax.swing.AbstractListModel<String>() {
@@ -2119,8 +2108,13 @@ public class Rubrica extends javax.swing.JFrame{
         });
         jScrollPane66.setViewportView(competenciasGenericasParticipaCierreList);
 
+        jPanel38.add(jScrollPane66);
+        jScrollPane66.setBounds(0, 550, 920, 162);
+
         jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel51.setText("Piensa");
+        jPanel38.add(jLabel51);
+        jLabel51.setBounds(115, 712, 34, 16);
 
         competenciasGenericasPiensaCierreList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         competenciasGenericasPiensaCierreList.setModel(new javax.swing.AbstractListModel<String>() {
@@ -2140,8 +2134,13 @@ public class Rubrica extends javax.swing.JFrame{
         });
         jScrollPane67.setViewportView(competenciasGenericasPiensaCierreList);
 
+        jPanel38.add(jScrollPane67);
+        jScrollPane67.setBounds(0, 728, 920, 162);
+
         jLabel52.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel52.setText("Trabaja");
+        jPanel38.add(jLabel52);
+        jLabel52.setBounds(115, 890, 38, 16);
 
         competenciasGenericasTrabajaCierreList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         competenciasGenericasTrabajaCierreList.setModel(new javax.swing.AbstractListModel<String>() {
@@ -2161,66 +2160,10 @@ public class Rubrica extends javax.swing.JFrame{
         });
         jScrollPane68.setViewportView(competenciasGenericasTrabajaCierreList);
 
-        javax.swing.GroupLayout jPanel38Layout = new javax.swing.GroupLayout(jPanel38);
-        jPanel38.setLayout(jPanel38Layout);
-        jPanel38Layout.setHorizontalGroup(
-            jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane63, javax.swing.GroupLayout.PREFERRED_SIZE, 956, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jScrollPane64, javax.swing.GroupLayout.PREFERRED_SIZE, 956, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jScrollPane65, javax.swing.GroupLayout.PREFERRED_SIZE, 956, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jScrollPane66, javax.swing.GroupLayout.PREFERRED_SIZE, 956, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jScrollPane67, javax.swing.GroupLayout.PREFERRED_SIZE, 956, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jScrollPane68, javax.swing.GroupLayout.PREFERRED_SIZE, 956, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(jPanel38Layout.createSequentialGroup()
-                .addGap(115, 115, 115)
-                .addGroup(jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel47)
-                    .addComponent(jLabel48)
-                    .addComponent(jLabel49)
-                    .addComponent(jLabel50)
-                    .addComponent(jLabel51)
-                    .addComponent(jLabel52)))
-        );
-        jPanel38Layout.setVerticalGroup(
-            jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel38Layout.createSequentialGroup()
-                .addComponent(jLabel47)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane63, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jLabel48)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane64, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jLabel49)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jLabel50)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jLabel51)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane67, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jLabel52)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane68, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel38.add(jScrollPane68);
+        jScrollPane68.setBounds(0, 906, 920, 162);
 
         jScrollPane62.setViewportView(jPanel38);
-
-        javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
-        jPanel37.setLayout(jPanel37Layout);
-        jPanel37Layout.setHorizontalGroup(
-            jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane62, javax.swing.GroupLayout.DEFAULT_SIZE, 932, Short.MAX_VALUE)
-        );
-        jPanel37Layout.setVerticalGroup(
-            jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane62, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
-        );
 
         javax.swing.GroupLayout jPanel36Layout = new javax.swing.GroupLayout(jPanel36);
         jPanel36.setLayout(jPanel36Layout);
@@ -2228,14 +2171,14 @@ public class Rubrica extends javax.swing.JFrame{
             jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel36Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane62, javax.swing.GroupLayout.DEFAULT_SIZE, 936, Short.MAX_VALUE))
         );
         jPanel36Layout.setVerticalGroup(
             jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel36Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane62, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         competenciasCierreTabbedPane.addTab("Competencias Genericas", jPanel36);
@@ -2265,7 +2208,7 @@ public class Rubrica extends javax.swing.JFrame{
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel26Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane25, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                .addComponent(jScrollPane25, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel26Layout.setVerticalGroup(
@@ -2325,13 +2268,17 @@ public class Rubrica extends javax.swing.JFrame{
             .addGroup(jPanel25Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel17)
+                    .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18)
-                    .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel25Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel18)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel25Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         jPanel25Layout.setVerticalGroup(
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2912,10 +2859,8 @@ public class Rubrica extends javax.swing.JFrame{
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel33;
-    private javax.swing.JPanel jPanel34;
     private javax.swing.JPanel jPanel35;
     private javax.swing.JPanel jPanel36;
-    private javax.swing.JPanel jPanel37;
     private javax.swing.JPanel jPanel38;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
