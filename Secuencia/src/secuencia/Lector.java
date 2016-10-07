@@ -1,4 +1,4 @@
-package secuencia;
+package Secuencia;
 
 import Fachada.Asignatura;
 import Fachada.ContenidosAgregados;
@@ -57,9 +57,9 @@ public class Lector {
     }
     
     public Lector(ContenidosAgregados contenidosAgregados, ContenidosFijos contenidosFijos, Asignatura asignatura){
-        this.contenidosAgregados = contenidosAgregados;
-        this.contenidosFijos = contenidosFijos;
-        this.asignatura = asignatura;
+        Lector.contenidosAgregados = contenidosAgregados;
+        Lector.contenidosFijos = contenidosFijos;
+        Lector.asignatura = asignatura;
     }
     
     public void crearArchivo() throws DocumentException, IOException{

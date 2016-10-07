@@ -1,6 +1,5 @@
 package Secuencia;
 
-import Fachada.*;
 import java.io.IOException;
 
 /**
