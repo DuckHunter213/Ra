@@ -601,6 +601,7 @@
                         <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="contenidoDeclarativoListMouseExited"/>
                       </Events>
                       <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="int tama&#xf1;oContenidosDeclarativos =contenidoDeclarativoList.getModel().getSize();&#xd;&#xa;contenidoDeclarativoList.setSelectionInterval(0, tama&#xf1;oContenidosDeclarativos);&#xd;&#xa;"/>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
@@ -665,6 +666,7 @@
                         <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="contenidoProcedimentalListMouseExited"/>
                       </Events>
                       <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="int tama&#xf1;oContenidosProcedimentales =contenidoProcedimentalList.getModel().getSize();&#xd;&#xa;contenidoProcedimentalList.setSelectionInterval(0, tama&#xf1;oContenidosProcedimentales);&#xd;&#xa;"/>
                         <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="&#xd;&#xa;"/>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -732,6 +734,7 @@
                         <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="contenidoActitudinalListMouseExited"/>
                       </Events>
                       <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="int tama&#xf1;oContenidosActitudinales =contenidoActitudinalList.getModel().getSize();&#xd;&#xa;contenidoActitudinalList.setSelectionInterval(0, tama&#xf1;oContenidosActitudinales);&#xd;&#xa;"/>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>

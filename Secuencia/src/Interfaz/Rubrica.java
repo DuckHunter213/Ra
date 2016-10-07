@@ -10,10 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static javafx.beans.binding.Bindings.and;
 import javax.swing.JOptionPane;
-import static javax.swing.JOptionPane.WARNING_MESSAGE;
-import secuencia.Lector;
+import Secuencia.Lector;
 
 /**
  *
@@ -198,6 +196,7 @@ public class Rubrica extends javax.swing.JFrame{
         Rubrica.asignatura = asignatura;
         contenidosFijos.setAsignatura(asignatura);
         initComponents();
+        //contenidoDeclarativoList.set
     }
 
     /**
@@ -681,6 +680,8 @@ public class Rubrica extends javax.swing.JFrame{
             }
         });
         jScrollPane6.setViewportView(contenidoDeclarativoList);
+        int tamañoContenidosDeclarativos =contenidoDeclarativoList.getModel().getSize();
+        contenidoDeclarativoList.setSelectionInterval(0, tamañoContenidosDeclarativos);
 
         javax.swing.GroupLayout contenidoDeclarativoPanelLayout = new javax.swing.GroupLayout(contenidoDeclarativoPanel);
         contenidoDeclarativoPanel.setLayout(contenidoDeclarativoPanelLayout);
@@ -720,6 +721,8 @@ public class Rubrica extends javax.swing.JFrame{
             }
         });
         jScrollPane7.setViewportView(contenidoProcedimentalList);
+        int tamañoContenidosProcedimentales =contenidoProcedimentalList.getModel().getSize();
+        contenidoProcedimentalList.setSelectionInterval(0, tamañoContenidosProcedimentales);
 
         javax.swing.GroupLayout contenidoProcedimentalPanelLayout = new javax.swing.GroupLayout(contenidoProcedimentalPanel);
         contenidoProcedimentalPanel.setLayout(contenidoProcedimentalPanelLayout);
@@ -760,6 +763,8 @@ public class Rubrica extends javax.swing.JFrame{
             }
         });
         jScrollPane9.setViewportView(contenidoActitudinalList);
+        int tamañoContenidosActitudinales =contenidoActitudinalList.getModel().getSize();
+        contenidoActitudinalList.setSelectionInterval(0, tamañoContenidosActitudinales);
 
         javax.swing.GroupLayout contenidoActitudinalPanelLayout = new javax.swing.GroupLayout(contenidoActitudinalPanel);
         contenidoActitudinalPanel.setLayout(contenidoActitudinalPanelLayout);
@@ -2453,9 +2458,7 @@ public class Rubrica extends javax.swing.JFrame{
                     Lector lector = new Lector(contenidosAgregados, contenidosFijos, asignatura);
                     try{
                         lector.crearArchivo();
-                    }catch (DocumentException ex){
-                        Logger.getLogger(Rubrica.class.getName()).log(Level.SEVERE, null, ex);
-                    }catch (IOException ex){
+                    }catch (DocumentException | IOException ex){
                         Logger.getLogger(Rubrica.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
@@ -2717,12 +2720,8 @@ public class Rubrica extends javax.swing.JFrame{
         /*
          * Create and display the form
          */
-        java.awt.EventQueue.invokeLater(new Runnable(){
-            public void run(){
-                new Rubrica(asignatura, contenidosAgregados, contenidosFijos).setVisible(true);
-
-            }
-
+        java.awt.EventQueue.invokeLater(() -> {
+            new Rubrica(asignatura, contenidosAgregados, contenidosFijos).setVisible(true);
         });
     }
 

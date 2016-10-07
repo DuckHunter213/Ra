@@ -1,20 +1,13 @@
 package Interfaz;
 
 import Fachada.*;
-import com.sun.java.swing.plaf.motif.MotifLookAndFeel;
 import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
-import de.javasoft.plaf.synthetica.SyntheticaAluOxideLookAndFeel;
-import de.javasoft.plaf.synthetica.SyntheticaPlainLookAndFeel;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.UIManager;
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
-import javax.swing.plaf.synth.SynthLookAndFeel;
-import org.jb2011.lnf.beautyeye.BeautyEyeLookAndFeelCross;
-import org.jb2011.lnf.beautyeye.BeautyEyeLookAndFeelWin;
 
 /**
  *
