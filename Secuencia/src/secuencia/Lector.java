@@ -649,15 +649,16 @@ public class Lector {
             table.addCell(cell);
             documento.add(table);
 
-            documento.close();
+            
             JOptionPane.showMessageDialog(panelAdvertencias, "Documento creado", "El documento se ha creado", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (DocumentException e) {
             JOptionPane.showMessageDialog(panelAdvertencias, "Archivo no creado", "Error al crear el archivo. Pruebe guardar en otra carpeta", JOptionPane.ERROR_MESSAGE);
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(panelAdvertencias, "Archivo no creado", "El archivo no se creó", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(panelAdvertencias, e.getMessage(), "El archivo no se creó", JOptionPane.WARNING_MESSAGE);
         }
         finally{
+            documento.close();
             panelAdvertencias.setVisible(true);
         }
     }

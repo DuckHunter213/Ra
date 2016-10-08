@@ -21,7 +21,6 @@ public class GestorFichero {
 
     private static String crearPathInicial() {
         String path = System.getProperty("user.dir")
-                + System.getProperty("file.separator") + "src"
                 + System.getProperty("file.separator") + "Archivos"
                 + System.getProperty("file.separator") + "Asignaturas";
         return path;
@@ -36,7 +35,6 @@ public class GestorFichero {
 
     private static String crearPathContenidosGenerales(String tipoContenido) {
         String path = System.getProperty("user.dir")
-                + System.getProperty("file.separator") + "src"
                 + System.getProperty("file.separator") + "Archivos"
                 + System.getProperty("file.separator") + "contenidosGenerales"
                 + System.getProperty("file.separator") + tipoContenido + ".csv";
