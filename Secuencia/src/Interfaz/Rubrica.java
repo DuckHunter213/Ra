@@ -2498,6 +2498,13 @@ public class Rubrica extends javax.swing.JFrame{
 
         switch (principalTabbedPane.getSelectedIndex()){
             case 0:
+                try{
+                    new MenuRubrica(asignatura, contenidosAgregados, contenidosFijos).setVisible(true);
+                }catch (IOException ex){
+                    Logger.getLogger(MenuRubrica.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                this.dispose();
+
                 break;
             case 1:
                 principalTabbedPane.setSelectedIndex(principalTabbedPane.getSelectedIndex() - 1);

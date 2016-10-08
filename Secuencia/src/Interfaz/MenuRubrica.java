@@ -223,7 +223,7 @@ public class MenuRubrica extends javax.swing.JFrame{
             Rubrica rubrica = new Rubrica(asignatura, contenidosAgregados, contenidosFijos);
             rubrica.setVisible(true);
             rubrica.setResizable(false);
-            this.setVisible(false);
+            this.dispose();
         }
     }//GEN-LAST:event_iniciarRubricaButtonMouseClicked
 
